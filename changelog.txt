@@ -1,0 +1,126 @@
+Changelog
+2025-06-27
+Fixed: Default output value not configured when the startup time is 0.
+
+Removed: RSSI and SNR standard deviation calculations.
+
+Fixed: Issue where no RSSI test result was recorded due to abnormal sending.
+
+Fixed: Incorrect starting address for channel numbers in NFC.
+
+Fixed: Log output issue during RSSI testing.
+
+Optimized: Power-on logic — module will stop detection and reconfigure immediately when encountering abnormal parameters.
+
+Removed: Unused documents.
+
+Refactored: Log module to follow coding standards.
+
+Fixed: Library function issues.
+
+Updated: Software version to 0x05.
+
+2025-07-01
+Updated: Region modification now takes effect immediately.
+
+2025-07-03
+Added: LoRaWAN RX timeout and re-entry logic to improve module reliability (including exponential backoff and ABP mode fallback).
+
+Added: Time synchronization command (0x1000) handling with unified timestamp management and timer updates.
+
+Refactored: Logging logic to use a unified timestamp and updated related headers and protocol handling.
+
+Added: Functions to store and write system reset cause to NFC EEPROM. The cause is now set during initialization and stored after successful time sync.
+
+Added: MODULE_RECOVERY_RECEIVE_TIMEOUT_SEC and MODULE_RECOVERY_RECEIVE_TIMEOUT_MAX_SEC constants for LoRaWAN RX timeout logic, improving clarity and maintainability in LoRaWAN_task.c and bsp_task.c.
+
+2025-07-04
+Added: ADVERTISING_SN_ADDRESS constant and replaced hardcoded SN checks in protocol.c.
+
+Fixed: Timeout comparison issue in bsp_task.c.
+
+Updated: Software version to 0x06.
+
+Updated: g_deviceZone is now set in NFC_writeDeviceInfo.
+
+Added: Extra AT+NET command in LoRaWAN_Module_Init.
+
+2025-07-08
+Enhanced: Retry limit and error flag added for dongle configuration in dongleStartProcess.
+
+Improved: LoRaWAN module initialization now checks firmware version before setting network parameters. Added error logging for multicast clear command.
+
+Updated: SOFT_VERSION macro from 0x06 to 0x07 for version consistency.
+
+2025-07-24
+Refactored: Moved NFC and device initialization to device_Init.c/h for improved modularity.
+
+Updated: Protocol, LoRaWAN, RS485, and BSP code to use new constants, function names, and unified naming (e.g., test_Mode → testMode, LoRaWAN_RSSI_SNR_UPdate → LoRaWAN_RSSI_SNR_Update).
+
+Added: Region and channel definitions, improved LED/error handling, clarified RS485 logic.
+
+Replaced: Hardcoded values with named constants for LoRaWAN RSSI/SNR test parameters and NFC EEPROM addresses.
+
+Moved: my_atoi to lit_str.c and declared in lit_str.h.
+
+Improved: NFC address usage and LoRaWAN flag clarity.
+
+Updated: protocol.h with new command-related constants.
+
+Replaced: Hardcoded values in nfc_eeprom.c with new constants.
+
+Improved: Frequency, group ID, and zone ID handling using new definitions.
+
+Moved: RS485 and LED macro definitions to header files.
+
+Replaced: Hardcoded values with named constants in RS485_task.c.
+
+Updated: Buffer size and magic command constants.
+
+Unified: Buffer size macros for LoRaWAN, NFC, and RS485 modules.
+
+Documented: Key functions in lorawanmodule.c, rgb.c, RS485_api.c, and nfc_api.c with parameter and return value descriptions.
+
+Improved: English comments and naming clarity in log and string utilities.
+
+Refactored: Magic numbers replaced with named constants in log module.
+
+Enhanced: Buffer usage and documentation.
+
+2025-07-25
+Improved: OTA protocol readability by using named constants for buffer indices and sizes.
+
+Replaced: All custom CRC16 implementations with a single CalculateModbusCRC16 in lit_str.c.
+
+Cleaned: Removed CRC tables from protocol.h, documented protocol.c, updated lit_str.h, and added headers to workspace configuration.
+
+Documented: All major source/header files using Doxygen-style headers.
+
+Standardized: Global variable naming (testMode → g_testMode), organized includes, and updated declarations with extern.
+
+2025-07-26
+Replaced: Hardcoded protocol command values in protocol.c with named macros from protocol.h.
+
+Added: Utility functions FillBCDIfValid and FillBCDWithDefault to reduce code duplication.
+
+Declared: readChannelPowerBuffer in device_Init.h, and updated logic to use new helpers.
+
+2025-07-28
+Added: Macros for protocol field offsets and command codes in protocol.h.
+
+Refactored: protocol.c to use macros for better readability.
+
+Updated: RS485 and LoRaWAN error handling and macro usage.
+
+Improved: LED state handling and error indication.
+
+2025-07-29
+Refactored: ProtocolDecode() function by moving command group logic to dedicated static handlers:
+
+Dimming, current, default power, device info, firmware, zone config, test/transmit, AA-series
+
+Added: Utility functions for SN/zone verification.
+
+Improved: Code readability, reduced duplication.
+
+Simplified: Removed local rs485_cmd variables in handleCurrentCommands() and handleDefaultPowerCommands(), using command constants directly in PostRS485_Data().
