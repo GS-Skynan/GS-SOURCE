@@ -1,0 +1,2051 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18856 ]
+[d frameptr 6 ]
+"20 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_close/led_close_task.c
+[e E12051 . `uc
+L6562_CHANNEL1 1
+L6562_CHANNEL2 2
+]
+"22
+[e E12055 . `uc
+RELAY_CHANNEL1 1
+RELAY_CHANNEL2 2
+]
+"70 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[e E12074 . `uc
+VSTATE_OFF 0
+VSTATE_ON 1
+VSTATE_POWER_DOWN 2
+]
+"72
+[e E11931 . `uc
+channel_Iout 13
+channel_Temp 21
+channel_Vin 2
+channel_Iout2 4
+channel_Vout 3
+channel_Vout2 16
+]
+"12 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/ADC/adc_driver.c
+[e E11931 . `uc
+channel_Iout 13
+channel_Temp 21
+channel_Vin 2
+channel_Iout2 4
+channel_Vout 3
+channel_Vout2 16
+]
+"35 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[e E12035 . `uc
+L6562_CHANNEL1 1
+L6562_CHANNEL2 2
+]
+"59
+[e E12039 . `uc
+RELAY_CHANNEL1 1
+RELAY_CHANNEL2 2
+]
+"65 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/examples/i2c1_master_example.c
+[e E252 . `uc
+I2C1_NOERR 0
+I2C1_BUSY 1
+I2C1_FAIL 2
+]
+"67
+[e E257 . `uc
+I2C1_STOP 1
+I2C1_RESTART_READ 2
+I2C1_RESTART_WRITE 3
+I2C1_CONTINUE 4
+I2C1_RESET_LINK 5
+]
+"146 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[e E11874 . `uc
+I2C1_IDLE 0
+I2C1_SEND_ADR_READ 1
+I2C1_SEND_ADR_WRITE 2
+I2C1_TX 3
+I2C1_RX 4
+I2C1_RCEN 5
+I2C1_TX_EMPTY 6
+I2C1_SEND_RESTART_READ 7
+I2C1_SEND_RESTART_WRITE 8
+I2C1_SEND_RESTART 9
+I2C1_SEND_STOP 10
+I2C1_RX_ACK 11
+I2C1_RX_NACK_STOP 12
+I2C1_RX_NACK_RESTART 13
+I2C1_RESET 14
+I2C1_ADDRESS_NACK 15
+]
+"165
+[e E257 . `uc
+I2C1_STOP 1
+I2C1_RESTART_READ 2
+I2C1_RESTART_WRITE 3
+I2C1_CONTINUE 4
+I2C1_RESET_LINK 5
+]
+[e E252 . `uc
+I2C1_NOERR 0
+I2C1_BUSY 1
+I2C1_FAIL 2
+]
+"191
+[e E11892 . `uc
+I2C1_DATA_COMPLETE 0
+I2C1_WRITE_COLLISION 1
+I2C1_ADDR_NACK 2
+I2C1_DATA_NACK 3
+I2C1_TIMEOUT 4
+I2C1_NULL 5
+]
+"83 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/adcc.c
+[e E11618 . `uc
+channel_Iout 13
+channel_Temp 21
+channel_Vin 2
+channel_Iout2 4
+channel_Vout 3
+channel_Vout2 16
+]
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/crc16/crc.c
+[v _CRC16 CRC16 `(us  1 e 2 0 ]
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_close/led_close_task.c
+[v _LightPowerOff LightPowerOff `(v  1 e 1 0 ]
+"35
+[v _LightPowerOn LightPowerOn `(v  1 e 1 0 ]
+"31 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_dimming/led_dimming_task.c
+[v _GetDimmingLevelRange GetDimmingLevelRange `(v  1 s 1 GetDimmingLevelRange ]
+"60
+[v _DimmingValueDutyCycle DimmingValueDutyCycle `(v  1 e 1 0 ]
+"104
+[v _DimmingAction DimmingAction `(v  1 e 1 0 ]
+"68 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[v _VoltageInputProtection VoltageInputProtection `(v  1 e 1 0 ]
+"139
+[v _TempProtect TempProtect `(v  1 e 1 0 ]
+"171
+[v _OpenCircuitProtect OpenCircuitProtect `(v  1 e 1 0 ]
+"226
+[v _ShortCircuitProtect ShortCircuitProtect `(v  1 e 1 0 ]
+"271
+[v _ProtectionCheck ProtectionCheck `(a  1 e 1 0 ]
+"28 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _StartReadNFC StartReadNFC `(v  1 e 1 0 ]
+"60
+[v _ReadDataNFC ReadDataNFC `(v  1 e 1 0 ]
+"87
+[v _WriteDataNFC WriteDataNFC `(v  1 e 1 0 ]
+"113
+[v _ExtractCombineEEPROM ExtractCombineEEPROM `(us  1 e 2 0 ]
+"133
+[v _ReadI2C1Current ReadI2C1Current `(v  1 e 1 0 ]
+"30 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/rs485_receive/rs485_task.c
+[v _ClearReceiveData ClearReceiveData `(v  1 s 1 ClearReceiveData ]
+"53
+[v _HandleRS485Message HandleRS485Message `(v  1 e 1 0 ]
+"27 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _Write_Versions Write_Versions `(v  1 e 1 0 ]
+"42
+[v _Read_Versions Read_Versions `(*.5uc  1 e 2 0 ]
+"58
+[v _Readhandle_version Readhandle_version `(v  1 e 1 0 ]
+"96
+[v _Writehandle_version Writehandle_version `(v  1 e 1 0 ]
+"148
+[v _VersionStore VersionStore `(v  1 e 1 0 ]
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"193 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"1055
+[v _xtoa xtoa `(v  1 s 1 xtoa ]
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"43 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memcmp.c
+[v _memcmp memcmp `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+[v i1_memset memset `(*.39v  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+[v i1___bmul __bmul `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/ADC/adc_driver.c
+[v _ADC_Result ADC_Result `(us  1 e 2 0 ]
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/EEPROM/EEPROM_driver.c
+[v _EepromWriteByte EepromWriteByte `(v  1 e 1 0 ]
+"32
+[v _EepromReadByte EepromReadByte `(uc  1 e 1 0 ]
+"4 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _Led_On Led_On `(v  1 e 1 0 ]
+"9
+[v _Led_Off Led_Off `(v  1 e 1 0 ]
+"14
+[v _RS485_RXEN RS485_RXEN `(v  1 e 1 0 ]
+"19
+[v _RS485_TXEN RS485_TXEN `(v  1 e 1 0 ]
+"24
+[v _PFC_Off PFC_Off `(v  1 e 1 0 ]
+"29
+[v _PFC_On PFC_On `(v  1 e 1 0 ]
+"35
+[v _L6562_Off L6562_Off `(v  1 e 1 0 ]
+"47
+[v _L6562_On L6562_On `(v  1 e 1 0 ]
+"59
+[v _RELAY_Off RELAY_Off `(v  1 e 1 0 ]
+"72
+[v _RELAY_On RELAY_On `(v  1 e 1 0 ]
+"86
+[v _GIPOInit GIPOInit `(v  1 e 1 0 ]
+"4 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/RS485/rs485_driver.c
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+"9
+[v _EUSART1_IsTxReady EUSART1_IsTxReady `(a  1 e 1 0 ]
+"21
+[v _putch putch `(v  1 e 1 0 ]
+"70 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\main.c
+[v _TaskHandler TaskHandler `(v  1 s 1 TaskHandler ]
+"93
+[v _TaskScheduleCb TaskScheduleCb `(v  1 s 1 TaskScheduleCb ]
+"110
+[v _ApplicationInit ApplicationInit `(v  1 e 1 0 ]
+"119
+[v _main main `(v  1 e 1 0 ]
+"59 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+"83
+[v _ADCC_GetSingleConversion ADCC_GetSingleConversion `(us  1 e 2 0 ]
+"58 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+"63 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_WriteNBytes I2C1_WriteNBytes `(v  1 e 1 0 ]
+"72
+[v _I2C1_ReadNBytes I2C1_ReadNBytes `(v  1 e 1 0 ]
+"167 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+"176
+[v _I2C1_Open I2C1_Open `(E252  1 e 1 0 ]
+"209
+[v _I2C1_Close I2C1_Close `(E252  1 e 1 0 ]
+"224
+[v _I2C1_MasterOperation I2C1_MasterOperation `(E252  1 e 1 0 ]
+"246
+[v _I2C1_MasterRead I2C1_MasterRead `(E252  1 e 1 0 ]
+"251
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E252  1 e 1 0 ]
+"258
+[v _I2C1_SetBuffer I2C1_SetBuffer `(v  1 e 1 0 ]
+"268
+[v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
+"273
+[v _I2C1_SetCallback I2C1_SetCallback `(v  1 s 1 I2C1_SetCallback ]
+"287
+[v _I2C1_Poller I2C1_Poller `(v  1 s 1 I2C1_Poller ]
+"296
+[v _I2C1_MasterFsm I2C1_MasterFsm `T(v  1 s 1 I2C1_MasterFsm ]
+"308
+[v _I2C1_DO_IDLE I2C1_DO_IDLE `(E11874  1 s 1 I2C1_DO_IDLE ]
+"315
+[v _I2C1_DO_SEND_ADR_READ I2C1_DO_SEND_ADR_READ `(E11874  1 s 1 I2C1_DO_SEND_ADR_READ ]
+"322
+[v _I2C1_DO_SEND_ADR_WRITE I2C1_DO_SEND_ADR_WRITE `(E11874  1 s 1 I2C1_DO_SEND_ADR_WRITE ]
+"329
+[v _I2C1_DO_TX I2C1_DO_TX `(E11874  1 s 1 I2C1_DO_TX ]
+"353
+[v _I2C1_DO_RX I2C1_DO_RX `(E11874  1 s 1 I2C1_DO_RX ]
+"377
+[v _I2C1_DO_RCEN I2C1_DO_RCEN `(E11874  1 s 1 I2C1_DO_RCEN ]
+"384
+[v _I2C1_DO_TX_EMPTY I2C1_DO_TX_EMPTY `(E11874  1 s 1 I2C1_DO_TX_EMPTY ]
+"402
+[v _I2C1_DO_SEND_RESTART_READ I2C1_DO_SEND_RESTART_READ `(E11874  1 s 1 I2C1_DO_SEND_RESTART_READ ]
+"408
+[v _I2C1_DO_SEND_RESTART_WRITE I2C1_DO_SEND_RESTART_WRITE `(E11874  1 s 1 I2C1_DO_SEND_RESTART_WRITE ]
+"415
+[v _I2C1_DO_SEND_RESTART I2C1_DO_SEND_RESTART `(E11874  1 s 1 I2C1_DO_SEND_RESTART ]
+"421
+[v _I2C1_DO_SEND_STOP I2C1_DO_SEND_STOP `(E11874  1 s 1 I2C1_DO_SEND_STOP ]
+"427
+[v _I2C1_DO_RX_ACK I2C1_DO_RX_ACK `(E11874  1 s 1 I2C1_DO_RX_ACK ]
+"434
+[v _I2C1_DO_RX_NACK_STOP I2C1_DO_RX_NACK_STOP `(E11874  1 s 1 I2C1_DO_RX_NACK_STOP ]
+"440
+[v _I2C1_DO_RX_NACK_RESTART I2C1_DO_RX_NACK_RESTART `(E11874  1 s 1 I2C1_DO_RX_NACK_RESTART ]
+"446
+[v _I2C1_DO_RESET I2C1_DO_RESET `(E11874  1 s 1 I2C1_DO_RESET ]
+"452
+[v _I2C1_DO_ADDRESS_NACK I2C1_DO_ADDRESS_NACK `(E11874  1 s 1 I2C1_DO_ADDRESS_NACK ]
+"468
+[v _I2C1_CallbackReturnStop I2C1_CallbackReturnStop `(E257  1 e 1 0 ]
+"473
+[v _I2C1_CallbackReturnReset I2C1_CallbackReturnReset `(E257  1 e 1 0 ]
+"481
+[v _I2C1_MasterOpen I2C1_MasterOpen `T(a  1 s 1 I2C1_MasterOpen ]
+"495
+[v _I2C1_MasterClose I2C1_MasterClose `T(v  1 s 1 I2C1_MasterClose ]
+"501
+[v _I2C1_MasterGetRxData I2C1_MasterGetRxData `T(uc  1 s 1 I2C1_MasterGetRxData ]
+"506
+[v _I2C1_MasterSendTxData I2C1_MasterSendTxData `T(v  1 s 1 I2C1_MasterSendTxData ]
+"511
+[v _I2C1_MasterEnableRestart I2C1_MasterEnableRestart `T(v  1 s 1 I2C1_MasterEnableRestart ]
+"517
+[v _I2C1_MasterStartRx I2C1_MasterStartRx `T(v  1 s 1 I2C1_MasterStartRx ]
+"522
+[v _I2C1_MasterStart I2C1_MasterStart `T(v  1 s 1 I2C1_MasterStart ]
+"527
+[v _I2C1_MasterStop I2C1_MasterStop `T(v  1 s 1 I2C1_MasterStop ]
+"532
+[v _I2C1_MasterIsNack I2C1_MasterIsNack `T(a  1 s 1 I2C1_MasterIsNack ]
+"537
+[v _I2C1_MasterSendAck I2C1_MasterSendAck `T(v  1 s 1 I2C1_MasterSendAck ]
+"543
+[v _I2C1_MasterSendNack I2C1_MasterSendNack `T(v  1 s 1 I2C1_MasterSendNack ]
+"550
+[v _I2C1_MasterDisableIrq I2C1_MasterDisableIrq `T(v  1 s 1 I2C1_MasterDisableIrq ]
+"555
+[v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
+"560
+[v _I2C1_MasterSetIrq I2C1_MasterSetIrq `T(v  1 s 1 I2C1_MasterSetIrq ]
+"565
+[v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+"93 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/interrupt_manager.c
+[v _TaskScheduleCbReg TaskScheduleCbReg `(v  1 e 1 0 ]
+"98
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"49 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"63
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"81
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+"180 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/memory.c
+[v _DATAEE_WriteByte DATAEE_WriteByte `(v  1 e 1 0 ]
+"202
+[v _DATAEE_ReadByte DATAEE_ReadByte `(uc  1 e 1 0 ]
+"57 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"148
+[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
+"155
+[v _IOCBF3_DefaultInterruptHandler IOCBF3_DefaultInterruptHandler `(v  1 e 1 0 ]
+"57 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pwm6.c
+[v _PWM6_Initialize PWM6_Initialize `(v  1 e 1 0 ]
+"74
+[v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+"59 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"85
+[v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 1 0 ]
+"64 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+"63 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"93
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+"8 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/crc16/crc.h
+[v _auchCRCHi auchCRCHi `DC[256]uc  1 s 256 auchCRCHi ]
+"28
+[v _auchCRCLo auchCRCLo `DC[256]uc  1 s 256 auchCRCLo ]
+"12 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_dimming/led_dimming_task.c
+[v _g_uDimmingLevel g_uDimmingLevel `us  1 e 2 0 ]
+"13
+[v _g_uPwmDimmingValue g_uPwmDimmingValue `us  1 e 2 0 ]
+"14
+[v _g_uPwmOut g_uPwmOut `us  1 e 2 0 ]
+"17
+[v _g_bPowerOnFlag g_bPowerOnFlag `a  1 e 1 0 ]
+"18
+[v _g_bPwrStableFlag g_bPwrStableFlag `a  1 e 1 0 ]
+"36 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[v _g_uVintValue g_uVintValue `us  1 e 2 0 ]
+"37
+[v _g_uTempValue g_uTempValue `us  1 e 2 0 ]
+"38
+[v _g_uVoutValue g_uVoutValue `us  1 e 2 0 ]
+"39
+[v _g_uCurrentValue g_uCurrentValue `us  1 e 2 0 ]
+"41
+[v _g_uTempProtectState g_uTempProtectState `uc  1 e 1 0 ]
+"42
+[v _g_uShortCircuitFlag g_uShortCircuitFlag `uc  1 e 1 0 ]
+"44
+[v _g_bLowVoltageFlag g_bLowVoltageFlag `a  1 e 1 0 ]
+"45
+[v _g_bPowerDownFlag g_bPowerDownFlag `a  1 e 1 0 ]
+"46
+[v _g_bUnderVoltageFlag g_bUnderVoltageFlag `a  1 e 1 0 ]
+"48
+[v _g_bOpenCircuitFlag g_bOpenCircuitFlag `a  1 e 1 0 ]
+"49
+[v _g_bOpenShortStateFlag g_bOpenShortStateFlag `a  1 e 1 0 ]
+"50
+[v _g_bRemoveProtectionFlag g_bRemoveProtectionFlag `a  1 e 1 0 ]
+"52
+[v _g_fMaxPowerLimit g_fMaxPowerLimit `f  1 e 4 0 ]
+"53
+[v _g_fVoutReal_2 g_fVoutReal_2 `f  1 e 4 0 ]
+"55
+[v _g_uProtectState g_uProtectState `uc  1 e 1 0 ]
+"8 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _I2C_sendAdd I2C_sendAdd `[3]uc  1 e 3 0 ]
+"9
+[v _I2C_System_Config_Data I2C_System_Config_Data `[1]uc  1 e 1 0 ]
+"10
+[v _I2C_Password_Add I2C_Password_Add `[19]uc  1 e 19 0 ]
+"11
+[v _g_uGPOConfigValue g_uGPOConfigValue `uc  1 s 1 g_uGPOConfigValue ]
+"14
+[v _I2C_ReceiveBuffer I2C_ReceiveBuffer `[8]uc  1 e 8 0 ]
+"15
+[v _g_uNfcCurreValue g_uNfcCurreValue `us  1 e 2 0 ]
+"16
+[v _g_nfcDimmingVal g_nfcDimmingVal `us  1 e 2 0 ]
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/rs485_receive/rs485_task.c
+[v _Rx_Buffer Rx_Buffer `[40]uc  1 e 40 0 ]
+"15
+[v _g_uCheckCRC16 g_uCheckCRC16 `us  1 e 2 0 ]
+"16
+[v _g_uCheckCRCResult g_uCheckCRCResult `us  1 e 2 0 ]
+"15 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _version version `[3]uc  1 e 3 0 ]
+"153 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"185
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+[s S1614 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"362 D:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC16F1xxxx_DFP/1.26.410/xc8\pic\include\proc/pic16f18856.h
+[u S1619 . 1 `S1614 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1619  1 e 1 @11 ]
+"589
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"651
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+"713
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+"775
+[v _LATA LATA `VEuc  1 e 1 @22 ]
+"837
+[v _LATB LATB `VEuc  1 e 1 @23 ]
+"899
+[v _LATC LATC `VEuc  1 e 1 @24 ]
+"961
+[v _TMR0L TMR0L `VEuc  1 e 1 @28 ]
+"1099
+[v _TMR0H TMR0H `VEuc  1 e 1 @29 ]
+"1353
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+[s S1493 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+`uc 1 T016BIT 1 0 :1:4 
+`uc 1 T0OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T0EN 1 0 :1:7 
+]
+"1373
+[s S1499 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+`uc 1 T0OUTPS1 1 0 :1:1 
+`uc 1 T0OUTPS2 1 0 :1:2 
+`uc 1 T0OUTPS3 1 0 :1:3 
+]
+[u S1504 . 1 `S1493 1 . 1 0 `S1499 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES1504  1 e 1 @30 ]
+"1418
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+"1536
+[v _ADRESL ADRESL `VEuc  1 e 1 @140 ]
+"1556
+[v _ADRESH ADRESH `VEuc  1 e 1 @141 ]
+"1857
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @147 ]
+[s S1402 . 1 `uc 1 ADGO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM 1 0 :2:2 
+`uc 1 ADCS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ADCONT 1 0 :1:6 
+`uc 1 ADON 1 0 :1:7 
+]
+"1893
+[s S1410 . 1 `uc 1 DONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFRM 1 0 :2:2 
+]
+[s S1414 . 1 `uc 1 nDONE 1 0 :1:0 
+]
+[s S1416 . 1 `uc 1 GO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM0 1 0 :1:2 
+`uc 1 ADFM1 1 0 :1:3 
+]
+[s S1421 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFRM0 1 0 :1:2 
+`uc 1 ADFRM1 1 0 :1:3 
+]
+[u S1426 . 1 `S1402 1 . 1 0 `S1410 1 . 1 0 `S1414 1 . 1 0 `S1416 1 . 1 0 `S1421 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1426  1 e 1 @147 ]
+"1968
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @148 ]
+"2225
+[v _ADCLK ADCLK `VEuc  1 e 1 @152 ]
+"2335
+[v _ADREF ADREF `VEuc  1 e 1 @154 ]
+"2376
+[v _ADCAP ADCAP `VEuc  1 e 1 @155 ]
+"2428
+[v _ADPRE ADPRE `VEuc  1 e 1 @156 ]
+"2498
+[v _ADACQ ADACQ `VEuc  1 e 1 @157 ]
+"2568
+[v _ADPCH ADPCH `VEuc  1 e 1 @158 ]
+"3506
+[v _RCREG RCREG `VEuc  1 e 1 @281 ]
+"3555
+[v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
+"3621
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @283 ]
+"3675
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
+"3729
+[v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
+"3909
+[v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
+[s S413 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3935
+[u S422 . 1 `S413 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES422  1 e 1 @286 ]
+"4089
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
+"4335
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
+"4355
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @397 ]
+"4545
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
+"4909
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
+[s S782 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4939
+[s S788 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S793 . 1 `uc 1 SSPM01 1 0 :1:0 
+`uc 1 SSPM11 1 0 :1:1 
+`uc 1 SSPM21 1 0 :1:2 
+`uc 1 SSPM31 1 0 :1:3 
+`uc 1 CKP1 1 0 :1:4 
+`uc 1 SSPEN1 1 0 :1:5 
+`uc 1 SSPOV1 1 0 :1:6 
+`uc 1 WCOL1 1 0 :1:7 
+]
+[u S802 . 1 `S782 1 . 1 0 `S788 1 . 1 0 `S793 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES802  1 e 1 @400 ]
+"5029
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
+[s S943 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"5076
+[s S952 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK 1 0 :5:1 
+]
+[s S955 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK1 1 0 :1:1 
+`uc 1 ADMSK2 1 0 :1:2 
+`uc 1 ADMSK3 1 0 :1:3 
+`uc 1 ADMSK4 1 0 :1:4 
+`uc 1 ADMSK5 1 0 :1:5 
+]
+[s S962 . 1 `uc 1 SEN1 1 0 :1:0 
+`uc 1 ADMSK11 1 0 :1:1 
+`uc 1 ADMSK21 1 0 :1:2 
+`uc 1 ADMSK31 1 0 :1:3 
+`uc 1 ACKEN1 1 0 :1:4 
+`uc 1 ACKDT1 1 0 :1:5 
+`uc 1 ACKSTAT1 1 0 :1:6 
+`uc 1 GCEN1 1 0 :1:7 
+]
+[s S971 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RSEN1 1 0 :1:1 
+`uc 1 PEN1 1 0 :1:2 
+`uc 1 RCEN1 1 0 :1:3 
+`uc 1 ADMSK41 1 0 :1:4 
+`uc 1 ADMSK51 1 0 :1:5 
+]
+[u S978 . 1 `S943 1 . 1 0 `S952 1 . 1 0 `S955 1 . 1 0 `S962 1 . 1 0 `S971 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES978  1 e 1 @401 ]
+"6228
+[v _TMR1L TMR1L `VEuc  1 e 1 @524 ]
+"6398
+[v _TMR1H TMR1H `VEuc  1 e 1 @525 ]
+"6518
+[v _T1CON T1CON `VEuc  1 e 1 @526 ]
+"6614
+[v _T1GCON T1GCON `VEuc  1 e 1 @527 ]
+"6810
+[v _T1GATE T1GATE `VEuc  1 e 1 @528 ]
+"6976
+[v _T1CLK T1CLK `VEuc  1 e 1 @529 ]
+[s S1353 . 1 `uc 1 C5TSEL 1 0 :2:0 
+`uc 1 P6TSEL 1 0 :2:2 
+`uc 1 P7TSEL 1 0 :2:4 
+]
+"9020
+[s S1357 . 1 `uc 1 C5TSEL0 1 0 :1:0 
+`uc 1 C5TSEL1 1 0 :1:1 
+`uc 1 P6TSEL0 1 0 :1:2 
+`uc 1 P6TSEL1 1 0 :1:3 
+`uc 1 P7TSEL0 1 0 :1:4 
+`uc 1 P7TSEL1 1 0 :1:5 
+]
+[u S1364 . 1 `S1353 1 . 1 0 `S1357 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES1364  1 e 1 @543 ]
+"9070
+[v _T2TMR T2TMR `VEuc  1 e 1 @652 ]
+"9108
+[v _T2PR T2PR `VEuc  1 e 1 @653 ]
+"9146
+[v _T2CON T2CON `VEuc  1 e 1 @654 ]
+[s S1547 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
+]
+"9182
+[s S1551 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
+]
+[s S1555 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+]
+[s S1563 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
+]
+[u S1572 . 1 `S1547 1 . 1 0 `S1551 1 . 1 0 `S1555 1 . 1 0 `S1563 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1572  1 e 1 @654 ]
+"9292
+[v _T2HLT T2HLT `VEuc  1 e 1 @655 ]
+"9420
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @656 ]
+"9578
+[v _T2RST T2RST `VEuc  1 e 1 @657 ]
+"12042
+[v _PWM6DCL PWM6DCL `VEuc  1 e 1 @908 ]
+"12108
+[v _PWM6DCH PWM6DCH `VEuc  1 e 1 @909 ]
+"12278
+[v _PWM6CON PWM6CON `VEuc  1 e 1 @910 ]
+[s S1259 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"21000
+[u S1264 . 1 `S1259 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1264  1 e 1 @1804 ]
+[s S396 . 1 `uc 1 SSP1IF 1 0 :1:0 
+`uc 1 BCL1IF 1 0 :1:1 
+`uc 1 SSP2IF 1 0 :1:2 
+`uc 1 BCL2IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+"21107
+[u S403 . 1 `S396 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES403  1 e 1 @1807 ]
+[s S1283 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 TMR3IF 1 0 :1:2 
+`uc 1 TMR4IF 1 0 :1:3 
+`uc 1 TMR5IF 1 0 :1:4 
+`uc 1 TMR6IF 1 0 :1:5 
+]
+"21157
+[u S1290 . 1 `S1283 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1290  1 e 1 @1808 ]
+[s S607 . 1 `uc 1 INTE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"21422
+[u S612 . 1 `S607 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES612  1 e 1 @1814 ]
+[s S1020 . 1 `uc 1 SSP1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 SSP2IE 1 0 :1:2 
+`uc 1 BCL2IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+"21529
+[u S1027 . 1 `S1020 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1027  1 e 1 @1817 ]
+[s S1684 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 TMR3IE 1 0 :1:2 
+`uc 1 TMR4IE 1 0 :1:3 
+`uc 1 TMR5IE 1 0 :1:4 
+`uc 1 TMR6IE 1 0 :1:5 
+]
+"21579
+[u S1691 . 1 `S1684 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1691  1 e 1 @1818 ]
+"21831
+[v _PMD0 PMD0 `VEuc  1 e 1 @1942 ]
+"21888
+[v _PMD1 PMD1 `VEuc  1 e 1 @1943 ]
+"21959
+[v _PMD2 PMD2 `VEuc  1 e 1 @1944 ]
+"22004
+[v _PMD3 PMD3 `VEuc  1 e 1 @1945 ]
+"22060
+[v _PMD4 PMD4 `VEuc  1 e 1 @1946 ]
+"22111
+[v _PMD5 PMD5 `VEuc  1 e 1 @1947 ]
+"22832
+[v _NVMADRL NVMADRL `VEuc  1 e 1 @2074 ]
+"22894
+[v _NVMADRH NVMADRH `VEuc  1 e 1 @2075 ]
+"22950
+[v _NVMDATL NVMDATL `VEuc  1 e 1 @2076 ]
+[s S1630 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 LWLO 1 0 :1:5 
+`uc 1 NVMREGS 1 0 :1:6 
+]
+"23078
+[u S1638 . 1 `S1630 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES1638  1 e 1 @2078 ]
+"23118
+[v _NVMCON2 NVMCON2 `VEuc  1 e 1 @2079 ]
+"23182
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2189 ]
+"23322
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @2191 ]
+"23419
+[v _OSCEN OSCEN `VEuc  1 e 1 @2193 ]
+"23470
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @2194 ]
+"23528
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @2195 ]
+"31061
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @3781 ]
+"31113
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @3782 ]
+"31373
+[v _RXPPS RXPPS `VEuc  1 e 1 @3787 ]
+"31927
+[v _RB1PPS RB1PPS `VEuc  1 e 1 @3865 ]
+"31977
+[v _RB2PPS RB2PPS `VEuc  1 e 1 @3866 ]
+"32377
+[v _RC2PPS RC2PPS `VEuc  1 e 1 @3874 ]
+"32427
+[v _RC3PPS RC3PPS `VEuc  1 e 1 @3875 ]
+"32577
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @3878 ]
+"32677
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"32739
+[v _WPUA WPUA `VEuc  1 e 1 @3897 ]
+"32801
+[v _ODCONA ODCONA `VEuc  1 e 1 @3898 ]
+"32863
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @3899 ]
+"32925
+[v _INLVLA INLVLA `VEuc  1 e 1 @3900 ]
+"33297
+[v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
+"33359
+[v _WPUB WPUB `VEuc  1 e 1 @3908 ]
+"33421
+[v _ODCONB ODCONB `VEuc  1 e 1 @3909 ]
+"33483
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @3910 ]
+"33545
+[v _INLVLB INLVLB `VEuc  1 e 1 @3911 ]
+[s S576 . 1 `uc 1 IOCBP0 1 0 :1:0 
+`uc 1 IOCBP1 1 0 :1:1 
+`uc 1 IOCBP2 1 0 :1:2 
+`uc 1 IOCBP3 1 0 :1:3 
+`uc 1 IOCBP4 1 0 :1:4 
+`uc 1 IOCBP5 1 0 :1:5 
+`uc 1 IOCBP6 1 0 :1:6 
+`uc 1 IOCBP7 1 0 :1:7 
+]
+"33624
+[u S585 . 1 `S576 1 . 1 0 ]
+"33624
+"33624
+[v _IOCBPbits IOCBPbits `VES585  1 e 1 @3912 ]
+[s S555 . 1 `uc 1 IOCBN0 1 0 :1:0 
+`uc 1 IOCBN1 1 0 :1:1 
+`uc 1 IOCBN2 1 0 :1:2 
+`uc 1 IOCBN3 1 0 :1:3 
+`uc 1 IOCBN4 1 0 :1:4 
+`uc 1 IOCBN5 1 0 :1:5 
+`uc 1 IOCBN6 1 0 :1:6 
+`uc 1 IOCBN7 1 0 :1:7 
+]
+"33686
+[u S564 . 1 `S555 1 . 1 0 ]
+"33686
+"33686
+[v _IOCBNbits IOCBNbits `VES564  1 e 1 @3913 ]
+[s S534 . 1 `uc 1 IOCBF0 1 0 :1:0 
+`uc 1 IOCBF1 1 0 :1:1 
+`uc 1 IOCBF2 1 0 :1:2 
+`uc 1 IOCBF3 1 0 :1:3 
+`uc 1 IOCBF4 1 0 :1:4 
+`uc 1 IOCBF5 1 0 :1:5 
+`uc 1 IOCBF6 1 0 :1:6 
+`uc 1 IOCBF7 1 0 :1:7 
+]
+"33748
+[u S543 . 1 `S534 1 . 1 0 ]
+"33748
+"33748
+[v _IOCBFbits IOCBFbits `VES543  1 e 1 @3914 ]
+"33917
+[v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
+"33979
+[v _WPUC WPUC `VEuc  1 e 1 @3919 ]
+"34041
+[v _ODCONC ODCONC `VEuc  1 e 1 @3920 ]
+"34103
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @3921 ]
+"34165
+[v _INLVLC INLVLC `VEuc  1 e 1 @3922 ]
+"34537
+[v _WPUE WPUE `VEuc  1 e 1 @3941 ]
+"34558
+[v _INLVLE INLVLE `VEuc  1 e 1 @3944 ]
+"35340
+[v _ADMATH ADMATH `VEb  1 e 0 @1212 ]
+"35388
+[v _ADON ADON `VEb  1 e 0 @1183 ]
+"37707
+[v _LATA0 LATA0 `VEb  1 e 0 @176 ]
+"37710
+[v _LATA1 LATA1 `VEb  1 e 0 @177 ]
+"37722
+[v _LATA5 LATA5 `VEb  1 e 0 @181 ]
+"37743
+[v _LATB4 LATB4 `VEb  1 e 0 @188 ]
+"37749
+[v _LATB6 LATB6 `VEb  1 e 0 @190 ]
+"37758
+[v _LATC1 LATC1 `VEb  1 e 0 @193 ]
+"37767
+[v _LATC4 LATC4 `VEb  1 e 0 @196 ]
+"39303
+[v _PLLR PLLR `VEb  1 e 0 @17536 ]
+"39453
+[v _RA0 RA0 `VEb  1 e 0 @96 ]
+"39474
+[v _RA1 RA1 `VEb  1 e 0 @97 ]
+"39558
+[v _RA5 RA5 `VEb  1 e 0 @101 ]
+"39705
+[v _RB4 RB4 `VEb  1 e 0 @108 ]
+"39747
+[v _RB6 RB6 `VEb  1 e 0 @110 ]
+"39768
+[v _RB7 RB7 `VEb  1 e 0 @111 ]
+"39810
+[v _RC1 RC1 `VEb  1 e 0 @113 ]
+"39873
+[v _RC4 RC4 `VEb  1 e 0 @116 ]
+"42006
+[v _TMR0IF TMR0IF `VEb  1 e 0 @14437 ]
+[s S1712 . 7 `a 1 run 1 0 `us 1 timeCount 2 1 `us 1 timeRload 2 3 `*.37(v 1 pTaskFuncCb 2 5 ]
+"47 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\main.c
+[v _g_taskComps g_taskComps `[6]S1712  1 s 42 g_taskComps ]
+[s S1223 . 1 `uc 1 perr 1 0 :1:0 
+`uc 1 ferr 1 0 :1:1 
+`uc 1 oerr 1 0 :1:2 
+`uc 1 reserved 1 0 :5:3 
+]
+"52 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/eusart.c
+[u S1228 . 1 `S1223 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxLastError eusartRxLastError `VES1228  1 e 1 0 ]
+"146 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[v _i2c1_fsmStateTable i2c1_fsmStateTable `DC[16]*.37(E11874  1 e 32 0 ]
+[s S756 . 36 `[6]*.37(E257 1 callbackTable 12 0 `[6]*.2v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E11874 1 state 1 33 `E252 1 error 1 34 `uc 1 addressNackCheck 1 35 :1:0 
+`uc 1 busy 1 35 :1:1 
+`uc 1 inUse 1 35 :1:2 
+`uc 1 bufferFree 1 35 :1:3 
+]
+"165
+[v _I2C1_Status I2C1_Status `S756  1 e 36 0 ]
+"62 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/interrupt_manager.c
+[v _g_uTimeCount g_uTimeCount `VEus  1 e 2 0 ]
+"63
+[v _g_u8DimmingUpTime g_u8DimmingUpTime `VEus  1 e 2 0 ]
+"64
+[v _g_uLedTime g_uLedTime `VEus  1 e 2 0 ]
+"66
+[v _Rx_Buffer_ISR Rx_Buffer_ISR `[40]uc  1 e 40 0 ]
+"67
+[v _Rx_Length Rx_Length `uc  1 e 1 0 ]
+"68
+[v _g_uRs485TimeOut g_uRs485TimeOut `us  1 e 2 0 ]
+"70
+[v _g_uOvervoltageUpTime g_uOvervoltageUpTime `uc  1 s 1 g_uOvervoltageUpTime ]
+"71
+[v _g_uShortCircuitUpTime g_uShortCircuitUpTime `us  1 s 2 g_uShortCircuitUpTime ]
+"72
+[v _g_uUndervoltageUpTime g_uUndervoltageUpTime `us  1 s 2 g_uUndervoltageUpTime ]
+"73
+[v _g_uOpenProtectionUpTime g_uOpenProtectionUpTime `us  1 s 2 g_uOpenProtectionUpTime ]
+"74
+[v _g_uInputTime5Sce g_uInputTime5Sce `uc  1 s 1 g_uInputTime5Sce ]
+"75
+[v _g_uPowerOnCmdDelay g_uPowerOnCmdDelay `uc  1 s 1 g_uPowerOnCmdDelay ]
+"76
+[v _g_uDebounceUpTime g_uDebounceUpTime `us  1 s 2 g_uDebounceUpTime ]
+"78
+[v _g_bRs485Flag g_bRs485Flag `a  1 e 1 0 ]
+"79
+[v _g_bInputActiveTime g_bInputActiveTime `a  1 e 1 0 ]
+"82
+[v _g_bShortFlag g_bShortFlag `a  1 e 1 0 ]
+"83
+[v _g_bLowVolFlag g_bLowVolFlag `a  1 e 1 0 ]
+"84
+[v _g_bOpenVolFlag g_bOpenVolFlag `a  1 e 1 0 ]
+"86
+[v _g_bWaitInputStable g_bWaitInputStable `a  1 e 1 0 ]
+"87
+[v _g_bCmdDelayFlag g_bCmdDelayFlag `a  1 e 1 0 ]
+"89
+[v _DubugTime DubugTime `uc  1 e 1 0 ]
+"91
+[v _g_pTaskScheduleFunc g_pTaskScheduleFunc `*.37(v  1 s 2 g_pTaskScheduleFunc ]
+"54 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pin_manager.c
+[v _IOCBF3_InterruptHandler IOCBF3_InterruptHandler `*.37(v  1 e 2 0 ]
+"57 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr1.c
+[v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
+"119 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"136
+} 0
+"70
+[v _TaskHandler TaskHandler `(v  1 s 1 TaskHandler ]
+{
+"72
+[v TaskHandler@i i `uc  1 a 1 76 ]
+"80
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 1 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 p 1 2 ]
+"51
+} 1
+"53 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/rs485_receive/rs485_task.c
+[v _HandleRS485Message HandleRS485Message `(v  1 e 1 0 ]
+{
+"66
+[v HandleRS485Message@data_length data_length `uc  1 a 1 75 ]
+"78
+[v HandleRS485Message@ActualDataBytes ActualDataBytes `uc  1 a 1 74 ]
+"77
+[v HandleRS485Message@ExpectedDataBytes ExpectedDataBytes `uc  1 a 1 73 ]
+"112
+} 0
+"226 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[v _ShortCircuitProtect ShortCircuitProtect `(v  1 e 1 0 ]
+{
+"254
+} 0
+"171
+[v _OpenCircuitProtect OpenCircuitProtect `(v  1 e 1 0 ]
+{
+"173
+[v OpenCircuitProtect@s_fIoutVal s_fIoutVal `f  1 s 4 s_fIoutVal ]
+"174
+[v OpenCircuitProtect@s_fVoutVal s_fVoutVal `f  1 s 4 s_fVoutVal ]
+"213
+} 0
+"139
+[v _TempProtect TempProtect `(v  1 e 1 0 ]
+{
+"157
+} 0
+"104 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_dimming/led_dimming_task.c
+[v _DimmingAction DimmingAction `(v  1 e 1 0 ]
+{
+"138
+} 0
+"68 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[v _VoltageInputProtection VoltageInputProtection `(v  1 e 1 0 ]
+{
+"70
+[v VoltageInputProtection@state state `E12074  1 s 1 state ]
+"127
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 0 ]
+[v ___flge@ff2 ff2 `d  1 p 4 4 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 34 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 27 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 32 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 39 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 38 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 31 ]
+"8
+[v ___fldiv@a a `d  1 p 4 14 ]
+[v ___fldiv@b b `d  1 p 4 18 ]
+"185
+} 0
+"12 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/ADC/adc_driver.c
+[v _ADC_Result ADC_Result `(us  1 e 2 0 ]
+{
+[v ADC_Result@channel channel `E11931  1 p 1 wreg ]
+"14
+[v ADC_Result@result result `[12]us  1 a 24 14 ]
+"15
+[v ADC_Result@j j `i  1 a 2 49 ]
+[v ADC_Result@i i `i  1 a 2 47 ]
+[v ADC_Result@k k `i  1 a 2 45 ]
+"22
+[v ADC_Result@sum sum `i  1 a 2 43 ]
+"14
+[v ADC_Result@average average `us  1 a 2 41 ]
+[v ADC_Result@temp temp `us  1 a 2 38 ]
+"12
+[v ADC_Result@channel channel `E11931  1 p 1 wreg ]
+"17
+[v ADC_Result@channel channel `E11931  1 p 1 40 ]
+"49
+} 1
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"83 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/adcc.c
+[v _ADCC_GetSingleConversion ADCC_GetSingleConversion `(us  1 e 2 0 ]
+{
+[v ADCC_GetSingleConversion@channel channel `E11618  1 p 1 wreg ]
+[v ADCC_GetSingleConversion@channel channel `E11618  1 p 1 wreg ]
+"86
+[v ADCC_GetSingleConversion@channel channel `E11618  1 p 1 2 ]
+"104
+} 1
+"96 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _Writehandle_version Writehandle_version `(v  1 e 1 0 ]
+{
+"132
+[v Writehandle_version@j j `uc  1 a 1 26 ]
+"105
+[v Writehandle_version@i i `uc  1 a 1 25 ]
+"99
+[v Writehandle_version@write_buffer write_buffer `[17]uc  1 a 17 0 ]
+"98
+[v Writehandle_version@eeprom_write eeprom_write `[4]uc  1 a 4 17 ]
+"127
+[v Writehandle_version@wcrc wcrc `us  1 a 2 23 ]
+"123
+[v Writehandle_version@ver ver `*.5uc  1 a 1 22 ]
+"119
+[v Writehandle_version@numb numb `*.5uc  1 a 1 21 ]
+"96
+[v Writehandle_version@w_data w_data `*.6uc  1 p 1 67 ]
+"137
+} 0
+"58
+[v _Readhandle_version Readhandle_version `(v  1 e 1 0 ]
+{
+"81
+[v Readhandle_version@i i `uc  1 a 1 21 ]
+"61
+[v Readhandle_version@read_buffer read_buffer `[17]uc  1 a 17 0 ]
+"76
+[v Readhandle_version@wcrc wcrc `us  1 a 2 19 ]
+"72
+[v Readhandle_version@ver ver `*.5uc  1 a 1 18 ]
+"68
+[v Readhandle_version@numb numb `*.5uc  1 a 1 17 ]
+"58
+[v Readhandle_version@ack_data ack_data `*.6uc  1 p 1 67 ]
+"87
+} 0
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.4v  1 a 1 66 ]
+"5
+[v printf@fmt fmt `*.25DCuc  1 p 2 62 ]
+"13
+} 0
+"1817 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1820
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 60 ]
+[s S2196 _IO_FILE 0 ]
+"1817
+[v vfprintf@fp fp `*.2S2196  1 p 2 54 ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 56 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 58 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S2215 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+"1188
+[v vfpfcnvrt@convarg convarg `S2215  1 a 4 47 ]
+"1179
+[v vfpfcnvrt@cp cp `*.25uc  1 a 2 52 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 51 ]
+[s S2196 _IO_FILE 0 ]
+"1177
+[v vfpfcnvrt@fp fp `*.2S2196  1 p 2 39 ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 41 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 42 ]
+"1814
+} 0
+"1055
+[v _xtoa xtoa `(v  1 s 1 xtoa ]
+{
+"1063
+[v xtoa@i i `i  1 a 2 37 ]
+[v xtoa@w w `i  1 a 2 34 ]
+"1059
+[v xtoa@c c `uc  1 a 1 36 ]
+"1067
+[v xtoa@p p `a  1 a 1 33 ]
+[s S2196 _IO_FILE 0 ]
+"1055
+[v xtoa@fp fp `*.2S2196  1 p 2 28 ]
+[v xtoa@d d `ui  1 p 2 30 ]
+"1153
+} 0
+"193
+[v _pad pad `(v  1 s 1 pad ]
+{
+"195
+[v pad@i i `i  1 a 2 26 ]
+[s S2196 _IO_FILE 0 ]
+"193
+[v pad@fp fp `*.2S2196  1 p 2 20 ]
+[v pad@buf buf `*.7uc  1 p 1 22 ]
+[v pad@p p `i  1 p 2 23 ]
+"226
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 18 ]
+"10
+[v fputs@c c `uc  1 a 1 17 ]
+"8
+[v fputs@s s `*.7DCuc  1 p 1 12 ]
+[u S2175 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2178 _IO_FILE 11 `S2175 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.2S2178  1 p 2 13 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 3 ]
+[u S2175 . 2 `*.2uc 1 buffer 2 0 `*.2DCuc 1 source 2 0 ]
+[s S2178 _IO_FILE 11 `S2175 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S2178  1 p 2 5 ]
+"24
+} 0
+"21 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/RS485/rs485_driver.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@data data `uc  1 p 1 wreg ]
+[v putch@data data `uc  1 p 1 wreg ]
+"23
+[v putch@data data `uc  1 p 1 2 ]
+"29
+} 1
+"19 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _RS485_TXEN RS485_TXEN `(v  1 e 1 0 ]
+{
+"22
+} 0
+"4 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/RS485/rs485_driver.c
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+{
+[v EUSART1_Write@txData txData `uc  1 p 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 p 1 wreg ]
+"6
+[v EUSART1_Write@txData txData `uc  1 p 1 0 ]
+"7
+} 1
+"9
+[v _EUSART1_IsTxReady EUSART1_IsTxReady `(a  1 e 1 0 ]
+{
+"12
+} 0
+"1158 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\doprnt.c
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+{
+"1164
+[v read_prec_or_width@c c `uc  1 a 1 11 ]
+"1159
+[v read_prec_or_width@n n `i  1 a 2 12 ]
+"1158
+[v read_prec_or_width@fmt fmt `*.4*.25DCuc  1 p 1 6 ]
+[v read_prec_or_width@ap ap `*.4[1]*.4v  1 p 1 7 ]
+"1171
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+{
+"8
+[v memcpy@s s `*.39DCuc  1 a 2 8 ]
+"7
+[v memcpy@d d `*.39uc  1 a 2 6 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 10 ]
+"4
+[v memcpy@d1 d1 `*.39v  1 p 2 0 ]
+[v memcpy@s1 s1 `*.39DCv  1 p 2 2 ]
+[v memcpy@n n `ui  1 p 2 4 ]
+"18
+} 0
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/crc16/crc.c
+[v _CRC16 CRC16 `(us  1 e 2 0 ]
+{
+"17
+[v CRC16@uchCRCLo uchCRCLo `uc  1 a 1 10 ]
+"16
+[v CRC16@uchCRCHi uchCRCHi `uc  1 a 1 9 ]
+"18
+[v CRC16@uIndex uIndex `uc  1 a 1 8 ]
+"14
+[v CRC16@pData pData `*.39uc  1 p 2 0 ]
+[v CRC16@length length `uc  1 p 1 2 ]
+"26
+} 0
+"30 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/rs485_receive/rs485_task.c
+[v _ClearReceiveData ClearReceiveData `(v  1 s 1 ClearReceiveData ]
+{
+"36
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"5
+[v memset@p p `*.39uc  1 a 2 6 ]
+"3
+[v memset@dest dest `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"10
+} 0
+"271 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_protect/protect_task.c
+[v _ProtectionCheck ProtectionCheck `(a  1 e 1 0 ]
+{
+"319
+} 0
+"35 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_close/led_close_task.c
+[v _LightPowerOn LightPowerOn `(v  1 e 1 0 ]
+{
+"42
+} 0
+"72 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _RELAY_On RELAY_On `(v  1 e 1 0 ]
+{
+[v RELAY_On@channel channel `E12039  1 p 1 wreg ]
+[v RELAY_On@channel channel `E12039  1 p 1 wreg ]
+"75
+[v RELAY_On@channel channel `E12039  1 p 1 0 ]
+"83
+} 1
+"29
+[v _PFC_On PFC_On `(v  1 e 1 0 ]
+{
+"33
+} 0
+"47
+[v _L6562_On L6562_On `(v  1 e 1 0 ]
+{
+[v L6562_On@channel channel `E12035  1 p 1 wreg ]
+[v L6562_On@channel channel `E12035  1 p 1 wreg ]
+"49
+[v L6562_On@channel channel `E12035  1 p 1 0 ]
+"57
+} 1
+"14 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_close/led_close_task.c
+[v _LightPowerOff LightPowerOff `(v  1 e 1 0 ]
+{
+"24
+} 0
+"59 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _RELAY_Off RELAY_Off `(v  1 e 1 0 ]
+{
+[v RELAY_Off@channel channel `E12039  1 p 1 wreg ]
+[v RELAY_Off@channel channel `E12039  1 p 1 wreg ]
+"62
+[v RELAY_Off@channel channel `E12039  1 p 1 0 ]
+"70
+} 1
+"74 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pwm6.c
+[v _PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"83
+} 0
+"24 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _PFC_Off PFC_Off `(v  1 e 1 0 ]
+{
+"27
+} 0
+"31 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_dimming/led_dimming_task.c
+[v _GetDimmingLevelRange GetDimmingLevelRange `(v  1 s 1 GetDimmingLevelRange ]
+{
+"39
+[v GetDimmingLevelRange@dimmingValue dimmingValue `f  1 a 4 20 ]
+"46
+} 0
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 p 1 8 ]
+"44
+} 1
+"43 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 75 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 74 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 12 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S2006 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S2011 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2014 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2006 1 fAsBytes 4 0 `S2011 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2014  1 a 4 60 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 55 ]
+[s S2083 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S2086 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2083 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2086  1 a 2 64 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 59 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 54 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 53 ]
+"8
+[v ___flmul@b b `d  1 p 4 40 ]
+[v ___flmul@a a `d  1 p 4 44 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 p 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `us  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `us  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 p 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 p 1 8 ]
+"60
+} 1
+"10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 11 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 10 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 9 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 8 ]
+"10
+[v ___fladd@b b `d  1 p 4 66 ]
+[v ___fladd@a a `d  1 p 4 70 ]
+"237
+} 0
+"49 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"61
+} 0
+"63 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"90
+} 0
+"93
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+{
+"97
+} 0
+"64 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+{
+"97
+} 0
+"59 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"83
+} 0
+"85
+[v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 1 0 ]
+{
+"89
+} 0
+"57 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pwm6.c
+[v _PWM6_Initialize PWM6_Initialize `(v  1 e 1 0 ]
+{
+"72
+} 0
+"81 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/mcc.c
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+{
+"95
+} 0
+"57 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"140
+} 0
+"148
+[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"150
+} 0
+"63 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"79
+} 0
+"167 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+{
+"174
+} 0
+"58 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+{
+"84
+} 0
+"59 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+{
+"78
+} 0
+"110 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\main.c
+[v _ApplicationInit ApplicationInit `(v  1 e 1 0 ]
+{
+"117
+} 0
+"148 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _VersionStore VersionStore `(v  1 e 1 0 ]
+{
+"154
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memcmp.c
+[v _memcmp memcmp `(i  1 e 2 0 ]
+{
+"5
+[v memcmp@r r `*.5DCuc  1 a 1 32 ]
+[v memcmp@l l `*.5DCuc  1 a 1 31 ]
+"3
+[v memcmp@vl vl `*.5DCv  1 p 1 27 ]
+[v memcmp@vr vr `*.5DCv  1 p 1 28 ]
+[v memcmp@n n `ui  1 p 2 29 ]
+"8
+} 0
+"27 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _Write_Versions Write_Versions `(v  1 e 1 0 ]
+{
+[v Write_Versions@address address `uc  1 p 1 wreg ]
+[v Write_Versions@address address `uc  1 p 1 wreg ]
+[v Write_Versions@version_str version_str `*.5uc  1 p 1 19 ]
+[v Write_Versions@len len `uc  1 p 1 20 ]
+"30
+[v Write_Versions@address address `uc  1 p 1 23 ]
+"32
+} 1
+"87 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _WriteDataNFC WriteDataNFC `(v  1 e 1 0 ]
+{
+"96
+[v WriteDataNFC@i i `uc  1 a 1 72 ]
+"90
+[v WriteDataNFC@combined_buffer combined_buffer `[72]uc  1 a 72 0 ]
+"87
+[v WriteDataNFC@nfc_dataAdd nfc_dataAdd `us  1 p 2 14 ]
+[v WriteDataNFC@nfcdata nfcdata `*.5uc  1 p 1 16 ]
+[v WriteDataNFC@dataLength dataLength `uc  1 p 1 17 ]
+"103
+} 0
+"42 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/version_read/version_task.c
+[v _Read_Versions Read_Versions `(*.5uc  1 e 2 0 ]
+{
+[v Read_Versions@address address `uc  1 p 1 wreg ]
+[v Read_Versions@address address `uc  1 p 1 wreg ]
+[v Read_Versions@len len `uc  1 p 1 22 ]
+"44
+[v Read_Versions@eeprom_data eeprom_data `[5]uc  1 s 5 eeprom_data ]
+"46
+[v Read_Versions@address address `uc  1 p 1 26 ]
+"49
+} 1
+"93 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/interrupt_manager.c
+[v _TaskScheduleCbReg TaskScheduleCbReg `(v  1 e 1 0 ]
+{
+[v TaskScheduleCbReg@pFunc pFunc `*.37(v  1 p 2 0 ]
+"96
+} 0
+"28 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _StartReadNFC StartReadNFC `(v  1 e 1 0 ]
+{
+"48
+} 0
+"133
+[v _ReadI2C1Current ReadI2C1Current `(v  1 e 1 0 ]
+{
+"142
+} 0
+"5 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 12 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 6 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 8 ]
+"30
+} 0
+"60 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _ReadDataNFC ReadDataNFC `(v  1 e 1 0 ]
+{
+"62
+[v ReadDataNFC@address_buffer address_buffer `[2]uc  1 a 2 20 ]
+"60
+[v ReadDataNFC@nfc_dataAdd nfc_dataAdd `us  1 p 2 14 ]
+[v ReadDataNFC@nfcdata nfcdata `*.39uc  1 p 2 16 ]
+[v ReadDataNFC@dataLength dataLength `uc  1 p 1 18 ]
+"74
+} 0
+"63 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_WriteNBytes I2C1_WriteNBytes `(v  1 e 1 0 ]
+{
+[v I2C1_WriteNBytes@address address `uc  1 p 1 wreg ]
+[v I2C1_WriteNBytes@address address `uc  1 p 1 wreg ]
+[v I2C1_WriteNBytes@data data `*.39uc  1 p 2 9 ]
+[v I2C1_WriteNBytes@len len `ui  1 p 2 11 ]
+[v I2C1_WriteNBytes@address address `uc  1 p 1 13 ]
+"70
+} 1
+"268 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
+{
+[v I2C1_SetAddressNackCallback@cb cb `*.37(E257  1 p 2 5 ]
+[v I2C1_SetAddressNackCallback@ptr ptr `*.2v  1 p 2 7 ]
+"271
+} 0
+"273
+[v _I2C1_SetCallback I2C1_SetCallback `(v  1 s 1 I2C1_SetCallback ]
+{
+[v I2C1_SetCallback@idx idx `E11892  1 p 1 wreg ]
+[v I2C1_SetCallback@idx idx `E11892  1 p 1 wreg ]
+[v I2C1_SetCallback@cb cb `*.37(E257  1 p 2 0 ]
+[v I2C1_SetCallback@ptr ptr `*.2v  1 p 2 2 ]
+"275
+[v I2C1_SetCallback@idx idx `E11892  1 p 1 4 ]
+"285
+} 1
+"251
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E252  1 e 1 0 ]
+{
+"254
+} 0
+"72 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_ReadNBytes I2C1_ReadNBytes `(v  1 e 1 0 ]
+{
+[v I2C1_ReadNBytes@address address `uc  1 p 1 wreg ]
+[v I2C1_ReadNBytes@address address `uc  1 p 1 wreg ]
+[v I2C1_ReadNBytes@data data `*.39uc  1 p 2 8 ]
+[v I2C1_ReadNBytes@len len `ui  1 p 2 10 ]
+[v I2C1_ReadNBytes@address address `uc  1 p 1 12 ]
+"78
+} 1
+"258 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetBuffer I2C1_SetBuffer `(v  1 e 1 0 ]
+{
+[v I2C1_SetBuffer@buffer buffer `*.39v  1 p 2 0 ]
+[v I2C1_SetBuffer@bufferSize bufferSize `ui  1 p 2 2 ]
+"266
+} 0
+"176
+[v _I2C1_Open I2C1_Open `(E252  1 e 1 0 ]
+{
+[v I2C1_Open@address address `uc  1 p 1 wreg ]
+"178
+[v I2C1_Open@returnValue returnValue `E252  1 a 1 1 ]
+"176
+[v I2C1_Open@address address `uc  1 p 1 wreg ]
+"178
+[v I2C1_Open@address address `uc  1 p 1 0 ]
+"207
+} 1
+"481
+[v _I2C1_MasterOpen I2C1_MasterOpen `T(a  1 s 1 I2C1_MasterOpen ]
+{
+"493
+} 0
+"246
+[v _I2C1_MasterRead I2C1_MasterRead `(E252  1 e 1 0 ]
+{
+"249
+} 0
+"224
+[v _I2C1_MasterOperation I2C1_MasterOperation `(E252  1 e 1 0 ]
+{
+[v I2C1_MasterOperation@read read `a  1 p 1 wreg ]
+"226
+[v I2C1_MasterOperation@returnValue returnValue `E252  1 a 1 7 ]
+"224
+[v I2C1_MasterOperation@read read `a  1 p 1 wreg ]
+"226
+[v I2C1_MasterOperation@read read `a  1 p 1 6 ]
+"244
+} 1
+"287
+[v _I2C1_Poller I2C1_Poller `(v  1 s 1 I2C1_Poller ]
+{
+"294
+} 0
+"565
+[v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+{
+"574
+} 0
+"296
+[v _I2C1_MasterFsm I2C1_MasterFsm `T(v  1 s 1 I2C1_MasterFsm ]
+{
+"305
+} 0
+"452
+[v _I2C1_DO_ADDRESS_NACK I2C1_DO_ADDRESS_NACK `(E11874  1 s 1 I2C1_DO_ADDRESS_NACK ]
+{
+"464
+} 0
+"446
+[v _I2C1_DO_RESET I2C1_DO_RESET `(E11874  1 s 1 I2C1_DO_RESET ]
+{
+"451
+} 0
+"440
+[v _I2C1_DO_RX_NACK_RESTART I2C1_DO_RX_NACK_RESTART `(E11874  1 s 1 I2C1_DO_RX_NACK_RESTART ]
+{
+"444
+} 0
+"434
+[v _I2C1_DO_RX_NACK_STOP I2C1_DO_RX_NACK_STOP `(E11874  1 s 1 I2C1_DO_RX_NACK_STOP ]
+{
+"438
+} 0
+"427
+[v _I2C1_DO_RX_ACK I2C1_DO_RX_ACK `(E11874  1 s 1 I2C1_DO_RX_ACK ]
+{
+"431
+} 0
+"421
+[v _I2C1_DO_SEND_STOP I2C1_DO_SEND_STOP `(E11874  1 s 1 I2C1_DO_SEND_STOP ]
+{
+"425
+} 0
+"415
+[v _I2C1_DO_SEND_RESTART I2C1_DO_SEND_RESTART `(E11874  1 s 1 I2C1_DO_SEND_RESTART ]
+{
+"419
+} 0
+"408
+[v _I2C1_DO_SEND_RESTART_WRITE I2C1_DO_SEND_RESTART_WRITE `(E11874  1 s 1 I2C1_DO_SEND_RESTART_WRITE ]
+{
+"412
+} 0
+"402
+[v _I2C1_DO_SEND_RESTART_READ I2C1_DO_SEND_RESTART_READ `(E11874  1 s 1 I2C1_DO_SEND_RESTART_READ ]
+{
+"406
+} 0
+"377
+[v _I2C1_DO_RCEN I2C1_DO_RCEN `(E11874  1 s 1 I2C1_DO_RCEN ]
+{
+"382
+} 0
+"353
+[v _I2C1_DO_RX I2C1_DO_RX `(E11874  1 s 1 I2C1_DO_RX ]
+{
+"375
+} 0
+"329
+[v _I2C1_DO_TX I2C1_DO_TX `(E11874  1 s 1 I2C1_DO_TX ]
+{
+"351
+} 0
+"322
+[v _I2C1_DO_SEND_ADR_WRITE I2C1_DO_SEND_ADR_WRITE `(E11874  1 s 1 I2C1_DO_SEND_ADR_WRITE ]
+{
+"327
+} 0
+"315
+[v _I2C1_DO_SEND_ADR_READ I2C1_DO_SEND_ADR_READ `(E11874  1 s 1 I2C1_DO_SEND_ADR_READ ]
+{
+"320
+} 0
+"308
+[v _I2C1_DO_IDLE I2C1_DO_IDLE `(E11874  1 s 1 I2C1_DO_IDLE ]
+{
+"313
+} 0
+"384
+[v _I2C1_DO_TX_EMPTY I2C1_DO_TX_EMPTY `(E11874  1 s 1 I2C1_DO_TX_EMPTY ]
+{
+"399
+} 0
+"560
+[v _I2C1_MasterSetIrq I2C1_MasterSetIrq `T(v  1 s 1 I2C1_MasterSetIrq ]
+{
+"563
+} 0
+"532
+[v _I2C1_MasterIsNack I2C1_MasterIsNack `T(a  1 s 1 I2C1_MasterIsNack ]
+{
+"535
+} 0
+"506
+[v _I2C1_MasterSendTxData I2C1_MasterSendTxData `T(v  1 s 1 I2C1_MasterSendTxData ]
+{
+[v I2C1_MasterSendTxData@data data `uc  1 p 1 wreg ]
+[v I2C1_MasterSendTxData@data data `uc  1 p 1 wreg ]
+"508
+[v I2C1_MasterSendTxData@data data `uc  1 p 1 0 ]
+"509
+} 1
+"537
+[v _I2C1_MasterSendAck I2C1_MasterSendAck `T(v  1 s 1 I2C1_MasterSendAck ]
+{
+"541
+} 0
+"501
+[v _I2C1_MasterGetRxData I2C1_MasterGetRxData `T(uc  1 s 1 I2C1_MasterGetRxData ]
+{
+"504
+} 0
+"543
+[v _I2C1_MasterSendNack I2C1_MasterSendNack `T(v  1 s 1 I2C1_MasterSendNack ]
+{
+"547
+} 0
+"517
+[v _I2C1_MasterStartRx I2C1_MasterStartRx `T(v  1 s 1 I2C1_MasterStartRx ]
+{
+"520
+} 0
+"527
+[v _I2C1_MasterStop I2C1_MasterStop `T(v  1 s 1 I2C1_MasterStop ]
+{
+"530
+} 0
+"511
+[v _I2C1_MasterEnableRestart I2C1_MasterEnableRestart `T(v  1 s 1 I2C1_MasterEnableRestart ]
+{
+"514
+} 0
+"473
+[v _I2C1_CallbackReturnReset I2C1_CallbackReturnReset `(E257  1 e 1 0 ]
+{
+[v I2C1_CallbackReturnReset@funPtr funPtr `*.2v  1 p 2 0 ]
+"476
+} 0
+"468
+[v _I2C1_CallbackReturnStop I2C1_CallbackReturnStop `(E257  1 e 1 0 ]
+{
+"471
+} 0
+"522
+[v _I2C1_MasterStart I2C1_MasterStart `T(v  1 s 1 I2C1_MasterStart ]
+{
+"525
+} 0
+"209
+[v _I2C1_Close I2C1_Close `(E252  1 e 1 0 ]
+{
+"211
+[v I2C1_Close@returnValue returnValue `E252  1 a 1 0 ]
+"222
+} 0
+"550
+[v _I2C1_MasterDisableIrq I2C1_MasterDisableIrq `T(v  1 s 1 I2C1_MasterDisableIrq ]
+{
+"553
+} 0
+"495
+[v _I2C1_MasterClose I2C1_MasterClose `T(v  1 s 1 I2C1_MasterClose ]
+{
+"499
+} 0
+"555
+[v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
+{
+"558
+} 0
+"113 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/nfc_read/nfc_read_task.c
+[v _ExtractCombineEEPROM ExtractCombineEEPROM `(us  1 e 2 0 ]
+{
+[v ExtractCombineEEPROM@read_eeprom_H1 read_eeprom_H1 `uc  1 p 1 wreg ]
+"121
+[v ExtractCombineEEPROM@num num `us  1 a 2 20 ]
+"118
+[v ExtractCombineEEPROM@fourth_num fourth_num `uc  1 a 1 25 ]
+"117
+[v ExtractCombineEEPROM@third_num third_num `uc  1 a 1 24 ]
+"116
+[v ExtractCombineEEPROM@second_num second_num `uc  1 a 1 23 ]
+"115
+[v ExtractCombineEEPROM@first_num first_num `uc  1 a 1 22 ]
+"113
+[v ExtractCombineEEPROM@read_eeprom_H1 read_eeprom_H1 `uc  1 p 1 wreg ]
+[v ExtractCombineEEPROM@read_eeprom_L1 read_eeprom_L1 `uc  1 p 1 6 ]
+"115
+[v ExtractCombineEEPROM@read_eeprom_H1 read_eeprom_H1 `uc  1 p 1 26 ]
+"123
+} 1
+"15 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"86 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _GIPOInit GIPOInit `(v  1 e 1 0 ]
+{
+"90
+} 0
+"14
+[v _RS485_RXEN RS485_RXEN `(v  1 e 1 0 ]
+{
+"17
+} 0
+"35
+[v _L6562_Off L6562_Off `(v  1 e 1 0 ]
+{
+[v L6562_Off@channel channel `E12035  1 p 1 wreg ]
+[v L6562_Off@channel channel `E12035  1 p 1 wreg ]
+"37
+[v L6562_Off@channel channel `E12035  1 p 1 0 ]
+"45
+} 1
+"98 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+{
+"101
+[v INTERRUPT_InterruptManager@UartReceivedData UartReceivedData `uc  1 a 1 9 ]
+"263
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memset.c
+[v i1_memset memset `(*.39v  1 e 2 0 ]
+{
+"5
+[v i1memset@p p `*.39uc  1 a 2 6 ]
+"3
+[v i1memset@dest dest `*.39v  1 p 2 0 ]
+[v i1memset@c c `i  1 p 2 2 ]
+[v i1memset@n n `ui  1 p 2 4 ]
+"10
+} 0
+"93 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\main.c
+[v _TaskScheduleCb TaskScheduleCb `(v  1 s 1 TaskScheduleCb ]
+{
+"95
+[v TaskScheduleCb@i i `uc  1 a 1 5 ]
+"107
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul8.c
+[v i1___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v i1___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+"6
+[v i1___bmul@product product `uc  1 a 1 1 ]
+"4
+[v i1___bmul@multiplier multiplier `uc  1 p 1 wreg ]
+[v i1___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v i1___bmul@multiplier multiplier `uc  1 p 1 2 ]
+"51
+} 1
+"4 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Drivers/GPIO/GPIO_driver.c
+[v _Led_On Led_On `(v  1 e 1 0 ]
+{
+"7
+} 0
+"9
+[v _Led_Off Led_Off `(v  1 e 1 0 ]
+{
+"12
+} 0
+"60 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\Application/led_dimming/led_dimming_task.c
+[v _DimmingValueDutyCycle DimmingValueDutyCycle `(v  1 e 1 0 ]
+{
+"69
+[v DimmingValueDutyCycle@difference difference `s  1 a 2 7 ]
+"60
+[v DimmingValueDutyCycle@dimmingValue dimmingValue `us  1 p 2 4 ]
+"94
+} 0
+"74 D:\1Work\JS-SOURCE\jiangtao\GS-S1CH-01-V0.01\mcc_generated_files/pwm6.c
+[v i1_PWM6_LoadDutyValue PWM6_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v i1PWM6_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"83
+} 0

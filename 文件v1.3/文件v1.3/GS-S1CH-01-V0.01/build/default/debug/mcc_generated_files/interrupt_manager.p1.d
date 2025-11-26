@@ -1,0 +1,23 @@
+build/default/debug/mcc_generated_files/interrupt_manager.p1:  \
+mcc_generated_files/interrupt_manager.c  \
+mcc_generated_files/mcc.h  \
+mcc_generated_files/device_config.h  \
+mcc_generated_files/pin_manager.h  \
+mcc_generated_files/interrupt_manager.h  \
+mcc_generated_files/i2c1_master.h  \
+mcc_generated_files/memory.h  \
+mcc_generated_files/eusart.h  \
+mcc_generated_files/pwm6.h  \
+mcc_generated_files/pwm7.h  \
+mcc_generated_files/adcc.h  \
+mcc_generated_files/tmr0.h  \
+mcc_generated_files/tmr1.h  \
+mcc_generated_files/tmr2.h  \
+mcc_generated_files/../Application/nfc_read/nfc_read_task.h  \
+mcc_generated_files/../Application/nfc_read/../../mcc_generated_files/mcc.h  \
+mcc_generated_files/../Application/led_protect/protect_task.h  \
+mcc_generated_files/../Application/led_protect/../../mcc_generated_files/mcc.h  \
+mcc_generated_files/../Drivers/GPIO/GPIO_driver.h  \
+mcc_generated_files/../Drivers/GPIO/../../mcc_generated_files/mcc.h  \
+mcc_generated_files/../Application/led_dimming/led_dimming_task.h  \
+mcc_generated_files/../Application/led_dimming/../../mcc_generated_files/mcc.h 

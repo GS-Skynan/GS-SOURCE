@@ -1,0 +1,24 @@
+build/default/debug/Application/led_protect/protect_task.p1:  \
+Application/led_protect/protect_task.c  \
+Application/led_protect/../led_protect/protect_task.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/mcc.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/device_config.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/pin_manager.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/interrupt_manager.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/i2c1_master.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/memory.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/eusart.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/pwm6.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/pwm7.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/adcc.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/tmr0.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/tmr1.h  \
+Application/led_protect/../led_protect/../../mcc_generated_files/tmr2.h  \
+Application/led_protect/../led_close/led_close_task.h  \
+Application/led_protect/../led_close/../../mcc_generated_files/mcc.h  \
+Application/led_protect/../nfc_read/nfc_read_task.h  \
+Application/led_protect/../nfc_read/../../mcc_generated_files/mcc.h  \
+Application/led_protect/../../Drivers/ADC/adc_driver.h  \
+Application/led_protect/../../Drivers/ADC/../../mcc_generated_files/mcc.h  \
+Application/led_protect/../led_dimming/led_dimming_task.h  \
+Application/led_protect/../led_dimming/../../mcc_generated_files/mcc.h 

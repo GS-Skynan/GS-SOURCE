@@ -1,0 +1,22 @@
+build/default/debug/Application/led_close/led_close_task.p1:  \
+Application/led_close/led_close_task.c  \
+Application/led_close/../led_close/led_close_task.h  \
+Application/led_close/../led_close/../../mcc_generated_files/mcc.h  \
+Application/led_close/../led_close/../../mcc_generated_files/device_config.h  \
+Application/led_close/../led_close/../../mcc_generated_files/pin_manager.h  \
+Application/led_close/../led_close/../../mcc_generated_files/interrupt_manager.h  \
+Application/led_close/../led_close/../../mcc_generated_files/i2c1_master.h  \
+Application/led_close/../led_close/../../mcc_generated_files/memory.h  \
+Application/led_close/../led_close/../../mcc_generated_files/eusart.h  \
+Application/led_close/../led_close/../../mcc_generated_files/pwm6.h  \
+Application/led_close/../led_close/../../mcc_generated_files/pwm7.h  \
+Application/led_close/../led_close/../../mcc_generated_files/adcc.h  \
+Application/led_close/../led_close/../../mcc_generated_files/tmr0.h  \
+Application/led_close/../led_close/../../mcc_generated_files/tmr1.h  \
+Application/led_close/../led_close/../../mcc_generated_files/tmr2.h  \
+Application/led_close/../led_protect/protect_task.h  \
+Application/led_close/../led_protect/../../mcc_generated_files/mcc.h  \
+Application/led_close/../../Drivers/GPIO/GPIO_driver.h  \
+Application/led_close/../../Drivers/GPIO/../../mcc_generated_files/mcc.h  \
+Application/led_close/../led_dimming/led_dimming_task.h  \
+Application/led_close/../led_dimming/../../mcc_generated_files/mcc.h 

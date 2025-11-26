@@ -11,7 +11,7 @@
 
 #define BOOTLOADER_MAGIC_OFFSET_ADDR (1018U)
 
-#define BOOT_MAGIC_1 0x5A   
+#define BOOT_MAGIC_1 0x5A
 #define BOOT_MAGIC_2 0xA5   
 #define BOOT_MAGIC_3 0xC3    
 #define BOOT_MAGIC_4 0x3C    

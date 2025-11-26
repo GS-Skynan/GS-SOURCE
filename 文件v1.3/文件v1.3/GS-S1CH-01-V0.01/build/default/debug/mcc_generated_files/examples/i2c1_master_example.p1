@@ -1,0 +1,110 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"65 mcc_generated_files/examples/i2c1_master_example.c
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 65:     while(!I2C1_Open(address)); // sit here until we get the bus..
+[c E252 0 1 2 .. ]
+[n E252 . I2C1_NOERR I2C1_BUSY I2C1_FAIL  ]
+"101 mcc_generated_files/examples/../i2c1_master.h
+[; ;mcc_generated_files/examples/../i2c1_master.h: 101: i2c1_error_t I2C1_Open(i2c1_address_t address);
+[v _I2C1_Open `(E252 ~T0 @X0 0 ef1`uc ]
+"144
+[; ;mcc_generated_files/examples/../i2c1_master.h: 144: void I2C1_SetBuffer(void *buffer, size_t bufferSize);
+[v _I2C1_SetBuffer `(v ~T0 @X0 0 ef2`*v`ui ]
+"67 mcc_generated_files/examples/i2c1_master_example.c
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 67:     I2C1_SetAddressNackCallback(((void*)0),((void*)0)); //NACK polling?
+[c E257 1 2 3 4 5 .. ]
+[n E257 . I2C1_STOP I2C1_RESTART_READ I2C1_RESTART_WRITE I2C1_CONTINUE I2C1_RESET_LINK  ]
+[v F288 `(E257 ~T0 @X0 0 tf1`*v ]
+"155 mcc_generated_files/examples/../i2c1_master.h
+[; ;mcc_generated_files/examples/../i2c1_master.h: 155: void I2C1_SetAddressNackCallback(i2c1_callback_t cb, void *ptr);
+[v _I2C1_SetAddressNackCallback `(v ~T0 @X0 0 ef2`*F288`*v ]
+[v F320 `(E257 ~T0 @X0 0 tf1`*v ]
+"128
+[; ;mcc_generated_files/examples/../i2c1_master.h: 128: i2c1_error_t I2C1_MasterWrite(void); // to be depreciated
+[v _I2C1_MasterWrite `(E252 ~T0 @X0 0 ef ]
+"111
+[; ;mcc_generated_files/examples/../i2c1_master.h: 111: i2c1_error_t I2C1_Close(void);
+[v _I2C1_Close `(E252 ~T0 @X0 0 ef ]
+"133
+[; ;mcc_generated_files/examples/../i2c1_master.h: 133: i2c1_error_t I2C1_MasterRead(void); // to be depreciated
+[v _I2C1_MasterRead `(E252 ~T0 @X0 0 ef ]
+"63 mcc_generated_files/examples/i2c1_master_example.c
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 63: void I2C1_WriteNBytes(i2c1_address_t address, uint8_t * data, size_t len) //uint8_t
+[v _I2C1_WriteNBytes `(v ~T0 @X0 1 ef3`uc`*uc`ui ]
+"64
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 64: {
+{
+[e :U _I2C1_WriteNBytes ]
+"63
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 63: void I2C1_WriteNBytes(i2c1_address_t address, uint8_t * data, size_t len) //uint8_t
+[v _address `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _len `ui ~T0 @X0 1 r3 ]
+"64
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 64: {
+[f ]
+"65
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 65:     while(!I2C1_Open(address)); // sit here until we get the bus..
+[e $U 5  ]
+[e :U 6 ]
+[e :U 5 ]
+[e $ ! != -> ( _I2C1_Open (1 _address `ui -> -> 0 `i `ui 6  ]
+[e :U 7 ]
+"66
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 66:     I2C1_SetBuffer(data,len);
+[e ( _I2C1_SetBuffer (2 , -> _data `*v _len ]
+"67
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 67:     I2C1_SetAddressNackCallback(((void*)0),((void*)0)); //NACK polling?
+[e ( _I2C1_SetAddressNackCallback (2 , -> -> -> 0 `i `*v `*F320 -> -> 0 `i `*v ]
+"68
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 68:     I2C1_MasterWrite();
+[e ( _I2C1_MasterWrite ..  ]
+"69
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 69:     while(I2C1_BUSY == I2C1_Close()); // sit here until finished.
+[e $U 8  ]
+[e :U 9 ]
+[e :U 8 ]
+[e $ == -> . `E252 1 `ui -> ( _I2C1_Close ..  `ui 9  ]
+[e :U 10 ]
+"70
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 70: }
+[e :UE 4 ]
+}
+"72
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 72: void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len)//uint8_t
+[v _I2C1_ReadNBytes `(v ~T0 @X0 1 ef3`uc`*uc`ui ]
+"73
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 73: {
+{
+[e :U _I2C1_ReadNBytes ]
+"72
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 72: void I2C1_ReadNBytes(i2c1_address_t address, uint8_t *data, size_t len)//uint8_t
+[v _address `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _len `ui ~T0 @X0 1 r3 ]
+"73
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 73: {
+[f ]
+"74
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 74:     while(!I2C1_Open(address)); // sit here until we get the bus..
+[e $U 12  ]
+[e :U 13 ]
+[e :U 12 ]
+[e $ ! != -> ( _I2C1_Open (1 _address `ui -> -> 0 `i `ui 13  ]
+[e :U 14 ]
+"75
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 75:     I2C1_SetBuffer(data,len);
+[e ( _I2C1_SetBuffer (2 , -> _data `*v _len ]
+"76
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 76:     I2C1_MasterRead();
+[e ( _I2C1_MasterRead ..  ]
+"77
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 77:     while(I2C1_BUSY == I2C1_Close()); // sit here until finished.
+[e $U 15  ]
+[e :U 16 ]
+[e :U 15 ]
+[e $ == -> . `E252 1 `ui -> ( _I2C1_Close ..  `ui 16  ]
+[e :U 17 ]
+"78
+[; ;mcc_generated_files/examples/i2c1_master_example.c: 78: }
+[e :UE 11 ]
+}

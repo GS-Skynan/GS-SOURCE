@@ -1,0 +1,19 @@
+build/default/debug/Application/nfc_read/nfc_read_task.p1:  \
+Application/nfc_read/nfc_read_task.c  \
+Application/nfc_read/../nfc_read/nfc_read_task.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/mcc.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/device_config.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/pin_manager.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/interrupt_manager.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/i2c1_master.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/memory.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/eusart.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/pwm6.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/pwm7.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/adcc.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/tmr0.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/tmr1.h  \
+Application/nfc_read/../nfc_read/../../mcc_generated_files/tmr2.h  \
+Application/nfc_read/../../mcc_generated_files/examples/i2c_simple_example.h  \
+Application/nfc_read/../../mcc_generated_files/examples/i2c1_master_example.h  \
+Application/nfc_read/../../mcc_generated_files/examples/../i2c1_master.h 

@@ -1,0 +1,129 @@
+记录时间：20220109
+NFC: STDV2504 
+-----标准：ISO15693
+-----波特率：100k bit
+主要是对STDV2504  EEPROM的读写操作
+--在线读取
+pic16f18854-5
+ -----I2C 通信基于MCC配置的examples下的i2c1_master_example.c，也就是直接配置后就可以使用；
+------main中的读写已是基于配置更改的；
+------主时钟使用外部8M晶振和4x PLL 工作在32M；
+如果需要更改时钟,I2C的波特率是100k不能改变
+注意：delay(1);=1.5ms，的时长调整
+
+读写函数用外部及内部变量
+//************** NFC ???? ***********
+extern unsigned char GPO_INT_FLAG = 0;              // ???EEPROM??????
+unsigned char  GPO_config_value,read_eeprom_H=0,read_eeprom_L=0;
+unsigned int   ADC_DATA,pwm3_duty=0,pwm4_duty=0,read_eeprom=0;
+unsigned char  I2C_receiveData[4];
+unsigned char  I2C_R_system_config_Data[1];
+unsigned char  I2C_sendData[14]={0x00,0x09,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA};
+unsigned char  I2C_sendAdd[2]={0x00,0x00};//WRITE ADDRESS ?????????????
+unsigned char  I2C_sendAdd_w_sysetm[3]={0x00,0x00,0xC0};  //write system configuration address
+unsigned char  I2C_sendAdd_2[3]={0x00,0x00,0xC0};
+unsigned char  I2C_password_add[19]={0x09,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x09,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+//************** NFC**********
+uint  VOUT_I=0X1850; //
+
+这个函数是初始化NFC，设定为初次上电配置 EEPROM为外部写中断，及读取EEPROM数据
+     void READ_NFC_SET_START(void)  // 
+{
+    I2C1_WriteNBytes(0x57,I2C_sendAdd_2,2);            //write system configuration //0x0000
+    I2C1_ReadNBytes(0x57,I2C_R_system_config_Data,sizeof(I2C_R_system_config_Data));//read system configuration //0x0000
+    delay(5);//0
+    GPO_config_value=I2C_R_system_config_Data[0];
+    delay(5);//1
+    if(GPO_config_value==0XC0)
+    {
+      NOP();// RC2=1;
+    }
+    else          //----------Enable ST25DV04K GPO password------DIVECE-0X57---//
+    {
+        NOP();
+        I2C1_WriteNBytes(0x57,I2C_password_add,19);
+        delay(10);//5
+        I2C1_WriteNBytes(0x57,I2C_sendAdd_2,3); 
+        delay(2);//1
+    }    
+    I2C1_WriteNBytes(0x53,I2C_sendAdd,2);            //write NFC USE MEMORY address
+    I2C1_ReadNBytes(0x53,I2C_receiveData,4);//read NFC USE MEMORY data //sizeof(I2C_receiveData
+    read_eeprom_H=I2C_receiveData[2];
+    read_eeprom=read_eeprom_H;
+    read_eeprom=read_eeprom<<8;
+    read_eeprom_L=I2C_receiveData[3];
+    read_eeprom=read_eeprom+read_eeprom_L;
+    delay(5);//10
+}
+
+在线读写NFC EEPROM 函数，这里会把总中断关了，读完之后再开
+//***???NFC????? ,?????????
+void READ_NFC_LINE(void) //
+{    
+    if(GPO_INT_FLAG == 1)    //GPO INT(extern write eeprom  )  // pic16f18854-5 使用的是I/O口电平变化中断触发
+    { 
+      INTCONbits.GIE = 0;
+      I2C1_WriteNBytes(0x53,I2C_sendAdd,2);            //write NFC USE MEMORY address
+      I2C1_ReadNBytes(0x53,I2C_receiveData,4);//read NFC USE MEMORY data  sizeof I2C_receiveData
+      delay(5);//
+      read_eeprom_H=I2C_receiveData[2];
+      read_eeprom=read_eeprom_H;
+      read_eeprom=read_eeprom<<8;
+      read_eeprom_L=I2C_receiveData[3];
+      read_eeprom=read_eeprom+read_eeprom_L;
+      GPO_INT_FLAG = 0 ; 
+      INTCONbits.GIE = 1;
+    }
+
+延时函数
+ /////------delay-----//
+void delay(unsigned int z)
+{
+   unsigned int x,y;
+    for(x=1000;x>0;x--)
+    {
+        for(y=z;y>0;y--);
+    }    
+}
+
+这个函数只为数据处理，是660W的数据 ，避免外部写数据超出范围，导致程序跑错。如果使用别的方法也可以处理，就可以去掉
+void NFC_current_PWM(void)
+{
+  if(read_eeprom<=0X1850){read_eeprom=0X1850;} //limit NFC min_current_value
+  if(read_eeprom>=0X2400){read_eeprom=0X2400;} //limit NFC max_current_value
+  switch(read_eeprom)
+       {
+//*****************
+      /*
+       * 277-400-660W
+       * v_out = 48-80v
+       * current = 1.3-2.1A
+       * 100mA/
+       * VOUT_I  NFC current 
+       * Ref_V_PWM  out_pwm
+       * NFC_75_V  V_OUT 
+       * 1850  
+       * 2000
+       * 2100
+       * 2200
+       * 2300
+       * 2400
+       */
+       //******  
+       case 0X1850: VOUT_I=0X1850;  break;//76.92V set=80v
+        //******
+       case 0X2000: VOUT_I=0X2000;  break;//71.43V set=75v
+        //******
+       case 0X2100: VOUT_I=0X2100;  break;//66.67V set=70v
+       //******
+       case 0X2200: VOUT_I=0X2200;  break;//62.5V set=65v
+       //******
+       case 0X2300: VOUT_I=0X2300;  break;//58.82V set=62v
+       //******
+       case 0X2400: VOUT_I=0X2400;  break;//55.56V set=58v
+       // ******
+       default: ;break;
+        } 
+}
+
+}
