@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -82,7 +82,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F57Q43
 # ------------------------------------------------------------------------------------
@@ -747,7 +747,7 @@ endif
 # Rules for buildStep: createResponseFiles
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk    
-		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.map " > nbproject/default.debug"
+		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.map " > nbproject/default.debug"
 	@cmd /C "gnuecho -n "-D__DEBUG=1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-mdebugger=snap " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-memi=wordwrite " >> nbproject/default.debug"
@@ -760,7 +760,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	@cmd /C "gnuecho -n "-Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-Wl,--memorysummary,${DISTDIR}/memoryfile.xml " >> nbproject/default.debug"
-	@cmd /C "gnuecho -n "-o ${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.debug"
+	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/DriverLayer/ADC/src/adc_driver.p1 ${OBJECTDIR}/DriverLayer/EEPROM/src/EEPROM_driver.p1 ${OBJECTDIR}/DriverLayer/GPIO/src/GPIO_driver.p1 ${OBJECTDIR}/DriverLayer/NFC/src/nfc.p1 ${OBJECTDIR}/DriverLayer/PWM/src/pwm_driver.p1 ${OBJECTDIR}/DriverLayer/RS485/src/RS485_DATA.p1 ${OBJECTDIR}/DriverService/Bootloader/src/Bootloader.p1 ${OBJECTDIR}/DriverService/CurrentRead_APP/src/readcurrent.p1 ${OBJECTDIR}/DriverService/Dimming_APP/src/dimming.p1 ${OBJECTDIR}/DriverService/InProtected_APP/src/inprotectedapp.p1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/DriverService/LightsOff_APP/src/closeled.p1 ${OBJECTDIR}/DriverService/NFCService_APP/src/nfcapp.p1 ${OBJECTDIR}/DriverService/OutProtected_APP/src/out_protected.p1 ${OBJECTDIR}/DriverService/PowerComp_APP/src/powercomp.p1 ${OBJECTDIR}/DriverService/PwmRegulation_APP/src/pwm_change.p1 ${OBJECTDIR}/DriverService/TempProtected_APP/src/TEMP_PROTECTED.p1 ${OBJECTDIR}/DriverService/Ticktime_APP/src/ticktime.p1 ${OBJECTDIR}/DriverService/timerecord_app/src/record.p1 ${OBJECTDIR}/DriverService/USBCom_APP/src/usbcom.p1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Middlewares/CRC/src/crc.p1 ${OBJECTDIR}/Middlewares/QUEUE/src/queue.p1 ${OBJECTDIR}/mcc_generated_files/adc/src/adc.p1 ${OBJECTDIR}/mcc_generated_files/fvr/src/fvr.p1 ${OBJECTDIR}/mcc_generated_files/i2c_host/src/i2c1.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm2_16bit.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm3_16bit.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 " >> nbproject/default.debug"
@@ -770,7 +770,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	
 else
 nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk   
-		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.map " > nbproject/default.production"
+		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.map " > nbproject/default.production"
 	@cmd /C "gnuecho -n "-memi=wordwrite " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-O0 -fasmfile -maddrqual=require " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-xassembler-with-cpp -mwarn=-3 " >> nbproject/default.production"
@@ -781,7 +781,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	@cmd /C "gnuecho -n "-Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-Wl,--memorysummary,${DISTDIR}/memoryfile.xml " >> nbproject/default.production"
-	@cmd /C "gnuecho -n "-o ${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.production"
+	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/DriverLayer/ADC/src/adc_driver.p1 ${OBJECTDIR}/DriverLayer/EEPROM/src/EEPROM_driver.p1 ${OBJECTDIR}/DriverLayer/GPIO/src/GPIO_driver.p1 ${OBJECTDIR}/DriverLayer/NFC/src/nfc.p1 ${OBJECTDIR}/DriverLayer/PWM/src/pwm_driver.p1 ${OBJECTDIR}/DriverLayer/RS485/src/RS485_DATA.p1 ${OBJECTDIR}/DriverService/Bootloader/src/Bootloader.p1 ${OBJECTDIR}/DriverService/CurrentRead_APP/src/readcurrent.p1 ${OBJECTDIR}/DriverService/Dimming_APP/src/dimming.p1 ${OBJECTDIR}/DriverService/InProtected_APP/src/inprotectedapp.p1 " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/DriverService/LightsOff_APP/src/closeled.p1 ${OBJECTDIR}/DriverService/NFCService_APP/src/nfcapp.p1 ${OBJECTDIR}/DriverService/OutProtected_APP/src/out_protected.p1 ${OBJECTDIR}/DriverService/PowerComp_APP/src/powercomp.p1 ${OBJECTDIR}/DriverService/PwmRegulation_APP/src/pwm_change.p1 ${OBJECTDIR}/DriverService/TempProtected_APP/src/TEMP_PROTECTED.p1 ${OBJECTDIR}/DriverService/Ticktime_APP/src/ticktime.p1 ${OBJECTDIR}/DriverService/timerecord_app/src/record.p1 ${OBJECTDIR}/DriverService/USBCom_APP/src/usbcom.p1 " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Middlewares/CRC/src/crc.p1 ${OBJECTDIR}/Middlewares/QUEUE/src/queue.p1 ${OBJECTDIR}/mcc_generated_files/adc/src/adc.p1 ${OBJECTDIR}/mcc_generated_files/fvr/src/fvr.p1 ${OBJECTDIR}/mcc_generated_files/i2c_host/src/i2c1.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm2_16bit.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm3_16bit.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 " >> nbproject/default.production"
@@ -794,13 +794,13 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: linkWithResponseFileStandalone
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk    
+${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
 	${MP_CC}  @nbproject/$(CND_CONF).$(IMAGE_TYPE) 
-	@${RM} ${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.hex 
+	@${RM} ${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.hex 
 	
 else
-${DISTDIR}/855W_NEW.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk   
+${DISTDIR}/GS-S2CH-02-V0.01.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
 	${MP_CC}  @nbproject/$(CND_CONF).$(IMAGE_TYPE) 
 	
