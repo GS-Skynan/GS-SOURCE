@@ -1,12 +1,11 @@
 #include "../../../DriverService/NFCService_APP/scl/nfcapp.h"
-#include "../../../DriverLayer/ADC/scl/adc_driver.h"
+#include "../../../DriverLayer/ADC/adc_driver.h"
 #include "../../../DriverService/OutProtected_APP/scl/out_protected.h"
 #include "../../../DriverService/CurrentRead_APP/scl/readcurrent.h"
 #include "../../../DriverService/Ticktime_APP/scl/ticktime.h"
 #include "../../../DriverService/Dimming_APP/scl/dimming.h"
 #include "../../../DriverService/LightsOff_APP/scl/closeled.h"
 #include "../../../DriverLayer/GPIO/scl/GPIO_driver.h"
-#include "../../../DriverLayer/ADC/scl/adc_driver.h"
 
 #include "stdio.h"
 
