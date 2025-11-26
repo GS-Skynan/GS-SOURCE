@@ -3,180 +3,104 @@
   <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="DriverLayer" displayName="DriverLayer" projectFiles="true">
       <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/ADC/scl/adc_driver.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/ADC/src/adc_driver.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/ADC/adc_driver.c</itemPath>
+        <itemPath>DriverLayer/ADC/adc_driver.h</itemPath>
       </logicalFolder>
       <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/EEPROM/scl/EEPROM_driver.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/EEPROM/src/EEPROM_driver.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/EEPROM/EEPROM_driver.c</itemPath>
+        <itemPath>DriverLayer/EEPROM/EEPROM_driver.h</itemPath>
       </logicalFolder>
       <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/GPIO/scl/GPIO_driver.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/GPIO/src/GPIO_driver.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/GPIO/GPIO_driver.c</itemPath>
+        <itemPath>DriverLayer/GPIO/GPIO_driver.h</itemPath>
       </logicalFolder>
       <logicalFolder name="NFC" displayName="NFC" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/NFC/scl/nfc.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/NFC/src/nfc.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/NFC/nfc.c</itemPath>
+        <itemPath>DriverLayer/NFC/nfc.h</itemPath>
       </logicalFolder>
       <logicalFolder name="PWM" displayName="PWM" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/PWM/scl/pwm_driver.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/PWM/src/pwm_driver.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/PWM/pwm_driver.c</itemPath>
+        <itemPath>DriverLayer/PWM/pwm_driver.h</itemPath>
       </logicalFolder>
       <logicalFolder name="RS485" displayName="RS485" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverLayer/RS485/scl/RS485_DATA.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverLayer/RS485/src/RS485_DATA.c</itemPath>
-        </logicalFolder>
+        <itemPath>DriverLayer/RS485/RS485_DATA.c</itemPath>
+        <itemPath>DriverLayer/RS485/RS485_DATA.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="DriverService"
                    displayName="DriverService"
                    projectFiles="true">
       <logicalFolder name="Bootloader" displayName="Bootloader" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/Bootloader/scl/Bootloader.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/Bootloader/src/Bootloader.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/Bootloader/Bootloader.c</itemPath>
+        <itemPath>Applications/Bootloader/Bootloader.h</itemPath>
       </logicalFolder>
       <logicalFolder name="CurrentRead_APP"
                      displayName="CurrentRead_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/CurrentRead_APP/scl/readcurrent.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/CurrentRead_APP/src/readcurrent.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/CurrentRead_APP/readcurrent.c</itemPath>
+        <itemPath>Applications/CurrentRead_APP/readcurrent.h</itemPath>
       </logicalFolder>
       <logicalFolder name="Dimming_APP" displayName="Dimming_APP" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/Dimming_APP/scl/dimming.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/Dimming_APP/src/dimming.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/Dimming_APP/dimming.c</itemPath>
+        <itemPath>Applications/Dimming_APP/dimming.h</itemPath>
       </logicalFolder>
       <logicalFolder name="InProtected_APP"
                      displayName="InProtected_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/InProtected_APP/scl/inprotectedapp.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/InProtected_APP/src/inprotectedapp.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/InProtected_APP/inprotectedapp.c</itemPath>
+        <itemPath>Applications/InProtected_APP/inprotectedapp.h</itemPath>
       </logicalFolder>
       <logicalFolder name="LightsOff_APP"
                      displayName="LightsOff_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/LightsOff_APP/scl/closeled.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/LightsOff_APP/src/closeled.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/LightsOff_APP/closeled.c</itemPath>
+        <itemPath>Applications/LightsOff_APP/closeled.h</itemPath>
       </logicalFolder>
       <logicalFolder name="NFCService_APP"
                      displayName="NFCService_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/NFCService_APP/scl/nfcapp.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/NFCService_APP/src/nfcapp.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/NFCService_APP/nfcapp.c</itemPath>
+        <itemPath>Applications/NFCService_APP/nfcapp.h</itemPath>
       </logicalFolder>
       <logicalFolder name="OutProtected_APP"
                      displayName="OutProtected_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/OutProtected_APP/scl/out_protected.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/OutProtected_APP/src/out_protected.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/OutProtected_APP/out_protected.c</itemPath>
+        <itemPath>Applications/OutProtected_APP/out_protected.h</itemPath>
       </logicalFolder>
       <logicalFolder name="PowerComp_APP"
                      displayName="PowerComp_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/PowerComp_APP/scl/powercomp.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/PowerComp_APP/src/powercomp.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/PowerComp_APP/powercomp.c</itemPath>
+        <itemPath>Applications/PowerComp_APP/powercomp.h</itemPath>
       </logicalFolder>
       <logicalFolder name="PwmRegulation_APP"
                      displayName="PwmRegulation_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/PwmRegulation_APP/scl/pwm_change.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/PwmRegulation_APP/src/pwm_change.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/PwmRegulation_APP/pwm_change.c</itemPath>
+        <itemPath>Applications/PwmRegulation_APP/pwm_change.h</itemPath>
       </logicalFolder>
       <logicalFolder name="TempProtected_APP"
                      displayName="TempProtected_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/TempProtected_APP/scl/TEMP_PROTECTED.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/TempProtected_APP/src/TEMP_PROTECTED.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/TempProtected_APP/TEMP_PROTECTED.c</itemPath>
+        <itemPath>Applications/TempProtected_APP/TEMP_PROTECTED.h</itemPath>
       </logicalFolder>
       <logicalFolder name="Ticktime_APP"
                      displayName="Ticktime_APP"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/Ticktime_APP/scl/ticktime.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/Ticktime_APP/src/ticktime.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/Ticktime_APP/ticktime.c</itemPath>
+        <itemPath>Applications/Ticktime_APP/ticktime.h</itemPath>
       </logicalFolder>
       <logicalFolder name="timerecord_app"
                      displayName="timerecord_app"
                      projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/timerecord_app/scl/record.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/timerecord_app/src/record.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/timerecord_app/record.c</itemPath>
+        <itemPath>Applications/timerecord_app/record.h</itemPath>
       </logicalFolder>
       <logicalFolder name="USBCom_APP" displayName="USBCom_APP" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>DriverService/USBCom_APP/scl/usbcom.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>DriverService/USBCom_APP/src/usbcom.c</itemPath>
-        </logicalFolder>
+        <itemPath>Applications/USBCom_APP/usbcom.c</itemPath>
+        <itemPath>Applications/USBCom_APP/usbcom.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
@@ -243,20 +167,12 @@
     </logicalFolder>
     <logicalFolder name="Middlewares" displayName="Middlewares" projectFiles="true">
       <logicalFolder name="CRC" displayName="CRC" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>Middlewares/CRC/scl/crc.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>Middlewares/CRC/src/crc.c</itemPath>
-        </logicalFolder>
+        <itemPath>Middlewares/CRC/crc.c</itemPath>
+        <itemPath>Middlewares/CRC/crc.h</itemPath>
       </logicalFolder>
       <logicalFolder name="QUEUE" displayName="QUEUE" projectFiles="true">
-        <logicalFolder name="scl" displayName="scl" projectFiles="true">
-          <itemPath>Middlewares/QUEUE/scl/queue.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="src" displayName="src" projectFiles="true">
-          <itemPath>Middlewares/QUEUE/src/queue.c</itemPath>
-        </logicalFolder>
+        <itemPath>Middlewares/QUEUE/queue.c</itemPath>
+        <itemPath>Middlewares/QUEUE/queue.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -331,7 +247,7 @@
         <targetDevice>PIC18F57Q43</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>snap</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>3.00</languageToolchainVersion>
         <platform>3</platform>
@@ -374,7 +290,8 @@
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>

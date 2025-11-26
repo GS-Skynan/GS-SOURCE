@@ -31,4 +31,4 @@ mcc_generated_files/uart/src/../../system/../timer/tmr2_deprecated.h  \
 mcc_generated_files/uart/src/../../system/../timer/tmr4.h  \
 mcc_generated_files/uart/src/../../system/../timer/tmr4_deprecated.h  \
 mcc_generated_files/uart/src/../uart_drv_interface.h  \
-mcc_generated_files/uart/src/../../../Middlewares/QUEUE/scl/queue.h 
+Middlewares/QUEUE/queue.h 

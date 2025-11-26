@@ -1,55 +1,55 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./DriverService/timerecord_app/scl/record.h
+"13 Applications/timerecord_app/record.h
 [s S2422 `ui 1 `ui 1 `ui 1 ]
 [n S2422 . Hours_H Hours_M Hours_L ]
 "19
 [s S2423 `ui 1 `ui 1 `ui 1 `uc 1 `S2422 1 `ui 1 ]
 [n S2423 . total_power_time_H power_time_minutes power_time_msecond power_timer_flag record_time save_flag ]
-"24 ./DriverService/PwmRegulation_APP/scl/pwm_change.h
+"24 Applications/PwmRegulation_APP/pwm_change.h
 [s S2424 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2424 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
 [v F18309 `(v ~T0 @X0 0 tf ]
 "59 main.c
 [s S2425 `uc 1 `us 1 `us 1 `*F18309 1 ]
 [n S2425 . run timCount timRload pTaskFuncCb ]
-"12 ./DriverService/USBCom_APP/scl/usbcom.h
+"12 Applications/USBCom_APP/usbcom.h
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
-"46 ./DriverService/InProtected_APP/scl/inprotectedapp.h
+"46 Applications/InProtected_APP/inprotectedapp.h
 [v _IntProtectedTask `(v ~T0 @X0 0 ef ]
-"17 ./DriverService/LightsOff_APP/scl/closeled.h
+"17 Applications/LightsOff_APP/closeled.h
 [v _LightsOffTask `(v ~T0 @X0 0 ef ]
-"58 ./DriverService/timerecord_app/scl/record.h
+"58 Applications/timerecord_app/record.h
 [v _TimeCalculationTask `(v ~T0 @X0 0 ef ]
-"10 ./DriverService/TempProtected_APP/scl/TEMP_PROTECTED.h
+"10 Applications/TempProtected_APP/TEMP_PROTECTED.h
 [v _TemapProtectedTask `(v ~T0 @X0 0 ef ]
-"17 ./DriverService/Dimming_APP/scl/dimming.h
+"17 Applications/Dimming_APP/dimming.h
 [v _DimmingControlTask `(v ~T0 @X0 0 ef ]
-"28 ./DriverService/OutProtected_APP/scl/out_protected.h
+"28 Applications/OutProtected_APP/out_protected.h
 [v _OutProtectedTask `(v ~T0 @X0 0 ef ]
-"48 ./DriverService/NFCService_APP/scl/nfcapp.h
+"48 Applications/NFCService_APP/nfcapp.h
 [v _NFC_SendMCU2Task `(v ~T0 @X0 0 ef ]
-"17 ./DriverService/Ticktime_APP/scl/ticktime.h
+"17 Applications/Ticktime_APP/ticktime.h
 [v _LED_Task `(v ~T0 @X0 0 ef ]
 "16
 [v _Display `(v ~T0 @X0 0 ef ]
-"33 ./DriverLayer/GPIO/scl/GPIO_driver.h
+"33 DriverLayer/GPIO/GPIO_driver.h
 [v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
-"9 ./DriverService/Ticktime_APP/scl/ticktime.h
+"9 Applications/Ticktime_APP/ticktime.h
 [v _Time0_AppInit `(v ~T0 @X0 0 ef ]
-"53 ./DriverService/timerecord_app/scl/record.h
+"53 Applications/timerecord_app/record.h
 [v _Time1_AppInit `(v ~T0 @X0 0 ef ]
-"11 ./DriverService/Ticktime_APP/scl/ticktime.h
+"11 Applications/Ticktime_APP/ticktime.h
 [v _PIDDimming_Init `(v ~T0 @X0 0 ef ]
 "10
 [v _Time2_AppInit `(v ~T0 @X0 0 ef ]
-"11 ./DriverService/USBCom_APP/scl/usbcom.h
+"11 Applications/USBCom_APP/usbcom.h
 [v _UsbcomAppInit `(v ~T0 @X0 0 ef ]
-"43 ./DriverService/PwmRegulation_APP/scl/pwm_change.h
+"43 Applications/PwmRegulation_APP/pwm_change.h
 [v _PID_Init_Parameters `(v ~T0 @X0 0 ef ]
-"46 ./DriverService/NFCService_APP/scl/nfcapp.h
+"46 Applications/NFCService_APP/nfcapp.h
 [v _NFCRead_APPInit `(v ~T0 @X0 0 ef ]
 [v F18225 `(v ~T0 @X0 0 tf ]
-"7 ./DriverService/Ticktime_APP/scl/ticktime.h
+"7 Applications/Ticktime_APP/ticktime.h
 [v _TaskScheduleCbReg `(v ~T0 @X0 0 ef1`*F18225 ]
 [p mainexit ]
 "66 ./mcc_generated_files/system/system.h
@@ -1783,7 +1783,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"33 ./DriverService/timerecord_app/scl/record.h
+"33 Applications/timerecord_app/record.h
 [v _StartTime `S2423 ~T0 @X0 1 e ]
 [i _StartTime
 :U ..
@@ -1823,10 +1823,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"38 ./DriverService/PwmRegulation_APP/scl/pwm_change.h
+"38 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2424 ~T0 @X0 1 e ]
 [v _pid2 `S2424 ~T0 @X0 1 e ]
-"16 ./DriverService/NFCService_APP/scl/nfcapp.h
+"16 Applications/NFCService_APP/nfcapp.h
 [v _con1 `uc ~T0 @X0 1 e ]
 [i _con1
 -> -> 1 `i `uc
@@ -1843,7 +1843,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _con4
 -> -> 1 `i `uc
 ]
-"25 ./DriverService/CurrentRead_APP/scl/readcurrent.h
+"25 Applications/CurrentRead_APP/readcurrent.h
 [v _CURRENT_1 `f ~T0 @X0 1 e ]
 [i _CURRENT_1
 -> .3250.0 `f
@@ -1863,7 +1863,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _CURRENT_4
 -> .420.0 `f
 ]
-"26 ./DriverService/Ticktime_APP/scl/ticktime.h
+"26 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "67 main.c
 [v _g_taskComps `S2425 ~T0 @X0 -> 10 `i s ]
@@ -1931,140 +1931,140 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"83
+"82
 [v _TaskHandler `(v ~T0 @X0 1 sf ]
-"84
+"83
 {
 [e :U _TaskHandler ]
 [f ]
-"85
+"84
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2427  ]
 [e $U 2428  ]
 [e :U 2427 ]
+"85
+{
 "86
-{
-"87
 [e $ ! != -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 `i -> 0 `i 2430  ]
-"88
+"87
 {
-"89
+"88
 [e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 -> -> 0 `i `uc ]
-"90
+"89
 [e ( *U . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 3 ..  ]
-"91
+"90
 }
 [e :U 2430 ]
-"92
+"91
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2427  ]
 [e :U 2428 ]
 }
-"93
+"92
 [e :UE 2426 ]
 }
-"96
+"94
 [v _TaskScheduleCb `(v ~T0 @X0 1 sf ]
-"97
+"95
 {
 [e :U _TaskScheduleCb ]
 [f ]
-"98
+"96
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2432  ]
 [e $U 2433  ]
 [e :U 2432 ]
+"97
+{
+"98
+[e $ ! != -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 `ui -> -> 0 `i `ui 2435  ]
 "99
 {
 "100
-[e $ ! != -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 `ui -> -> 0 `i `ui 2435  ]
-"101
-{
-"102
 [e -- . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 -> -> 1 `i `us ]
-"103
+"101
 [e $ ! == -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 `ui -> -> 0 `i `ui 2436  ]
-"104
+"102
 {
-"105
+"103
 [e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 -> -> 1 `i `uc ]
-"106
+"104
 [e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 2 ]
-"107
+"105
 }
 [e :U 2436 ]
-"108
+"106
 }
 [e :U 2435 ]
-"109
+"107
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2432  ]
 [e :U 2433 ]
 }
-"110
+"108
 [e :UE 2431 ]
 }
-"113
+"110
 [v _APPInit `(v ~T0 @X0 1 sf ]
-"114
+"111
 {
 [e :U _APPInit ]
 [f ]
-"115
+"112
 [e ( _GPIO_APPInit ..  ]
-"116
+"113
 [e ( _Time0_AppInit ..  ]
-"117
+"114
 [e ( _Time1_AppInit ..  ]
-"118
+"115
 [e ( _PIDDimming_Init ..  ]
-"119
+"116
 [e ( _Time2_AppInit ..  ]
-"120
+"117
 [e ( _UsbcomAppInit ..  ]
-"121
+"118
 [e ( _PID_Init_Parameters ..  ]
-"122
+"119
 [e ( _NFCRead_APPInit ..  ]
-"124
+"121
 [e ( _TaskScheduleCbReg (1 &U _TaskScheduleCb ]
-"126
+"123
 [e :UE 2437 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"128
+"125
 [v _main `(i ~T0 @X0 1 ef ]
-"129
+"126
 {
 [e :U _main ]
 [f ]
-"131
+"128
 [e ( _SYSTEM_Initialize ..  ]
-"140
+"137
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
-"146
+"143
 [e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
-"154
+"151
 [e ( _APPInit ..  ]
-"155
+"152
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"157
+"154
 [e :U 2440 ]
-"158
+"155
 {
-"159
+"156
 [e ( _TaskHandler ..  ]
-"160
+"157
 }
 [e :U 2439 ]
 [e $U 2440  ]
 [e :U 2441 ]
-"161
+"158
 [e :UE 2438 ]
 }

@@ -35,7 +35,7 @@
   Section: Included Files
 */
 #include "../uart1.h"
-#include "../../../Middlewares/QUEUE/scl/queue.h"
+#include "queue.h"
 /**
   Section: Macro Declarations
 */

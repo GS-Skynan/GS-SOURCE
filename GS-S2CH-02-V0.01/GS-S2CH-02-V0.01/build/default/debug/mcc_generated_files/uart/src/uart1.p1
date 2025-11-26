@@ -202,13 +202,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S872 . . . ]
 "17914
 [v _U1ERRIRbits `VS872 ~T0 @X0 0 e@690 ]
-"7 mcc_generated_files/uart/src/../../../Middlewares/QUEUE/scl/queue.h
+"7 Middlewares/QUEUE/queue.h
 [s S2421 `ul 1 `ul 1 `ul 1 `*uc 1 ]
 [n S2421 . head tail size buffer ]
 "352 mcc_generated_files/uart/src/uart1.c
 [c E17896 0 1 2 3 .. ]
 [n E17896 . QUEUE_OK QUEUE_ERROR QUEUE_OVERLOAD QUEUE_EMPTY  ]
-"53 mcc_generated_files/uart/src/../../../Middlewares/QUEUE/scl/queue.h
+"53 Middlewares/QUEUE/queue.h
 [v _QueuePop `(E17896 ~T0 @X0 0 ef2`*S2421`*uc ]
 "22
 [v _uartQueue `S2421 ~T0 @X0 0 e ]
@@ -241,7 +241,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F18043 `(v ~T0 @X0 0 tf ]
 [v F18044 `(v ~T0 @X0 0 tf ]
 [v F18045 `(v ~T0 @X0 0 tf ]
-"43 mcc_generated_files/uart/src/../../../Middlewares/QUEUE/scl/queue.h
+"43 Middlewares/QUEUE/queue.h
 [v _QueuePush `(E17896 ~T0 @X0 0 ef2`*S2421`uc ]
 [v F18047 `(v ~T0 @X0 0 tf ]
 [v F18048 `(v ~T0 @X0 0 tf ]

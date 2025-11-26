@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug\855W_NEW.X.debug.hex">
+  <executable name="dist/default/debug\GS-S2CH-02-V0.01.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131072</length>
-      <used>57661</used>
-      <free>73411</free>
+      <used>57663</used>
+      <free>73409</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
