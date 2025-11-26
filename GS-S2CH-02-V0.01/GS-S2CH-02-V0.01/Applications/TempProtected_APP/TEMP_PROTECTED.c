@@ -1,4 +1,4 @@
-#include "TEMP_PROTECTED.h"
+#include "temp_protected.h"
 #include "dimming.h"
 #include "nfcapp.h"
 #include "inprotectedapp.h"

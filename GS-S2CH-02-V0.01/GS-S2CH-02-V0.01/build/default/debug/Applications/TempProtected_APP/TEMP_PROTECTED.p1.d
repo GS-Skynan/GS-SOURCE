@@ -1,6 +1,6 @@
-build/default/debug/Applications/TempProtected_APP/TEMP_PROTECTED.p1:  \
-Applications/TempProtected_APP/TEMP_PROTECTED.c  \
-Applications/TempProtected_APP/TEMP_PROTECTED.h  \
+build/default/debug/Applications/TempProtected_APP/temp_protected.p1:  \
+Applications/TempProtected_APP/temp_protected.c  \
+Applications/TempProtected_APP/temp_protected.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/../system/config_bits.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/../system/../system/clock.h  \

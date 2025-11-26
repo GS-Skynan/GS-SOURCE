@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
-    <logicalFolder name="DriverLayer" displayName="DriverLayer" projectFiles="true">
-      <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
-        <itemPath>DriverLayer/ADC/adc_driver.c</itemPath>
-        <itemPath>DriverLayer/ADC/adc_driver.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
-        <itemPath>DriverLayer/EEPROM/EEPROM_driver.c</itemPath>
-        <itemPath>DriverLayer/EEPROM/EEPROM_driver.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
-        <itemPath>DriverLayer/GPIO/GPIO_driver.c</itemPath>
-        <itemPath>DriverLayer/GPIO/GPIO_driver.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="NFC" displayName="NFC" projectFiles="true">
-        <itemPath>DriverLayer/NFC/nfc.c</itemPath>
-        <itemPath>DriverLayer/NFC/nfc.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="PWM" displayName="PWM" projectFiles="true">
-        <itemPath>DriverLayer/PWM/pwm_driver.c</itemPath>
-        <itemPath>DriverLayer/PWM/pwm_driver.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="RS485" displayName="RS485" projectFiles="true">
-        <itemPath>DriverLayer/RS485/RS485_DATA.c</itemPath>
-        <itemPath>DriverLayer/RS485/RS485_DATA.h</itemPath>
-      </logicalFolder>
-    </logicalFolder>
     <logicalFolder name="DriverService"
-                   displayName="DriverService"
+                   displayName="Applications"
                    projectFiles="true">
       <logicalFolder name="Bootloader" displayName="Bootloader" projectFiles="true">
         <itemPath>Applications/Bootloader/Bootloader.c</itemPath>
@@ -83,8 +57,8 @@
       <logicalFolder name="TempProtected_APP"
                      displayName="TempProtected_APP"
                      projectFiles="true">
-        <itemPath>Applications/TempProtected_APP/TEMP_PROTECTED.c</itemPath>
-        <itemPath>Applications/TempProtected_APP/TEMP_PROTECTED.h</itemPath>
+        <itemPath>Applications/TempProtected_APP/temp_protected.c</itemPath>
+        <itemPath>Applications/TempProtected_APP/temp_protected.h</itemPath>
       </logicalFolder>
       <logicalFolder name="Ticktime_APP"
                      displayName="Ticktime_APP"
@@ -101,6 +75,32 @@
       <logicalFolder name="USBCom_APP" displayName="USBCom_APP" projectFiles="true">
         <itemPath>Applications/USBCom_APP/usbcom.c</itemPath>
         <itemPath>Applications/USBCom_APP/usbcom.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="DriverLayer" displayName="DriverLayer" projectFiles="true">
+      <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
+        <itemPath>DriverLayer/ADC/adc_driver.c</itemPath>
+        <itemPath>DriverLayer/ADC/adc_driver.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
+        <itemPath>DriverLayer/EEPROM/EEPROM_driver.c</itemPath>
+        <itemPath>DriverLayer/EEPROM/EEPROM_driver.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
+        <itemPath>DriverLayer/GPIO/GPIO_driver.c</itemPath>
+        <itemPath>DriverLayer/GPIO/GPIO_driver.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="NFC" displayName="NFC" projectFiles="true">
+        <itemPath>DriverLayer/NFC/nfc.c</itemPath>
+        <itemPath>DriverLayer/NFC/nfc.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="PWM" displayName="PWM" projectFiles="true">
+        <itemPath>DriverLayer/PWM/pwm_driver.c</itemPath>
+        <itemPath>DriverLayer/PWM/pwm_driver.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="RS485" displayName="RS485" projectFiles="true">
+        <itemPath>DriverLayer/RS485/RS485_DATA.c</itemPath>
+        <itemPath>DriverLayer/RS485/RS485_DATA.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
