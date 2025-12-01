@@ -28,8 +28,8 @@ uint16_t flag_close1 = 0,flag_close2 = 0;
 
 
 uint16_t reply_flag = 0,reply_ok = 0,reply_time;
-
-
+uint16_t g_uRs485TimeOut = 0;
+bool g_bRs485Flag = false;
 uint8_t  pidtime1;
 uint16_t pwm1,pwm2;
 float pwm_output;
@@ -176,7 +176,17 @@ static void Time0_start(void)
               reply_ok=1;
               reply_flag=0;
            }
-        }             
+        }   
+    
+       if (g_uRs485TimeOut > 0)
+        {
+            g_uRs485TimeOut--;
+            if (g_uRs485TimeOut == 0)
+            {
+                // 超时时间到，表示一帧接收完成
+                g_bRs485Flag = 1;
+            }
+        }   
 }
 
 float g_Voltage1,g_Voltage2;
@@ -201,7 +211,7 @@ static void Dimming_Pid(void)
         {
             g_Voltage2 = ((float)ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
             powernum2= (float)get_current(OUT_CURRENT2)*g_Voltage2/1000.0f;
-            pwm2= PID_Compute(&pid2, 50,powernum2);                             
+            pwm2= PID_Compute(&pid2, g_uChannel2Power,powernum2);                             
             PWM_Set_Direct(PWM_CHANNEL_2,pwm2);  
         }
         pidtime1=0;

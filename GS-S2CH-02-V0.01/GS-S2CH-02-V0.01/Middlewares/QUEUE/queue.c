@@ -1,5 +1,5 @@
-#include <stdint.h>
 #include "queue.h"
+#include "string.h"
 
 
 QueueType_t uartQueue;
@@ -123,4 +123,25 @@ uint32_t QueueCount(QueueType_t *queue)
 	}
 	
 	return queue->size + queue->tail - queue->head;
+}
+
+
+/**
+****************************************************************
+* @brief   清空队列（安全版本）
+* @param   queue, 队列变量指针
+* @param   clearBuffer, 是否清除缓冲区内容
+****************************************************************
+*/
+void QueueClearEx(QueueType_t *queue, bool clearBuffer)
+{
+    // 重置指针
+    queue->head = 0;
+    queue->tail = 0;
+    
+    // 可选：清除缓冲区内容（更安全）
+    if (clearBuffer && queue->buffer != NULL)
+    {
+        memset(queue->buffer, 0, queue->size);
+    }
 }

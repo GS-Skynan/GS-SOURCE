@@ -2,6 +2,7 @@
 #define _QUEUE_H_
 
 #include <stdint.h>
+#include "../../mcc_generated_files/system/system.h"
 
 typedef struct
 {
@@ -83,4 +84,13 @@ uint32_t QueuePopArray(QueueType_t *queue, uint8_t *pArray, uint32_t len);
 */
 uint32_t QueueCount(QueueType_t *queue);
 
+
+/**
+****************************************************************
+* @brief   清空队列（安全版本）
+* @param   queue, 队列变量指针
+* @param   clearBuffer, 是否清除缓冲区内容
+****************************************************************
+*/
+void QueueClearEx(QueueType_t *queue, bool clearBuffer);
 #endif

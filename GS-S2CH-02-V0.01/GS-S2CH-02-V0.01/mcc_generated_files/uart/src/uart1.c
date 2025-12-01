@@ -36,6 +36,7 @@
 */
 #include "../uart1.h"
 #include "queue.h"
+#include "ticktime.h"
 /**
   Section: Macro Declarations
 */
@@ -374,10 +375,14 @@ uint32_t UART1_ReadArray(uint8_t *buffer, uint32_t len)
 void putch(char data) 
 {
    IO_RF3_SetHigh();
-   __delay_ms(2);
+   __delay_ms(5);
     while (!UART1_IsTxReady());
        UART1_Write(data);
+    __delay_ms(2);
+    IO_RF3_SetLow();
 }
+
+
 
 uint8_t UART1_GetRxCount(void)
 {
@@ -387,6 +392,7 @@ uint8_t UART1_GetRxCount(void)
 void __interrupt(irq(IRQ_U1RX), base(8)) UART1_Receive_Vector_ISR(void)
 {   
      UART1_ReceiveISR();
+     g_uRs485TimeOut=50;
      PIR4bits.U1RXIF = 0;  
        
 }
@@ -395,7 +401,7 @@ void __interrupt(irq(IRQ_U1RX), base(8)) UART1_Receive_Vector_ISR(void)
 void UART1_ReceiveISR(void)
 {
     uint8_t regValue;
-	uint8_t tempRxHead;
+    uint8_t tempRxHead;
     // use this default receive interrupt handler code
     uart1RxStatusBuffer[uart1RxHead].status = 0;
 
@@ -425,7 +431,7 @@ void UART1_ReceiveISR(void)
     }  
  
     regValue = U1RXB;
-    
+ 
      // 使用队列环形缓冲区
     QueueStatus_t status = QueuePush(&uartQueue, regValue);
     

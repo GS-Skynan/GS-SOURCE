@@ -28,5 +28,8 @@ extern uint16_t pwm1,pwm2;
 
 extern float g_Voltage1,g_Voltage2;
 extern float powernum1,powernum2;
+
+extern uint16_t g_uRs485TimeOut;
+extern bool g_bRs485Flag;
 #endif 
 

@@ -3,13 +3,50 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/timer/src/tmr4.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/system/pins.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/NFC/nfc.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/CurrentRead_APP/readcurrent.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/TempProtected_APP/temp_protected.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/PowerComp_APP/powercomp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/CurrentRead_APP/readcurrent.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/uart/src/uart2.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/uart/src/uart1.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/PwmRegulation_APP/pwm_change.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/Ticktime_APP/ticktime.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/PowerComp_APP/powercomp.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/LightsOff_APP/closeled.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/RS485/RS485_DATA.c</file>
             <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/Bootloader/Bootloader.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/GPIO/GPIO_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/NFC/nfc.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/Dimming_APP/dimming.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/USBCom_APP/usbcom.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/LightsOff_APP/closeled.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/TempProtected_APP/temp_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/USBCom_APP/usbcom.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/Dimming_APP/dimming.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/PWM/pwm_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Middlewares/CRC/crc.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/timer/src/tmr4.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/InProtected_APP/inprotectedapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Middlewares/CRC/crc.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/system/src/interrupt.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/OutProtected_APP/out_protected.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Middlewares/QUEUE/queue.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/system/pins.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/InProtected_APP/inprotectedapp.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/adc/adc.h</file>
             <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Middlewares/QUEUE/queue.c</file>
             <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/main.c</file>
             <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/Ticktime_APP/ticktime.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/OutProtected_APP/out_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/ReadMe.txt</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/ADC/adc_driver.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/NFCService_APP/nfcapp.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/PwmRegulation_APP/pwm_change.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/timerecord_app/record.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/ADC/adc_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/Applications/NFCService_APP/nfcapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/DriverLayer/GPIO/GPIO_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.01/mcc_generated_files/system/system.h</file>
         </group>
     </open-files>
 </project-private>

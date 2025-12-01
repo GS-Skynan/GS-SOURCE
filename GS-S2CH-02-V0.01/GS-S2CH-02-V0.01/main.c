@@ -73,7 +73,7 @@ static TaskComps_t g_taskComps[] ={
     {0, 150, 150, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
     {0, 10, 10, LED_Task},
-    {0, 1000, 1000, Display},
+  //  {0, 1000, 1000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))
