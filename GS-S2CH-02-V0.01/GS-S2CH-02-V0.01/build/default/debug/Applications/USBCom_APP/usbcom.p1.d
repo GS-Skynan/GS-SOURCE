@@ -40,4 +40,10 @@ Middlewares/CRC/crc.h  \
 Middlewares/CRC/../../mcc_generated_files/system/system.h  \
 Middlewares/QUEUE/queue.h  \
 Applications/NFCService_APP/nfcapp.h  \
-Applications/NFCService_APP/../../mcc_generated_files/system/system.h 
+Applications/NFCService_APP/../../mcc_generated_files/system/system.h  \
+DriverLayer/ADC/adc_driver.h  \
+DriverLayer/ADC/../../mcc_generated_files/system/system.h  \
+Applications/Dimming_APP/dimming.h  \
+Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
+Applications/Ticktime_APP/ticktime.h  \
+Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h 

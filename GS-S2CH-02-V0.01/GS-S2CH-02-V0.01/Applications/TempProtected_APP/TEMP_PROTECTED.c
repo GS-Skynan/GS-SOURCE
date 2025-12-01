@@ -22,9 +22,9 @@ void Temp_Protected(void)
 
     // 确定当前需要的状态
     uint8_t target_state;
-    if (voltage >= 3.2f) target_state = 2; // 关闭2.63          2.9
+    if (voltage >= 3.2f) target_state = 2;                   // 关闭2.63          2.9
     if (voltage >= 2.6f && voltage < 2.8f) target_state = 1; // 降功率2.0-2.24    2.6-2.8
-    if (voltage <= 2.3f) target_state = 0; // 正常1.85          2.3
+    if (voltage <= 2.3f) target_state = 0;                   // 正常1.85          2.3
 
     // 只有状态变化时才执行动作
     if (Temp_Flag == 0 && target_state != protection_state)
@@ -39,14 +39,7 @@ void Temp_Protected(void)
                 T_flag = 0;
             }
             Temp_protected_flag = 0;
-            CLOSE_DA1[3] = UART_REG3_Pre;
-            CLOSE_DA1[5] = UART_REG4_Pre;
-            for (int i = 0; i < 9; i++)
-            {
-                while (!UART2_IsTxReady());
-                UART2_Write(CLOSE_DA1[i]);
-                while (!UART2_IsTxDone());
-            }
+          
 
             start_flag = 1;
             break;

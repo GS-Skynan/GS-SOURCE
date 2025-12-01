@@ -10,7 +10,10 @@
 Ó²¼þ³éÏó²ã (Hardware Abstraction Layer)
 
 
-
+CH1:2000mA
+CH2:750mA
+CH3:730mA
+CH4:550mA
 
 
 

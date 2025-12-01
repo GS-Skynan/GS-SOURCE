@@ -74,7 +74,6 @@ float get_voltage(adc_channel_t channel)
  * - 短路判断：基于ADC值低于特定阈值
  */
 
-float V;
 uint16_t Voltage_Judgment(adc_channel_t channel)
 {  
     /*红光通道电压判断*/
@@ -88,10 +87,9 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
         //   4. 分压电路转换：实际ADC值 = 目标电压 * (18/3018)
         //   5. 转换为mV单位：* 1000
         float Channel_1_Over_Volate = (float)(RED_POWER/(CURRENT_1/1000.0f)*1.10/3018.0f*18)*1000;        
-        V=Channel_1_Over_Volate;
+ 
         // 读取当前通道的ADC值
         adc_value[0] = ADC_Result2(channel);       
-
         // 判断过压、开路或欠压状态（主路欠压：100V）
         if(adc_value[0] >= Channel_1_Over_Volate || (adc_value[0] > RED_UNDERVOLATGE_LEFT && adc_value[0] <= RED_UNDERVOLATGE_RUGHT))
         {    
@@ -228,5 +226,4 @@ void Out_Protected(void)
 void OutProtectedTask(void)
 {
        Out_Protect();
-       printf("S:%d, V:%.6f\r\n",adc_value[0],V);
 }

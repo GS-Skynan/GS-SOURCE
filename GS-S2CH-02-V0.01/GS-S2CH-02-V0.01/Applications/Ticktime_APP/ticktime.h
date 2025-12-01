@@ -13,7 +13,6 @@ void PIDDimming_Init(void);
 uint32_t get_elapsed_since(uint32_t since_time);
 uint32_t get_systemtick_time(void);
 
-void Display(void);
 void LED_Task(void);
 
 extern uint16_t Close1_time1,Close_Count1 ,Close_Count2;
@@ -27,6 +26,7 @@ volatile uint32_t system_tick;
 extern uint8_t  pidtime;
 extern uint16_t pwm1,pwm2;
 
-
+extern float g_Voltage;
+extern float powernum;
 #endif 
 

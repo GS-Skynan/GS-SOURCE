@@ -11,8 +11,8 @@ void PWM_Set_Direct(PWM_Channel_t channel,uint16_t duty_cycle)
                      PWM2_16BIT_LoadBufferRegisters();
             break;
         case PWM_CHANNEL_2:
-                   PWM3_16BIT_SetSlice1Output1DutyCycleRegister(duty_cycle);    // 设置PWM占空比
-                   PWM3_16BIT_LoadBufferRegisters();                
+                    PWM3_16BIT_SetSlice1Output1DutyCycleRegister(duty_cycle);    // 设置PWM占空比
+                    PWM3_16BIT_LoadBufferRegisters();                
             break;
         case PWM_CHANNEL_3:         
                             // 加载新的PWM配置

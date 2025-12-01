@@ -13,8 +13,7 @@
 static uint16_t state = 0;                                                         // 状态变量：0=未启动，1=启动中，2=运行中
 uint8_t power_reduced = 0;                                                      // 标记是否已经降低功率
 uint16_t target_power;  // 全局变量，保存目标功率
-uint8_t CLOSE_DA[9] = {0x00,0x10,0x00,0x00,0x00,0x00,0x11,0x22,0x33};      // 关灯指令数组
-uint8_t CLOSE_DA1[9] ={0x00,0x10,0x00,0x00,0x00,0x00,0x11,0x22,0x33};      // 关灯指令数组
+
 uint8_t target_power2;
 
 /**
@@ -53,9 +52,7 @@ void Input_Protected(void)
                 state = 3;           
                 if(target_power){
 //                    UART_REG1/=2;
-                    CLOSE_DA1[3]=UART_REG3_Pre;
-                    CLOSE_DA1[5]=UART_REG4_Pre;
-                    UART2_SendData(CLOSE_DA1,sizeof(CLOSE_DA1));
+
 //                    for (int i = 0; i < 9; i++) {                        
 //                        while (!UART2_IsTxReady());                     
 //                        UART2_Write(CLOSE_DA1[i]);                       

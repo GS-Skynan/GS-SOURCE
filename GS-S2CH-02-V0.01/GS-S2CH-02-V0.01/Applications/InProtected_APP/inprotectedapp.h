@@ -12,10 +12,6 @@
 //#define LIGHT_ON_THRESHOLD   2100          
 //#define LIGHT_OFF_THRESHOLD  1860
 
-
-extern uint8_t CLOSE_DA[9];      // 关灯指令数组
-extern uint8_t CLOSE_DA1[9];
-
 /*输入保护操作*/
 void Input_Protected(void);
 

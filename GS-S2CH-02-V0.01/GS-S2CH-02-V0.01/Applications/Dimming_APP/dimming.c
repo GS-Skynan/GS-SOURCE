@@ -129,7 +129,7 @@ float get_current(adc_channel_t channel)
 //        I_out = (float)(I_Out2_ADC / 4095.0 * 4.096) / 32630 * 2630 / 0.25;
         
         float adc_voltage2 = (float)I_Out2_ADC / 4095.0f * 4.096f;
-        float voltage_ratio2 = 2630.0f / 32630.0f;
+        float voltage_ratio2 = 2630.0f / 32630.0f;   
         I_out = adc_voltage2 * voltage_ratio2 / 0.25f;
     }   
     return (I_out * 1000.0f);             // 统一转换为毫安(mA)单位
@@ -185,7 +185,8 @@ void DimmingControlTask(void)
            if(out_flag1==0||V_Ret1!=0||V_Ret2!=0||out_flag2==0) return;
            
 
-           power_pwm=(float)Power_Compensation();
+           power_pwm=600.0f;
+                   //(float)Power_Compensation();
             
            if(UART_REG1 >= 0x01 &&  UART_REG2 == 0x00)
            {                                  
@@ -211,83 +212,6 @@ void DimmingControlTask(void)
         }
     }
 }
-
-            /* 交替执行(时间片)两个 PID 计算:这部分可能存在实时性问题
-             * fabsf:float类型的取绝对值函数 ：误差超出4.5mA（误差太小可能会导致PID退不出来：需要实际测量采集电流值与实际值的误差）
-             * 执行功率校准
-             * TARGET_POWER_1：     目标值  
-             * get_current(I_Out1)：实际测量的计算值
-             */   
-            /*2通道对1通道有干扰（），导致在循环判断里面的绝对值判断退不出来，所以采用单开与同时开*/
-//            if(UART_REG1 >= 0x01 || UART_REG2 >= 0x01 ){
-//                if(UART_REG1 >= 0x01 &&  UART_REG2 == 0x00   && V_Ret1 == 0  && out_flag1  )
-//                { 
-//                     Power_Compensation();
-//                    while (V_Ret1 == 0 && out_flag1 && TARGET_CURRENT_1_Real >= 300 && fabsf(TARGET_CURRENT_1_Real - get_current(I_Out1)) >= 4.5f &&  !return_flag1 )
-//                    { 
-//                        PID_Compute(&pid1, TARGET_CURRENT_1_Real, get_current(I_Out1));    
-//                        /*功率补偿：主通道变化（在主通 道的PID循环中执行）*/
-//                        Power_Compensation();                              
-//                        //此刻这里应该检测电压，若是短路或者开路，立即退出循环
-//                        if(Port_3_4_GetValue() == HIGH){                        //3,4脚短路（低电平），去除保护
-//                            buck_flag = 1;                                      //定时器标志：200ms后 buck_ok = 1
-//                            if(buck_ok1) V_Ret1 = Voltage_Judgment(V_Out1);
-//                            Out_Protect();   
-//                            Input_Protected();     
-//                        }                     
-//                    }                   
-//                }               
-//                if(UART_REG2 >= 0x01 &&  UART_REG1 == 0x00   && V_Ret2 == 0 && out_flag2){ 
-//                    while (V_Ret2 == 0 && out_flag2 && fabsf(TARGET_CURRENT_2 - get_current(I_Out2)) >= 4.5f ){ 
-//                        PID_Compute(&pid2, TARGET_CURRENT_2, get_current(I_Out2));
-//                                  
-//                        //此刻这里应该检测电压，若是短路或者开路，立即退出循环
-//                        if(Port_3_4_GetValue() == HIGH){
-//                                    
-//                            buck_flag = 1;                                      //定时器标志：200ms后 buck_ok = 1
-//                            /*通过判断V_Ret2（Voltage_Judgment的返回值）来决定是过欠压，短路，开路*/
-//                            if(buck_ok2) V_Ret2 = Voltage_Judgment(V_Out2);
-//                            Out_Protect();   
-//                            Input_Protected();
-//                        }
-//                    }
-//                } 
-//                /*同时开*/
-//                if(UART_REG1 >= 0x01 && UART_REG2 >= 0x01 ){
-//                    Power_Compensation();
-//                    while ((UART_REG1 >= 0x01 && fabsf(TARGET_CURRENT_1_Real - get_current(I_Out1)) >= 4.5f  && V_Ret1 == 0 && out_flag1 && !return_flag1)|| 
-//                           (UART_REG2 >= 0x01 && fabsf(TARGET_CURRENT_2 - get_current(I_Out2)) >= 4.5f && out_flag2 && V_Ret2 == 0 ) ){
-//                        if(fabsf(TARGET_CURRENT_1_Real - get_current(I_Out1)) >= 4.5f  && V_Ret1 == 0 && out_flag1){ 
-//                            PID_Compute(&pid1, TARGET_CURRENT_1_Real, get_current(I_Out1)); 
-//                            Power_Compensation();
-//                            if(Port_3_4_GetValue() == HIGH){
-//                                buck_flag = 1;                              //定时器标志：200ms后 buck_ok = 1
-//                                if(buck_ok1) V_Ret1 = Voltage_Judgment(V_Out1);
-//                                Out_Protect();   
-//                                Input_Protected();     
-//                            } 
-//                        }
-//                        if(fabsf(TARGET_CURRENT_2 - get_current(I_Out2)) >= 4.5f && V_Ret2 == 0 && out_flag2 ){ 
-//                            PID_Compute(&pid2, TARGET_CURRENT_2, get_current(I_Out2));
-//                            if(Port_3_4_GetValue() == HIGH){
-//                                buck_flag = 1;                              //定时器标志：200ms后 buck_ok = 1
-//                                if(buck_ok2) V_Ret2 = Voltage_Judgment(V_Out2);
-//                                Out_Protect();   
-//                                Input_Protected();
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-// //   else PIDflag=0;
-//        // 每次处理完数据就把数据清零，以及清零一些标志位
-////        Pwm_flag_1 = 0;
-////        Pwm_flag_2 = 0;
-//    }
-//}
-
-
 
      
            

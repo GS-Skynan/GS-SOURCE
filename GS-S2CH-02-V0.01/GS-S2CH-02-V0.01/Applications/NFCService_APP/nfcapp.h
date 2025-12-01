@@ -32,14 +32,14 @@ void NFC_datajudge(uint8_t *data);
 //void Power_UpTime(void);  //涨功率时间
 //void Channel_changes(void);
 
-void Rated_Current(uint8_t *data); 
-void Startup_Power(uint8_t *data);
-void Power_UpTime(uint8_t *data);
-void Channel_changes(uint8_t *data);
-void Startup_State(uint8_t *data);
+//void Rated_Current(uint8_t *data); 
+//void Startup_Power(uint8_t *data);
+//void Power_UpTime(uint8_t *data);
+//void Channel_changes(uint8_t *data);
+//void Startup_State(uint8_t *data);
 
-unsigned int State_error(unsigned int err);
-unsigned int is_valid_data(unsigned char *data, unsigned int state_error_flag);
+//unsigned int State_error(unsigned int err);
+//unsigned int is_valid_data(unsigned char *data, unsigned int state_error_flag);
 unsigned int bcd_to_int(uint8_t bcd);
 unsigned int int_to_bcd(uint8_t intt);
 

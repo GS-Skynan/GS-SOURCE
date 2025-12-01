@@ -17,6 +17,9 @@
 
 extern uint16_t adc_value[2];    
 
+
+
+
 extern int lock_flag;  
 extern uint16_t  buck_open;
 extern uint8_t out_flag1,out_flag2;

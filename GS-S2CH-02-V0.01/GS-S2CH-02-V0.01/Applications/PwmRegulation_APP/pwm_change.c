@@ -48,7 +48,7 @@ void PID_Init_Parameters(void)
 {
     // 初始化两路 PID 控制器
     PID_Init(&pid1,1, 0.3f, 0.0152f, 0.01f, 3200.0f, 0.0f,0);     // 第一路 PID 参数
-    PID_Init(&pid2,2, 0.8f, 0.000012f, 0.001f, 3200.0f, 0.0f,0);  // 第二路 PID 参数
+//   PID_Init(&pid2,2, 0.8f, 0.000012f, 0.001f, 3200.0f, 0.0f,0);  // 第二路 PID 参数
 }
 
 

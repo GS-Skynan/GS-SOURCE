@@ -8,7 +8,7 @@
 #include "powercomp.h"
 #include "RS485_DATA.h"
 #include "GPIO_driver.h"
-#include <stdio.h>
+#include "adc_driver.h"
 
 
 volatile uint32_t system_tick = 0;
@@ -179,29 +179,32 @@ static void Time0_start(void)
         }             
 }
 
-
+ float g_Voltage;
+ float powernum;
 static void Dimming_Pid(void)
 {      
     if(PIDflag1!=0) pidtime1++;
     if(pidtime1==10)    
     {
         if(PIDflag1==1||PIDflag1==3)
-        {
+        { 
+            g_Voltage = ((float)ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+            powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
             pwm_output = simple_regulator(power_pwm, power_time);         
-            pwm1= PID_Compute(&pid1, pwm_output,get_current(OUT_CURRENT1));                            
+            pwm1= PID_Compute(&pid1, pwm_output,powernum);                            
             PWM_Set_Direct(PWM_CHANNEL_1,pwm1);        
         }
         
     }
-    if(pidtime1==20)
-    {
-       if(PIDflag1==2||PIDflag1==3)
-        {
-            pwm2= PID_Compute(&pid2, TARGET_CURRENT_2,get_current(OUT_CURRENT2));                             
-            PWM_Set_Direct(PWM_CHANNEL_2,pwm2);  
-        }
-        pidtime1=0;
-    }
+//    if(pidtime1==20)
+//    {
+//       if(PIDflag1==2||PIDflag1==3)
+//        {
+//            pwm2= PID_Compute(&pid2, TARGET_CURRENT_2,get_current(OUT_CURRENT2));                             
+//            PWM_Set_Direct(PWM_CHANNEL_2,pwm2);  
+//        }
+//        pidtime1=0;
+//    }
 }
 
 
@@ -220,13 +223,4 @@ void Time2_AppInit(void)
 void PIDDimming_Init(void)
 {
     TMR4_PeriodMatchCallbackRegister(Dimming_Pid);
-}
-
-
-void Display(void)
-{
-   
-  printf("|%d|%d|%d|\n\r",PIDflag1,V_Ret1,V_Ret2);
-  printf("CH1|%.2f|%.2f |%d|%d|\n\r ",power_pwm,get_current(OUT_CURRENT1),pwm1,Power_Compensation());
-  printf("CH2|%.2f|%.2f |%d|\n\r ",TARGET_CURRENT_2,get_current(OUT_CURRENT2),pwm2); 
 }

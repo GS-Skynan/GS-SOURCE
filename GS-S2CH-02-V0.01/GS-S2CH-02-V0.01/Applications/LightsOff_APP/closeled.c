@@ -161,11 +161,6 @@ void ResetPWMAndGPIO(void)
     RELAY_Off(RELAY_CHANNEL1);
     RELAY_Off(RELAY_CHANNEL2); 
     pfc_flag = 1;
-    for (int i = 0; i < 9; i++) {                       
-        while (!UART2_IsTxReady());                     
-        UART2_Write(CLOSE_DA[i]);                       
-        while (!UART2_IsTxDone());                      
-    }
 }
 
 

@@ -102,7 +102,6 @@ void NFC_SendMCU2Task(void)
     if(start_flag==1&&muc2flag==1)
     {
         muc2flag=0;
-        UART2_SendData(NFC_MCU2_DATA,sizeof(NFC_MCU2_DATA));
         memset(NFC_MCU2_DATA,0,sizeof(NFC_MCU2_DATA));
     }
    
@@ -223,83 +222,83 @@ void NFC_datajudge(uint8_t *data)
 }
 
 
-void Rated_Current(uint8_t *data)   //启动默认电流
-{
-  if(err1==1){
-    unsigned int CRC_RESULT;
-    //更改电流
-     NFC_data[2] = UART_read1[0];     
-     NFC_data[3] = UART_read1[1];          //通道一
-     if(UART_read1[0] <= 0x16 )UART_read1[0] = NFC_data[2] = 0x16;
-     NFC_data[6] = UART_read2[0];
-     NFC_data[7] = UART_read2[1];          //通道二
-     if(UART_read2[0] <= 0x75 )UART_read2[0] = NFC_data[6] = 0x75;
-     NFC_data[10] = UART_read3[0];
-     NFC_data[11] = UART_read3[1];          //通道三
-     if(UART_read3[0] <= 0x03 )UART_read3[0] = NFC_data[10] = 0x03;
-     NFC_data[14] = UART_read4[0];
-     NFC_data[15] = UART_read4[1];
-     if(UART_read4[0] <= 0x02 )UART_read4[0] = NFC_data[14] = 0x02;
-     if(data[1]==0x11)                  //立即设置
-     {
-        power_Hold_1 = extractAndCombineEEPROMData(UART_read1[0], UART_read1[1]);  
-        CURRENT_1 = power_Hold_1;
-        if(CURRENT_1 <=1800 && CURRENT_1 >0)CURRENT_1=1800;
-        if(CURRENT_1 >= 3400)CURRENT_1 = 3400;
-        /*2通道*/
-         power_Hold_2 = extractAndCombineEEPROMData(UART_read2[0], UART_read2[1]);  
-        CURRENT_2 =  power_Hold_2;    
-        if(CURRENT_2 >0 && CURRENT_2 <= 600)CURRENT_2 = 600;
-        if(CURRENT_2 >=1000)CURRENT_2=1000;
-     }
-    //更改NFC
-     if(rs485_flag==1)
-     {
-          Write_NFC_Data(0x0000,NFC_data,16);
-       // while(!I2C1_Write(0x53, NFC_data, 72));
-        // __delay_ms(100);
-         readNFC_flag=1;
-         if(readNFC_flag==1)              //从新读取NFC数据进行返回应答
-         {
-            // __delay_ms(100);
-           //READ_NFC_SET_START(2);
-             Read_NFC_Data(0x0000,NFC_receiveData,16);            
-            // __delay_ms(100);
-             readNFC_flag=0;
-         }
-         reply_buffer[0]=0x55;
-         if(con1!=0){                     //根据通道选择返回位置
-             reply_buffer[2*con1+5]= NFC_receiveData[2];
-             reply_buffer[2*con1+6]= NFC_receiveData[3]; 
-         }
-         if(con2!=0){
-             reply_buffer[2*con2+5]= NFC_receiveData[6];
-             reply_buffer[2*con2+6]= NFC_receiveData[7]; 
-         }
-         if(con3!=0){
-             reply_buffer[2*con3+5]= NFC_receiveData[10];
-             reply_buffer[2*con3+6]= NFC_receiveData[11]; 
-         }
-          if(con4!=0){
-             reply_buffer[2*con4+5]= NFC_receiveData[14];
-             reply_buffer[2*con4+6]= NFC_receiveData[15]; 
-         }
-        /*将CRC检验结果*/
-        CRC_RESULT = CRC16(reply_buffer,15);
-        reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
-        reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;
-         //计时
-         reply_flag=1;           
-     }
-
-         //应答 
-     if(reply_ok==1 && rs485_flag==1 )
-     {       
-         Rs485_DataSend(reply_buffer,17);    //返回应答数组
-         reply_ok=0;
-     } 
-   }else error_flag=1;
-}
+//void Rated_Current(uint8_t *data)   //启动默认电流
+//{
+//  if(err1==1){
+//    unsigned int CRC_RESULT;
+//    //更改电流
+//     NFC_data[2] = UART_read1[0];     
+//     NFC_data[3] = UART_read1[1];          //通道一
+//     if(UART_read1[0] <= 0x16 )UART_read1[0] = NFC_data[2] = 0x16;
+//     NFC_data[6] = UART_read2[0];
+//     NFC_data[7] = UART_read2[1];          //通道二
+//     if(UART_read2[0] <= 0x75 )UART_read2[0] = NFC_data[6] = 0x75;
+//     NFC_data[10] = UART_read3[0];
+//     NFC_data[11] = UART_read3[1];          //通道三
+//     if(UART_read3[0] <= 0x03 )UART_read3[0] = NFC_data[10] = 0x03;
+//     NFC_data[14] = UART_read4[0];
+//     NFC_data[15] = UART_read4[1];
+//     if(UART_read4[0] <= 0x02 )UART_read4[0] = NFC_data[14] = 0x02;
+//     if(data[1]==0x11)                  //立即设置
+//     {
+//        power_Hold_1 = extractAndCombineEEPROMData(UART_read1[0], UART_read1[1]);  
+//        CURRENT_1 = power_Hold_1;
+//        if(CURRENT_1 <=1800 && CURRENT_1 >0)CURRENT_1=1800;
+//        if(CURRENT_1 >= 3400)CURRENT_1 = 3400;
+//        /*2通道*/
+//         power_Hold_2 = extractAndCombineEEPROMData(UART_read2[0], UART_read2[1]);  
+//        CURRENT_2 =  power_Hold_2;    
+//        if(CURRENT_2 >0 && CURRENT_2 <= 600)CURRENT_2 = 600;
+//        if(CURRENT_2 >=1000)CURRENT_2=1000;
+//     }
+//    //更改NFC
+//     if(rs485_flag==1)
+//     {
+//          Write_NFC_Data(0x0000,NFC_data,16);
+//       // while(!I2C1_Write(0x53, NFC_data, 72));
+//        // __delay_ms(100);
+//         readNFC_flag=1;
+//         if(readNFC_flag==1)              //从新读取NFC数据进行返回应答
+//         {
+//            // __delay_ms(100);
+//           //READ_NFC_SET_START(2);
+//             Read_NFC_Data(0x0000,NFC_receiveData,16);            
+//            // __delay_ms(100);
+//             readNFC_flag=0;
+//         }
+//         reply_buffer[0]=0x55;
+//         if(con1!=0){                     //根据通道选择返回位置
+//             reply_buffer[2*con1+5]= NFC_receiveData[2];
+//             reply_buffer[2*con1+6]= NFC_receiveData[3]; 
+//         }
+//         if(con2!=0){
+//             reply_buffer[2*con2+5]= NFC_receiveData[6];
+//             reply_buffer[2*con2+6]= NFC_receiveData[7]; 
+//         }
+//         if(con3!=0){
+//             reply_buffer[2*con3+5]= NFC_receiveData[10];
+//             reply_buffer[2*con3+6]= NFC_receiveData[11]; 
+//         }
+//          if(con4!=0){
+//             reply_buffer[2*con4+5]= NFC_receiveData[14];
+//             reply_buffer[2*con4+6]= NFC_receiveData[15]; 
+//         }
+//        /*将CRC检验结果*/
+//        CRC_RESULT = CRC16(reply_buffer,15);
+//        reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
+//        reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;
+//         //计时
+//         reply_flag=1;           
+//     }
+//
+//         //应答 
+//     if(reply_ok==1 && rs485_flag==1 )
+//     {       
+//         Rs485_DataSend(reply_buffer,17);    //返回应答数组
+//         reply_ok=0;
+//     } 
+//   }else error_flag=1;
+//}
 
 
 
@@ -398,278 +397,276 @@ void Startup_Power(void)  //启动默认功率
     }else error_flag=1;
 }
 #endif
-unsigned int Compensation_Flag_2 = 1,Compensation_Flag_3 = 1,Compensation_Flag_4 = 1;     //消除补偿，需要只执行一次
-unsigned int Compensation_Flag_2_3_4 = 1;
-
-void Startup_State(uint8_t *data)  //启动默认状态
-{
-    if(err2==1){
-        unsigned int CRC_RESULT;
-       //更改初始状态1
-        if(UART_read1[0]==0x00)
-        {
-            unsigned char num = ((UART_read1[1]>>4)*10) + (UART_read1[1]&0x0F);  //转化
-            NFC_data[0] = num; 
-           if(data[1]==0x61) UART_REG1_Pre = UART_REG1 = num;
-        }
-    //       /*判断关灯时候消除1通道的补偿,需要只执行一次*/
-         if(UART_read1[0]==0x01 && UART_read1[1]==0x00)   //100即0x64时候，最大的情况
-        {
-            NFC_data[0] = 0x64; 
-            if(data[1]==0x61) UART_REG1_Pre =  UART_REG1 = 0x64;
-        }
-        //更改初始状态2
-        if(UART_read2[0]==0x00)
-        {
-            unsigned char num2 = ((UART_read2[1]>>4)*10) + (UART_read2[1]&0x0F);  //转化
-            NFC_data[4] = num2; 
-            if(data[1]==0x61)  UART_REG2_Pre =  UART_REG2 = num2;
-        }
-         if(UART_read2[0]==0x01 && UART_read2[1]==0x00)
-        {
-            NFC_data[4] = 0x64; 
-            if(data[1]==0x61)  UART_REG2_Pre =  UART_REG2 = 0x64;       
-        }
-        //更改初始状态3
-        if(UART_read3[0]==0x00)
-        {
-            unsigned char num = ((UART_read3[1]>>4)*10) + (UART_read3[1]&0x0F);  //转化
-            NFC_data[8] = num; 
-           if(data[1]==0x61)  UART_REG3_Pre = UART_REG3 = num;
-        }
-        if(UART_read3[0]==0x01 && UART_read3[1]==0x00)   //100即0x64时候，最大的情况
-        {
-            NFC_data[8] = 0x64; 
-            if(data[1]==0x61)  UART_REG3_Pre =  UART_REG3 = 0x64;
-        }
-        //更改初始状态4
-        if(UART_read4[0]==0x00)
-        {
-            unsigned char num = ((UART_read4[1]>>4)*10) + (UART_read4[1]&0x0F);  //转化
-            NFC_data[12] = num; 
-            if(data[1]==0x61) UART_REG4_Pre =  UART_REG4 = num;    
-        }  
-        if(UART_read4[0]==0x01 && UART_read4[1]==0x00)   //100即0x64时候，最大的情况
-        {
-            NFC_data[12] = 0x64; 
-            if(data[1]==0x61) UART_REG4_Pre = UART_REG4 = 0x64;
-        }
-
-        //更改NFC
-        if(rs485_flag==1)
-        {
-            Write_NFC_Data(0x0000,NFC_data,16);
-           // while(!I2C1_Write(0x53, NFC_data, 72));
-           // __delay_ms(100);
-            readNFC_flag=1;
-            if(readNFC_flag==1)
-            {
-                __delay_ms(100);
-                //READ_NFC_SET_START(2);
-                ///__delay_ms(100);
-                Read_NFC_Data(0x0000,NFC_receiveData,16);
-                readNFC_flag=0;
-            }
-
-            reply_buffer[0]=0x55;
-            if(con1!=0){
-                if(NFC_receiveData[0]==0x64)
-                {
-                    reply_buffer[2*con1+5] = 0x01;
-                    reply_buffer[2*con1+6] = 0x00;     
-                }
-                else
-                {
-                    reply_buffer[2*con1+5] = 0x00;
-                    reply_buffer[2*con1+6] = ((NFC_receiveData[0] / 10) << 4) | (NFC_receiveData[0] % 10);
-                }
-            }
-            if(con2!=0){
-                if(NFC_receiveData[4] == 0x64)
-                {
-                    reply_buffer[2*con2+5]=0x01;
-                    reply_buffer[2*con2+6]= 0x00;     
-                }
-                else
-                {
-                    reply_buffer[2*con2+5]=0x00;
-                    reply_buffer[2*con2+6]= ((NFC_receiveData[4] / 10) << 4) | (NFC_receiveData[4] % 10);
-                }
-            }
-            if(con3!=0){
-                if(NFC_receiveData[8] == 0x64)
-                {
-                    reply_buffer[2*con2+5]=0x01;
-                    reply_buffer[2*con2+6]= 0x00;     
-                }
-                else
-                {
-                    reply_buffer[2*con2+5]=0x00;
-                    reply_buffer[2*con2+6]= ((NFC_receiveData[8] / 10) << 4) | (NFC_receiveData[8] % 10);
-                }
-            }
-            if(con4!=0){
-                if(NFC_receiveData[12] == 0x64)
-                {
-                    reply_buffer[2*con2+5]=0x01;
-                    reply_buffer[2*con2+6]= 0x00;     
-                }
-                else
-                {
-                    reply_buffer[2*con2+5]=0x00;
-                    reply_buffer[2*con2+6]= ((NFC_receiveData[12] / 10) << 4) | (NFC_receiveData[12] % 10);
-                }
-            }
-            CRC_RESULT = CRC16(reply_buffer,15);
-            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
-            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;
-            //MoBusCRC16(reply_buffer,15);
-            //计时
-            reply_flag=1;
-        }
-
-        //应答 
-        if(reply_ok==1 && rs485_flag==1 )
-        {
-            Rs485_DataSend(reply_buffer,17);
-            reply_ok=0;
-        } 
-    }else error_flag=1;
-}
-
-/************************************************
- * @brief 涨功率时间
- ***********************************************/
-void Power_UpTime(uint8_t *data)  //涨功率时间
-{
-    if(err3==1){
-            unsigned int CRC_RESULT;
-            NFC_data[64] = UART_read1[0];                 //固定位置
-            NFC_data[65] = UART_read1[1];
-            time_H = (((UART_read1[0]>>4)*10) + (UART_read1[0]&0x0F));
-            time_L = (((UART_read1[1]>>4)*10) + (UART_read1[1]&0x0F));
-            if(data[1] == 0x51){
-            /*时间初始化*/
-            power_time = ((time_H * 100) + time_L);  
-            power_time=power_time*1000;
-           // time11 = ((float)(4+power_time)/4.0f * (CURRENT_1 /3226.0f));    
-#ifdef POWER                
-                time2 = power_time-(float)((187.0f - POWER2)/12) - 5;
-#endif                
-            }
-        //更改NFC
-        if(rs485_flag==1)
-        {
-            //while(!I2C1_Write(0x53, NFC_data, 72));
-             Write_NFC_Data(0x0000,NFC_data,16);
-           // __delay_ms(100);
-            readNFC_flag=1;
-            if(readNFC_flag==1)
-            {
-                __delay_ms(100);
-                Read_NFC_Data(0x0000,NFC_receiveData,16);
-                //READ_NFC_SET_START(2);
-               // __delay_ms(100);
-                readNFC_flag=0;
-            }
-            reply_buffer[0]=0x55;
-            if(con1!=0){
-                reply_buffer[2*con1+5]= NFC_receiveData[64];
-                reply_buffer[2*con1+6]= NFC_receiveData[65]; 
-            }
-            CRC_RESULT = CRC16(reply_buffer,15);
-            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
-            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;  
-            //计时
-            reply_flag=1;
-        }
-        //应答 
-        if(reply_ok==1 && rs485_flag==1 )
-        {
-            Rs485_DataSend(reply_buffer,17);
-            reply_ok=0;
-        }
-    }else error_flag=1;
-}
-void Channel_changes(uint8_t *data)
-{
-    unsigned int CRC_RESULT;
-    if(err6==1){
-        NFC_data[33] = data[8];
-        NFC_data[37] = data[10];
-        NFC_data[41] = data[12];
-        NFC_data[45] = data[14]; 
-       if(data[1] == 0x71){
-           //直接改变
-            I2C_receiveData[1]=data[8];    // 第1位
-            I2C_receiveData[5]=data[10];   // 第5位
-            I2C_receiveData[9]=data[12];   // 第9位
-            I2C_receiveData[13]=data[14];   // 第13位
-       }
-       //更改NFCI2C_receiveData
-        if(rs485_flag==1)
-        {
-              Write_NFC_Data(0x0000,NFC_data,16);
-            //while(!I2C1_Write(0x53, NFC_data, 72));//写入NFC
-            //__delay_ms(100);
-            readNFC_flag=1;
-            if(readNFC_flag==1)
-            {
-                 __delay_ms(100);
-                //READ_NFC_SET_START(2);
-               // __delay_ms(100);
-                  Read_NFC_Data(0x0000,NFC_receiveData,16);
-                readNFC_flag=0;
-            }
-            reply_buffer[0]=0x55;
-
-            reply_buffer[8]=  NFC_receiveData[1];
-            reply_buffer[10]= NFC_receiveData[5]; 
-            reply_buffer[12]= NFC_receiveData[9];
-            reply_buffer[14]= NFC_receiveData[13]; 
-
-            CRC_RESULT = CRC16(reply_buffer,15);
-            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
-            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;  
-            //计时
-            reply_flag=1;
-        }
-        //应答 
-        if(reply_ok==1 && rs485_flag==1 )
-        {
-            Rs485_DataSend(reply_buffer,17);
-            reply_ok=0;
-        }
-      }else error_flag=1;
-}
-
-/*********************************************************
- * @brief 错误判断
- * 
- * @param  err 错误类型标志
- * 
- * @return 正常：1  错误：0 
- *********************************************************/
-unsigned int State_error(unsigned int err) 
-{
-
-    if(err>=1 && err<=4)
-    {
-        if ((Channel_selection == 1)|| err==3) {
-            return is_valid_data(UART_read1,err);
-        } 
-        else if (Channel_selection == 2) {
-            return (is_valid_data(UART_read1,err) && is_valid_data(UART_read2,err));
-        }
-    }
-    if(err==5){
-         return !is_valid_data(UART_read1,err);
-    }
-    if(err==6){
-         return is_valid_data(UART_read1,err);
-    }
-//    return 0; // 默认返回 false，表示错误
-}
+//
+//void Startup_State(uint8_t *data)  //启动默认状态
+//{
+//    if(err2==1){
+//        unsigned int CRC_RESULT;
+//       //更改初始状态1
+//        if(UART_read1[0]==0x00)
+//        {
+//            unsigned char num = ((UART_read1[1]>>4)*10) + (UART_read1[1]&0x0F);  //转化
+//            NFC_data[0] = num; 
+//           if(data[1]==0x61) UART_REG1_Pre = UART_REG1 = num;
+//        }
+//    //       /*判断关灯时候消除1通道的补偿,需要只执行一次*/
+//         if(UART_read1[0]==0x01 && UART_read1[1]==0x00)   //100即0x64时候，最大的情况
+//        {
+//            NFC_data[0] = 0x64; 
+//            if(data[1]==0x61) UART_REG1_Pre =  UART_REG1 = 0x64;
+//        }
+//        //更改初始状态2
+//        if(UART_read2[0]==0x00)
+//        {
+//            unsigned char num2 = ((UART_read2[1]>>4)*10) + (UART_read2[1]&0x0F);  //转化
+//            NFC_data[4] = num2; 
+//            if(data[1]==0x61)  UART_REG2_Pre =  UART_REG2 = num2;
+//        }
+//         if(UART_read2[0]==0x01 && UART_read2[1]==0x00)
+//        {
+//            NFC_data[4] = 0x64; 
+//            if(data[1]==0x61)  UART_REG2_Pre =  UART_REG2 = 0x64;       
+//        }
+//        //更改初始状态3
+//        if(UART_read3[0]==0x00)
+//        {
+//            unsigned char num = ((UART_read3[1]>>4)*10) + (UART_read3[1]&0x0F);  //转化
+//            NFC_data[8] = num; 
+//           if(data[1]==0x61)  UART_REG3_Pre = UART_REG3 = num;
+//        }
+//        if(UART_read3[0]==0x01 && UART_read3[1]==0x00)   //100即0x64时候，最大的情况
+//        {
+//            NFC_data[8] = 0x64; 
+//            if(data[1]==0x61)  UART_REG3_Pre =  UART_REG3 = 0x64;
+//        }
+//        //更改初始状态4
+//        if(UART_read4[0]==0x00)
+//        {
+//            unsigned char num = ((UART_read4[1]>>4)*10) + (UART_read4[1]&0x0F);  //转化
+//            NFC_data[12] = num; 
+//            if(data[1]==0x61) UART_REG4_Pre =  UART_REG4 = num;    
+//        }  
+//        if(UART_read4[0]==0x01 && UART_read4[1]==0x00)   //100即0x64时候，最大的情况
+//        {
+//            NFC_data[12] = 0x64; 
+//            if(data[1]==0x61) UART_REG4_Pre = UART_REG4 = 0x64;
+//        }
+//
+//        //更改NFC
+//        if(rs485_flag==1)
+//        {
+//            Write_NFC_Data(0x0000,NFC_data,16);
+//           // while(!I2C1_Write(0x53, NFC_data, 72));
+//           // __delay_ms(100);
+//            readNFC_flag=1;
+//            if(readNFC_flag==1)
+//            {
+//                __delay_ms(100);
+//                //READ_NFC_SET_START(2);
+//                ///__delay_ms(100);
+//                Read_NFC_Data(0x0000,NFC_receiveData,16);
+//                readNFC_flag=0;
+//            }
+//
+//            reply_buffer[0]=0x55;
+//            if(con1!=0){
+//                if(NFC_receiveData[0]==0x64)
+//                {
+//                    reply_buffer[2*con1+5] = 0x01;
+//                    reply_buffer[2*con1+6] = 0x00;     
+//                }
+//                else
+//                {
+//                    reply_buffer[2*con1+5] = 0x00;
+//                    reply_buffer[2*con1+6] = ((NFC_receiveData[0] / 10) << 4) | (NFC_receiveData[0] % 10);
+//                }
+//            }
+//            if(con2!=0){
+//                if(NFC_receiveData[4] == 0x64)
+//                {
+//                    reply_buffer[2*con2+5]=0x01;
+//                    reply_buffer[2*con2+6]= 0x00;     
+//                }
+//                else
+//                {
+//                    reply_buffer[2*con2+5]=0x00;
+//                    reply_buffer[2*con2+6]= ((NFC_receiveData[4] / 10) << 4) | (NFC_receiveData[4] % 10);
+//                }
+//            }
+//            if(con3!=0){
+//                if(NFC_receiveData[8] == 0x64)
+//                {
+//                    reply_buffer[2*con2+5]=0x01;
+//                    reply_buffer[2*con2+6]= 0x00;     
+//                }
+//                else
+//                {
+//                    reply_buffer[2*con2+5]=0x00;
+//                    reply_buffer[2*con2+6]= ((NFC_receiveData[8] / 10) << 4) | (NFC_receiveData[8] % 10);
+//                }
+//            }
+//            if(con4!=0){
+//                if(NFC_receiveData[12] == 0x64)
+//                {
+//                    reply_buffer[2*con2+5]=0x01;
+//                    reply_buffer[2*con2+6]= 0x00;     
+//                }
+//                else
+//                {
+//                    reply_buffer[2*con2+5]=0x00;
+//                    reply_buffer[2*con2+6]= ((NFC_receiveData[12] / 10) << 4) | (NFC_receiveData[12] % 10);
+//                }
+//            }
+//            CRC_RESULT = CRC16(reply_buffer,15);
+//            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
+//            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;
+//            //MoBusCRC16(reply_buffer,15);
+//            //计时
+//            reply_flag=1;
+//        }
+//
+//        //应答 
+//        if(reply_ok==1 && rs485_flag==1 )
+//        {
+//            Rs485_DataSend(reply_buffer,17);
+//            reply_ok=0;
+//        } 
+//    }else error_flag=1;
+//}
+//
+///************************************************
+// * @brief 涨功率时间
+// ***********************************************/
+//void Power_UpTime(uint8_t *data)  //涨功率时间
+//{
+//    if(err3==1){
+//            unsigned int CRC_RESULT;
+//            NFC_data[64] = UART_read1[0];                 //固定位置
+//            NFC_data[65] = UART_read1[1];
+//            time_H = (((UART_read1[0]>>4)*10) + (UART_read1[0]&0x0F));
+//            time_L = (((UART_read1[1]>>4)*10) + (UART_read1[1]&0x0F));
+//            if(data[1] == 0x51){
+//            /*时间初始化*/
+//            power_time = ((time_H * 100) + time_L);  
+//            power_time=power_time*1000;
+//           // time11 = ((float)(4+power_time)/4.0f * (CURRENT_1 /3226.0f));    
+//#ifdef POWER                
+//                time2 = power_time-(float)((187.0f - POWER2)/12) - 5;
+//#endif                
+//            }
+//        //更改NFC
+//        if(rs485_flag==1)
+//        {
+//            //while(!I2C1_Write(0x53, NFC_data, 72));
+//             Write_NFC_Data(0x0000,NFC_data,16);
+//           // __delay_ms(100);
+//            readNFC_flag=1;
+//            if(readNFC_flag==1)
+//            {
+//                __delay_ms(100);
+//                Read_NFC_Data(0x0000,NFC_receiveData,16);
+//                //READ_NFC_SET_START(2);
+//               // __delay_ms(100);
+//                readNFC_flag=0;
+//            }
+//            reply_buffer[0]=0x55;
+//            if(con1!=0){
+//                reply_buffer[2*con1+5]= NFC_receiveData[64];
+//                reply_buffer[2*con1+6]= NFC_receiveData[65]; 
+//            }
+//            CRC_RESULT = CRC16(reply_buffer,15);
+//            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
+//            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;  
+//            //计时
+//            reply_flag=1;
+//        }
+//        //应答 
+//        if(reply_ok==1 && rs485_flag==1 )
+//        {
+//            Rs485_DataSend(reply_buffer,17);
+//            reply_ok=0;
+//        }
+//    }else error_flag=1;
+//}
+//void Channel_changes(uint8_t *data)
+//{
+//    unsigned int CRC_RESULT;
+//    if(err6==1){
+//        NFC_data[33] = data[8];
+//        NFC_data[37] = data[10];
+//        NFC_data[41] = data[12];
+//        NFC_data[45] = data[14]; 
+//       if(data[1] == 0x71){
+//           //直接改变
+//            I2C_receiveData[1]=data[8];    // 第1位
+//            I2C_receiveData[5]=data[10];   // 第5位
+//            I2C_receiveData[9]=data[12];   // 第9位
+//            I2C_receiveData[13]=data[14];   // 第13位
+//       }
+//       //更改NFCI2C_receiveData
+//        if(rs485_flag==1)
+//        {
+//              Write_NFC_Data(0x0000,NFC_data,16);
+//            //while(!I2C1_Write(0x53, NFC_data, 72));//写入NFC
+//            //__delay_ms(100);
+//            readNFC_flag=1;
+//            if(readNFC_flag==1)
+//            {
+//                 __delay_ms(100);
+//                //READ_NFC_SET_START(2);
+//               // __delay_ms(100);
+//                  Read_NFC_Data(0x0000,NFC_receiveData,16);
+//                readNFC_flag=0;
+//            }
+//            reply_buffer[0]=0x55;
+//
+//            reply_buffer[8]=  NFC_receiveData[1];
+//            reply_buffer[10]= NFC_receiveData[5]; 
+//            reply_buffer[12]= NFC_receiveData[9];
+//            reply_buffer[14]= NFC_receiveData[13]; 
+//
+//            CRC_RESULT = CRC16(reply_buffer,15);
+//            reply_buffer[16] = (CRC_RESULT >> 0) & 0xFF;
+//            reply_buffer[15] = (CRC_RESULT >> 8) & 0xFF;  
+//            //计时
+//            reply_flag=1;
+//        }
+//        //应答 
+//        if(reply_ok==1 && rs485_flag==1 )
+//        {
+//            Rs485_DataSend(reply_buffer,17);
+//            reply_ok=0;
+//        }
+//      }else error_flag=1;
+//}
+//
+///*********************************************************
+// * @brief 错误判断
+// * 
+// * @param  err 错误类型标志
+// * 
+// * @return 正常：1  错误：0 
+// *********************************************************/
+//unsigned int State_error(unsigned int err) 
+//{
+//
+//    if(err>=1 && err<=4)
+//    {
+//        if ((Channel_selection == 1)|| err==3) {
+//            return is_valid_data(UART_read1,err);
+//        } 
+//        else if (Channel_selection == 2) {
+//            return (is_valid_data(UART_read1,err) && is_valid_data(UART_read2,err));
+//        }
+//    }
+//    if(err==5){
+//         return !is_valid_data(UART_read1,err);
+//    }
+//    if(err==6){
+//         return is_valid_data(UART_read1,err);
+//    }
+////    return 0; // 默认返回 false，表示错误
+//}
 // 辅助函数：BCD转整数
 unsigned int bcd_to_int(uint8_t bcd) 
 {
@@ -680,71 +677,71 @@ unsigned int int_to_bcd(uint8_t intt)
 {
     return ((intt / 10) << 4) | (intt % 10);
 }
-/*********************************************************
- * @brief 选择对应类型，并进行相应的错误判断
- * 
- * @param  *data 对应通道数据
- * @param  state_error_flag 功能判断
- * 
- * @return 正常：1  错误：0  
- *********************************************************/
-unsigned int is_valid_data(unsigned char *data, unsigned int state_error_flag)
-{
-    // 转换BCD码
-//    unsigned int z1 = bcd_to_int(data[0]);
-//    unsigned int z2 = bcd_to_int(data[1]);
+///*********************************************************
+// * @brief 选择对应类型，并进行相应的错误判断
+// * 
+// * @param  *data 对应通道数据
+// * @param  state_error_flag 功能判断
+// * 
+// * @return 正常：1  错误：0  
+// *********************************************************/
+//unsigned int is_valid_data(unsigned char *data, unsigned int state_error_flag)
+//{
+//    // 转换BCD码
+////    unsigned int z1 = bcd_to_int(data[0]);
+////    unsigned int z2 = bcd_to_int(data[1]);
+////    
+////    // 从全局Rx_Buffer中取出相关位置的数值
+////    uint8_t a1 = UART1_Receive_Data[8];
+////    uint8_t a2 = UART1_Receive_Data[10];
+////    uint8_t a3 = UART1_Receive_Data[12];
+////    uint8_t a4 = UART1_Receive_Data[14];
+////
+////    switch(state_error_flag){
+////        case 1:  // 电流
+////        case 3:  // 涨功率时间    
+////        case 4:  // 功率
+////            // z1和z2应小于100且data不全为0
+////            return ((z1 < 100) && (z2 < 100) );    
+////            
+////        case 2:  // 初始状态
+////            return (z2 < 100);
+////            
+////        case 5:
+////            // 遍历Rx_Buffer中第7到15位，如果有非零则返回false
+////            for (int i = 7; i < 16; i++) {
+////                if (UART1_Receive_Data[i] != 0)
+////                    return false;
+////            }
+////            return true;
+////            
+////        case 6: {
+////            // 使用位掩码检查a1~a4：
+////            // 非零值必须在1~4之间，且出现时不能重复
+////            uint8_t arr[4];
+////            uint8_t mask = 0;
+////            arr[0]=a1; arr[1]=a2; arr[2]=a3; arr[3]=a4;
+////            for (int i = 0; i < 4; i++) {
+////                if (arr[i] != 0) {
+////                    if (arr[i] < 1 || arr[i] > 4)
+////                        return false;
+////                    if (mask & (1 << (arr[i] - 1)))
+////                        return false;  // 重复出现
+////                    mask |= (1 << (arr[i] - 1));
+////                }
+////            }
+////            return true;
+////        }
+////            
+////        default:
+////            return 0;
+////    }
 //    
-//    // 从全局Rx_Buffer中取出相关位置的数值
-//    uint8_t a1 = UART1_Receive_Data[8];
-//    uint8_t a2 = UART1_Receive_Data[10];
-//    uint8_t a3 = UART1_Receive_Data[12];
-//    uint8_t a4 = UART1_Receive_Data[14];
-//
-//    switch(state_error_flag){
-//        case 1:  // 电流
-//        case 3:  // 涨功率时间    
-//        case 4:  // 功率
-//            // z1和z2应小于100且data不全为0
-//            return ((z1 < 100) && (z2 < 100) );    
-//            
-//        case 2:  // 初始状态
-//            return (z2 < 100);
-//            
-//        case 5:
-//            // 遍历Rx_Buffer中第7到15位，如果有非零则返回false
-//            for (int i = 7; i < 16; i++) {
-//                if (UART1_Receive_Data[i] != 0)
-//                    return false;
-//            }
-//            return true;
-//            
-//        case 6: {
-//            // 使用位掩码检查a1~a4：
-//            // 非零值必须在1~4之间，且出现时不能重复
-//            uint8_t arr[4];
-//            uint8_t mask = 0;
-//            arr[0]=a1; arr[1]=a2; arr[2]=a3; arr[3]=a4;
-//            for (int i = 0; i < 4; i++) {
-//                if (arr[i] != 0) {
-//                    if (arr[i] < 1 || arr[i] > 4)
-//                        return false;
-//                    if (mask & (1 << (arr[i] - 1)))
-//                        return false;  // 重复出现
-//                    mask |= (1 << (arr[i] - 1));
-//                }
-//            }
-//            return true;
-//        }
-//            
-//        default:
-//            return 0;
-//    }
-    
-    return 1;
-}
-// 错误处理函数
-void handleError(void)
-{
-    // 错误处理逻辑
-    // 可以记录错误、发送错误信号或执行其他必要的操作
-}
+//    return 1;
+//}
+//// 错误处理函数
+//void handleError(void)
+//{
+//    // 错误处理逻辑
+//    // 可以记录错误、发送错误信号或执行其他必要的操作
+//}

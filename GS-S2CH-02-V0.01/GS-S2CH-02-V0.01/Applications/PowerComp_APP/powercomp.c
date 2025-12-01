@@ -22,6 +22,7 @@ uint16_t TARGET_CURRENT_1_Real;
  *                       这样做的情况可以很好的在混合开的时候，很好的控制功率
  */
 
+
 uint16_t Power_Compensation(void)
 {
     /*在此判断电流是否进入功率补偿*/ 
