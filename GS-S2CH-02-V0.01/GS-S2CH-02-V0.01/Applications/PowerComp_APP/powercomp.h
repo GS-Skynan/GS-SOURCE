@@ -16,7 +16,7 @@
 
 extern uint16_t TARGET_CURRENT_1_Real; 
 
-uint16_t Power_Compensation(void);
+//uint16_t Power_Compensation(void);
 
 
 

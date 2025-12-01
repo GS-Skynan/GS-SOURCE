@@ -22,30 +22,31 @@ float POWER2 = 1.56;
 float POWER3 = 1.8700;
 float POWER4 = 0.96;
 #else            //恒流
-float CURRENT_1 = 3250.0f;
-float CURRENT_2 = 898.0f;
-float CURRENT_3 = 817.0f;
-float CURRENT_4 = 420.0f;
+//float CURRENT_1 = 3250.0f;
+//float CURRENT_2 = 898.0f;
+//float CURRENT_3 = 817.0f;
+//float CURRENT_4 = 420.0f;
 #endif
 
 
 
 /* NFC功能相关变量 */
 //float   TARGET_CURRENT_1_Pre = (CURRENT_1 /100.0f * UART_REG1);
-#define TARGET_CURRENT_1 (CURRENT_1 /100.0f * UART_REG1)  //mA
-#define TARGET_CURRENT_2 (CURRENT_2 /100.0f * UART_REG2)
-#define TARGET_CURRENT_3 (CURRENT_3 /100.0f * UART_REG3)
-#define TARGET_CURRENT_4 (CURRENT_4 /100.0f * UART_REG4)
+//#define TARGET_CURRENT_1 (CURRENT_1 /100.0f * UART_REG1)  //mA
+//#define TARGET_CURRENT_2 (CURRENT_2 /100.0f * UART_REG2)
+//#define TARGET_CURRENT_3 (CURRENT_3 /100.0f * UART_REG3)
+//#define TARGET_CURRENT_4 (CURRENT_4 /100.0f * UART_REG4)
 
 void ReadCurrentInit(uint8_t* nfcData);
+uint16_t Power_Compensation(void);
 
-extern uint16_t power_Hold_1,power_Hold_2,power_Hold_3,power_Hold_4; 
-extern uint8_t UART_REG1,UART_REG2,UART_REG3,UART_REG4;
-extern uint8_t UART_REG1_Pre,UART_REG2_Pre,UART_REG3_Pre,UART_REG4_Pre;
+extern uint16_t power_Hold_1,power_Hold_2; 
+extern uint8_t UART_REG1,UART_REG2;
+extern uint8_t UART_REG1_Pre,UART_REG2_Pre;
 
+extern uint16_t power_time;
 
-extern uint8_t time_H,time_L;
-extern uint16_t power_time,time2;  
+void ReadNfcNumber(void);
 
 #endif 
 

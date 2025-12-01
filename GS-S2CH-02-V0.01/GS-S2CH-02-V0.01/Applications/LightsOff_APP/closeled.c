@@ -18,7 +18,7 @@ uint16_t CLOSE2;
 void ALL_Closed(void)
 {
         // 检查所有通道（1、2、3、4）的值是否都小于 1
-    if ((UART_REG1 < 0x01 && UART_REG2 < 0x01 && UART_REG3 < 0x01 && UART_REG4 < 0x01)) {
+    if ((UART_REG1 < 0x01 && UART_REG2 < 0x01)) {
         // 关闭 PFC（功率因数校正）
 //        PFC_SetLow();
         PFC_Off();

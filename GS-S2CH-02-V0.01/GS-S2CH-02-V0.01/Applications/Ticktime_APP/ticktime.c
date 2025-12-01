@@ -179,8 +179,8 @@ static void Time0_start(void)
         }             
 }
 
- float g_Voltage;
- float powernum;
+float g_Voltage1,g_Voltage2;
+float powernum1,powernum2;
 static void Dimming_Pid(void)
 {      
     if(PIDflag1!=0) pidtime1++;
@@ -188,23 +188,24 @@ static void Dimming_Pid(void)
     {
         if(PIDflag1==1||PIDflag1==3)
         { 
-            g_Voltage = ((float)ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-            powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
+            g_Voltage1 = ((float)ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+            powernum1= (float)get_current(OUT_CURRENT1)*g_Voltage1/1000.0f;
             pwm_output = simple_regulator(power_pwm, power_time);         
-            pwm1= PID_Compute(&pid1, pwm_output,powernum);                            
+            pwm1= PID_Compute(&pid1, pwm_output,powernum1);                            
             PWM_Set_Direct(PWM_CHANNEL_1,pwm1);        
-        }
-        
+        }       
     }
-//    if(pidtime1==20)
-//    {
-//       if(PIDflag1==2||PIDflag1==3)
-//        {
-//            pwm2= PID_Compute(&pid2, TARGET_CURRENT_2,get_current(OUT_CURRENT2));                             
-//            PWM_Set_Direct(PWM_CHANNEL_2,pwm2);  
-//        }
-//        pidtime1=0;
-//    }
+    if(pidtime1==20)
+    {
+       if(PIDflag1==2||PIDflag1==3)
+        {
+            g_Voltage2 = ((float)ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+            powernum2= (float)get_current(OUT_CURRENT2)*g_Voltage2/1000.0f;
+            pwm2= PID_Compute(&pid2, 50,powernum2);                             
+            PWM_Set_Direct(PWM_CHANNEL_2,pwm2);  
+        }
+        pidtime1=0;
+    }
 }
 
 

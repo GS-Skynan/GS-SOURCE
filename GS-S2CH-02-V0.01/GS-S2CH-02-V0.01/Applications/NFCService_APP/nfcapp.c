@@ -14,7 +14,6 @@
 
 uint8_t I2C_receiveData[72];
 uint8_t NFC_data[72];      //NFC数据
-uint8_t NFC_MCU2_DATA[9];
  
 uint8_t Channel_selection=2;            //通道机型选择标志位   1-4
 uint16_t Mode_selection=1;
@@ -32,11 +31,8 @@ static uint8_t muc2flag=1;
 
 void NFCRead_APPInit(void)
 {
-    READ_NFC_SET_START(); 
-    
+    READ_NFC_SET_START();     
     Read_NFC_Data(0x0000,I2C_receiveData,MAX_NFC_DATA_LENGTH);
-    ReadCurrentInit(I2C_receiveData);   
-    
     __delay_ms(10);                                                                // 必须有延时 
    NFC_Data_Process(I2C_receiveData);   
 }
@@ -60,52 +56,10 @@ void NFC_Data_Process(uint8_t* nfcData)
     {
         NFC_data[u]=I2C_receiveData[u];
     }
- 
-    // 设置NFC_MCU2_DATA数组的第一个元素为0x12，作为标识头
-    NFC_MCU2_DATA[0] = 0x12;
-    
-    // 从I2C接收数据中提取时间相关的数据（这里I2C_receiveData[64]和I2C_receiveData[65]是涨功率时间相关的数据）
-    // 并将其存储到NFC_MCU2_DATA数组的第二个和第三个元素中，用于表示时间
-    NFC_MCU2_DATA[1] = I2C_receiveData[64];
-    NFC_MCU2_DATA[2] = I2C_receiveData[65];
-
-    // 从I2C接收数据中提取3通道相关的数据
-    // 并将其存储到NFC_MCU2_DATA数组的第四、第五个元素中
-    NFC_MCU2_DATA[3] = I2C_receiveData[8];
-//    NFC_MCU2_DATA[3] = 0x00;
-    NFC_MCU2_DATA[4] = I2C_receiveData[10];
-    NFC_MCU2_DATA[5] = I2C_receiveData[11];
-    // 从I2C接收数据中提取4通道相关的数据
-    // 并将其存储到NFC_MCU2_DATA数组的第六、第七、第八个元素中
-    NFC_MCU2_DATA[6] = I2C_receiveData[12];
-//    NFC_MCU2_DATA[6] = 0x00;
-    NFC_MCU2_DATA[7] = I2C_receiveData[14];
-    NFC_MCU2_DATA[8] = I2C_receiveData[15];
-    
-    // 将NFC_MCU2_DATA数组中的数据通过UART2发送出去
-    // 循环遍历数组，每次等待UART2发送缓冲区就绪后发送一个字节的数据
-    // 并等待该字节数据发送完成后再发送下一个字节
-//UART2_SendData(NFC_MCU2_DATA,sizeof(NFC_MCU2_DATA));
-//     for(uint8_t i = 0;i<9 ;i++){
-//        while(!UART2_IsTxReady());
-//        UART2_Write(NFC_MCU2_DATA[i]);
-//        while(!UART2_IsTxDone());       
-//    }
-
-    // 数据发送完成后，将NFC_MCU2_DATA数组清零，释放内存空间或为下一次使用做准备
-//    memset(NFC_MCU2_DATA,0,sizeof(NFC_MCU2_DATA));  
+  
 }
 
-void NFC_SendMCU2Task(void)
-{
-     
-    if(start_flag==1&&muc2flag==1)
-    {
-        muc2flag=0;
-        memset(NFC_MCU2_DATA,0,sizeof(NFC_MCU2_DATA));
-    }
-   
-}
+
 
 
 

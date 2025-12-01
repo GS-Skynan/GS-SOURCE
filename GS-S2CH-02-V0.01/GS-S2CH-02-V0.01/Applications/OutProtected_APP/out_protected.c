@@ -86,7 +86,7 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
         //   3. 考虑10%的过压裕量：* 1.10
         //   4. 分压电路转换：实际ADC值 = 目标电压 * (18/3018)
         //   5. 转换为mV单位：* 1000
-        float Channel_1_Over_Volate = (float)(RED_POWER/(CURRENT_1/1000.0f)*1.10/3018.0f*18)*1000;        
+        float Channel_1_Over_Volate = (float)(RED_POWER/(2000.0f/1000.0f)*1.10/3018.0f*18)*1000;        
  
         // 读取当前通道的ADC值
         adc_value[0] = ADC_Result2(channel);       
@@ -111,7 +111,7 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
     {
         // 动态计算过压阈值（单位：mV）
         // 与通道1类似，但目标功率为153W
-        float Channel_2_Over_Volate = (float)(INFRARED_POWER/(CURRENT_2/1000.0f)*1.15/3018.0f*18)*1000;       
+        float Channel_2_Over_Volate = (float)(INFRARED_POWER/(750.0f/1000.0f)*1.15/3018.0f*18)*1000;       
         // 读取当前通道的ADC值
         adc_value[1] = ADC_Result2(channel);       
         // 判断过压、开路或欠压状态(欠压：80V)

@@ -42,7 +42,7 @@ void RS485(uint8_t *data, uint8_t length)
             /*保存数据到应答缓冲区*/
             memcpy(reply_buffer, data, length);
 
-            NFC_datajudge(data);
+           // NFC_datajudge(data);
             //NFC通道判断                     
             /*调光指令处理（帧头为0x00）*/
             if (data[0] == 0x00) //调光数据判断
@@ -90,7 +90,9 @@ void Display(void)
     // float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
     // printf("|V:%d|\n\r",ADC_Result2(Input_voltage_ADC));
     printf("CH1|I:%.2f|PWM:%d|V:%.2f|POW:%.2f|\n\r ",
-           get_current(OUT_CURRENT1), pwm1, g_Voltage,powernum);
+           get_current(OUT_CURRENT1), pwm1, g_Voltage1,powernum1);
+   printf("CH2|I:%.2f|PWM:%d|V:%.2f|POW:%.2f|\n\r ",
+           get_current(OUT_CURRENT2), pwm2, g_Voltage2,powernum2);
 
 }
 

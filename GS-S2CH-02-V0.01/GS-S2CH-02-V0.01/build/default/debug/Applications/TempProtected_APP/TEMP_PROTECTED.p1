@@ -10,7 +10,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "211 Applications/TempProtected_APP/../../mcc_generated_files/system/../adc/adc.h
 [v _ADC_ChannelSelectAndConvert `(s ~T0 @X0 0 ef1`E17525 ]
-"43 Applications/CurrentRead_APP/readcurrent.h
+"44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 "8 Applications/Dimming_APP/dimming.h
 [v _start_flag `uc ~T0 @X0 0 e ]
@@ -1749,26 +1749,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _con4
 -> -> 1 `i `uc
 ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "33 Applications/timerecord_app/record.h
 [v _StartTime `S2423 ~T0 @X0 1 e ]
 [i _StartTime
@@ -1836,8 +1816,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _voltage `f ~T0 @X0 1 a ]
 [e = _voltage * / -> _temperature `f -> .4095.0 `f -> .4.096 `f ]
 "21
-[v F18215 `uc ~T0 @X0 1 s protection_state ]
-[i F18215
+[v F18203 `uc ~T0 @X0 1 s protection_state ]
+[i F18203
 -> -> 0 `i `uc
 ]
 "24
@@ -1855,11 +1835,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _target_state -> -> 0 `i `uc ]
 [e :U 2427 ]
 "30
-[e $ ! && == -> _Temp_Flag `i -> 0 `i != -> _target_state `i -> F18215 `i 2428  ]
+[e $ ! && == -> _Temp_Flag `i -> 0 `i != -> _target_state `i -> F18203 `i 2428  ]
 "31
 {
 "32
-[e = F18215 _target_state ]
+[e = F18203 _target_state ]
 "34
 [e $U 2430  ]
 {
@@ -1922,7 +1902,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2429  ]
 [e :U 2430 ]
-[e [\ F18215 , $ -> 0 `i 2431
+[e [\ F18203 , $ -> 0 `i 2431
  , $ -> 1 `i 2433
  , $ -> 2 `i 2435
  2429 ]

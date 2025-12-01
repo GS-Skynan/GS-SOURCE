@@ -143,11 +143,10 @@ void DimmingControlTask(void)
     if(start_flag)
     {  
         // 检查是否有任意通道（1、2、3、4）的值大于等于 1
-        if (UART_REG1 >= 0x1 || UART_REG2 >= 0x1 || UART_REG3 >= 0x1 || UART_REG4 >= 0x1) 
+        if (UART_REG1 >= 0x1 || UART_REG2 >= 0x1) 
         {    // 判断是否有通道开启
            if(pfc_flag)
            {
-               // PFC_SetHigh();  
                 PFC_On();   // 打开 PFC
                 __delay_ms(400);                                                                   // 延时 400ms，等待 PFC 稳定
                 pfc_flag = 0;
@@ -172,10 +171,8 @@ void DimmingControlTask(void)
                 if (mode_flag == 1) {
                     Close_1();                                                  // 如果是单开 1 模式，关闭通道 1
                 }
-                 RELAY_On(RELAY_CHANNEL2);
-               // JDQ_2_SetHigh();                                                // 打开通道 2 的继电器
-                __delay_ms(100);                                                // 延时 150ms，等待继电器稳定
-                //L6562_2_SetLow();                                               // 启动 L6562（PFC 控制器）
+                 RELAY_On(RELAY_CHANNEL2);                                             // 打开通道 2 的继电器
+                __delay_ms(100);                                                // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
                  L6562_On(L6562_CHANNEL2);
             } 
            
@@ -185,9 +182,8 @@ void DimmingControlTask(void)
            if(out_flag1==0||V_Ret1!=0||V_Ret2!=0||out_flag2==0) return;
            
 
-           power_pwm=600.0f;
-                   //(float)Power_Compensation();
-            
+           power_pwm=(float)Power_Compensation();
+       
            if(UART_REG1 >= 0x01 &&  UART_REG2 == 0x00)
            {                                  
                         PIDflag1=1;                           

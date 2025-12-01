@@ -117,7 +117,7 @@ static void APPInit(void)
     UsbcomAppInit();
     PID_Init_Parameters(); // 初始化两路 PID 控制器
     NFCRead_APPInit();
-
+    ReadNfcNumber();
     TaskScheduleCbReg(TaskScheduleCb);
 
 }

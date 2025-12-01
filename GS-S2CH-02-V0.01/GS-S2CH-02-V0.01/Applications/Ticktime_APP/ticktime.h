@@ -26,7 +26,7 @@ volatile uint32_t system_tick;
 extern uint8_t  pidtime;
 extern uint16_t pwm1,pwm2;
 
-extern float g_Voltage;
-extern float powernum;
+extern float g_Voltage1,g_Voltage2;
+extern float powernum1,powernum2;
 #endif 
 

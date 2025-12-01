@@ -5,17 +5,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
 "22 Applications/NFCService_APP/nfcapp.h
 [v _reply_buffer `uc ~T0 @X0 -> 0 `x e ]
-"27
-[v _NFC_datajudge `(v ~T0 @X0 0 ef1`*uc ]
-"44 Applications/CurrentRead_APP/readcurrent.h
+"45 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1_Pre `uc ~T0 @X0 0 e ]
-"43
+"44
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 "11 Applications/NFCService_APP/nfcapp.h
 [v _UART_read1 `uc ~T0 @X0 -> 0 `x e ]
-"44 Applications/CurrentRead_APP/readcurrent.h
+"45 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG2_Pre `uc ~T0 @X0 0 e ]
-"43
+"44
 [v _UART_REG2 `uc ~T0 @X0 0 e ]
 "11 Applications/NFCService_APP/nfcapp.h
 [v _UART_read2 `uc ~T0 @X0 -> 0 `x e ]
@@ -56,9 +54,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
 "29
-[v _g_Voltage `f ~T0 @X0 0 e ]
+[v _g_Voltage1 `f ~T0 @X0 0 e ]
 "30
-[v _powernum `f ~T0 @X0 0 e ]
+[v _powernum1 `f ~T0 @X0 0 e ]
+"27
+[v _pwm2 `us ~T0 @X0 0 e ]
+"29
+[v _g_Voltage2 `f ~T0 @X0 0 e ]
+"30
+[v _powernum2 `f ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1775,26 +1779,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "7 Middlewares/CRC/crc.h
 [v _auchCRCHi `Cuc ~T0 @X0 -> 256 `i s ]
 [i _auchCRCHi
@@ -2366,8 +2350,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "43
 [e ( _memcpy (3 , , -> &U _reply_buffer `*v -> _data `*Cv -> _length `ui ]
-"45
-[e ( _NFC_datajudge (1 _data ]
 "48
 [e $ ! == -> *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x `i -> 0 `i 2428  ]
 "49
@@ -2466,9 +2448,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Display ]
 [f ]
 "92
-[e ( _printf , , , , (. :s 1C -> ( _get_current (1 . `E17525 8 `d -> _pwm1 `ui -> _g_Voltage `d -> _powernum `d ]
-"95
+[e ( _printf , , , , (. :s 1C -> ( _get_current (1 . `E17525 8 `d -> _pwm1 `ui -> _g_Voltage1 `d -> _powernum1 `d ]
+"94
+[e ( _printf , , , , (. :s 2C -> ( _get_current (1 . `E17525 5 `d -> _pwm2 `ui -> _g_Voltage2 `d -> _powernum2 `d ]
+"97
 [e :UE 2441 ]
 }
 [p f _printf 8462464 ]
+[a 2C 67 72 50 124 73 58 37 46 50 102 124 80 87 77 58 37 100 124 86 58 37 46 50 102 124 80 79 87 58 37 46 50 102 124 10 13 32 0 ]
 [a 1C 67 72 49 124 73 58 37 46 50 102 124 80 87 77 58 37 100 124 86 58 37 46 50 102 124 80 79 87 58 37 46 50 102 124 10 13 32 0 ]

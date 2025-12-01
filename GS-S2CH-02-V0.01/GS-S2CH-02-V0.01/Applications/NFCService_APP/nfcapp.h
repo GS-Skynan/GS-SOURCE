@@ -45,6 +45,5 @@ unsigned int int_to_bcd(uint8_t intt);
 
 void NFCRead_APPInit(void);
 void Write_NFC_Task(uint16_t nfc_dataAdd, uint8_t *nfcdata, uint8_t dataLength);
-void NFC_SendMCU2Task(void);
 #endif 
 

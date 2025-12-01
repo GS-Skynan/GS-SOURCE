@@ -11,11 +11,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "17 DriverLayer/ADC/adc_driver.h
 [v _ADC_Result2 `(us ~T0 @X0 0 ef1`E17525 ]
-"43 Applications/CurrentRead_APP/readcurrent.h
+"44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 [v _UART_REG2 `uc ~T0 @X0 0 e ]
-[v _UART_REG3 `uc ~T0 @X0 0 e ]
-[v _UART_REG4 `uc ~T0 @X0 0 e ]
 "23 DriverLayer/GPIO/GPIO_driver.h
 [v _PFC_On `(v ~T0 @X0 0 ef ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
@@ -26,16 +24,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _out_flag1 `uc ~T0 @X0 0 e ]
 "15 Applications/LightsOff_APP/closeled.h
 [v _Close_2 `(v ~T0 @X0 0 ef ]
-"166 Applications/Dimming_APP/dimming.c
-[c E18087 1 2 .. ]
-[n E18087 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
+"165 Applications/Dimming_APP/dimming.c
+[c E18074 1 2 .. ]
+[n E18074 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "30 DriverLayer/GPIO/GPIO_driver.h
-[v _RELAY_On `(v ~T0 @X0 0 ef1`E18087 ]
-"168 Applications/Dimming_APP/dimming.c
-[c E18083 1 2 .. ]
-[n E18083 . L6562_CHANNEL1 L6562_CHANNEL2  ]
+[v _RELAY_On `(v ~T0 @X0 0 ef1`E18074 ]
+"167 Applications/Dimming_APP/dimming.c
+[c E18070 1 2 .. ]
+[n E18070 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "27 DriverLayer/GPIO/GPIO_driver.h
-[v _L6562_On `(v ~T0 @X0 0 ef1`E18083 ]
+[v _L6562_On `(v ~T0 @X0 0 ef1`E18070 ]
 "25 Applications/OutProtected_APP/out_protected.h
 [v _out_flag2 `uc ~T0 @X0 0 e ]
 "14 Applications/LightsOff_APP/closeled.h
@@ -43,6 +41,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 Applications/OutProtected_APP/out_protected.h
 [v _V_Ret1 `us ~T0 @X0 0 e ]
 [v _V_Ret2 `us ~T0 @X0 0 e ]
+"41 Applications/CurrentRead_APP/readcurrent.h
+[v _Power_Compensation `(us ~T0 @X0 0 ef ]
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -1779,26 +1779,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "38 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
 [v _pid2 `S2421 ~T0 @X0 1 e ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
@@ -2017,124 +1997,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 {
 "146
-[e $ ! || || || >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i >= -> _UART_REG3 `i -> 1 `i >= -> _UART_REG4 `i -> 1 `i 2432  ]
+[e $ ! || >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i 2432  ]
 "147
 {
 "148
 [e $ ! != -> _pfc_flag `i -> 0 `i 2433  ]
 "149
 {
-"151
+"150
 [e ( _PFC_On ..  ]
-"152
+"151
 [e ( __delay (1 -> * -> -> 400 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"153
+"152
 [e = _pfc_flag -> -> 0 `i `uc ]
-"155
+"154
 }
 [e :U 2433 ]
-"157
+"156
 [e $ ! && > -> _UART_REG1 `i -> 0 `i > -> _UART_REG2 `i -> 0 `i 2434  ]
 [e = _mode_flag -> -> 0 `i `uc ]
 [e $U 2435  ]
-"158
+"157
 [e :U 2434 ]
 [e = _mode_flag -> -> 1 `i `uc ]
 [e :U 2435 ]
-"160
+"159
 [e $ ! && >= -> _UART_REG1 `i -> 1 `i != -> _out_flag1 `i -> 0 `i 2436  ]
+"160
+{
 "161
-{
-"162
 [e $ ! == -> _mode_flag `i -> 1 `i 2437  ]
-"163
+"162
 {
-"164
+"163
 [e ( _Close_2 ..  ]
-"165
+"164
 }
 [e :U 2437 ]
+"165
+[e ( _RELAY_On (1 . `E18074 0 ]
 "166
-[e ( _RELAY_On (1 . `E18087 0 ]
-"167
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"167
+[e ( _L6562_On (1 . `E18070 0 ]
 "168
-[e ( _L6562_On (1 . `E18083 0 ]
-"169
 }
 [e :U 2436 ]
-"171
+"170
 [e $ ! && >= -> _UART_REG2 `i -> 1 `i != -> _out_flag2 `i -> 0 `i 2438  ]
 {
-"172
+"171
 [e $ ! == -> _mode_flag `i -> 1 `i 2439  ]
 {
-"173
+"172
 [e ( _Close_1 ..  ]
-"174
+"173
 }
 [e :U 2439 ]
+"174
+[e ( _RELAY_On (1 . `E18074 1 ]
 "175
-[e ( _RELAY_On (1 . `E18087 1 ]
-"177
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"179
-[e ( _L6562_On (1 . `E18083 1 ]
-"180
+"176
+[e ( _L6562_On (1 . `E18070 1 ]
+"177
 }
 [e :U 2438 ]
-"185
+"182
 [e $ ! || || || == -> _out_flag1 `i -> 0 `i != -> _V_Ret1 `ui -> -> 0 `i `ui != -> _V_Ret2 `ui -> -> 0 `i `ui == -> _out_flag2 `i -> 0 `i 2440  ]
 [e $UE 2430  ]
 [e :U 2440 ]
-"188
-[e = _power_pwm -> .600.0 `f ]
-"191
+"185
+[e = _power_pwm -> ( _Power_Compensation ..  `f ]
+"187
 [e $ ! && >= -> _UART_REG1 `i -> 1 `i == -> _UART_REG2 `i -> 0 `i 2441  ]
-"192
+"188
 {
-"193
+"189
 [e = _PIDflag1 -> -> 1 `i `uc ]
-"194
+"190
 }
 [e :U 2441 ]
-"196
+"192
 [e $ ! && == -> _UART_REG1 `i -> 0 `i >= -> _UART_REG2 `i -> 1 `i 2442  ]
-"197
+"193
 {
-"198
+"194
 [e = _PIDflag1 -> -> 2 `i `uc ]
-"199
+"195
 }
 [e :U 2442 ]
-"201
+"197
 [e $ ! && >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i 2443  ]
-"202
+"198
 {
-"203
+"199
 [e = _PIDflag1 -> -> 3 `i `uc ]
-"204
+"200
 }
 [e :U 2443 ]
-"206
+"202
 [e $ ! && == -> _UART_REG1 `i -> 0 `i == -> _UART_REG2 `i -> 0 `i 2444  ]
-"207
+"203
 {
-"208
+"204
 [e = _PIDflag1 -> -> 0 `i `uc ]
-"209
+"205
 [e = _power_pwm -> -> 0 `i `f ]
-"210
+"206
 [e = _pwm1 -> -> 0 `i `us ]
-"211
+"207
 }
 [e :U 2444 ]
-"212
+"208
 }
 [e :U 2432 ]
-"213
+"209
 }
 [e :U 2431 ]
-"214
+"210
 [e :UE 2430 ]
 }

@@ -2,13 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 Applications/PwmRegulation_APP/pwm_change.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18075 `(v ~T0 @X0 0 tf ]
-[v F18077 `(v ~T0 @X0 0 tf ]
-[v F18079 `(v ~T0 @X0 0 tf ]
-[v F18099 `(v ~T0 @X0 0 tf ]
+[v F18065 `(v ~T0 @X0 0 tf ]
+[v F18067 `(v ~T0 @X0 0 tf ]
+[v F18069 `(v ~T0 @X0 0 tf ]
+[v F18089 `(v ~T0 @X0 0 tf ]
 "102 Applications/Ticktime_APP/ticktime.c
-[c E18104 0 1 .. ]
-[n E18104 . LED_OFF LED_ON  ]
+[c E18094 0 1 .. ]
+[n E18094 . LED_OFF LED_ON  ]
 "20 DriverLayer/GPIO/GPIO_driver.h
 [v _Led_On `(v ~T0 @X0 0 ef ]
 "21
@@ -34,15 +34,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _simple_regulator `(f ~T0 @X0 0 ef2`f`ul ]
 "25
 [v _power_pwm `f ~T0 @X0 0 e ]
-"48 Applications/CurrentRead_APP/readcurrent.h
+"47 Applications/CurrentRead_APP/readcurrent.h
 [v _power_time `us ~T0 @X0 0 e ]
 "46 Applications/PwmRegulation_APP/pwm_change.h
 [v _PID_Compute `(us ~T0 @X0 0 ef3`*S2421`f`f ]
 "195 Applications/Ticktime_APP/ticktime.c
-[c E17999 1 2 3 4 5 .. ]
-[n E17999 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
+[c E17990 1 2 3 4 5 .. ]
+[n E17990 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "14 DriverLayer/PWM/pwm_driver.h
-[v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17999`us ]
+[v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17990`us ]
 [v F17701 `(v ~T0 @X0 0 tf ]
 "256 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/../timer/tmr0.h
 [v _TMR0_PeriodMatchCallbackRegister `(v ~T0 @X0 0 ef1`*F17701 ]
@@ -1768,26 +1768,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "38 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
 [v _pid2 `S2421 ~T0 @X0 1 e ]
@@ -1799,14 +1779,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 "16
-[v _g_pTaskScheduleFunc `*F18075 ~T0 @X0 1 s ]
+[v _g_pTaskScheduleFunc `*F18065 ~T0 @X0 1 s ]
 "18
-[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18077 ]
+[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18067 ]
 "19
 {
 [e :U _TaskScheduleCbReg ]
 "18
-[v _pFunc `*F18079 ~T0 @X0 1 r1 ]
+[v _pFunc `*F18069 ~T0 @X0 1 r1 ]
 "19
 [f ]
 "20
@@ -1878,22 +1858,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _TaskHandler_Time ]
 [f ]
 "40
-[v F18098 `us ~T0 @X0 1 s ledtime ]
+[v F18088 `us ~T0 @X0 1 s ledtime ]
 "41
-[e ++ F18098 -> -> 1 `i `us ]
+[e ++ F18088 -> -> 1 `i `us ]
 "42
-[e $ ! == -> F18098 `ui -> -> 200 `i `ui 2424  ]
+[e $ ! == -> F18088 `ui -> -> 200 `i `ui 2424  ]
 "43
 {
 "45
-[e = F18098 -> -> 0 `i `us ]
+[e = F18088 -> -> 0 `i `us ]
 "46
 }
 [e :U 2424 ]
 "48
 [e ++ _system_tick -> -> 1 `i `Vul ]
 "50
-[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18099 2425  ]
+[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18089 2425  ]
 "51
 {
 "52
@@ -1954,9 +1934,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2427 ]
 }
 "102
-[v _led_state `E18104 ~T0 @X0 1 s ]
+[v _led_state `E18094 ~T0 @X0 1 s ]
 [i _led_state
-. `E18104 0
+. `E18094 0
 ]
 "105
 [v _LED_Task `(v ~T0 @X0 1 ef ]
@@ -1965,13 +1945,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LED_Task ]
 [f ]
 "107
-[v F18110 `ul ~T0 @X0 1 s last_led_change_time ]
-[i F18110
+[v F18100 `ul ~T0 @X0 1 s last_led_change_time ]
+[i F18100
 -> -> -> 0 `i `l `ul
 ]
 "108
 [v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18110 ]
+[e = _elapsed ( _get_elapsed_since (1 F18100 ]
 "110
 [e $U 2432  ]
 {
@@ -1983,9 +1963,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "113
 [e ( _Led_On ..  ]
 "114
-[e = _led_state . `E18104 1 ]
+[e = _led_state . `E18094 1 ]
 "115
-[e = F18110 ( _get_systemtick_time ..  ]
+[e = F18100 ( _get_systemtick_time ..  ]
 "116
 }
 [e :U 2434 ]
@@ -1999,9 +1979,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [e ( _Led_Off ..  ]
 "122
-[e = _led_state . `E18104 0 ]
+[e = _led_state . `E18094 0 ]
 "123
-[e = F18110 ( _get_systemtick_time ..  ]
+[e = F18100 ( _get_systemtick_time ..  ]
 "124
 }
 [e :U 2436 ]
@@ -2011,8 +1991,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2431  ]
 [e :U 2432 ]
-[e [\ -> _led_state `ui , $ -> . `E18104 0 `ui 2433
- , $ -> . `E18104 1 `ui 2435
+[e [\ -> _led_state `ui , $ -> . `E18094 0 `ui 2433
+ , $ -> . `E18094 1 `ui 2435
  2431 ]
 [e :U 2431 ]
 "127
@@ -2127,9 +2107,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2437 ]
 }
 "182
-[v _g_Voltage `f ~T0 @X0 1 e ]
+[v _g_Voltage1 `f ~T0 @X0 1 e ]
+[v _g_Voltage2 `f ~T0 @X0 1 e ]
 "183
-[v _powernum `f ~T0 @X0 1 e ]
+[v _powernum1 `f ~T0 @X0 1 e ]
+[v _powernum2 `f ~T0 @X0 1 e ]
 "184
 [v _Dimming_Pid `(v ~T0 @X0 1 sf ]
 "185
@@ -2149,54 +2131,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 "190
 {
 "191
-[e = _g_Voltage * / -> ( _ADC_Result2 (1 . `E17525 9 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
+[e = _g_Voltage1 * / -> ( _ADC_Result2 (1 . `E17525 9 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
 "192
-[e = _powernum / * ( _get_current (1 . `E17525 8 _g_Voltage -> .1000.0 `f ]
+[e = _powernum1 / * ( _get_current (1 . `E17525 8 _g_Voltage1 -> .1000.0 `f ]
 "193
 [e = _pwm_output ( _simple_regulator (2 , _power_pwm -> _power_time `ul ]
 "194
-[e = _pwm1 ( _PID_Compute (3 , , &U _pid1 _pwm_output _powernum ]
+[e = _pwm1 ( _PID_Compute (3 , , &U _pid1 _pwm_output _powernum1 ]
 "195
-[e ( _PWM_Set_Direct (2 , . `E17999 0 _pwm1 ]
+[e ( _PWM_Set_Direct (2 , . `E17990 0 _pwm1 ]
 "196
 }
 [e :U 2452 ]
-"198
+"197
 }
 [e :U 2451 ]
+"198
+[e $ ! == -> _pidtime1 `i -> 20 `i 2453  ]
+"199
+{
+"200
+[e $ ! || == -> _PIDflag1 `i -> 2 `i == -> _PIDflag1 `i -> 3 `i 2454  ]
+"201
+{
+"202
+[e = _g_Voltage2 * / -> ( _ADC_Result2 (1 . `E17525 6 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
+"203
+[e = _powernum2 / * ( _get_current (1 . `E17525 5 _g_Voltage2 -> .1000.0 `f ]
+"204
+[e = _pwm2 ( _PID_Compute (3 , , &U _pid2 -> -> 50 `i `f _powernum2 ]
+"205
+[e ( _PWM_Set_Direct (2 , . `E17990 1 _pwm2 ]
+"206
+}
+[e :U 2454 ]
+"207
+[e = _pidtime1 -> -> 0 `i `uc ]
 "208
+}
+[e :U 2453 ]
+"209
 [e :UE 2449 ]
 }
-"213
-[v _Time0_AppInit `(v ~T0 @X0 1 ef ]
 "214
+[v _Time0_AppInit `(v ~T0 @X0 1 ef ]
+"215
 {
 [e :U _Time0_AppInit ]
 [f ]
-"215
-[e ( _TMR0_PeriodMatchCallbackRegister (1 &U _Time0_start ]
 "216
-[e :UE 2453 ]
+[e ( _TMR0_PeriodMatchCallbackRegister (1 &U _Time0_start ]
+"217
+[e :UE 2455 ]
 }
-"218
-[v _Time2_AppInit `(v ~T0 @X0 1 ef ]
 "219
+[v _Time2_AppInit `(v ~T0 @X0 1 ef ]
+"220
 {
 [e :U _Time2_AppInit ]
 [f ]
-"220
-[e ( _TMR2_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
 "221
-[e :UE 2454 ]
+[e ( _TMR2_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
+"222
+[e :UE 2456 ]
 }
-"223
-[v _PIDDimming_Init `(v ~T0 @X0 1 ef ]
 "224
+[v _PIDDimming_Init `(v ~T0 @X0 1 ef ]
+"225
 {
 [e :U _PIDDimming_Init ]
 [f ]
-"225
-[e ( _TMR4_PeriodMatchCallbackRegister (1 &U _Dimming_Pid ]
 "226
-[e :UE 2455 ]
+[e ( _TMR4_PeriodMatchCallbackRegister (1 &U _Dimming_Pid ]
+"227
+[e :UE 2457 ]
 }

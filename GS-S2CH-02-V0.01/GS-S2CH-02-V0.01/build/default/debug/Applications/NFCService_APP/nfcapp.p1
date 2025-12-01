@@ -1,23 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "27 DriverLayer/NFC/nfc.h
 [v _READ_NFC_SET_START `(v ~T0 @X0 0 ef ]
-"37 Applications/NFCService_APP/nfcapp.c
-[c E17923 0 1 2 3 .. ]
-[n E17923 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
+"35 Applications/NFCService_APP/nfcapp.c
+[c E17922 0 1 2 3 .. ]
+[n E17922 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
 "23 DriverLayer/NFC/nfc.h
-[v _Read_NFC_Data `(E17923 ~T0 @X0 0 ef3`us`*uc`uc ]
-"40 Applications/CurrentRead_APP/readcurrent.h
-[v _ReadCurrentInit `(v ~T0 @X0 0 ef1`*uc ]
+[v _Read_NFC_Data `(E17922 ~T0 @X0 0 ef3`us`*uc`uc ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
 "26 Applications/NFCService_APP/nfcapp.h
 [v _NFC_Data_Process `(v ~T0 @X0 0 ef1`*uc ]
-"8 Applications/Dimming_APP/dimming.h
-[v _start_flag `uc ~T0 @X0 0 e ]
-"29 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
-[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -2275,386 +2269,324 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "15 Applications/NFCService_APP/nfcapp.c
 [v _I2C_receiveData `uc ~T0 @X0 -> 72 `i e ]
 "16
 [v _NFC_data `uc ~T0 @X0 -> 72 `i e ]
-"17
-[v _NFC_MCU2_DATA `uc ~T0 @X0 -> 9 `i e ]
-"19
+"18
 [v _Channel_selection `uc ~T0 @X0 1 e ]
 [i _Channel_selection
 -> -> 2 `i `uc
 ]
-"20
+"19
 [v _Mode_selection `us ~T0 @X0 1 e ]
 [i _Mode_selection
 -> -> 1 `i `us
 ]
-"22
+"21
 [v _v1 `uc ~T0 @X0 1 e ]
 [v _v2 `uc ~T0 @X0 1 e ]
 [v _v3 `uc ~T0 @X0 1 e ]
 [v _v4 `uc ~T0 @X0 1 e ]
-"24
+"23
 [v _UART_read1 `uc ~T0 @X0 -> 2 `i e ]
 [v _UART_read2 `uc ~T0 @X0 -> 2 `i e ]
-"25
+"24
 [v _UART_read3 `uc ~T0 @X0 -> 2 `i e ]
 [v _UART_read4 `uc ~T0 @X0 -> 2 `i e ]
-"26
+"25
 [v _readNFC_flag `us ~T0 @X0 1 e ]
 [i _readNFC_flag
 -> -> 0 `i `us
 ]
-"29
+"28
 [v _reply_buffer `uc ~T0 @X0 -> 17 `i e ]
-"31
+"30
 [v _muc2flag `uc ~T0 @X0 1 s ]
 [i _muc2flag
 -> -> 1 `i `uc
 ]
-"33
+"32
 [v _NFCRead_APPInit `(v ~T0 @X0 1 ef ]
-"34
+"33
 {
 [e :U _NFCRead_APPInit ]
 [f ]
-"35
+"34
 [e ( _READ_NFC_SET_START ..  ]
-"37
+"35
 [e ( _Read_NFC_Data (3 , , -> -> 0 `i `us &U _I2C_receiveData -> -> 70 `i `uc ]
-"38
-[e ( _ReadCurrentInit (1 &U _I2C_receiveData ]
-"40
+"36
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"41
+"37
 [e ( _NFC_Data_Process (1 &U _I2C_receiveData ]
-"42
+"38
 [e :UE 2424 ]
 }
-"54
+"50
 [v _NFC_Data_Process `(v ~T0 @X0 1 ef1`*uc ]
-"55
+"51
 {
 [e :U _NFC_Data_Process ]
-"54
+"50
 [v _nfcData `*uc ~T0 @X0 1 r1 ]
-"55
+"51
 [f ]
-"59
+"55
 {
 [v _u `uc ~T0 @X0 1 a ]
 [e = _u -> -> 0 `i `uc ]
 [e $ < -> _u `i -> 40 `i 2426  ]
 [e $U 2427  ]
 [e :U 2426 ]
-"60
+"56
 {
-"61
+"57
 [e = *U + &U _NFC_data * -> _u `ux -> -> # *U &U _NFC_data `ui `ux *U + &U _I2C_receiveData * -> _u `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"62
+"58
 }
 [e ++ _u -> -> 1 `i `uc ]
 [e $ < -> _u `i -> 40 `i 2426  ]
 [e :U 2427 ]
 }
-"65
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 0 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux -> -> 18 `i `uc ]
-"69
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 1 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 64 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"70
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 2 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 65 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"74
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 3 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 8 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"76
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 4 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 10 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"77
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 5 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 11 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"80
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 6 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 12 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"82
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 7 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 14 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"83
-[e = *U + &U _NFC_MCU2_DATA * -> -> -> 8 `i `ui `ux -> -> # *U &U _NFC_MCU2_DATA `ui `ux *U + &U _I2C_receiveData * -> -> -> 15 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"97
+"60
 [e :UE 2425 ]
 }
-"99
-[v _NFC_SendMCU2Task `(v ~T0 @X0 1 ef ]
-"100
-{
-[e :U _NFC_SendMCU2Task ]
-[f ]
-"102
-[e $ ! && == -> _start_flag `i -> 1 `i == -> _muc2flag `i -> 1 `i 2430  ]
-"103
-{
-"104
-[e = _muc2flag -> -> 0 `i `uc ]
-"105
-[e ( _memset (3 , , -> &U _NFC_MCU2_DATA `*v -> 0 `i -> # _NFC_MCU2_DATA `ui ]
-"106
-}
-[e :U 2430 ]
-"108
-[e :UE 2429 ]
-}
-"112
+"66
 [v _NFC_datajudge `(v ~T0 @X0 1 ef1`*uc ]
-"113
+"67
 {
 [e :U _NFC_datajudge ]
-"112
+"66
 [v _data `*uc ~T0 @X0 1 r1 ]
-"113
+"67
 [f ]
-"116
+"70
 [v _a `us ~T0 @X0 1 a ]
-"119
-[e $ ! == -> _Mode_selection `ui -> -> 1 `i `ui 2432  ]
+"73
+[e $ ! == -> _Mode_selection `ui -> -> 1 `i `ui 2430  ]
 [e = _a -> -> 1 `i `us ]
-[e $U 2433  ]
-"120
-[e :U 2432 ]
+[e $U 2431  ]
+"74
+[e :U 2430 ]
 [e = _a -> -> 33 `i `us ]
-[e :U 2433 ]
-"123
+[e :U 2431 ]
+"77
 [e = _v1 *U + &U _I2C_receiveData * -> _a `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"124
+"78
 [e = _v2 *U + &U _I2C_receiveData * -> + -> _a `ui -> -> 4 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"125
+"79
 [e = _v3 *U + &U _I2C_receiveData * -> + -> _a `ui -> -> 8 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"126
+"80
 [e = _v4 *U + &U _I2C_receiveData * -> + -> _a `ui -> -> 12 `i `ui `ux -> -> # *U &U _I2C_receiveData `ui `ux ]
-"128
-[e $ ! && && && == -> _v1 `i -> 0 `i == -> _v2 `i -> 0 `i == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2434  ]
-"129
+"82
+[e $ ! && && && == -> _v1 `i -> 0 `i == -> _v2 `i -> 0 `i == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2432  ]
+"83
 {
-"131
+"85
 [e = _con1 -> -> 1 `i `uc ]
 [e = _con2 -> -> 2 `i `uc ]
 [e = _con3 -> -> 3 `i `uc ]
 [e = _con4 -> -> 4 `i `uc ]
-"134
+"88
 [e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> -> 7 `i `x -> -> # *U _data `i `x ]
-"135
+"89
 [e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> -> 8 `i `x -> -> # *U _data `i `x ]
-"136
+"90
 [e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> -> 9 `i `x -> -> # *U _data `i `x ]
-"137
+"91
 [e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> -> 10 `i `x -> -> # *U _data `i `x ]
-"138
+"92
 [e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> -> 11 `i `x -> -> # *U _data `i `x ]
-"139
+"93
 [e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> -> 12 `i `x -> -> # *U _data `i `x ]
-"140
+"94
 [e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> -> 13 `i `x -> -> # *U _data `i `x ]
-"141
+"95
 [e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> -> 14 `i `x -> -> # *U _data `i `x ]
-"142
+"96
+}
+[e $U 2433  ]
+"98
+[e :U 2432 ]
+[e $ ! && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && && == -> _v2 `i -> 0 `i == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2434  ]
+"99
+{
+"101
+[e = _con1 _v1 ]
+[e = _con2 _v2 ]
+[e = _con3 _v3 ]
+[e = _con4 _v4 ]
+"104
+[e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 5 `i `x -> -> # *U _data `i `x ]
+"105
+[e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 6 `i `x -> -> # *U _data `i `x ]
+"106
+[e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
+"107
+[e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
+"108
+[e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
+"109
+[e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
+"110
+[e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
+"111
+[e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
+"112
 }
 [e $U 2435  ]
-"144
+"114
 [e :U 2434 ]
-[e $ ! && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && && == -> _v2 `i -> 0 `i == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2436  ]
-"145
+[e $ ! && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i != -> _v1 `i -> _v2 `i && == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2436  ]
+"117
 {
-"147
+"119
 [e = _con1 _v1 ]
 [e = _con2 _v2 ]
 [e = _con3 _v3 ]
 [e = _con4 _v4 ]
-"150
+"122
 [e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"151
+"123
 [e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"152
-[e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
-"153
-[e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
-"154
+"124
+[e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 5 `i `x -> -> # *U _data `i `x ]
+"125
+[e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 6 `i `x -> -> # *U _data `i `x ]
+"126
 [e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"155
+"127
 [e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"156
+"128
 [e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"157
+"129
 [e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"158
+"130
 }
 [e $U 2437  ]
-"160
+"132
 [e :U 2436 ]
-[e $ ! && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i != -> _v1 `i -> _v2 `i && == -> _v3 `i -> 0 `i == -> _v4 `i -> 0 `i 2438  ]
-"163
+[e $ ! && && && && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i && >= -> _v3 `i -> 1 `i <= -> _v3 `i -> 4 `i != -> _v1 `i -> _v2 `i != -> _v1 `i -> _v3 `i != -> _v2 `i -> _v3 `i == -> _v4 `i -> 0 `i 2438  ]
+"134
 {
-"165
+"136
 [e = _con1 _v1 ]
 [e = _con2 _v2 ]
 [e = _con3 _v3 ]
 [e = _con4 _v4 ]
-"168
+"139
 [e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"169
+"140
 [e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"170
+"141
 [e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"171
+"142
 [e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"172
-[e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"173
-[e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"174
+"143
+[e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 5 `i `x -> -> # *U _data `i `x ]
+"144
+[e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 6 `i `x -> -> # *U _data `i `x ]
+"145
 [e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"175
+"146
 [e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"176
+"147
 }
 [e $U 2439  ]
-"178
+"150
 [e :U 2438 ]
-[e $ ! && && && && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i && >= -> _v3 `i -> 1 `i <= -> _v3 `i -> 4 `i != -> _v1 `i -> _v2 `i != -> _v1 `i -> _v3 `i != -> _v2 `i -> _v3 `i == -> _v4 `i -> 0 `i 2440  ]
-"180
+[e $ ! && && && && && && && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i && >= -> _v3 `i -> 1 `i <= -> _v3 `i -> 4 `i && >= -> _v4 `i -> 1 `i <= -> _v4 `i -> 4 `i != -> _v1 `i -> _v2 `i != -> _v1 `i -> _v3 `i != -> _v1 `i -> _v4 `i != -> _v2 `i -> _v3 `i != -> _v2 `i -> _v4 `i != -> _v3 `i -> _v4 `i 2440  ]
+"153
 {
-"182
+"154
 [e = _con1 _v1 ]
 [e = _con2 _v2 ]
 [e = _con3 _v3 ]
 [e = _con4 _v4 ]
-"185
+"155
 [e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"186
+"156
 [e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"187
+"157
 [e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"188
+"158
 [e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"189
+"159
 [e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"190
+"160
 [e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"191
-[e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"192
-[e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"193
+"161
+[e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> + * -> 2 `i -> _v4 `i -> 5 `i `x -> -> # *U _data `i `x ]
+"162
+[e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> + * -> 2 `i -> _v4 `i -> 6 `i `x -> -> # *U _data `i `x ]
+"163
 }
 [e $U 2441  ]
-"196
+"165
 [e :U 2440 ]
-[e $ ! && && && && && && && && && && >= -> _v1 `i -> 1 `i <= -> _v1 `i -> 4 `i && >= -> _v2 `i -> 1 `i <= -> _v2 `i -> 4 `i && >= -> _v3 `i -> 1 `i <= -> _v3 `i -> 4 `i && >= -> _v4 `i -> 1 `i <= -> _v4 `i -> 4 `i != -> _v1 `i -> _v2 `i != -> _v1 `i -> _v3 `i != -> _v1 `i -> _v4 `i != -> _v2 `i -> _v3 `i != -> _v2 `i -> _v4 `i != -> _v3 `i -> _v4 `i 2442  ]
-"199
+"166
 {
-"200
-[e = _con1 _v1 ]
-[e = _con2 _v2 ]
-[e = _con3 _v3 ]
-[e = _con4 _v4 ]
-"201
-[e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"202
-[e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux *U + _data * -> + * -> 2 `i -> _v1 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"203
-[e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"204
-[e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux *U + _data * -> + * -> 2 `i -> _v2 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"205
-[e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"206
-[e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux *U + _data * -> + * -> 2 `i -> _v3 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"207
-[e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> + * -> 2 `i -> _v4 `i -> 5 `i `x -> -> # *U _data `i `x ]
-"208
-[e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux *U + _data * -> + * -> 2 `i -> _v4 `i -> 6 `i `x -> -> # *U _data `i `x ]
-"209
-}
-[e $U 2443  ]
-"211
-[e :U 2442 ]
-"212
-{
-"213
+"167
 [e = *U + &U _UART_read1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux -> -> 0 `i `uc ]
-"214
+"168
 [e = *U + &U _UART_read1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read1 `ui `ux -> -> 0 `i `uc ]
-"215
+"169
 [e = *U + &U _UART_read2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
-"216
+"170
 [e = *U + &U _UART_read2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read2 `ui `ux -> -> 0 `i `uc ]
-"217
+"171
 [e = *U + &U _UART_read3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"218
+"172
 [e = *U + &U _UART_read3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read3 `ui `ux -> -> 0 `i `uc ]
-"219
+"173
 [e = *U + &U _UART_read4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"220
+"174
 [e = *U + &U _UART_read4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _UART_read4 `ui `ux -> -> 0 `i `uc ]
-"221
+"175
 }
-[e :U 2443 ]
 [e :U 2441 ]
 [e :U 2439 ]
 [e :U 2437 ]
 [e :U 2435 ]
-"222
-[e :UE 2431 ]
+[e :U 2433 ]
+"176
+[e :UE 2429 ]
 }
-"307
+"261
 [v _Power_Pre `f ~T0 @X0 1 e ]
 [i _Power_Pre
 -> .0.0 `f
 ]
-"671
+"625
 [v _bcd_to_int `(ui ~T0 @X0 1 ef1`uc ]
-"672
+"626
 {
 [e :U _bcd_to_int ]
-"671
+"625
 [v _bcd `uc ~T0 @X0 1 r1 ]
-"672
+"626
 [f ]
-"673
+"627
 [e ) -> + * >> -> _bcd `i -> 4 `i -> 10 `i & -> _bcd `i -> 15 `i `ui ]
-[e $UE 2444  ]
-"674
-[e :UE 2444 ]
+[e $UE 2442  ]
+"628
+[e :UE 2442 ]
 }
-"676
+"630
 [v _int_to_bcd `(ui ~T0 @X0 1 ef1`uc ]
-"677
+"631
 {
 [e :U _int_to_bcd ]
-"676
+"630
 [v _intt `uc ~T0 @X0 1 r1 ]
-"677
+"631
 [f ]
-"678
+"632
 [e ) -> | << / -> _intt `i -> 10 `i -> 4 `i % -> _intt `i -> 10 `i `ui ]
-[e $UE 2445  ]
-"679
-[e :UE 2445 ]
+[e $UE 2443  ]
+"633
+[e :UE 2443 ]
 }

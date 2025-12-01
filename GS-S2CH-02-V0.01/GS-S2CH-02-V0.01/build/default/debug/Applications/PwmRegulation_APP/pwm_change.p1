@@ -2,25 +2,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 Applications/PwmRegulation_APP/pwm_change.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
 "162 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/math.h
 [v _fabsf `(f ~T0 @X0 0 ef1`f ]
 "186
 [v _fmaxf `(f ~T0 @X0 0 ef2`f`f ]
 "192
 [v _fminf `(f ~T0 @X0 0 ef2`f`f ]
-"43 Applications/CurrentRead_APP/readcurrent.h
-[v _UART_REG1 `uc ~T0 @X0 0 e ]
-"147 Applications/PwmRegulation_APP/pwm_change.c
-[c E17912 1 2 3 4 5 .. ]
-[n E17912 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
-"14 DriverLayer/PWM/pwm_driver.h
-[v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17912`us ]
-"43 Applications/CurrentRead_APP/readcurrent.h
-[v _UART_REG2 `uc ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1735,26 +1722,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "38 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
 [v _pid2 `S2421 ~T0 @X0 1 e ]
@@ -1782,40 +1749,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _return_flag2
 -> -> 0 `i `uc
 ]
-"21
-[v _dynamic_delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"22
-{
-[e :U _dynamic_delay_ms ]
-"21
-[v _delay_time_ms `ui ~T0 @X0 1 r1 ]
-"22
-[f ]
-"23
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $U 2426  ]
-[e :U 2423 ]
-{
-"24
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"25
-}
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 2426 ]
-[e $ < _i _delay_time_ms 2423  ]
-[e :U 2424 ]
-}
-"26
-[e :UE 2422 ]
-}
-"29
+"17
 [v _PID_Init `(v ~T0 @X0 1 ef8`*S2421`uc`f`f`f`f`f`us ]
-"30
+"18
 {
 [e :U _PID_Init ]
-"29
+"17
 [v _pid `*S2421 ~T0 @X0 1 r1 ]
 [v _flag `uc ~T0 @X0 1 r2 ]
 [v _Kp `f ~T0 @X0 1 r3 ]
@@ -1824,282 +1763,128 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _output_max `f ~T0 @X0 1 r6 ]
 [v _output_min `f ~T0 @X0 1 r7 ]
 [v _PWM_duty_cycle `us ~T0 @X0 1 r8 ]
-"30
+"18
 [f ]
-"31
+"19
 [e = . *U _pid 0 _flag ]
-"32
+"20
 [e = . *U _pid 1 _Kp ]
-"33
+"21
 [e = . *U _pid 2 _Ki ]
-"34
+"22
 [e = . *U _pid 3 _Kd ]
-"35
+"23
 [e = . *U _pid 6 _output_max ]
-"36
+"24
 [e = . *U _pid 7 _output_min ]
-"39
+"27
 [e = . *U _pid 4 / -> .800.0 `f _Ki ]
-"40
+"28
 [e = . *U _pid 5 / -U -> .800.0 `f _Ki ]
-"41
+"29
 [e = . *U _pid 8 -> .0.0 `f ]
-"42
+"30
 [e = . *U _pid 9 -> .0.0 `f ]
-"43
+"31
 [e = . *U _pid 10 -> _PWM_duty_cycle `i ]
-"44
-[e :UE 2427 ]
+"32
+[e :UE 2422 ]
 }
-"47
+"35
 [v _PID_Init_Parameters `(v ~T0 @X0 1 ef ]
-"48
+"36
 {
 [e :U _PID_Init_Parameters ]
 [f ]
-"50
+"38
 [e ( _PID_Init (4 , , , , , , , &U _pid1 -> -> 1 `i `uc -> .0.3 `f -> .0.0152 `f -> .0.01 `f -> .3200.0 `f -> .0.0 `f -> -> 0 `i `us ]
-"52
-[e :UE 2428 ]
+"39
+[e ( _PID_Init (4 , , , , , , , &U _pid2 -> -> 2 `i `uc -> .0.8 `f -> .0.000012 `f -> .0.001 `f -> .3200.0 `f -> .0.0 `f -> -> 0 `i `us ]
+"40
+[e :UE 2423 ]
 }
-"61
+"49
 [v _PID_Compute `(us ~T0 @X0 1 ef3`*S2421`f`f ]
-"62
+"50
 {
 [e :U _PID_Compute ]
-"61
+"49
 [v _pid `*S2421 ~T0 @X0 1 r1 ]
 [v _setpoint `f ~T0 @X0 1 r2 ]
 [v _measured_value `f ~T0 @X0 1 r3 ]
-"62
+"50
 [f ]
-"63
+"51
 [v _error `f ~T0 @X0 1 a ]
 [e = _error - _setpoint _measured_value ]
-"65
+"53
 [v _proportional `f ~T0 @X0 1 a ]
 [e = _proportional * . *U _pid 1 _error ]
-"67
-[e $ ! < ( _fabsf (1 _error -> .50.0 `f 2430  ]
-"68
+"55
+[e $ ! < ( _fabsf (1 _error -> .50.0 `f 2425  ]
+"56
 {
-"69
+"57
 [e =+ . *U _pid 8 _error ]
-"71
-[e $ ! > . *U _pid 8 . *U _pid 4 2431  ]
+"59
+[e $ ! > . *U _pid 8 . *U _pid 4 2426  ]
 [e = . *U _pid 8 . *U _pid 4 ]
-[e :U 2431 ]
-"72
-[e $ ! < . *U _pid 8 . *U _pid 5 2432  ]
+[e :U 2426 ]
+"60
+[e $ ! < . *U _pid 8 . *U _pid 5 2427  ]
 [e = . *U _pid 8 . *U _pid 5 ]
-[e :U 2432 ]
-"73
+[e :U 2427 ]
+"61
 }
-[e $U 2433  ]
-"74
-[e :U 2430 ]
-"75
+[e $U 2428  ]
+"62
+[e :U 2425 ]
+"63
 {
-"76
+"64
 [e = . *U _pid 8 -> -> 0 `i `f ]
-"77
+"65
 }
-[e :U 2433 ]
-"88
+[e :U 2428 ]
+"76
 [v _integral `f ~T0 @X0 1 a ]
 [e = _integral * . *U _pid 2 . *U _pid 8 ]
-"90
+"78
 [v _derivative `f ~T0 @X0 1 a ]
 [e = _derivative * . *U _pid 3 - _error . *U _pid 9 ]
-"91
+"79
 [e = . *U _pid 9 _error ]
-"93
+"81
 [v _output `f ~T0 @X0 1 a ]
 [e = _output + + _proportional _integral _derivative ]
-"95
-[e $ ! == -> . *U _pid 0 `i -> 1 `i 2434  ]
-"96
+"83
+[e $ ! == -> . *U _pid 0 `i -> 1 `i 2429  ]
+"84
 {
-"97
+"85
 [e =+ _target_duty_cycle_Out1 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
-"98
+"86
 [e = _target_duty_cycle_Out1 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out1 `f -> -> 3200 `i `f `us `i ]
-"99
+"87
 [e ) -> _target_duty_cycle_Out1 `us ]
-[e $UE 2429  ]
-"100
+[e $UE 2424  ]
+"88
 }
-[e :U 2434 ]
-"102
-[e $ ! == -> . *U _pid 0 `i -> 2 `i 2435  ]
-"103
+[e :U 2429 ]
+"90
+[e $ ! == -> . *U _pid 0 `i -> 2 `i 2430  ]
+"91
 {
-"104
+"92
 [e =+ _target_duty_cycle_Out2 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
-"105
+"93
 [e = _target_duty_cycle_Out2 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out2 `f -> -> 3200 `i `f `us `i ]
-"106
+"94
 [e ) -> _target_duty_cycle_Out2 `us ]
-[e $UE 2429  ]
-"107
+[e $UE 2424  ]
+"95
 }
-[e :U 2435 ]
-"127
-[e :UE 2429 ]
-}
-"137
-[v _PWM_Change_1 `(v ~T0 @X0 1 ef2`uc`ui ]
-"138
-{
-[e :U _PWM_Change_1 ]
-"137
-[v _data `uc ~T0 @X0 1 r1 ]
-[v _Change_Time `ui ~T0 @X0 1 r2 ]
-"138
-[f ]
-"139
-[v _i `ui ~T0 @X0 1 a ]
-"142
-[e $ ! && == _Pwm_flag_1 -> 0 `i == -> _UART_REG1 `i -> _data `i 2437  ]
-{
-"144
-[e $ ! < _PWM_Pre_data_1 . _pid1 10 2438  ]
-{
-"146
-{
-[e = _i -> _PWM_Pre_data_1 `ui ]
-[e $U 2442  ]
-[e :U 2439 ]
-{
-"147
-[e ( _PWM_Set_Direct (2 , . `E17912 0 -> _i `us ]
-"148
-[e ( _dynamic_delay_ms (1 _Change_Time ]
-"149
-}
-[e =+ _i -> -> 1 `i `ui ]
-[e :U 2442 ]
-[e $ <= _i -> . _pid1 10 `ui 2439  ]
-[e :U 2440 ]
-}
-"150
-}
-[e $U 2443  ]
-[e :U 2438 ]
-[e $ ! > _PWM_Pre_data_1 . _pid1 10 2444  ]
-{
-"152
-{
-[e = _i -> _PWM_Pre_data_1 `ui ]
-[e $U 2448  ]
-[e :U 2445 ]
-{
-"153
-[e ( _PWM_Set_Direct (2 , . `E17912 0 -> _i `us ]
-"154
-[e ( _dynamic_delay_ms (1 _Change_Time ]
-"155
-}
-[e =- _i -> -> 1 `i `ui ]
-[e :U 2448 ]
-[e $ >= _i -> . _pid1 10 `ui 2445  ]
-[e :U 2446 ]
-}
-"156
-}
-[e $U 2449  ]
-[e :U 2444 ]
-{
-"158
-[e ( _PWM_Set_Direct (2 , . `E17912 0 -> _PWM_Pre_data_1 `us ]
-"159
-}
-[e :U 2449 ]
-[e :U 2443 ]
-"162
-[e = _PWM_Pre_data_1 . _pid1 10 ]
-"163
-}
-[e :U 2437 ]
-"164
-[e :UE 2436 ]
-}
-"171
-[v _PWM_Change_2 `(v ~T0 @X0 1 ef2`uc`ui ]
-"172
-{
-[e :U _PWM_Change_2 ]
-"171
-[v _data `uc ~T0 @X0 1 r1 ]
-[v _Change_Time `ui ~T0 @X0 1 r2 ]
-"172
-[f ]
-"174
-[e $ ! && == _Pwm_flag_2 -> 0 `i == -> _UART_REG2 `i -> _data `i 2451  ]
-{
-"175
-[e $ ! < _PWM_Pre_data_2 . _pid2 10 2452  ]
-{
-"177
-{
-[v _j `f ~T0 @X0 1 a ]
-[e = _j -> _PWM_Pre_data_2 `f ]
-[e $U 2456  ]
-[e :U 2453 ]
-{
-"178
-[e ( _PWM_Set_Direct (2 , . `E17912 1 -> _j `us ]
-"179
-[e ( _dynamic_delay_ms (1 _Change_Time ]
-"180
-}
-[e =+ _j -> -> 1 `i `f ]
-[e :U 2456 ]
-[e $ <= _j -> . _pid2 10 `f 2453  ]
-[e :U 2454 ]
-}
-"181
-}
-[e $U 2457  ]
-"182
-[e :U 2452 ]
-[e $ ! > _PWM_Pre_data_2 . _pid2 10 2458  ]
-{
-"184
-{
-[v _j `f ~T0 @X0 1 a ]
-[e = _j -> _PWM_Pre_data_2 `f ]
-[e $U 2462  ]
-[e :U 2459 ]
-{
-"185
-[e ( _PWM_Set_Direct (2 , . `E17912 1 -> _j `us ]
-"186
-[e ( _dynamic_delay_ms (1 _Change_Time ]
-"187
-}
-[e =- _j -> -> 1 `i `f ]
-[e :U 2462 ]
-[e $ >= _j -> . _pid2 10 `f 2459  ]
-[e :U 2460 ]
-}
-"188
-}
-[e $U 2463  ]
-"189
-[e :U 2458 ]
-{
-"190
-[e ( _PWM_Set_Direct (2 , . `E17912 1 -> _PWM_Pre_data_2 `us ]
-"191
-}
-[e :U 2463 ]
-[e :U 2457 ]
-"193
-[e = _PWM_Pre_data_2 . _pid2 10 ]
-"194
-}
-[e :U 2451 ]
-"195
-[e :UE 2450 ]
+[e :U 2430 ]
+"96
+[e :UE 2424 ]
 }

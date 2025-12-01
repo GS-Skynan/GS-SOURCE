@@ -14,7 +14,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTBbits `VS2307 ~T0 @X0 0 e@1231 ]
 "8 Applications/Dimming_APP/dimming.h
 [v _start_flag `uc ~T0 @X0 0 e ]
-"43 Applications/CurrentRead_APP/readcurrent.h
+"44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 "10 Applications/Dimming_APP/dimming.h
 [v _buck_flag `Vuc ~T0 @X0 0 e ]
@@ -22,7 +22,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _buck_ok1 `uc ~T0 @X0 0 e ]
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
-"43 Applications/CurrentRead_APP/readcurrent.h
+"44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG2 `uc ~T0 @X0 0 e ]
 "11 Applications/Dimming_APP/dimming.h
 [v _buck_ok2 `uc ~T0 @X0 0 e ]
@@ -1773,26 +1773,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _con4
 -> -> 1 `i `uc
 ]
-"25 Applications/CurrentRead_APP/readcurrent.h
-[v _CURRENT_1 `f ~T0 @X0 1 e ]
-[i _CURRENT_1
--> .3250.0 `f
-]
-"26
-[v _CURRENT_2 `f ~T0 @X0 1 e ]
-[i _CURRENT_2
--> .898.0 `f
-]
-"27
-[v _CURRENT_3 `f ~T0 @X0 1 e ]
-[i _CURRENT_3
--> .817.0 `f
-]
-"28
-[v _CURRENT_4 `f ~T0 @X0 1 e ]
-[i _CURRENT_4
--> .420.0 `f
-]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "13 Applications/OutProtected_APP/out_protected.c
@@ -1889,7 +1869,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "89
 [v _Channel_1_Over_Volate `f ~T0 @X0 1 a ]
-[e = _Channel_1_Over_Volate * -> * / * -> / -> -> 833 `i `f / _CURRENT_1 -> .1000.0 `f `d .1.10 -> -> .3018.0 `f `d -> -> 18 `i `d `f -> -> 1000 `i `f ]
+[e = _Channel_1_Over_Volate * -> * / * -> / -> -> 833 `i `f / -> .2000.0 `f -> .1000.0 `f `d .1.10 -> -> .3018.0 `f `d -> -> 18 `i `d `f -> -> 1000 `i `f ]
 "92
 [e = *U + &U _adc_value * -> -> -> 0 `i `ui `ux -> -> # *U &U _adc_value `ui `ux ( _ADC_Result2 (1 _channel ]
 "94
@@ -1933,7 +1913,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "114
 [v _Channel_2_Over_Volate `f ~T0 @X0 1 a ]
-[e = _Channel_2_Over_Volate * -> * / * -> / -> -> 115 `i `f / _CURRENT_2 -> .1000.0 `f `d .1.15 -> -> .3018.0 `f `d -> -> 18 `i `d `f -> -> 1000 `i `f ]
+[e = _Channel_2_Over_Volate * -> * / * -> / -> -> 115 `i `f / -> .750.0 `f -> .1000.0 `f `d .1.15 -> -> .3018.0 `f `d -> -> 18 `i `d `f -> -> 1000 `i `f ]
 "116
 [e = *U + &U _adc_value * -> -> -> 1 `i `ui `ux -> -> # *U &U _adc_value `ui `ux ( _ADC_Result2 (1 _channel ]
 "119
@@ -2136,15 +2116,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Out_Protected ]
 [f ]
-[v F18378 `uc ~T0 @X0 -> 2 `i s ]
-[i F18378
+[v F18368 `uc ~T0 @X0 -> 2 `i s ]
+[i F18368
 :U ..
 "220
 -> -> 0 `i `uc
 ..
 ]
 [v _buffer `uc ~T0 @X0 -> 2 `i a ]
-[e = _buffer F18378 ]
+[e = _buffer F18368 ]
 "222
 [e $ ! && && && == -> _PFC_Flag1 `i -> 1 `i == -> _PFC_Flag2 `i -> 2 `i == -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 4 `i == -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 3 `i 2455  ]
 {

@@ -103,7 +103,7 @@ uint16_t ADC_Result2(adc_channel_t channel)
         }
     }
 
-    // 去除前后各两个值，计算剩余数据的和
+    //去除前后各两个值，计算剩余数据的和
     for (i = 2; i < 12 - 2; i++) {
         sum += result[i];
     }
