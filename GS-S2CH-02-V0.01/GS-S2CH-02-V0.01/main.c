@@ -72,7 +72,6 @@ static TaskComps_t g_taskComps[] ={
     {0, 500, 500, TemapProtectedTask},
     {0, 150, 150, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
-    {0, 200, 200, NFC_SendMCU2Task},
     {0, 10, 10, LED_Task},
     {0, 1000, 1000, Display},
 };

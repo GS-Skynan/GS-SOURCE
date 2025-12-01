@@ -1,5 +1,6 @@
 #include "readcurrent.h"
 #include "nfc.h"
+#include "nfcapp.h"
 
 
 
