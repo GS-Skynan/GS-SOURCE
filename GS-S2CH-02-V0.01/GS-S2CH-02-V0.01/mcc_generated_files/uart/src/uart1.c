@@ -324,53 +324,53 @@ size_t UART1_ErrorGet(void)
 
     return uart1RxLastError.status;
 }
-//
-//uint8_t UART1_Read(void)
-//{
-//    uint8_t readValue  = 0;
-//    uint8_t tempRxTail;
-//    
-//    readValue = uart1RxBuffer[uart1RxTail];
-//    tempRxTail = (uart1RxTail + 1U) & UART1_RX_BUFFER_MASK; // Buffer size of RX should be in the 2^n  
-//    uart1RxTail = tempRxTail;  
-//    PIE4bits.U1RXIE = 0; 
-//    if(0U != uart1RxCount)
-//    {
-//        uart1RxCount--;
-//    }
-//    PIE4bits.U1RXIE = 1;
-//    return readValue;
-//}
 
 uint8_t UART1_Read(void)
 {
-    uint8_t readValue = 0;
+    uint8_t readValue  = 0;
     uint8_t tempRxTail;
     
-    // 进入临界区
-    PIE4bits.U1RXIE = 0;  // 禁用中断
-    
-    QueuePop(&uartQueue, &readValue);
-    uart1RxCount = QueueCount(&uartQueue);  // 更新计数
-    
-    // 退出临界区
-    PIE4bits.U1RXIE = 1;  // 启用中断
-    
+    readValue = uart1RxBuffer[uart1RxTail];
+    tempRxTail = (uart1RxTail + 1U) & UART1_RX_BUFFER_MASK; // Buffer size of RX should be in the 2^n  
+    uart1RxTail = tempRxTail;  
+    PIE4bits.U1RXIE = 0; 
+    if(0U != uart1RxCount)
+    {
+        uart1RxCount--;
+    }
+    PIE4bits.U1RXIE = 1;
     return readValue;
 }
 
-
-// 新增批量读取函数
-uint32_t UART1_ReadArray(uint8_t *buffer, uint32_t len)
-{
-    PIE4bits.U1RXIE = 0;
-    
-    uint32_t readCount = QueuePopArray(&uartQueue, buffer, len);
-    uart1RxCount = QueueCount(&uartQueue);  // 更新计数
-    
-    PIE4bits.U1RXIE = 1;
-    return readCount;
-}
+//uint8_t UART1_Read(void)
+//{
+//    uint8_t readValue = 0;
+//    uint8_t tempRxTail;
+//    
+//    // 进入临界区
+//    PIE4bits.U1RXIE = 0;  // 禁用中断
+//    
+//    QueuePop(&uartQueue, &readValue);
+//    uart1RxCount = QueueCount(&uartQueue);  // 更新计数
+//    
+//    // 退出临界区
+//    PIE4bits.U1RXIE = 1;  // 启用中断
+//    
+//    return readValue;
+//}
+//
+//
+//// 新增批量读取函数
+//uint32_t UART1_ReadArray(uint8_t *buffer, uint32_t len)
+//{
+//    PIE4bits.U1RXIE = 0;
+//    
+//    uint32_t readCount = QueuePopArray(&uartQueue, buffer, len);
+//    uart1RxCount = QueueCount(&uartQueue);  // 更新计数
+//    
+//    PIE4bits.U1RXIE = 1;
+//    return readCount;
+//}
 
 void putch(char data) 
 {
@@ -392,17 +392,16 @@ uint8_t UART1_GetRxCount(void)
 void __interrupt(irq(IRQ_U1RX), base(8)) UART1_Receive_Vector_ISR(void)
 {   
      UART1_ReceiveISR();
-     g_uRs485TimeOut=50;
+     g_uRs485TimeOut=200;
      PIR4bits.U1RXIF = 0;  
        
 }
-
 
 void UART1_ReceiveISR(void)
 {
     uint8_t regValue;
     uint8_t tempRxHead;
-    // use this default receive interrupt handler code
+     //use this default receive interrupt handler code
     uart1RxStatusBuffer[uart1RxHead].status = 0;
 
     if(true == U1ERRIRbits.FERIF)
@@ -430,38 +429,41 @@ void UART1_ReceiveISR(void)
         }   
     }  
  
+
     regValue = U1RXB;
  
      // 使用队列环形缓冲区
-    QueueStatus_t status = QueuePush(&uartQueue, regValue);
-    
-   if(status == QUEUE_OVERLOAD) 
-    {
-        // 队列溢出处理
-      
-        if(NULL != UART1_OverrunErrorHandler)
-        {
-            UART1_OverrunErrorHandler();
-        }   
-    }
-    else 
-    {
-        // 成功入队，更新原来的计数变量以保持兼容性
-        uart1RxCount = QueueCount(&uartQueue);
-    }
-    
+
+//    QueueStatus_t status = QueuePush(&uartQueue, regValue);
+
+  
+//   if(status == QUEUE_OVERLOAD) 
+//    {
+//        // 队列溢出处理
+//      
+//        if(NULL != UART1_OverrunErrorHandler)
+//        {
+//            UART1_OverrunErrorHandler();
+//        }   
+//    }
+//    else 
+//    {
+//        // 成功入队，更新原来的计数变量以保持兼容性
+//        uart1RxCount = QueueCount(&uartQueue);
+//    }
+//    
    
-//    tempRxHead = (uart1RxHead + 1U) & UART1_RX_BUFFER_MASK;
-//    if (tempRxHead == uart1RxTail) 
-//    {
-//		// ERROR! Receive buffer overflow 
-//	} 
-//    else
-//    {
-//        uart1RxBuffer[uart1RxHead] = regValue;
-//		uart1RxHead = tempRxHead;
-//		uart1RxCount++;
-//	}   
+    tempRxHead = (uart1RxHead + 1U) & UART1_RX_BUFFER_MASK;
+    if (tempRxHead == uart1RxTail) 
+    {
+		// ERROR! Receive buffer overflow 
+	} 
+    else
+    {
+        uart1RxBuffer[uart1RxHead] = regValue;
+		uart1RxHead = tempRxHead;
+		uart1RxCount++;
+	}   
     
    
     if(NULL != UART1_RxCompleteInterruptHandler)

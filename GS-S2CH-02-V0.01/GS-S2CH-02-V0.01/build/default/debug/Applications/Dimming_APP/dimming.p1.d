@@ -57,4 +57,6 @@ DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
-DriverLayer/RS485/../../mcc_generated_files/system/system.h 
+DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
+Applications/timerecord_app/record.h  \
+Applications/timerecord_app/../../mcc_generated_files/system/system.h 

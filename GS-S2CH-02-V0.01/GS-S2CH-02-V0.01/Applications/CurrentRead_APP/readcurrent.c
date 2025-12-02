@@ -11,7 +11,7 @@ uint8_t UART_REG1_Pre = 0X00, UART_REG2_Pre = 0X00;
 
 
 uint16_t power_time = 1;
-uint16_t g_uPower,g_uPower2;
+uint16_t g_uPower1, g_uPower2;
 
 void ReadCurrentInit(uint8_t* nfcData)
 {
@@ -19,7 +19,7 @@ void ReadCurrentInit(uint8_t* nfcData)
     power_Hold_1 = extractAndCombineEEPROMData(nfcData[2], nfcData[3]); // 从I2C接收数据的第2和第3字节提取并组合成16位功率保持值
     if (power_Hold_1 >= 855) power_Hold_1 = 855; // 限幅处理：功率保持值不能超过3500
     if (power_Hold_1 < 500) power_Hold_1 = 500; // 限幅处理：功率保持值小于2300时视为无效值，置为0
-    g_uPower = power_Hold_1; // 将处理后的功率保持值赋给当前通道电流变量
+    g_uPower1 = power_Hold_1; // 将处理后的功率保持值赋给当前通道电流变量
     UART_REG1_Pre = UART_REG1 = nfcData[0]; // 从I2C接收数据的第0字节获取UART寄存器值，并保存当前值和前值
     if (UART_REG1 >= 0x64)UART_REG1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
 
@@ -41,8 +41,6 @@ void PowerCompensationTime(uint8_t* nfcData)
     time_L = (((nfcData[65] >> 4) * 10) + (nfcData[65] & 0x0F)); // 从I2C接收数据的第65字节提取时间的低位
     power_time = ((time_H * 100) + time_L);
     power_time = power_time * 1000;
-
-
 }
 
 void ReadNfcNumber(void)
@@ -61,20 +59,20 @@ uint16_t g_Pzong;
 
 uint16_t Power_Compensation(void)
 {
-    g_uSetPower = g_uPower / 100 * UART_REG1;
-    g_uChannel2Power=g_uPower2/100*UART_REG2;
-    
-    g_Pzong=g_uSetPower+g_uChannel2Power;
-    if(g_Pzong>g_uPower)    
+    g_uSetPower = g_uPower1 / 100 * UART_REG1;
+    g_uChannel2Power = g_uPower2 / 100 * UART_REG2;
+
+    g_Pzong = g_uSetPower + g_uChannel2Power;
+    if (g_Pzong > g_uPower1)
     {
-        g_uTargetPower=g_uSetPower-(g_Pzong-g_uSetPower)-26;
+        g_uTargetPower = g_uSetPower - (g_Pzong - g_uSetPower) - 22;
     }
-    else 
-    
+    else
+
     {
-        g_uTargetPower = g_uSetPower - 26;
+        g_uTargetPower = g_uSetPower - 22;
     }
-    
+
     return g_uTargetPower;
 }
 

@@ -116,7 +116,8 @@ void Access_Bootloder(void)
 void Close_ALL_LED(void)
 {
     start_flag=0;
-    ResetPWMAndGPIO();
+    //ResetPWMAndGPIO();
+           LightPowerOff(LED_ALL_OFF);
 }
 
 

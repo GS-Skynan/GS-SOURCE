@@ -12,7 +12,7 @@ void PIDDimming_Init(void);
 
 uint32_t get_elapsed_since(uint32_t since_time);
 uint32_t get_systemtick_time(void);
-
+void Dimming_Pid(void);
 void LED_Task(void);
 
 extern uint16_t Close1_time1,Close_Count1 ,Close_Count2;

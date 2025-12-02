@@ -8,8 +8,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _start_flag `uc ~T0 @X0 0 e ]
 "7 Applications/TempProtected_APP/TEMP_PROTECTED.h
 [v _Temp_Flag `uc ~T0 @X0 0 e ]
-"9 Applications/LightsOff_APP/closeled.h
-[v _ResetPWMAndGPIO `(v ~T0 @X0 0 ef ]
+"68 Applications/InProtected_APP/inprotectedapp.c
+[c E17973 1 2 3 .. ]
+[n E17973 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+"14 Applications/LightsOff_APP/closeled.h
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E17973 ]
 "44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 "49613 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -1833,108 +1836,108 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [e $ ! <= -> _Input_result `ui -> -> 1780 `i `ui 2430  ]
 {
-"67
-[e ( _ResetPWMAndGPIO ..  ]
 "68
-[e = _state -> -> 0 `i `us ]
+[e ( _LightPowerOff (1 . `E17973 2 ]
 "69
-[e = _Temp_Flag -> -> 1 `i `uc ]
+[e = _state -> -> 0 `i `us ]
 "70
-[e = _start_flag -> -> 0 `i `uc ]
+[e = _Temp_Flag -> -> 1 `i `uc ]
 "71
+[e = _start_flag -> -> 0 `i `uc ]
+"72
 }
 [e :U 2430 ]
-"72
-[e $U 2422  ]
 "73
-[e :U 2431 ]
+[e $U 2422  ]
 "74
+[e :U 2431 ]
+"75
 [e $ ! <= -> _Input_result `ui -> -> 1780 `i `ui 2432  ]
 {
-"75
-[e ( _ResetPWMAndGPIO ..  ]
-"76
-[e = _state -> -> 0 `i `us ]
 "77
-[e = _start_flag -> -> 0 `i `uc ]
+[e ( _LightPowerOff (1 . `E17973 2 ]
+"78
+[e = _state -> -> 0 `i `us ]
 "79
-[e =* _UART_REG1 -> -> 2 `i `uc ]
-"80
-[e = _target_power -> -> 1 `i `us ]
+[e = _start_flag -> -> 0 `i `uc ]
 "81
-[e = _Temp_Flag -> -> 1 `i `uc ]
+[e =* _UART_REG1 -> -> 2 `i `uc ]
 "82
-[e = _power_reduced -> -> 0 `i `uc ]
+[e = _target_power -> -> 1 `i `us ]
 "83
+[e = _Temp_Flag -> -> 1 `i `uc ]
+"84
+[e = _power_reduced -> -> 0 `i `uc ]
+"85
 }
 [e :U 2432 ]
-"84
+"86
 [e $ ! && >= -> _Input_result `ui -> -> 2000 `i `ui != -> _power_reduced `i -> 0 `i 2433  ]
 {
-"86
-[e =* _UART_REG1 -> -> 2 `i `uc ]
-"87
-[e = _power_reduced -> -> 0 `i `uc ]
 "88
-[e = _target_power2 -> -> 0 `i `uc ]
+[e =* _UART_REG1 -> -> 2 `i `uc ]
 "89
-[e = _start_flag -> -> 1 `i `uc ]
+[e = _power_reduced -> -> 0 `i `uc ]
 "90
-[e = _Temp_Flag -> -> 1 `i `uc ]
+[e = _target_power2 -> -> 0 `i `uc ]
 "91
-[e = _state -> -> 1 `i `us ]
+[e = _start_flag -> -> 1 `i `uc ]
 "92
+[e = _Temp_Flag -> -> 1 `i `uc ]
+"93
+[e = _state -> -> 1 `i `us ]
+"94
 }
 [e :U 2433 ]
-"93
-[e $U 2422  ]
-"94
-[e :U 2434 ]
 "95
+[e $U 2422  ]
+"96
+[e :U 2434 ]
+"97
 [e $ ! && && > -> _Input_result `ui -> -> 1760 `i `ui < -> _Input_result `ui -> -> 1890 `i `ui ! != -> _power_reduced `i -> 0 `i 2435  ]
 {
-"97
+"99
 [e $ ! != -> _target_power2 `i -> 0 `i 2436  ]
 {
-"98
+"100
 [e = _power_reduced -> -> 1 `i `uc ]
-"99
-[e = _start_flag -> -> 1 `i `uc ]
 "101
-[e = _state -> -> 2 `i `us ]
-"102
-[e = _target_power2 -> -> 0 `i `uc ]
+[e = _start_flag -> -> 1 `i `uc ]
 "103
+[e = _state -> -> 2 `i `us ]
+"104
+[e = _target_power2 -> -> 0 `i `uc ]
+"105
 }
 [e :U 2436 ]
-"104
+"106
 [e $ ! ! != -> _target_power2 `i -> 0 `i 2437  ]
 {
-"105
-[e = _UART_REG1 -> / -> _UART_REG1 `i -> 2 `i `uc ]
-"106
-[e = _power_reduced -> -> 1 `i `uc ]
 "107
-[e = _start_flag -> -> 1 `i `uc ]
+[e = _UART_REG1 -> / -> _UART_REG1 `i -> 2 `i `uc ]
+"108
+[e = _power_reduced -> -> 1 `i `uc ]
 "109
-[e = _state -> -> 2 `i `us ]
-"110
-[e = _target_power2 -> -> 1 `i `uc ]
+[e = _start_flag -> -> 1 `i `uc ]
 "111
+[e = _state -> -> 2 `i `us ]
+"112
+[e = _target_power2 -> -> 1 `i `uc ]
+"113
 }
 [e :U 2437 ]
-"112
+"114
 }
 [e :U 2435 ]
-"113
-[e $U 2422  ]
-"114
-[e :U 2438 ]
 "115
-[e = _state -> -> 0 `i `us ]
-"116
 [e $U 2422  ]
+"116
+[e :U 2438 ]
 "117
+[e = _state -> -> 0 `i `us ]
+"118
+[e $U 2422  ]
+"119
 }
 [e $U 2422  ]
 [e :U 2423 ]
@@ -1944,38 +1947,38 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `ui 2434
  2438 ]
 [e :U 2422 ]
-"118
+"120
 [e :UE 2421 ]
 }
-"122
+"124
 [v _IntProtectedTask `(v ~T0 @X0 1 ef ]
-"123
+"125
 {
 [e :U _IntProtectedTask ]
 [f ]
-"124
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 2440  ]
-"125
-{
 "126
-[e ( _Input_Protected ..  ]
+[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 2440  ]
 "127
+{
+"128
+[e ( _Input_Protected ..  ]
+"129
 }
 [e $U 2441  ]
-"128
+"130
 [e :U 2440 ]
 [e $ ! == -> . . _PORTBbits 0 7 `i -> 0 `i 2442  ]
 {
-"130
-[e = _start_flag -> -> 1 `i `uc ]
-"131
-[e = _UART_REG1_Pre = _UART_REG1 -> -> 100 `i `uc ]
 "132
-[e = _UART_REG2_Pre = _UART_REG2 -> -> 100 `i `uc ]
+[e = _start_flag -> -> 1 `i `uc ]
 "133
+[e = _UART_REG1_Pre = _UART_REG1 -> -> 100 `i `uc ]
+"134
+[e = _UART_REG2_Pre = _UART_REG2 -> -> 100 `i `uc ]
+"135
 }
 [e :U 2442 ]
 [e :U 2441 ]
-"134
+"136
 [e :UE 2439 ]
 }

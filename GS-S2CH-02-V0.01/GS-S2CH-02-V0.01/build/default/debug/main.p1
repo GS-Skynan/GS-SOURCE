@@ -5,19 +5,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [s S2423 `ui 1 `ui 1 `ui 1 `uc 1 `S2422 1 `ui 1 ]
 [n S2423 . total_power_time_H power_time_minutes power_time_msecond power_timer_flag record_time save_flag ]
-"24 Applications/PwmRegulation_APP/pwm_change.h
+"22 Applications/PwmRegulation_APP/pwm_change.h
 [s S2424 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2424 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18276 `(v ~T0 @X0 0 tf ]
+[v F18277 `(v ~T0 @X0 0 tf ]
 "59 main.c
-[s S2425 `uc 1 `us 1 `us 1 `*F18276 1 ]
+[s S2425 `uc 1 `us 1 `us 1 `*F18277 1 ]
 [n S2425 . run timCount timRload pTaskFuncCb ]
 "11 Applications/USBCom_APP/usbcom.h
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
 "42 Applications/InProtected_APP/inprotectedapp.h
 [v _IntProtectedTask `(v ~T0 @X0 0 ef ]
-"17 Applications/LightsOff_APP/closeled.h
-[v _LightsOffTask `(v ~T0 @X0 0 ef ]
 "58 Applications/timerecord_app/record.h
 [v _TimeCalculationTask `(v ~T0 @X0 0 ef ]
 "10 Applications/TempProtected_APP/TEMP_PROTECTED.h
@@ -28,6 +26,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _OutProtectedTask `(v ~T0 @X0 0 ef ]
 "16 Applications/Ticktime_APP/ticktime.h
 [v _LED_Task `(v ~T0 @X0 0 ef ]
+"13 Applications/USBCom_APP/usbcom.h
+[v _Display `(v ~T0 @X0 0 ef ]
 "33 DriverLayer/GPIO/GPIO_driver.h
 [v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
 "9 Applications/Ticktime_APP/ticktime.h
@@ -40,7 +40,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Time2_AppInit `(v ~T0 @X0 0 ef ]
 "10 Applications/USBCom_APP/usbcom.h
 [v _UsbcomAppInit `(v ~T0 @X0 0 ef ]
-"43 Applications/PwmRegulation_APP/pwm_change.h
+"41 Applications/PwmRegulation_APP/pwm_change.h
 [v _PID_Init_Parameters `(v ~T0 @X0 0 ef ]
 "46 Applications/NFCService_APP/nfcapp.h
 [v _NFCRead_APPInit `(v ~T0 @X0 0 ef ]
@@ -1821,7 +1821,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"38 Applications/PwmRegulation_APP/pwm_change.h
+"36 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2424 ~T0 @X0 1 e ]
 [v _pid2 `S2424 ~T0 @X0 1 e ]
 "16 Applications/NFCService_APP/nfcapp.h
@@ -1849,8 +1849,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 -> -> 0 `i `uc
--> -> 50 `i `us
--> -> 50 `i `us
+-> -> 150 `i `us
+-> -> 150 `i `us
 &U _Rs485Task
 ..
 :U ..
@@ -1858,12 +1858,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 300 `i `us
 -> -> 300 `i `us
 &U _IntProtectedTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 100 `i `us
--> -> 100 `i `us
-&U _LightsOffTask
 ..
 :U ..
 -> -> 0 `i `uc
@@ -1879,8 +1873,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 :U ..
 -> -> 0 `i `uc
--> -> 150 `i `us
--> -> 150 `i `us
+-> -> 5 `i `us
+-> -> 5 `i `us
 &U _DimmingControlTask
 ..
 :U ..
@@ -1894,6 +1888,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 10 `i `us
 -> -> 10 `i `us
 &U _LED_Task
+..
+:U ..
+-> -> 0 `i `uc
+-> -> 5000 `i `us
+-> -> 5000 `i `us
+&U _Display
 ..
 ..
 ]

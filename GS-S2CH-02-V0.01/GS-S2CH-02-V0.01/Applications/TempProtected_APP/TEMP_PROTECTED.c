@@ -60,7 +60,8 @@ void Temp_Protected(void)
             }
             Temp_protected_flag = 1;
             start_flag = 0;
-            ResetPWMAndGPIO();
+       //     ResetPWMAndGPIO();
+               LightPowerOff(LED_ALL_OFF);
             break;
         }
     }

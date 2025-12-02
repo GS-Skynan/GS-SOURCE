@@ -64,7 +64,8 @@ void Input_Protected(void)
                 Temp_Flag = 0;   // 切换到运行中状态
             }
             if (Input_result <= 1780) {                          // 如果输入电压小于低启动阈值 ,1680              
-                ResetPWMAndGPIO();                                              // 重置PWM和GPIO
+//                ResetPWMAndGPIO();                                              // 重置PWM和GPIO
+                     LightPowerOff(LED_ALL_OFF);
                 state = 0;                                                      // 返回未启动状态
                 Temp_Flag = 1;
                 start_flag = 0;                                                 // 清除启动标志                          
@@ -72,7 +73,8 @@ void Input_Protected(void)
             break;
         case 2:   
             if (Input_result <= 1780) {                          // 如果输入电压小于低启动阈值               
-                ResetPWMAndGPIO();                                              // 重置PWM和GPIO
+     //           ResetPWMAndGPIO();                                              // 重置PWM和GPIO
+                 LightPowerOff(LED_ALL_OFF);
                 state = 0;                                                      // 返回未启动状态
                 start_flag = 0;                                                 // 清除启动标志
               

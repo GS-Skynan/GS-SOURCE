@@ -5,8 +5,7 @@
 
 #include <math.h>
 
-int PWM_Pre_data_1;    //PWMœ»«∞÷µ
-int PWM_Pre_data_2;   
+
 int Pwm_flag_1,Pwm_flag_2=0;
 
 int target_duty_cycle_Out1,target_duty_cycle_Out2;

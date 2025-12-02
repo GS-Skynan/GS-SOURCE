@@ -134,7 +134,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F17294 `(v ~T0 @X0 0 tf ]
 [v F17295 `(v ~T0 @X0 0 tf ]
 [t ~ __interrupt . k ]
-[t T1 __interrupt irq ( I2C1 ) base ( 8 ) ]
+[t T1 __interrupt irq ( I2C1 ) base ( 8 ) low_priority ]
 "51 mcc_generated_files/i2c_host/src/i2c1.c
 [v _I2C1_Close `(v ~T0 @X0 0 sf ]
 "63
@@ -142,7 +142,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F17213 `(v ~T0 @X0 1 tf ]
 "62
 [v _I2C1_RestartDisable `TF17213 ~T0 @X0 0 s ]
-[t T2 __interrupt irq ( I2C1E ) base ( 8 ) ]
+[t T2 __interrupt irq ( I2C1E ) base ( 8 ) low_priority ]
 "65
 [v _I2C1_IsBusCol `(a ~T0 @X0 0 sf ]
 "16450 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -167,10 +167,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _I2C1_IsData `(a ~T0 @X0 0 sf ]
 "66
 [v _I2C1_IsBusTimeOut `(a ~T0 @X0 0 sf ]
-[t T3 __interrupt irq ( I2C1RX ) base ( 8 ) ]
+[t T3 __interrupt irq ( I2C1RX ) base ( 8 ) low_priority ]
 "57
 [v _I2C1_DataReceive `(uc ~T0 @X0 0 sf ]
-[t T4 __interrupt irq ( I2C1TX ) base ( 8 ) ]
+[t T4 __interrupt irq ( I2C1TX ) base ( 8 ) low_priority ]
 "56
 [v _I2C1_DataTransmit `(v ~T0 @X0 0 sf1`uc ]
 "58

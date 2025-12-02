@@ -165,7 +165,8 @@ void Out_Protect(void)
             {    //通道1                           
                 out_flag1 = 0;       //关闭通道1，30s后定时器值1（使得1通道重新启动）
                 PFC_Flag1 = 1;       //设置通道1保护标志（全部短路）
-                LED1_Close();        //关闭通道1输出
+//                LED1_Close();        //关闭通道1输出
+                LightPowerOff(LED_CHANNEL1_OFF);
                 flag_close1 = 1;     //启用通道1关闭定时器
             }
 
@@ -174,14 +175,16 @@ void Out_Protect(void)
             {
                 out_flag1 = 0;       //关闭通道1；30s后定时器值1（使得1通道重新启动）
                 PFC_Flag1 = 1;       //设置通道1保护标志
-                LED1_Close();        //关闭通道1输出
+ //               LED1_Close();        //关闭通道1输出
+                        LightPowerOff(LED_CHANNEL1_OFF);
                 flag_close1 = 0;     //禁用通道1关闭定时器（可能立即保护，使得只触发一次）
             }
             
             // 通道1连续多次触发保护时，强制关闭输出
             if(Close_Count1 > 5)
             {
-                LED1_Close();                  
+              //  LED1_Close();   
+                        LightPowerOff(LED_CHANNEL1_OFF);
                 out_flag1 = 0;       //关闭通道1，30s后定时器值1                
                 Close_Count1 = 6;    //锁定保护状态
             }
@@ -193,7 +196,8 @@ void Out_Protect(void)
             {
                 out_flag2 = 0;
                 PFC_Flag2 = 2;       //设置通道2保护标志（全部短路）
-                LED2_Close();        //关闭通道2输出
+             //   LED2_Close();        //关闭通道2输出
+                        LightPowerOff(LED_CHANNEL2_OFF);
                 flag_close2 = 1;     //启用通道2关闭定时器
             }
             
@@ -201,13 +205,15 @@ void Out_Protect(void)
             {          //短路
                 out_flag2 = 0;
                 PFC_Flag2 = 2;       //设置通道2保护标志
-                LED2_Close();        //关闭通道2输出
+             //   LED2_Close();        //关闭通道2输出
+                       LightPowerOff(LED_CHANNEL2_OFF);
                 flag_close2 = 1;     //启用通道2关闭定时器
             }            
             // 通道2连续多次触发保护时，强制关闭输出
             if(Close_Count2 > 5)
             {
-                LED2_Close();                  
+              //  LED2_Close();        
+                       LightPowerOff(LED_CHANNEL2_OFF);
                 out_flag2 = 0;
                 Close_Count2 = 6;    //锁定保护状态
             }

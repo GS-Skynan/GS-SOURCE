@@ -47,4 +47,8 @@ Applications/PowerComp_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
-DriverLayer/GPIO/../../mcc_generated_files/system/system.h 
+DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
+Middlewares/QUEUE/queue.h  \
+Middlewares/QUEUE/../../mcc_generated_files/system/system.h  \
+Applications/USBCom_APP/usbcom.h  \
+Applications/USBCom_APP/../../mcc_generated_files/system/system.h 

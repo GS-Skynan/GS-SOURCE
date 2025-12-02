@@ -35,7 +35,6 @@
 #include <xc.h>
 #include "../tmr0.h"
 
-
 static void (*TMR0_PeriodMatchCallback)(void);
 static void TMR0_DefaultCallback(void);
 

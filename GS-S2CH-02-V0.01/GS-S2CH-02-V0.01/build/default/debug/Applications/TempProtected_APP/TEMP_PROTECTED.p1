@@ -14,8 +14,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 "8 Applications/Dimming_APP/dimming.h
 [v _start_flag `uc ~T0 @X0 0 e ]
-"9 Applications/LightsOff_APP/closeled.h
-[v _ResetPWMAndGPIO `(v ~T0 @X0 0 ef ]
+"64 Applications/TempProtected_APP/temp_protected.c
+[c E17949 1 2 3 .. ]
+[n E17949 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+"14 Applications/LightsOff_APP/closeled.h
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E17949 ]
 "10 Applications/timerecord_app/record.h
 [v _tem_flag `us ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -1816,8 +1819,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _voltage `f ~T0 @X0 1 a ]
 [e = _voltage * / -> _temperature `f -> .4095.0 `f -> .4.096 `f ]
 "21
-[v F18204 `uc ~T0 @X0 1 s protection_state ]
-[i F18204
+[v F18205 `uc ~T0 @X0 1 s protection_state ]
+[i F18205
 -> -> 0 `i `uc
 ]
 "24
@@ -1835,11 +1838,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _target_state -> -> 0 `i `uc ]
 [e :U 2427 ]
 "30
-[e $ ! && == -> _Temp_Flag `i -> 0 `i != -> _target_state `i -> F18204 `i 2428  ]
+[e $ ! && == -> _Temp_Flag `i -> 0 `i != -> _target_state `i -> F18205 `i 2428  ]
 "31
 {
 "32
-[e = F18204 _target_state ]
+[e = F18205 _target_state ]
 "34
 [e $U 2430  ]
 {
@@ -1894,40 +1897,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _Temp_protected_flag -> -> 1 `i `uc ]
 "62
 [e = _start_flag -> -> 0 `i `uc ]
-"63
-[e ( _ResetPWMAndGPIO ..  ]
 "64
-[e $U 2429  ]
+[e ( _LightPowerOff (1 . `E17949 2 ]
 "65
+[e $U 2429  ]
+"66
 }
 [e $U 2429  ]
 [e :U 2430 ]
-[e [\ F18204 , $ -> 0 `i 2431
+[e [\ F18205 , $ -> 0 `i 2431
  , $ -> 1 `i 2433
  , $ -> 2 `i 2435
  2429 ]
 [e :U 2429 ]
-"66
+"67
 }
 [e :U 2428 ]
-"67
+"68
 [e :UE 2424 ]
 }
-"69
-[v _TemapProtectedTask `(v ~T0 @X0 1 ef ]
 "70
+[v _TemapProtectedTask `(v ~T0 @X0 1 ef ]
+"71
 {
 [e :U _TemapProtectedTask ]
 [f ]
-"71
-[e $ ! == -> _tem_flag `ui -> -> 1 `i `ui 2438  ]
 "72
-{
+[e $ ! == -> _tem_flag `ui -> -> 1 `i `ui 2438  ]
 "73
-[e ( _Temp_Protected ..  ]
+{
 "74
+[e ( _Temp_Protected ..  ]
+"75
 }
 [e :U 2438 ]
-"75
+"76
 [e :UE 2437 ]
 }

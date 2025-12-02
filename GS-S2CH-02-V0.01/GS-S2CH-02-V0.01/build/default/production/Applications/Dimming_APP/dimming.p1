@@ -1,50 +1,59 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"24 Applications/PwmRegulation_APP/pwm_change.h
+"22 Applications/PwmRegulation_APP/pwm_change.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
+"13 Applications/timerecord_app/record.h
+[s S2423 `ui 1 `ui 1 `ui 1 ]
+[n S2423 . Hours_H Hours_M Hours_L ]
+"19
+[s S2424 `ui 1 `ui 1 `ui 1 `uc 1 `S2423 1 `ui 1 ]
+[n S2424 . total_power_time_H power_time_minutes power_time_msecond power_timer_flag record_time save_flag ]
 "14 Applications/Ticktime_APP/ticktime.h
 [v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
 "13
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"94 Applications/Dimming_APP/dimming.c
+"93 Applications/Dimming_APP/dimming.c
 [c E17525 59 60 61 62 63 0 1 3 4 5 13 .. ]
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "17 DriverLayer/ADC/adc_driver.h
 [v _ADC_Result2 `(us ~T0 @X0 0 ef1`E17525 ]
+"25 Applications/OutProtected_APP/out_protected.h
+[v _out_flag1 `uc ~T0 @X0 0 e ]
+"26
+[v _V_Ret1 `us ~T0 @X0 0 e ]
+[v _V_Ret2 `us ~T0 @X0 0 e ]
+"25
+[v _out_flag2 `uc ~T0 @X0 0 e ]
 "44 Applications/CurrentRead_APP/readcurrent.h
 [v _UART_REG1 `uc ~T0 @X0 0 e ]
 [v _UART_REG2 `uc ~T0 @X0 0 e ]
+"168 Applications/Dimming_APP/dimming.c
+[c E18007 1 2 3 .. ]
+[n E18007 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+"14 Applications/LightsOff_APP/closeled.h
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18007 ]
 "23 DriverLayer/GPIO/GPIO_driver.h
 [v _PFC_On `(v ~T0 @X0 0 ef ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"25 Applications/OutProtected_APP/out_protected.h
-[v _out_flag1 `uc ~T0 @X0 0 e ]
-"15 Applications/LightsOff_APP/closeled.h
-[v _Close_2 `(v ~T0 @X0 0 ef ]
-"165 Applications/Dimming_APP/dimming.c
+"182 Applications/Dimming_APP/dimming.c
 [c E18075 1 2 .. ]
 [n E18075 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "30 DriverLayer/GPIO/GPIO_driver.h
 [v _RELAY_On `(v ~T0 @X0 0 ef1`E18075 ]
-"167 Applications/Dimming_APP/dimming.c
+"184 Applications/Dimming_APP/dimming.c
 [c E18071 1 2 .. ]
 [n E18071 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "27 DriverLayer/GPIO/GPIO_driver.h
 [v _L6562_On `(v ~T0 @X0 0 ef1`E18071 ]
-"25 Applications/OutProtected_APP/out_protected.h
-[v _out_flag2 `uc ~T0 @X0 0 e ]
-"14 Applications/LightsOff_APP/closeled.h
-[v _Close_1 `(v ~T0 @X0 0 ef ]
-"26 Applications/OutProtected_APP/out_protected.h
-[v _V_Ret1 `us ~T0 @X0 0 e ]
-[v _V_Ret2 `us ~T0 @X0 0 e ]
 "41 Applications/CurrentRead_APP/readcurrent.h
 [v _Power_Compensation `(us ~T0 @X0 0 ef ]
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
+"15
+[v _Dimming_Pid `(v ~T0 @X0 0 ef ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1776,34 +1785,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _con4
 -> -> 1 `i `uc
 ]
-"38 Applications/PwmRegulation_APP/pwm_change.h
+"36 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
 [v _pid2 `S2421 ~T0 @X0 1 e ]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"21 Applications/Dimming_APP/dimming.c
+"33 Applications/timerecord_app/record.h
+[v _StartTime `S2424 ~T0 @X0 1 e ]
+[i _StartTime
+:U ..
+:U ..
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `uc
+:U ..
+:U ..
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+..
+..
+-> -> 0 `i `ui
+..
+..
+]
+"42
+[v _LightTime `S2424 ~T0 @X0 1 e ]
+[i _LightTime
+:U ..
+:U ..
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `uc
+:U ..
+:U ..
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+-> -> 0 `i `ui
+..
+..
+-> -> 0 `i `ui
+..
+..
+]
+"22 Applications/Dimming_APP/dimming.c
 [v _Default_flag `uc ~T0 @X0 1 e ]
 [i _Default_flag
 -> -> 1 `i `uc
 ]
-"22
+"23
 [v _start_flag `uc ~T0 @X0 1 e ]
 [i _start_flag
 -> -> 0 `i `uc
 ]
-"23
+"24
 [v _pfc_flag `uc ~T0 @X0 1 e ]
 [i _pfc_flag
 -> -> 1 `i `uc
 ]
-"24
+"25
 [v _buck_flag `Vuc ~T0 @X0 1 e ]
 [i _buck_flag
 -> -> 0 `i `uc
 ]
-"25
+"26
 [v _buck_ok1 `uc ~T0 @X0 1 e ]
 [i _buck_ok1
 -> -> 0 `i `uc
@@ -1812,70 +1861,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _buck_ok2
 -> -> 0 `i `uc
 ]
-"26
+"27
 [v _current_control_mode_1 `uc ~T0 @X0 1 e ]
 [i _current_control_mode_1
 -> -> 0 `i `uc
 ]
-"27
+"28
 [v _current_control_mode_2 `uc ~T0 @X0 1 e ]
 [i _current_control_mode_2
 -> -> 0 `i `uc
 ]
-"29
+"30
 [v _mode_flag `uc ~T0 @X0 1 e ]
-"31
-[v _PIDflag1 `uc ~T0 @X0 1 e ]
 "32
+[v _PIDflag1 `uc ~T0 @X0 1 e ]
+"33
 [v _PIDflag2 `uc ~T0 @X0 1 e ]
-"35
+"36
 [v _current_value `f ~T0 @X0 1 e ]
 [i _current_value
 -> -> 0 `i `f
 ]
-"36
+"37
 [v _start_value `f ~T0 @X0 1 e ]
 [i _start_value
 -> -> 0 `i `f
 ]
-"37
+"38
 [v _start_time `ul ~T0 @X0 1 e ]
 [i _start_time
 -> -> -> 0 `i `l `ul
 ]
-"38
+"39
 [v _target_value `f ~T0 @X0 1 e ]
 [i _target_value
 -> -> 0 `i `f
 ]
-"39
+"40
 [v _transition_time `ul ~T0 @X0 1 e ]
 [i _transition_time
 -> -> -> 1000 `i `l `ul
 ]
-"40
+"41
 [v _power_pwm `f ~T0 @X0 1 e ]
 [i _power_pwm
 -> -> 0 `i `f
 ]
-"44
+"43
 [v _regulator_clear `(v ~T0 @X0 1 ef ]
-"45
+"44
 {
 [e :U _regulator_clear ]
 [f ]
-"46
+"45
 [e = _current_value -> -> 0 `i `f ]
-"47
+"46
 [e = _start_value -> -> 0 `i `f ]
-"48
+"47
 [e = _start_time -> -> -> 0 `i `l `ul ]
-"49
+"48
 [e = _target_value -> -> 0 `i `f ]
-"50
+"49
 [e = _transition_time -> -> -> 1000 `i `l `ul ]
-"51
-[e :UE 2422 ]
+"50
+[e :UE 2425 ]
 }
 "54
 [v _simple_regulator `(f ~T0 @X0 1 ef2`f`ul ]
@@ -1891,7 +1940,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _current_time `ul ~T0 @X0 1 a ]
 [e = _current_time ( _get_systemtick_time ..  ]
 "59
-[e $ ! != _new_target _target_value 2424  ]
+[e $ ! != _new_target _target_value 2427  ]
 "60
 {
 "61
@@ -1904,22 +1953,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _transition_time _time_ms ]
 "65
 }
-[e :U 2424 ]
+[e :U 2427 ]
 "68
 [v _elapsed `ul ~T0 @X0 1 a ]
 [e = _elapsed ( _get_elapsed_since (1 _start_time ]
 "70
-[e $ ! >= _elapsed _transition_time 2425  ]
+[e $ ! >= _elapsed _transition_time 2428  ]
 "71
 {
 "72
 [e = _current_value _target_value ]
 "73
 [e ) _current_value ]
-[e $UE 2423  ]
+[e $UE 2426  ]
 "74
 }
-[e :U 2425 ]
+[e :U 2428 ]
 "76
 [v _progress `f ~T0 @X0 1 a ]
 [e = _progress / -> _elapsed `f -> _transition_time `f ]
@@ -1927,26 +1976,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _current_value + _start_value * - _target_value _start_value _progress ]
 "79
 [e ) _current_value ]
-[e $UE 2423  ]
+[e $UE 2426  ]
 "80
-[e :UE 2423 ]
+[e :UE 2426 ]
 }
-"94
+"93
 [v _get_current `(f ~T0 @X0 1 ef1`E17525 ]
-"95
+"94
 {
 [e :U _get_current ]
-"94
+"93
 [v _channel `E17525 ~T0 @X0 1 r1 ]
-"95
+"94
 [f ]
-"96
+"95
 [v _I_Out1_ADC `s ~T0 @X0 1 a ]
 [v _I_Out2_ADC `s ~T0 @X0 1 a ]
-"97
+"96
 [v _I_out `f ~T0 @X0 1 a ]
+"99
+[e $ ! == -> _channel `ui -> . `E17525 8 `ui 2430  ]
 "100
-[e $ ! == -> _channel `ui -> . `E17525 8 `ui 2427  ]
 {
 "102
 [e = _I_Out1_ADC -> ( _ADC_Result2 (1 . `E17525 8 `s ]
@@ -1960,10 +2010,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _I_out / * _adc_voltage1 _voltage_ratio1 -> .0.034 `f ]
 "116
 }
-[e $U 2428  ]
+[e $U 2431  ]
 "118
-[e :U 2427 ]
-[e $ ! == -> _channel `ui -> . `E17525 5 `ui 2429  ]
+[e :U 2430 ]
+[e $ ! == -> _channel `ui -> . `E17525 5 `ui 2432  ]
 "119
 {
 "121
@@ -1978,143 +2028,183 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _I_out / * _adc_voltage2 _voltage_ratio2 -> .0.25 `f ]
 "134
 }
-[e :U 2429 ]
-[e :U 2428 ]
+[e :U 2432 ]
+[e :U 2431 ]
 "135
 [e ) * _I_out -> .1000.0 `f ]
-[e $UE 2426  ]
+[e $UE 2429  ]
 "136
-[e :UE 2426 ]
+[e :UE 2429 ]
 }
+"138
+[v _ProtectionCheck `(a ~T0 @X0 1 ef ]
+"139
+{
+[e :U _ProtectionCheck ]
+[f ]
+"140
+[e $ ! != -> _start_flag `i -> 1 `i 2434  ]
 "141
-[v _DimmingControlTask `(v ~T0 @X0 1 ef ]
+{
 "142
+[e ) -> -> 1 `i `a ]
+[e $UE 2433  ]
+"143
+}
+[e :U 2434 ]
+"146
+[e $ ! || || || == -> _out_flag1 `i -> 0 `i != -> _V_Ret1 `ui -> -> 0 `i `ui != -> _V_Ret2 `ui -> -> 0 `i `ui == -> _out_flag2 `i -> 0 `i 2435  ]
+"147
+{
+"149
+[e ) -> -> 1 `i `a ]
+[e $UE 2433  ]
+"150
+}
+[e :U 2435 ]
+"152
+[e $ ! && < -> _UART_REG1 `i -> 1 `i < -> _UART_REG2 `i -> 1 `i 2436  ]
+"153
+{
+"154
+[e ) -> -> 1 `i `a ]
+[e $UE 2433  ]
+"155
+}
+[e :U 2436 ]
+"157
+[e ) -> -> 0 `i `a ]
+[e $UE 2433  ]
+"158
+[e :UE 2433 ]
+}
+"161
+[v _DimmingControlTask `(v ~T0 @X0 1 ef ]
+"162
 {
 [e :U _DimmingControlTask ]
 [f ]
-"143
-[e $ ! != -> _start_flag `i -> 0 `i 2431  ]
-"144
-{
-"146
-[e $ ! || >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i 2432  ]
-"147
-{
-"148
-[e $ ! != -> _pfc_flag `i -> 0 `i 2433  ]
-"149
-{
-"150
-[e ( _PFC_On ..  ]
-"151
-[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"152
-[e = _pfc_flag -> -> 0 `i `uc ]
-"154
-}
-[e :U 2433 ]
-"156
-[e $ ! && > -> _UART_REG1 `i -> 0 `i > -> _UART_REG2 `i -> 0 `i 2434  ]
-[e = _mode_flag -> -> 0 `i `uc ]
-[e $U 2435  ]
-"157
-[e :U 2434 ]
-[e = _mode_flag -> -> 1 `i `uc ]
-[e :U 2435 ]
-"159
-[e $ ! && >= -> _UART_REG1 `i -> 1 `i != -> _out_flag1 `i -> 0 `i 2436  ]
-"160
-{
-"161
-[e $ ! == -> _mode_flag `i -> 1 `i 2437  ]
-"162
-{
-"163
-[e ( _Close_2 ..  ]
-"164
-}
-[e :U 2437 ]
-"165
-[e ( _RELAY_On (1 . `E18075 0 ]
 "166
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e $ ! == -> ( _ProtectionCheck ..  `i -> 1 `i 2438  ]
 "167
-[e ( _L6562_On (1 . `E18071 0 ]
+{
 "168
-}
-[e :U 2436 ]
+[e ( _LightPowerOff (1 . `E18007 2 ]
+"169
+[e $UE 2437  ]
 "170
-[e $ ! && >= -> _UART_REG2 `i -> 1 `i != -> _out_flag2 `i -> 0 `i 2438  ]
-{
-"171
-[e $ ! == -> _mode_flag `i -> 1 `i 2439  ]
-{
-"172
-[e ( _Close_1 ..  ]
-"173
-}
-[e :U 2439 ]
-"174
-[e ( _RELAY_On (1 . `E18075 1 ]
-"175
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"176
-[e ( _L6562_On (1 . `E18071 1 ]
-"177
 }
 [e :U 2438 ]
-"182
-[e $ ! || || || == -> _out_flag1 `i -> 0 `i != -> _V_Ret1 `ui -> -> 0 `i `ui != -> _V_Ret2 `ui -> -> 0 `i `ui == -> _out_flag2 `i -> 0 `i 2440  ]
-[e $UE 2430  ]
-[e :U 2440 ]
-"185
-[e = _power_pwm -> ( _Power_Compensation ..  `f ]
-"187
-[e $ ! && >= -> _UART_REG1 `i -> 1 `i == -> _UART_REG2 `i -> 0 `i 2441  ]
-"188
+"173
+[e $ ! != -> _pfc_flag `i -> 0 `i 2439  ]
+"174
 {
-"189
-[e = _PIDflag1 -> -> 1 `i `uc ]
-"190
+"175
+[e ( _PFC_On ..  ]
+"176
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"177
+[e = _pfc_flag -> -> 0 `i `uc ]
+"178
 }
-[e :U 2441 ]
-"192
-[e $ ! && == -> _UART_REG1 `i -> 0 `i >= -> _UART_REG2 `i -> 1 `i 2442  ]
-"193
+[e :U 2439 ]
+"180
+[e $ ! && > -> _UART_REG1 `i -> 1 `i > -> _UART_REG2 `i -> 1 `i 2440  ]
+"181
 {
+"182
+[e ( _RELAY_On (1 . `E18075 0 ]
+"183
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"184
+[e ( _L6562_On (1 . `E18071 0 ]
+"185
+[e ( _RELAY_On (1 . `E18075 1 ]
+"186
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"187
+[e ( _L6562_On (1 . `E18071 1 ]
+"188
+}
+[e $U 2441  ]
+"189
+[e :U 2440 ]
+[e $ ! > -> _UART_REG1 `i -> 1 `i 2442  ]
+"190
+{
+"191
+[e ( _LightPowerOff (1 . `E18007 1 ]
+"192
+[e ( _RELAY_On (1 . `E18075 0 ]
+"193
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "194
-[e = _PIDflag1 -> -> 2 `i `uc ]
+[e ( _L6562_On (1 . `E18071 0 ]
 "195
 }
+[e $U 2443  ]
+"196
 [e :U 2442 ]
+[e $ ! > -> _UART_REG2 `i -> 1 `i 2444  ]
 "197
-[e $ ! && >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i 2443  ]
+{
 "198
-{
+[e ( _LightPowerOff (1 . `E18007 0 ]
 "199
-[e = _PIDflag1 -> -> 3 `i `uc ]
+[e ( _RELAY_On (1 . `E18075 1 ]
 "200
-}
-[e :U 2443 ]
-"202
-[e $ ! && == -> _UART_REG1 `i -> 0 `i == -> _UART_REG2 `i -> 0 `i 2444  ]
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"201
+[e ( _L6562_On (1 . `E18071 1 ]
 "203
-{
-"204
-[e = _PIDflag1 -> -> 0 `i `uc ]
-"205
-[e = _power_pwm -> -> 0 `i `f ]
-"206
-[e = _pwm1 -> -> 0 `i `us ]
-"207
 }
 [e :U 2444 ]
-"208
+[e :U 2443 ]
+[e :U 2441 ]
+"234
+[e = _power_pwm -> ( _Power_Compensation ..  `f ]
+"236
+[e $ ! && >= -> _UART_REG1 `i -> 1 `i == -> _UART_REG2 `i -> 0 `i 2445  ]
+"237
+{
+"238
+[e = _PIDflag1 -> -> 1 `i `uc ]
+"239
 }
-[e :U 2432 ]
-"209
+[e :U 2445 ]
+"241
+[e $ ! && == -> _UART_REG1 `i -> 0 `i >= -> _UART_REG2 `i -> 1 `i 2446  ]
+"242
+{
+"243
+[e = _PIDflag1 -> -> 2 `i `uc ]
+"244
 }
-[e :U 2431 ]
-"210
-[e :UE 2430 ]
+[e :U 2446 ]
+"246
+[e $ ! && >= -> _UART_REG1 `i -> 1 `i >= -> _UART_REG2 `i -> 1 `i 2447  ]
+"247
+{
+"248
+[e = _PIDflag1 -> -> 3 `i `uc ]
+"249
+}
+[e :U 2447 ]
+"251
+[e $ ! && == -> _UART_REG1 `i -> 0 `i == -> _UART_REG2 `i -> 0 `i 2448  ]
+"252
+{
+"253
+[e = _PIDflag1 -> -> 0 `i `uc ]
+"254
+[e = _power_pwm -> -> 0 `i `f ]
+"255
+[e = _pwm1 -> -> 0 `i `us ]
+"256
+}
+[e :U 2448 ]
+"258
+[e ( _Dimming_Pid ..  ]
+"261
+[e :UE 2437 ]
 }

@@ -30,14 +30,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pwm2 `us ~T0 @X0 0 e ]
 "18
 [v _Close_Count1 `us ~T0 @X0 0 e ]
-"12 Applications/LightsOff_APP/closeled.h
-[v _LED1_Close `(v ~T0 @X0 0 ef ]
+"169 Applications/OutProtected_APP/out_protected.c
+[c E18001 1 2 3 .. ]
+[n E18001 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+"14 Applications/LightsOff_APP/closeled.h
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18001 ]
 "16 Applications/OutProtected_APP/out_protected.c
 [v _flag_close1 `us ~T0 @X0 0 e ]
 "18 Applications/Ticktime_APP/ticktime.h
 [v _Close_Count2 `us ~T0 @X0 0 e ]
-"13 Applications/LightsOff_APP/closeled.h
-[v _LED2_Close `(v ~T0 @X0 0 ef ]
 "16 Applications/OutProtected_APP/out_protected.c
 [v _flag_close2 `us ~T0 @X0 0 e ]
 "24 DriverLayer/GPIO/GPIO_driver.h
@@ -2016,132 +2017,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _out_flag1 -> -> 0 `i `uc ]
 "167
 [e = _PFC_Flag1 -> -> 1 `i `uc ]
-"168
-[e ( _LED1_Close ..  ]
 "169
-[e = _flag_close1 -> -> 1 `i `us ]
+[e ( _LightPowerOff (1 . `E18001 0 ]
 "170
+[e = _flag_close1 -> -> 1 `i `us ]
+"171
 }
 [e :U 2447 ]
-"173
-[e $ ! && == -> _V_Ret1 `ui -> -> 2 `i `ui > -> _UART_REG1 `i -> 1 `i 2448  ]
 "174
-{
+[e $ ! && == -> _V_Ret1 `ui -> -> 2 `i `ui > -> _UART_REG1 `i -> 1 `i 2448  ]
 "175
-[e = _out_flag1 -> -> 0 `i `uc ]
+{
 "176
-[e = _PFC_Flag1 -> -> 1 `i `uc ]
+[e = _out_flag1 -> -> 0 `i `uc ]
 "177
-[e ( _LED1_Close ..  ]
-"178
-[e = _flag_close1 -> -> 0 `i `us ]
+[e = _PFC_Flag1 -> -> 1 `i `uc ]
 "179
+[e ( _LightPowerOff (1 . `E18001 0 ]
+"180
+[e = _flag_close1 -> -> 0 `i `us ]
+"181
 }
 [e :U 2448 ]
-"182
-[e $ ! > -> _Close_Count1 `ui -> -> 5 `i `ui 2449  ]
-"183
-{
 "184
-[e ( _LED1_Close ..  ]
+[e $ ! > -> _Close_Count1 `ui -> -> 5 `i `ui 2449  ]
 "185
-[e = _out_flag1 -> -> 0 `i `uc ]
-"186
-[e = _Close_Count1 -> -> 6 `i `us ]
+{
 "187
+[e ( _LightPowerOff (1 . `E18001 0 ]
+"188
+[e = _out_flag1 -> -> 0 `i `uc ]
+"189
+[e = _Close_Count1 -> -> 6 `i `us ]
+"190
 }
 [e :U 2449 ]
-"188
+"191
 }
 [e :U 2446 ]
-"190
-[e $ ! != -> _out_flag2 `i -> 0 `i 2450  ]
-"191
-{
-"192
-[e $ ! && && == -> _V_Ret2 `ui -> -> 1 `i `ui > -> _UART_REG2 `i -> 1 `i <= -> _Close_Count2 `ui -> -> 5 `i `ui 2451  ]
 "193
-{
+[e $ ! != -> _out_flag2 `i -> 0 `i 2450  ]
 "194
-[e = _out_flag2 -> -> 0 `i `uc ]
+{
 "195
-[e = _PFC_Flag2 -> -> 2 `i `uc ]
+[e $ ! && && == -> _V_Ret2 `ui -> -> 1 `i `ui > -> _UART_REG2 `i -> 1 `i <= -> _Close_Count2 `ui -> -> 5 `i `ui 2451  ]
 "196
-[e ( _LED2_Close ..  ]
+{
 "197
-[e = _flag_close2 -> -> 1 `i `us ]
+[e = _out_flag2 -> -> 0 `i `uc ]
 "198
+[e = _PFC_Flag2 -> -> 2 `i `uc ]
+"200
+[e ( _LightPowerOff (1 . `E18001 1 ]
+"201
+[e = _flag_close2 -> -> 1 `i `us ]
+"202
 }
 [e :U 2451 ]
-"200
-[e $ ! && == -> _V_Ret2 `ui -> -> 2 `i `ui > -> _UART_REG2 `i -> 1 `i 2452  ]
-"201
-{
-"202
-[e = _out_flag2 -> -> 0 `i `uc ]
-"203
-[e = _PFC_Flag2 -> -> 2 `i `uc ]
 "204
-[e ( _LED2_Close ..  ]
+[e $ ! && == -> _V_Ret2 `ui -> -> 2 `i `ui > -> _UART_REG2 `i -> 1 `i 2452  ]
 "205
-[e = _flag_close2 -> -> 1 `i `us ]
+{
 "206
+[e = _out_flag2 -> -> 0 `i `uc ]
+"207
+[e = _PFC_Flag2 -> -> 2 `i `uc ]
+"209
+[e ( _LightPowerOff (1 . `E18001 1 ]
+"210
+[e = _flag_close2 -> -> 1 `i `us ]
+"211
 }
 [e :U 2452 ]
-"208
-[e $ ! > -> _Close_Count2 `ui -> -> 5 `i `ui 2453  ]
-"209
-{
-"210
-[e ( _LED2_Close ..  ]
-"211
-[e = _out_flag2 -> -> 0 `i `uc ]
-"212
-[e = _Close_Count2 -> -> 6 `i `us ]
 "213
+[e $ ! > -> _Close_Count2 `ui -> -> 5 `i `ui 2453  ]
+"214
+{
+"216
+[e ( _LightPowerOff (1 . `E18001 1 ]
+"217
+[e = _out_flag2 -> -> 0 `i `uc ]
+"218
+[e = _Close_Count2 -> -> 6 `i `us ]
+"219
 }
 [e :U 2453 ]
-"214
+"220
 }
 [e :U 2450 ]
-"215
+"221
 }
 [e :U 2445 ]
-"216
+"222
 [e :UE 2438 ]
 }
-"217
+"223
 [v _Out_Protected `(v ~T0 @X0 1 ef ]
-"218
+"224
 {
 [e :U _Out_Protected ]
 [f ]
-[v F18371 `uc ~T0 @X0 -> 2 `i s ]
-[i F18371
+[v F18373 `uc ~T0 @X0 -> 2 `i s ]
+[i F18373
 :U ..
-"220
+"226
 -> -> 0 `i `uc
 ..
 ]
 [v _buffer `uc ~T0 @X0 -> 2 `i a ]
-[e = _buffer F18371 ]
-"222
+[e = _buffer F18373 ]
+"228
 [e $ ! && && && == -> _PFC_Flag1 `i -> 1 `i == -> _PFC_Flag2 `i -> 2 `i == -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 4 `i == -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 3 `i 2455  ]
 {
 [e ( _PFC_Off ..  ]
 }
 [e :U 2455 ]
-"223
+"229
 [e :UE 2454 ]
 }
-"226
+"232
 [v _OutProtectedTask `(v ~T0 @X0 1 ef ]
-"227
+"233
 {
 [e :U _OutProtectedTask ]
 [f ]
-"228
+"234
 [e ( _Out_Protect ..  ]
-"229
+"235
 [e :UE 2456 ]
 }

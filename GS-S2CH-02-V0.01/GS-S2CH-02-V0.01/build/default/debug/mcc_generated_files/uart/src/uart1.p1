@@ -55,11 +55,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _UART1_AutoBaudSet `(v ~T0 @X0 0 ef1`a ]
 "208
 [v _UART1_AutoBaudQuery `(a ~T0 @X0 0 ef ]
-[v F17972 `(a ~T0 @X0 0 tf ]
-[v F17973 `(v ~T0 @X0 0 tf1`ul ]
-[v F17975 `(ul ~T0 @X0 0 tf ]
-[v F17976 `(v ~T0 @X0 0 tf1`ul ]
-[v F17978 `(ul ~T0 @X0 0 tf ]
+[v F17973 `(a ~T0 @X0 0 tf ]
+[v F17974 `(v ~T0 @X0 0 tf1`ul ]
+[v F17976 `(ul ~T0 @X0 0 tf ]
+[v F17977 `(v ~T0 @X0 0 tf1`ul ]
+[v F17979 `(ul ~T0 @X0 0 tf ]
 "269
 [v _UART1_ErrorGet `(ui ~T0 @X0 0 ef ]
 [v F17875 `(v ~T0 @X0 0 tf ]
@@ -68,8 +68,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F17882 `(v ~T0 @X0 0 tf ]
 "354
 [v _UART1_RxCompleteCallbackRegister `(v ~T0 @X0 0 ef1`*F17882 ]
-[v F17987 `(v ~T0 @X0 0 tf ]
-[v F17986 `(v ~T0 @X0 0 tf1`*F17987 ]
+[v F17988 `(v ~T0 @X0 0 tf ]
+[v F17987 `(v ~T0 @X0 0 tf1`*F17988 ]
 [v F17861 `(v ~T0 @X0 0 tf ]
 "297
 [v _UART1_FramingErrorCallbackRegister `(v ~T0 @X0 0 ef1`*F17861 ]
@@ -79,23 +79,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F17869 `(v ~T0 @X0 0 tf ]
 "313
 [v _UART1_ParityErrorCallbackRegister `(v ~T0 @X0 0 ef1`*F17869 ]
-[v F17999 `(v ~T0 @X0 0 tf ]
-[v F17998 `(v ~T0 @X0 0 tf1`*F17999 ]
+[v F18000 `(v ~T0 @X0 0 tf ]
+[v F17999 `(v ~T0 @X0 0 tf1`*F18000 ]
 "61
 [s S2420 :1 `uc 1 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
 [n S2420 . perr ferr oerr reserved ]
 "60
 [u S2419 `S2420 1 `ui 1 ]
 [n S2419 . . status ]
-[v F18012 `(v ~T0 @X0 0 tf ]
-[v F18014 `(v ~T0 @X0 0 tf ]
-[v F18016 `(v ~T0 @X0 0 tf ]
-[v F18018 `(v ~T0 @X0 0 tf ]
-[v F18020 `(v ~T0 @X0 0 tf ]
+[v F18013 `(v ~T0 @X0 0 tf ]
+[v F18015 `(v ~T0 @X0 0 tf ]
+[v F18017 `(v ~T0 @X0 0 tf ]
+[v F18019 `(v ~T0 @X0 0 tf ]
 [v F18021 `(v ~T0 @X0 0 tf ]
-[v F18023 `(v ~T0 @X0 0 tf ]
-[v F18025 `(v ~T0 @X0 0 tf ]
+[v F18022 `(v ~T0 @X0 0 tf ]
+[v F18024 `(v ~T0 @X0 0 tf ]
 [v F18026 `(v ~T0 @X0 0 tf ]
+[v F18027 `(v ~T0 @X0 0 tf ]
 "47340 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [s S2226 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2226 . U1RXIE U1TXIE U1EIE U1IE . PWM1PIE PWM1IE ]
@@ -202,21 +202,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S872 . . . ]
 "17914
 [v _U1ERRIRbits `VS872 ~T0 @X0 0 e@690 ]
-"8 Middlewares/QUEUE/queue.h
-[s S2421 `ul 1 `ul 1 `ul 1 `*uc 1 ]
-[n S2421 . head tail size buffer ]
-"353 mcc_generated_files/uart/src/uart1.c
-[c E17896 0 1 2 3 .. ]
-[n E17896 . QUEUE_OK QUEUE_ERROR QUEUE_OVERLOAD QUEUE_EMPTY  ]
-"54 Middlewares/QUEUE/queue.h
-[v _QueuePop `(E17896 ~T0 @X0 0 ef2`*S2421`*uc ]
-"23
-[v _uartQueue `S2421 ~T0 @X0 0 e ]
-"85
-[v _QueueCount `(ul ~T0 @X0 0 ef1`*S2421 ]
-"76
-[v _QueuePopArray `(ul ~T0 @X0 0 ef3`*S2421`*uc`ul ]
-"49147 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
+"49147
 [s S2292 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2292 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
 "49146
@@ -240,30 +226,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S2257 . . ]
 "48224
 [v _PIR4bits `VS2257 ~T0 @X0 0 e@1202 ]
+[v F18074 `(v ~T0 @X0 0 tf ]
+[v F18075 `(v ~T0 @X0 0 tf ]
+[v F18076 `(v ~T0 @X0 0 tf ]
 [v F18077 `(v ~T0 @X0 0 tf ]
-[v F18078 `(v ~T0 @X0 0 tf ]
-[v F18079 `(v ~T0 @X0 0 tf ]
-"44 Middlewares/QUEUE/queue.h
-[v _QueuePush `(E17896 ~T0 @X0 0 ef2`*S2421`uc ]
-[v F18081 `(v ~T0 @X0 0 tf ]
-[v F18082 `(v ~T0 @X0 0 tf ]
 [t T2 __interrupt irq ( 33 ) base ( 8 ) ]
+[v F18084 `(v ~T0 @X0 0 tf ]
 [v F18089 `(v ~T0 @X0 0 tf ]
-[v F18094 `(v ~T0 @X0 0 tf ]
-[v F18096 `(v ~T0 @X0 0 tf ]
+[v F18091 `(v ~T0 @X0 0 tf ]
+[v F18092 `(v ~T0 @X0 0 tf ]
+[v F18095 `(v ~T0 @X0 0 tf ]
 [v F18097 `(v ~T0 @X0 0 tf ]
-[v F18100 `(v ~T0 @X0 0 tf ]
-[v F18102 `(v ~T0 @X0 0 tf ]
+[v F18098 `(v ~T0 @X0 0 tf ]
+[v F18101 `(v ~T0 @X0 0 tf ]
 [v F18103 `(v ~T0 @X0 0 tf ]
-[v F18106 `(v ~T0 @X0 0 tf ]
-[v F18108 `(v ~T0 @X0 0 tf ]
+[v F18104 `(v ~T0 @X0 0 tf ]
+[v F18107 `(v ~T0 @X0 0 tf ]
 [v F18109 `(v ~T0 @X0 0 tf ]
-[v F18112 `(v ~T0 @X0 0 tf ]
-[v F18114 `(v ~T0 @X0 0 tf ]
+[v F18110 `(v ~T0 @X0 0 tf ]
+[v F18113 `(v ~T0 @X0 0 tf ]
 [v F18115 `(v ~T0 @X0 0 tf ]
-[v F18118 `(v ~T0 @X0 0 tf ]
-[v F18120 `(v ~T0 @X0 0 tf ]
-[v F18121 `(v ~T0 @X0 0 tf ]
+[v F18116 `(v ~T0 @X0 0 tf ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1996,19 +1979,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U _UART1_TransmitDisable
 &U _UART1_AutoBaudSet
 &U _UART1_AutoBaudQuery
--> -> -> 0 `i `*v `*F17972
 -> -> -> 0 `i `*v `*F17973
--> -> -> 0 `i `*v `*F17975
+-> -> -> 0 `i `*v `*F17974
 -> -> -> 0 `i `*v `*F17976
--> -> -> 0 `i `*v `*F17978
+-> -> -> 0 `i `*v `*F17977
+-> -> -> 0 `i `*v `*F17979
 &U _UART1_ErrorGet
 &U _UART1_TxCompleteCallbackRegister
 &U _UART1_RxCompleteCallbackRegister
--> -> -> 0 `i `*v `*F17986
+-> -> -> 0 `i `*v `*F17987
 &U _UART1_FramingErrorCallbackRegister
 &U _UART1_OverrunErrorCallbackRegister
 &U _UART1_ParityErrorCallbackRegister
--> -> -> 0 `i `*v `*F17998
+-> -> -> 0 `i `*v `*F17999
 ..
 ..
 ]
@@ -2045,24 +2028,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105
 [v _uart1RxLastError `VS2419 ~T0 @X0 1 s ]
 "111
-[v _UART1_FramingErrorHandler `*F18012 ~T0 @X0 1 s ]
+[v _UART1_FramingErrorHandler `*F18013 ~T0 @X0 1 s ]
 "112
-[v _UART1_OverrunErrorHandler `*F18014 ~T0 @X0 1 s ]
+[v _UART1_OverrunErrorHandler `*F18015 ~T0 @X0 1 s ]
 "113
-[v _UART1_ParityErrorHandler `*F18016 ~T0 @X0 1 s ]
+[v _UART1_ParityErrorHandler `*F18017 ~T0 @X0 1 s ]
 "114
-[v _UART1_TxInterruptHandler `*F18018 ~T0 @X0 1 e ]
+[v _UART1_TxInterruptHandler `*F18019 ~T0 @X0 1 e ]
 "116
-[v _UART1_TxCompleteInterruptHandler `*F18020 ~T0 @X0 1 s ]
+[v _UART1_TxCompleteInterruptHandler `*F18021 ~T0 @X0 1 s ]
 [i _UART1_TxCompleteInterruptHandler
--> -> -> 0 `i `*v `*F18021
+-> -> -> 0 `i `*v `*F18022
 ]
 "117
-[v _UART1_RxInterruptHandler `*F18023 ~T0 @X0 1 e ]
+[v _UART1_RxInterruptHandler `*F18024 ~T0 @X0 1 e ]
 "118
-[v _UART1_RxCompleteInterruptHandler `*F18025 ~T0 @X0 1 s ]
+[v _UART1_RxCompleteInterruptHandler `*F18026 ~T0 @X0 1 s ]
 [i _UART1_RxCompleteInterruptHandler
--> -> -> 0 `i `*v `*F18026
+-> -> -> 0 `i `*v `*F18027
 ]
 "131
 [v _UART1_Initialize `(v ~T0 @X0 1 ef ]
@@ -2446,55 +2429,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "326
 [e :UE 2446 ]
 }
-"345
+"328
 [v _UART1_Read `(uc ~T0 @X0 1 ef ]
-"346
+"329
 {
 [e :U _UART1_Read ]
 [f ]
-"347
+"330
 [v _readValue `uc ~T0 @X0 1 a ]
 [e = _readValue -> -> 0 `i `uc ]
-"348
+"331
 [v _tempRxTail `uc ~T0 @X0 1 a ]
-"351
+"333
+[e = _readValue *U + &U _uart1RxBuffer * -> _uart1RxTail `ux -> -> # *U &U _uart1RxBuffer `ui `ux ]
+"334
+[e = _tempRxTail -> & + -> _uart1RxTail `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
+"335
+[e = _uart1RxTail _tempRxTail ]
+"336
 [e = . . _PIE4bits 0 0 -> -> 0 `i `uc ]
-"353
-[e ( _QueuePop (2 , &U _uartQueue &U _readValue ]
-"354
-[e = _uart1RxCount -> ( _QueueCount (1 &U _uartQueue `uc ]
-"357
+"337
+[e $ ! != -> 0 `ui -> _uart1RxCount `ui 2448  ]
+"338
+{
+"339
+[e -- _uart1RxCount -> -> 1 `i `Vuc ]
+"340
+}
+[e :U 2448 ]
+"341
 [e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"359
+"342
 [e ) _readValue ]
 [e $UE 2447  ]
-"360
+"343
 [e :UE 2447 ]
-}
-"364
-[v _UART1_ReadArray `(ul ~T0 @X0 1 ef2`*uc`ul ]
-"365
-{
-[e :U _UART1_ReadArray ]
-"364
-[v _buffer `*uc ~T0 @X0 1 r1 ]
-[v _len `ul ~T0 @X0 1 r2 ]
-"365
-[f ]
-"366
-[e = . . _PIE4bits 0 0 -> -> 0 `i `uc ]
-"368
-[v _readCount `ul ~T0 @X0 1 a ]
-[e = _readCount ( _QueuePopArray (3 , , &U _uartQueue _buffer _len ]
-"369
-[e = _uart1RxCount -> ( _QueueCount (1 &U _uartQueue `uc ]
-"371
-[e = . . _PIE4bits 0 0 -> -> 1 `i `uc ]
-"372
-[e ) _readCount ]
-[e $UE 2448  ]
-"373
-[e :UE 2448 ]
 }
 "375
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
@@ -2554,356 +2523,350 @@ Version 4.0 HI-TECH Software Intermediate Code
 "394
 [e ( _UART1_ReceiveISR ..  ]
 "395
-[e = _g_uRs485TimeOut -> -> 50 `i `us ]
+[e = _g_uRs485TimeOut -> -> 200 `i `us ]
 "396
 [e = . . _PIR4bits 0 0 -> -> 0 `i `uc ]
 "398
 [e :UE 2460 ]
 }
-"401
+"400
 [v _UART1_ReceiveISR `(v ~T0 @X0 1 ef ]
-"402
+"401
 {
 [e :U _UART1_ReceiveISR ]
 [f ]
-"403
+"402
 [v _regValue `uc ~T0 @X0 1 a ]
-"404
+"403
 [v _tempRxHead `uc ~T0 @X0 1 a ]
-"406
+"405
 [e = . *U + &U _uart1RxStatusBuffer * -> _uart1RxHead `ux -> -> # *U &U _uart1RxStatusBuffer `ui `ux 1 -> -> 0 `i `ui ]
-"408
+"407
 [e $ ! == -> 1 `i -> . . _U1ERRIRbits 0 3 `i 2462  ]
+"408
+{
 "409
-{
-"410
 [e = . . *U + &U _uart1RxStatusBuffer * -> _uart1RxHead `ux -> -> # *U &U _uart1RxStatusBuffer `ui `ux 0 1 -> -> 1 `i `uc ]
+"410
+[e $ ! != -> -> -> 0 `i `*v `*F18074 _UART1_FramingErrorHandler 2463  ]
 "411
-[e $ ! != -> -> -> 0 `i `*v `*F18077 _UART1_FramingErrorHandler 2463  ]
-"412
 {
-"413
+"412
 [e ( *U _UART1_FramingErrorHandler ..  ]
-"414
+"413
 }
 [e :U 2463 ]
-"415
+"414
 }
 [e :U 2462 ]
-"416
+"415
 [e $ ! == -> 1 `i -> . . _U1ERRIRbits 0 1 `i 2464  ]
+"416
+{
 "417
-{
-"418
 [e = . . *U + &U _uart1RxStatusBuffer * -> _uart1RxHead `ux -> -> # *U &U _uart1RxStatusBuffer `ui `ux 0 2 -> -> 1 `i `uc ]
+"418
+[e $ ! != -> -> -> 0 `i `*v `*F18075 _UART1_OverrunErrorHandler 2465  ]
 "419
-[e $ ! != -> -> -> 0 `i `*v `*F18078 _UART1_OverrunErrorHandler 2465  ]
-"420
 {
-"421
+"420
 [e ( *U _UART1_OverrunErrorHandler ..  ]
-"422
+"421
 }
 [e :U 2465 ]
-"423
+"422
 }
 [e :U 2464 ]
-"424
+"423
 [e $ ! == -> 1 `i -> . . _U1ERRIRbits 0 6 `i 2466  ]
+"424
+{
 "425
-{
-"426
 [e = . . *U + &U _uart1RxStatusBuffer * -> _uart1RxHead `ux -> -> # *U &U _uart1RxStatusBuffer `ui `ux 0 0 -> -> 1 `i `uc ]
+"426
+[e $ ! != -> -> -> 0 `i `*v `*F18076 _UART1_ParityErrorHandler 2467  ]
 "427
-[e $ ! != -> -> -> 0 `i `*v `*F18079 _UART1_ParityErrorHandler 2467  ]
-"428
 {
-"429
+"428
 [e ( *U _UART1_ParityErrorHandler ..  ]
-"430
+"429
 }
 [e :U 2467 ]
-"431
+"430
 }
 [e :U 2466 ]
 "433
 [e = _regValue _U1RXB ]
-"436
-[v _status `E17896 ~T0 @X0 1 a ]
-[e = _status ( _QueuePush (2 , &U _uartQueue _regValue ]
-"438
-[e $ ! == -> _status `ui -> . `E17896 2 `ui 2468  ]
-"439
+"456
+[e = _tempRxHead -> & + -> _uart1RxHead `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
+"457
+[e $ ! == -> _tempRxHead `i -> _uart1RxTail `i 2468  ]
+"458
 {
-"442
-[e $ ! != -> -> -> 0 `i `*v `*F18081 _UART1_OverrunErrorHandler 2469  ]
-"443
+"460
+}
+[e $U 2469  ]
+"461
+[e :U 2468 ]
+"462
 {
-"444
-[e ( *U _UART1_OverrunErrorHandler ..  ]
-"445
+"463
+[e = *U + &U _uart1RxBuffer * -> _uart1RxHead `ux -> -> # *U &U _uart1RxBuffer `ui `ux _regValue ]
+"464
+[e = _uart1RxHead _tempRxHead ]
+"465
+[e ++ _uart1RxCount -> -> 1 `i `Vuc ]
+"466
 }
 [e :U 2469 ]
-"446
-}
-[e $U 2470  ]
-"447
-[e :U 2468 ]
-"448
+"469
+[e $ ! != -> -> -> 0 `i `*v `*F18077 _UART1_RxCompleteInterruptHandler 2470  ]
+"470
 {
-"450
-[e = _uart1RxCount -> ( _QueueCount (1 &U _uartQueue `uc ]
-"451
+"471
+[e ( *U _UART1_RxCompleteInterruptHandler ..  ]
+"472
 }
 [e :U 2470 ]
-"467
-[e $ ! != -> -> -> 0 `i `*v `*F18082 _UART1_RxCompleteInterruptHandler 2471  ]
-"468
-{
-"469
-[e ( *U _UART1_RxCompleteInterruptHandler ..  ]
-"470
-}
-[e :U 2471 ]
-"471
+"473
 [e :UE 2461 ]
 }
-"473
+"475
 [v _UART1_Write `(v ~T0 @X0 1 ef1`uc ]
-"474
+"476
 {
 [e :U _UART1_Write ]
-"473
-[v _txData `uc ~T0 @X0 1 r1 ]
-"474
-[f ]
 "475
-[v _tempTxHead `uc ~T0 @X0 1 a ]
+[v _txData `uc ~T0 @X0 1 r1 ]
+"476
+[f ]
 "477
-[e $ ! == -> 0 `i -> . . _PIE4bits 0 1 `i 2473  ]
-"478
-{
+[v _tempTxHead `uc ~T0 @X0 1 a ]
 "479
-[e = _U1TXB _txData ]
+[e $ ! == -> 0 `i -> . . _PIE4bits 0 1 `i 2472  ]
 "480
-}
-[e $U 2474  ]
+{
 "481
-[e :U 2473 ]
-[e $ ! < -> 0 `ui -> _uart1TxBufferRemaining `ui 2475  ]
+[e = _U1TXB _txData ]
 "482
-{
+}
+[e $U 2473  ]
 "483
-[e = *U + &U _uart1TxBuffer * -> _uart1TxHead `ux -> -> # *U &U _uart1TxBuffer `ui `ux _txData ]
+[e :U 2472 ]
+[e $ ! < -> 0 `ui -> _uart1TxBufferRemaining `ui 2474  ]
 "484
-[e = _tempTxHead -> & + -> _uart1TxHead `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
-"486
-[e = _uart1TxHead _tempTxHead ]
-"487
-[e = . . _PIE4bits 0 1 -> -> 0 `i `uc ]
-"488
-[e -- _uart1TxBufferRemaining -> -> 1 `i `Vuc ]
-"489
-}
-[e $U 2476  ]
-"490
-[e :U 2475 ]
-"491
 {
-"493
+"485
+[e = *U + &U _uart1TxBuffer * -> _uart1TxHead `ux -> -> # *U &U _uart1TxBuffer `ui `ux _txData ]
+"486
+[e = _tempTxHead -> & + -> _uart1TxHead `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
+"488
+[e = _uart1TxHead _tempTxHead ]
+"489
+[e = . . _PIE4bits 0 1 -> -> 0 `i `uc ]
+"490
+[e -- _uart1TxBufferRemaining -> -> 1 `i `Vuc ]
+"491
 }
-[e :U 2476 ]
+[e $U 2475  ]
+"492
 [e :U 2474 ]
-"494
-[e = . . _PIE4bits 0 1 -> -> 1 `i `uc ]
+"493
+{
 "495
-[e :UE 2472 ]
+}
+[e :U 2475 ]
+[e :U 2473 ]
+"496
+[e = . . _PIE4bits 0 1 -> -> 1 `i `uc ]
+"497
+[e :UE 2471 ]
 }
 [v $root$_UART1_Transmit_Vector_ISR `(v ~T0 @X0 0 e ]
-"497
+"499
 [v _UART1_Transmit_Vector_ISR `(v ~T2 @X0 1 ef ]
-"498
+"500
 {
 [e :U _UART1_Transmit_Vector_ISR ]
 [f ]
-"499
+"501
 [e ( _UART1_TransmitISR ..  ]
-"500
-[e :UE 2477 ]
-}
 "502
+[e :UE 2476 ]
+}
+"504
 [v _UART1_TransmitISR `(v ~T0 @X0 1 ef ]
-"503
+"505
 {
 [e :U _UART1_TransmitISR ]
 [f ]
-"504
-[v _tempTxTail `uc ~T0 @X0 1 a ]
 "506
-[e $ ! > -> # _uart1TxBuffer `ui -> _uart1TxBufferRemaining `ui 2479  ]
-"507
-{
+[v _tempTxTail `uc ~T0 @X0 1 a ]
 "508
-[e = _U1TXB *U + &U _uart1TxBuffer * -> _uart1TxTail `ux -> -> # *U &U _uart1TxBuffer `ui `ux ]
+[e $ ! > -> # _uart1TxBuffer `ui -> _uart1TxBufferRemaining `ui 2478  ]
 "509
-[e = _tempTxTail -> & + -> _uart1TxTail `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
-"511
-[e = _uart1TxTail _tempTxTail ]
-"512
-[e ++ _uart1TxBufferRemaining -> -> 1 `i `Vuc ]
-"513
-}
-[e $U 2480  ]
-"514
-[e :U 2479 ]
-"515
 {
+"510
+[e = _U1TXB *U + &U _uart1TxBuffer * -> _uart1TxTail `ux -> -> # *U &U _uart1TxBuffer `ui `ux ]
+"511
+[e = _tempTxTail -> & + -> _uart1TxTail `ui -> 1 `ui - -> 32 `ui -> 1 `ui `uc ]
+"513
+[e = _uart1TxTail _tempTxTail ]
+"514
+[e ++ _uart1TxBufferRemaining -> -> 1 `i `Vuc ]
+"515
+}
+[e $U 2479  ]
 "516
-[e = . . _PIE4bits 0 1 -> -> 0 `i `uc ]
+[e :U 2478 ]
 "517
+{
+"518
+[e = . . _PIE4bits 0 1 -> -> 0 `i `uc ]
+"519
+}
+[e :U 2479 ]
+"520
+[e $ ! != -> -> -> 0 `i `*v `*F18084 _UART1_TxCompleteInterruptHandler 2480  ]
+"521
+{
+"522
+[e ( *U _UART1_TxCompleteInterruptHandler ..  ]
+"523
 }
 [e :U 2480 ]
-"518
-[e $ ! != -> -> -> 0 `i `*v `*F18089 _UART1_TxCompleteInterruptHandler 2481  ]
-"519
-{
-"520
-[e ( *U _UART1_TxCompleteInterruptHandler ..  ]
-"521
-}
-[e :U 2481 ]
-"522
-[e :UE 2478 ]
-}
 "524
+[e :UE 2477 ]
+}
+"526
 [v _UART1_DefaultFramingErrorCallback `(v ~T0 @X0 1 sf ]
-"525
+"527
 {
 [e :U _UART1_DefaultFramingErrorCallback ]
 [f ]
-"527
-[e :UE 2482 ]
-}
 "529
+[e :UE 2481 ]
+}
+"531
 [v _UART1_DefaultOverrunErrorCallback `(v ~T0 @X0 1 sf ]
-"530
+"532
 {
 [e :U _UART1_DefaultOverrunErrorCallback ]
 [f ]
-"532
-[e :UE 2483 ]
-}
 "534
+[e :UE 2482 ]
+}
+"536
 [v _UART1_DefaultParityErrorCallback `(v ~T0 @X0 1 sf ]
-"535
+"537
 {
 [e :U _UART1_DefaultParityErrorCallback ]
 [f ]
-"537
-[e :UE 2484 ]
+"539
+[e :UE 2483 ]
 }
-"539
-[v _UART1_FramingErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18094 ]
-"540
-{
-[e :U _UART1_FramingErrorCallbackRegister ]
-"539
-[v _callbackHandler `*F18096 ~T0 @X0 1 r1 ]
-"540
-[f ]
 "541
-[e $ ! != -> -> -> 0 `i `*v `*F18097 _callbackHandler 2486  ]
+[v _UART1_FramingErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18089 ]
 "542
 {
-"543
-[e = _UART1_FramingErrorHandler _callbackHandler ]
-"544
-}
-[e :U 2486 ]
-"545
-[e :UE 2485 ]
-}
-"547
-[v _UART1_OverrunErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18100 ]
-"548
-{
-[e :U _UART1_OverrunErrorCallbackRegister ]
-"547
-[v _callbackHandler `*F18102 ~T0 @X0 1 r1 ]
-"548
+[e :U _UART1_FramingErrorCallbackRegister ]
+"541
+[v _callbackHandler `*F18091 ~T0 @X0 1 r1 ]
+"542
 [f ]
+"543
+[e $ ! != -> -> -> 0 `i `*v `*F18092 _callbackHandler 2485  ]
+"544
+{
+"545
+[e = _UART1_FramingErrorHandler _callbackHandler ]
+"546
+}
+[e :U 2485 ]
+"547
+[e :UE 2484 ]
+}
 "549
-[e $ ! != -> -> -> 0 `i `*v `*F18103 _callbackHandler 2488  ]
+[v _UART1_OverrunErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18095 ]
 "550
 {
-"551
-[e = _UART1_OverrunErrorHandler _callbackHandler ]
-"552
-}
-[e :U 2488 ]
-"553
-[e :UE 2487 ]
-}
-"555
-[v _UART1_ParityErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18106 ]
-"556
-{
-[e :U _UART1_ParityErrorCallbackRegister ]
-"555
-[v _callbackHandler `*F18108 ~T0 @X0 1 r1 ]
-"556
+[e :U _UART1_OverrunErrorCallbackRegister ]
+"549
+[v _callbackHandler `*F18097 ~T0 @X0 1 r1 ]
+"550
 [f ]
+"551
+[e $ ! != -> -> -> 0 `i `*v `*F18098 _callbackHandler 2487  ]
+"552
+{
+"553
+[e = _UART1_OverrunErrorHandler _callbackHandler ]
+"554
+}
+[e :U 2487 ]
+"555
+[e :UE 2486 ]
+}
 "557
-[e $ ! != -> -> -> 0 `i `*v `*F18109 _callbackHandler 2490  ]
+[v _UART1_ParityErrorCallbackRegister `(v ~T0 @X0 1 ef1`*F18101 ]
 "558
 {
-"559
-[e = _UART1_ParityErrorHandler _callbackHandler ]
-"560
-}
-[e :U 2490 ]
-"561
-[e :UE 2489 ]
-}
-"562
-[v _UART1_RxCompleteCallbackRegister `(v ~T0 @X0 1 ef1`*F18112 ]
-"563
-{
-[e :U _UART1_RxCompleteCallbackRegister ]
-"562
-[v _callbackHandler `*F18114 ~T0 @X0 1 r1 ]
-"563
+[e :U _UART1_ParityErrorCallbackRegister ]
+"557
+[v _callbackHandler `*F18103 ~T0 @X0 1 r1 ]
+"558
 [f ]
+"559
+[e $ ! != -> -> -> 0 `i `*v `*F18104 _callbackHandler 2489  ]
+"560
+{
+"561
+[e = _UART1_ParityErrorHandler _callbackHandler ]
+"562
+}
+[e :U 2489 ]
+"563
+[e :UE 2488 ]
+}
 "564
-[e $ ! != -> -> -> 0 `i `*v `*F18115 _callbackHandler 2492  ]
+[v _UART1_RxCompleteCallbackRegister `(v ~T0 @X0 1 ef1`*F18107 ]
 "565
 {
-"566
-[e = _UART1_RxCompleteInterruptHandler _callbackHandler ]
-"567
-}
-[e :U 2492 ]
-"568
-[e :UE 2491 ]
-}
-"570
-[v _UART1_TxCompleteCallbackRegister `(v ~T0 @X0 1 ef1`*F18118 ]
-"571
-{
-[e :U _UART1_TxCompleteCallbackRegister ]
-"570
-[v _callbackHandler `*F18120 ~T0 @X0 1 r1 ]
-"571
+[e :U _UART1_RxCompleteCallbackRegister ]
+"564
+[v _callbackHandler `*F18109 ~T0 @X0 1 r1 ]
+"565
 [f ]
+"566
+[e $ ! != -> -> -> 0 `i `*v `*F18110 _callbackHandler 2491  ]
+"567
+{
+"568
+[e = _UART1_RxCompleteInterruptHandler _callbackHandler ]
+"569
+}
+[e :U 2491 ]
+"570
+[e :UE 2490 ]
+}
 "572
-[e $ ! != -> -> -> 0 `i `*v `*F18121 _callbackHandler 2494  ]
+[v _UART1_TxCompleteCallbackRegister `(v ~T0 @X0 1 ef1`*F18113 ]
 "573
 {
+[e :U _UART1_TxCompleteCallbackRegister ]
+"572
+[v _callbackHandler `*F18115 ~T0 @X0 1 r1 ]
+"573
+[f ]
 "574
-[e = _UART1_TxCompleteInterruptHandler _callbackHandler ]
+[e $ ! != -> -> -> 0 `i `*v `*F18116 _callbackHandler 2493  ]
 "575
-}
-[e :U 2494 ]
+{
 "576
-[e :UE 2493 ]
+[e = _UART1_TxCompleteInterruptHandler _callbackHandler ]
+"577
+}
+[e :U 2493 ]
+"578
+[e :UE 2492 ]
 }

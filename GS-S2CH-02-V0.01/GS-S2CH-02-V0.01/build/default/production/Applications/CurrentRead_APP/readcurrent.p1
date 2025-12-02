@@ -1765,7 +1765,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1 `i `us
 ]
 "14
-[v _g_uPower `us ~T0 @X0 1 e ]
+[v _g_uPower1 `us ~T0 @X0 1 e ]
 [v _g_uPower2 `us ~T0 @X0 1 e ]
 "16
 [v _ReadCurrentInit `(v ~T0 @X0 1 ef1`*uc ]
@@ -1787,7 +1787,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _power_Hold_1 -> -> 500 `i `us ]
 [e :U 2423 ]
 "22
-[e = _g_uPower _power_Hold_1 ]
+[e = _g_uPower1 _power_Hold_1 ]
 "23
 [e = _UART_REG1_Pre = _UART_REG1 *U + _nfcData * -> -> 0 `i `x -> -> # *U _nfcData `i `x ]
 "24
@@ -1835,65 +1835,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _power_time -> + * -> _time_H `i -> 100 `i -> _time_L `i `us ]
 "43
 [e = _power_time -> * -> _power_time `ui -> -> 1000 `i `ui `us ]
-"46
+"44
 [e :UE 2428 ]
 }
-"48
+"46
 [v _ReadNfcNumber `(v ~T0 @X0 1 ef ]
-"49
+"47
 {
 [e :U _ReadNfcNumber ]
 [f ]
-"50
+"48
 [e ( _ReadCurrentInit (1 &U _I2C_receiveData ]
-"51
+"49
 [e ( _PowerCompensationTime (1 &U _I2C_receiveData ]
-"52
+"50
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"53
+"51
 [e :UE 2429 ]
 }
-"57
+"55
 [v _g_uSetPower `us ~T0 @X0 1 e ]
-"58
+"56
 [v _g_uTargetPower `us ~T0 @X0 1 e ]
-"59
+"57
 [v _g_uChannel2Power `us ~T0 @X0 1 e ]
-"60
+"58
 [v _g_Pzong `us ~T0 @X0 1 e ]
-"62
+"60
 [v _Power_Compensation `(us ~T0 @X0 1 ef ]
-"63
+"61
 {
 [e :U _Power_Compensation ]
 [f ]
-"64
-[e = _g_uSetPower -> * / -> _g_uPower `ui -> -> 100 `i `ui -> _UART_REG1 `ui `us ]
-"65
+"62
+[e = _g_uSetPower -> * / -> _g_uPower1 `ui -> -> 100 `i `ui -> _UART_REG1 `ui `us ]
+"63
 [e = _g_uChannel2Power -> * / -> _g_uPower2 `ui -> -> 100 `i `ui -> _UART_REG2 `ui `us ]
-"67
+"65
 [e = _g_Pzong -> + -> _g_uSetPower `ui -> _g_uChannel2Power `ui `us ]
-"68
-[e $ ! > -> _g_Pzong `ui -> _g_uPower `ui 2431  ]
-"69
+"66
+[e $ ! > -> _g_Pzong `ui -> _g_uPower1 `ui 2431  ]
+"67
 {
-"70
-[e = _g_uTargetPower -> - - -> _g_uSetPower `ui - -> _g_Pzong `ui -> _g_uSetPower `ui -> -> 26 `i `ui `us ]
-"71
+"68
+[e = _g_uTargetPower -> - - -> _g_uSetPower `ui - -> _g_Pzong `ui -> _g_uSetPower `ui -> -> 22 `i `ui `us ]
+"69
 }
 [e $U 2432  ]
-"72
+"70
 [e :U 2431 ]
-"74
+"72
 {
-"75
-[e = _g_uTargetPower -> - -> _g_uSetPower `ui -> -> 26 `i `ui `us ]
-"76
+"73
+[e = _g_uTargetPower -> - -> _g_uSetPower `ui -> -> 22 `i `ui `us ]
+"74
 }
 [e :U 2432 ]
-"78
+"76
 [e ) _g_uTargetPower ]
 [e $UE 2430  ]
-"79
+"77
 [e :UE 2430 ]
 }

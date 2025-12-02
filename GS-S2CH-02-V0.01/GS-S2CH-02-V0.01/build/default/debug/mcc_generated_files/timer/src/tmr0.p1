@@ -6,7 +6,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TMR0L `Vuc ~T0 @X0 0 e@792 ]
 "23814
 [v _T0CON1 `Vuc ~T0 @X0 0 e@795 ]
-"40 mcc_generated_files/timer/src/tmr0.c
+"39 mcc_generated_files/timer/src/tmr0.c
 [v _TMR0_DefaultCallback `(v ~T0 @X0 0 sf ]
 "48152 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [s S2256 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1762,207 +1762,207 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"39 mcc_generated_files/timer/src/tmr0.c
+"38 mcc_generated_files/timer/src/tmr0.c
 [v _TMR0_PeriodMatchCallback `*F17133 ~T0 @X0 1 s ]
-"46
+"45
 [v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
-"47
+"46
 {
 [e :U _TMR0_Initialize ]
 [f ]
-"48
+"47
 [e = _TMR0H -> -> 61 `i `uc ]
-"49
+"48
 [e = _TMR0L -> -> 0 `i `uc ]
-"51
+"50
 [e = _T0CON1 -> | | << -> 2 `i -> 5 `i << -> 7 `i -> 0 `i << -> 1 `i -> 4 `i `uc ]
-"55
+"54
 [e = _TMR0_PeriodMatchCallback &U _TMR0_DefaultCallback ]
-"57
+"56
 [e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
-"58
+"57
 [e = . . _PIE3bits 0 7 -> -> 1 `i `uc ]
-"60
+"59
 [e = _T0CON0 -> | | << -> 1 `i -> 0 `i << -> 1 `i -> 7 `i << -> 0 `i -> 4 `i `uc ]
-"63
+"62
 [e :UE 2413 ]
 }
-"65
+"64
 [v _TMR0_Deinitialize `(v ~T0 @X0 1 ef ]
-"66
+"65
 {
 [e :U _TMR0_Deinitialize ]
 [f ]
-"67
+"66
 [e = . . _T0CON0bits 1 4 -> -> 0 `i `uc ]
-"69
+"68
 [e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
-"70
+"69
 [e = . . _PIE3bits 0 7 -> -> 0 `i `uc ]
-"72
+"71
 [e = _T0CON0 -> -> 0 `i `uc ]
-"73
+"72
 [e = _T0CON1 -> -> 0 `i `uc ]
-"74
+"73
 [e = _TMR0H -> -> 255 `i `uc ]
-"75
+"74
 [e = _TMR0L -> -> 0 `i `uc ]
-"76
+"75
 [e :UE 2414 ]
 }
-"78
+"77
 [v _TMR0_Start `(v ~T0 @X0 1 ef ]
-"79
+"78
 {
 [e :U _TMR0_Start ]
 [f ]
-"80
+"79
 [e = . . _T0CON0bits 1 4 -> -> 1 `i `uc ]
-"81
+"80
 [e :UE 2415 ]
 }
-"83
+"82
 [v _TMR0_Stop `(v ~T0 @X0 1 ef ]
-"84
+"83
 {
 [e :U _TMR0_Stop ]
 [f ]
-"85
+"84
 [e = . . _T0CON0bits 1 4 -> -> 0 `i `uc ]
-"86
+"85
 [e :UE 2416 ]
 }
-"88
+"87
 [v _TMR0_CounterGet `(uc ~T0 @X0 1 ef ]
-"89
+"88
 {
 [e :U _TMR0_CounterGet ]
 [f ]
-"90
+"89
 [v _counterValue `uc ~T0 @X0 1 a ]
-"92
+"91
 [e = _counterValue _TMR0L ]
-"94
+"93
 [e ) _counterValue ]
 [e $UE 2417  ]
-"95
+"94
 [e :UE 2417 ]
 }
-"97
+"96
 [v _TMR0_CounterSet `(v ~T0 @X0 1 ef1`uc ]
-"98
+"97
 {
 [e :U _TMR0_CounterSet ]
-"97
+"96
 [v _counterValue `uc ~T0 @X0 1 r1 ]
-"98
+"97
 [f ]
-"99
+"98
 [e = _TMR0L _counterValue ]
-"100
+"99
 [e :UE 2418 ]
 }
-"102
+"101
 [v _TMR0_PeriodSet `(v ~T0 @X0 1 ef1`uc ]
-"103
+"102
 {
 [e :U _TMR0_PeriodSet ]
-"102
+"101
 [v _periodValue `uc ~T0 @X0 1 r1 ]
-"103
+"102
 [f ]
-"104
+"103
 [e = _TMR0H _periodValue ]
-"105
+"104
 [e :UE 2419 ]
 }
-"107
+"106
 [v _TMR0_PeriodGet `(uc ~T0 @X0 1 ef ]
-"108
+"107
 {
 [e :U _TMR0_PeriodGet ]
 [f ]
-"109
+"108
 [e ) _TMR0H ]
 [e $UE 2420  ]
-"110
+"109
 [e :UE 2420 ]
 }
-"112
+"111
 [v _TMR0_MaxCountGet `(uc ~T0 @X0 1 ef ]
-"113
+"112
 {
 [e :U _TMR0_MaxCountGet ]
 [f ]
-"114
+"113
 [e ) -> -> 255 `ui `uc ]
 [e $UE 2421  ]
-"115
+"114
 [e :UE 2421 ]
 }
-"117
+"116
 [v _TMR0_TMRInterruptEnable `(v ~T0 @X0 1 ef ]
-"118
+"117
 {
 [e :U _TMR0_TMRInterruptEnable ]
 [f ]
-"119
+"118
 [e = . . _PIE3bits 0 7 -> -> 1 `i `uc ]
-"120
+"119
 [e :UE 2422 ]
 }
-"122
+"121
 [v _TMR0_TMRInterruptDisable `(v ~T0 @X0 1 ef ]
-"123
+"122
 {
 [e :U _TMR0_TMRInterruptDisable ]
 [f ]
-"124
+"123
 [e = . . _PIE3bits 0 7 -> -> 0 `i `uc ]
-"125
+"124
 [e :UE 2423 ]
 }
 [v $root$_TMR0_ISR `(v ~T0 @X0 0 e ]
-"140
+"139
 [v _TMR0_ISR `(v ~T1 @X0 1 ef ]
-"141
+"140
 {
 [e :U _TMR0_ISR ]
 [f ]
-"198
+"197
 [e $ ! != -> -> -> 0 `i `*v `*F17152 _TMR0_PeriodMatchCallback 2425  ]
-"199
+"198
 {
-"200
+"199
 [e ( *U _TMR0_PeriodMatchCallback ..  ]
-"201
+"200
 }
 [e :U 2425 ]
-"202
+"201
 [e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
-"203
+"202
 [e :UE 2424 ]
 }
-"205
+"204
 [v _TMR0_PeriodMatchCallbackRegister `(v ~T0 @X0 1 ef1`*F17154 ]
-"206
+"205
 {
 [e :U _TMR0_PeriodMatchCallbackRegister ]
-"205
+"204
 [v _callbackHandler `*F17156 ~T0 @X0 1 r1 ]
-"206
+"205
 [f ]
-"207
+"206
 [e = _TMR0_PeriodMatchCallback _callbackHandler ]
-"208
+"207
 [e :UE 2426 ]
 }
-"210
+"209
 [v _TMR0_DefaultCallback `(v ~T0 @X0 1 sf ]
-"211
+"210
 {
 [e :U _TMR0_DefaultCallback ]
 [f ]
-"213
+"212
 [e :UE 2427 ]
 }

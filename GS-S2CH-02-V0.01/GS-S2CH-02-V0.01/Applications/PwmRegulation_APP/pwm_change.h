@@ -5,8 +5,6 @@
 #include "../../mcc_generated_files/system/system.h"
 
 
-extern int PWM_Pre_data_1;    //PWMœ»«∞÷µ
-extern int PWM_Pre_data_2;   
 extern int Pwm_flag_1,Pwm_flag_2;
 
 void dynamic_delay_ms(unsigned int delay_time_ms);

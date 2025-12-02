@@ -11,6 +11,6 @@ void UsbcomAppInit(void);
 void Rs485Task(void);
 
 void Display(void);
-
+extern volatile uint8_t Rx_Length; 
 #endif 
 

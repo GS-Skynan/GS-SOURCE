@@ -10,10 +10,10 @@
 Ó²¼þ³éÏó²ã (Hardware Abstraction Layer)
 
 
-CH1:2000mA
-CH2:750mA
-CH3:730mA
-CH4:550mA
+CH1:2000mA 855W 422V 
+CH2:750mA  113W 124V
+CH3:730mA  283W 364V
+CH4:550mA   93W 135V
 
 
 
