@@ -2,13 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 Applications/PwmRegulation_APP/pwm_change.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18110 `(v ~T0 @X0 0 tf ]
-[v F18112 `(v ~T0 @X0 0 tf ]
 [v F18114 `(v ~T0 @X0 0 tf ]
-[v F18136 `(v ~T0 @X0 0 tf ]
-"103 Applications/Ticktime_APP/ticktime.c
-[c E18141 0 1 .. ]
-[n E18141 . LED_OFF LED_ON  ]
+[v F18116 `(v ~T0 @X0 0 tf ]
+[v F18118 `(v ~T0 @X0 0 tf ]
+[v F18140 `(v ~T0 @X0 0 tf ]
+"108 Applications/Ticktime_APP/ticktime.c
+[c E18145 0 1 .. ]
+[n E18145 . LED_OFF LED_ON  ]
 "20 DriverLayer/GPIO/GPIO_driver.h
 [v _Led_On `(v ~T0 @X0 0 ef ]
 "21
@@ -25,7 +25,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Rx_Length `Vuc ~T0 @X0 0 e ]
 "23 Applications/Dimming_APP/dimming.h
 [v _PIDflag1 `uc ~T0 @X0 0 e ]
-"200 Applications/Ticktime_APP/ticktime.c
+"203 Applications/Ticktime_APP/ticktime.c
 [c E17525 59 60 61 62 63 0 1 3 4 5 13 .. ]
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "17 DriverLayer/ADC/adc_driver.h
@@ -40,11 +40,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _power_time `us ~T0 @X0 0 e ]
 "44 Applications/PwmRegulation_APP/pwm_change.h
 [v _PID_Compute `(us ~T0 @X0 0 ef3`*S2421`f`f ]
-"204 Applications/Ticktime_APP/ticktime.c
-[c E17993 1 2 3 4 5 .. ]
-[n E17993 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
+"207 Applications/Ticktime_APP/ticktime.c
+[c E17994 1 2 3 4 5 .. ]
+[n E17994 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "14 DriverLayer/PWM/pwm_driver.h
-[v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17993`us ]
+[v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17994`us ]
 "48 Applications/CurrentRead_APP/readcurrent.h
 [v _g_uChannel2Power `us ~T0 @X0 0 e ]
 [v F17701 `(v ~T0 @X0 0 tf ]
@@ -1774,33 +1774,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pid2 `S2421 ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"16 Applications/Ticktime_APP/ticktime.c
+"15 Applications/Ticktime_APP/ticktime.c
+[v _g_bInputActiveTime `a ~T0 @X0 1 e ]
+[i _g_bInputActiveTime
+-> -> 0 `i `a
+]
+"16
+[v _g_uInputTime5Sce `uc ~T0 @X0 1 e ]
+"17
 [v _system_tick `Vul ~T0 @X0 1 e ]
 [i _system_tick
 -> -> -> 0 `i `l `ul
 ]
-"18
-[v _g_pTaskScheduleFunc `*F18110 ~T0 @X0 1 s ]
-"20
-[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18112 ]
+"19
+[v _g_pTaskScheduleFunc `*F18114 ~T0 @X0 1 s ]
 "21
+[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18116 ]
+"22
 {
 [e :U _TaskScheduleCbReg ]
-"20
-[v _pFunc `*F18114 ~T0 @X0 1 r1 ]
 "21
-[f ]
+[v _pFunc `*F18118 ~T0 @X0 1 r1 ]
 "22
-[e = _g_pTaskScheduleFunc _pFunc ]
+[f ]
 "23
+[e = _g_pTaskScheduleFunc _pFunc ]
+"24
 [e :UE 2423 ]
 }
-"25
+"26
 [v _time1 `us ~T0 @X0 1 e ]
 [i _time1
 -> -> 0 `i `us
 ]
-"27
+"28
 [v _Close1_time1 `us ~T0 @X0 1 e ]
 [i _Close1_time1
 -> -> 0 `i `us
@@ -1813,7 +1820,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Close_Count2
 -> -> 0 `i `us
 ]
-"28
+"29
 [v _time_close `us ~T0 @X0 1 e ]
 [i _time_close
 -> -> 0 `i `us
@@ -1826,7 +1833,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _time_close2
 -> -> 0 `i `us
 ]
-"29
+"30
 [v _flag_close1 `us ~T0 @X0 1 e ]
 [i _flag_close1
 -> -> 0 `i `us
@@ -1835,7 +1842,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _flag_close2
 -> -> 0 `i `us
 ]
-"32
+"33
 [v _reply_flag `us ~T0 @X0 1 e ]
 [i _reply_flag
 -> -> 0 `i `us
@@ -1845,373 +1852,375 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `us
 ]
 [v _reply_time `us ~T0 @X0 1 e ]
-"33
+"34
 [v _g_uRs485TimeOut `us ~T0 @X0 1 e ]
 [i _g_uRs485TimeOut
 -> -> 0 `i `us
 ]
-"34
+"35
 [v _g_bRs485Flag `a ~T0 @X0 1 e ]
 [i _g_bRs485Flag
 -> -> 0 `i `a
 ]
-"35
-[v _pidtime1 `uc ~T0 @X0 1 e ]
 "36
+[v _pidtime1 `uc ~T0 @X0 1 e ]
+"37
 [v _pwm1 `us ~T0 @X0 1 e ]
 [v _pwm2 `us ~T0 @X0 1 e ]
-"37
+"38
 [v _pwm_output `f ~T0 @X0 1 e ]
-"39
-[v _TaskHandler_Time `(v ~T0 @X0 1 sf ]
 "40
+[v _TaskHandler_Time `(v ~T0 @X0 1 sf ]
+"41
 {
 [e :U _TaskHandler_Time ]
 [f ]
-"41
-[v F18135 `us ~T0 @X0 1 s ledtime ]
 "42
-[e ++ F18135 -> -> 1 `i `us ]
+[v F18139 `us ~T0 @X0 1 s ledtime ]
 "43
-[e $ ! == -> F18135 `ui -> -> 200 `i `ui 2425  ]
+[e ++ F18139 -> -> 1 `i `us ]
 "44
+[e $ ! == -> F18139 `ui -> -> 200 `i `ui 2425  ]
+"45
 {
-"46
-[e = F18135 -> -> 0 `i `us ]
 "47
+[e = F18139 -> -> 0 `i `us ]
+"48
 }
 [e :U 2425 ]
-"49
+"50
 [e ++ _system_tick -> -> 1 `i `Vul ]
-"51
-[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18136 2426  ]
 "52
-{
+[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18140 2426  ]
 "53
-[e $UE 2424  ]
+{
 "54
+[e $UE 2424  ]
+"55
 }
 [e :U 2426 ]
-"55
-[e ( *U _g_pTaskScheduleFunc ..  ]
 "56
+[e ( *U _g_pTaskScheduleFunc ..  ]
+"57
 [e :UE 2424 ]
 }
-"58
-[v _get_systemtick_time `(ul ~T0 @X0 1 ef ]
 "59
+[v _get_systemtick_time `(ul ~T0 @X0 1 ef ]
+"60
 {
 [e :U _get_systemtick_time ]
 [f ]
-"60
+"61
 [e ) _system_tick ]
 [e $UE 2427  ]
-"61
+"62
 [e :UE 2427 ]
 }
-"83
-[v _get_elapsed_since `(ul ~T0 @X0 1 ef1`ul ]
 "84
+[v _get_elapsed_since `(ul ~T0 @X0 1 ef1`ul ]
+"85
 {
 [e :U _get_elapsed_since ]
-"83
-[v _since_time `ul ~T0 @X0 1 r1 ]
 "84
-[f ]
+[v _since_time `ul ~T0 @X0 1 r1 ]
 "85
+[f ]
+"86
 [v _current `ul ~T0 @X0 1 a ]
 [e = _current ( _get_systemtick_time ..  ]
-"87
-[e $ ! >= _current _since_time 2429  ]
 "88
-{
+[e $ ! >= _current _since_time 2429  ]
 "89
+{
+"90
 [e ) - _current _since_time ]
 [e $UE 2428  ]
-"90
+"91
 }
 [e $U 2430  ]
-"91
-[e :U 2429 ]
 "92
-{
+[e :U 2429 ]
 "93
+{
+"94
 [e ) + + - -> 4294967295 `ul _since_time _current -> -> -> 1 `i `l `ul ]
 [e $UE 2428  ]
-"94
+"95
 }
 [e :U 2430 ]
-"95
+"96
 [e :UE 2428 ]
 }
-"103
-[v _led_state `E18141 ~T0 @X0 1 s ]
-[i _led_state
-. `E18141 0
-]
-"105
-[v _LED_Task `(v ~T0 @X0 1 ef ]
 "106
+[v _LED_Task `(v ~T0 @X0 1 ef ]
+"107
 {
 [e :U _LED_Task ]
 [f ]
-"107
-[v F18147 `ul ~T0 @X0 1 s last_led_change_time ]
-[i F18147
+"108
+[v F18150 `E18145 ~T0 @X0 1 s led_state ]
+[i F18150
+. `E18145 0
+]
+"109
+[v F18151 `ul ~T0 @X0 1 s last_led_change_time ]
+[i F18151
 -> -> -> 0 `i `l `ul
 ]
-"108
-[v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18147 ]
 "110
+[v _elapsed `ul ~T0 @X0 1 a ]
+[e = _elapsed ( _get_elapsed_since (1 F18151 ]
+"112
 [e $U 2433  ]
 {
-"111
-[e :U 2434 ]
-"112
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2435  ]
 "113
-{
+[e :U 2434 ]
 "114
-[e ( _Led_On ..  ]
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2435  ]
 "115
-[e = _led_state . `E18141 1 ]
+{
 "116
-[e = F18147 ( _get_systemtick_time ..  ]
+[e ( _Led_On ..  ]
 "117
+[e = F18150 . `E18145 1 ]
+"118
+[e = F18151 ( _get_systemtick_time ..  ]
+"119
 }
 [e :U 2435 ]
-"118
-[e $U 2432  ]
 "120
-[e :U 2436 ]
-"121
-[e $ ! > _elapsed -> -> -> 200 `i `l `ul 2437  ]
+[e $U 2432  ]
 "122
-{
+[e :U 2436 ]
 "123
-[e ( _Led_Off ..  ]
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2437  ]
 "124
-[e = _led_state . `E18141 0 ]
+{
 "125
-[e = F18147 ( _get_systemtick_time ..  ]
+[e ( _Led_Off ..  ]
 "126
+[e = F18150 . `E18145 0 ]
+"127
+[e = F18151 ( _get_systemtick_time ..  ]
+"128
 }
 [e :U 2437 ]
-"127
+"129
 [e $U 2432  ]
-"128
+"130
 }
 [e $U 2432  ]
 [e :U 2433 ]
-[e [\ -> _led_state `ui , $ -> . `E18141 0 `ui 2434
- , $ -> . `E18141 1 `ui 2436
+[e [\ -> F18150 `ui , $ -> . `E18145 0 `ui 2434
+ , $ -> . `E18145 1 `ui 2436
  2432 ]
 [e :U 2432 ]
-"129
+"131
 [e :UE 2431 ]
 }
-"131
+"133
 [v _Time0_start `(v ~T0 @X0 1 sf ]
-"132
+"134
 {
 [e :U _Time0_start ]
 [f ]
-"133
-[e $ ! == -> _buck_flag `i -> 1 `i 2439  ]
-"134
-{
 "135
-[e ++ _time1 -> -> 1 `i `us ]
+[e $ ! == -> _buck_flag `i -> 1 `i 2439  ]
 "136
-[e $ ! == -> _time1 `ui -> -> 200 `i `ui 2440  ]
-"137
 {
+"137
+[e ++ _time1 -> -> 1 `i `us ]
 "138
-[e = _buck_ok1 -> -> 1 `i `uc ]
+[e $ ! == -> _time1 `ui -> -> 500 `i `ui 2440  ]
 "139
-[e = _buck_ok2 -> -> 1 `i `uc ]
+{
 "140
-[e = _time1 -> -> 0 `i `us ]
+[e = _buck_ok1 -> -> 1 `i `uc ]
 "141
-[e = _buck_flag -> -> 0 `i `uc ]
+[e = _buck_ok2 -> -> 1 `i `uc ]
 "142
+[e = _time1 -> -> 0 `i `us ]
+"143
+[e = _buck_flag -> -> 0 `i `uc ]
+"144
 }
 [e :U 2440 ]
-"143
+"145
 }
 [e :U 2439 ]
-"145
-[e ++ _time_close -> -> 1 `i `us ]
-"146
-[e $ ! == -> _time_close `ui -> -> 200 `i `ui 2441  ]
 "147
-{
+[e ++ _time_close -> -> 1 `i `us ]
 "148
-[e = _time_close -> -> 0 `i `us ]
+[e $ ! == -> _time_close `ui -> -> 200 `i `ui 2441  ]
 "149
+{
+"150
+[e = _time_close -> -> 0 `i `us ]
+"151
+[e ++ _g_uInputTime5Sce -> -> 1 `i `uc ]
+"152
 [e $ ! != -> _flag_close1 `ui -> -> 0 `i `ui 2442  ]
 [e ++ _time_close1 -> -> 1 `i `us ]
 [e :U 2442 ]
-"150
+"153
 [e $ ! != -> _flag_close2 `ui -> -> 0 `i `ui 2443  ]
 [e ++ _time_close2 -> -> 1 `i `us ]
 [e :U 2443 ]
-"151
+"154
 }
 [e :U 2441 ]
-"152
-[e $ ! == -> _time_close1 `ui -> -> 150 `i `ui 2444  ]
-"153
-{
-"154
-[e = _time_close1 -> -> 0 `i `us ]
 "155
-[e = _out_flag1 -> -> 1 `i `uc ]
+[e $ ! == -> _time_close1 `ui -> -> 150 `i `ui 2444  ]
 "156
-[e ++ _Close_Count1 -> -> 1 `i `us ]
+{
 "157
+[e = _time_close1 -> -> 0 `i `us ]
+"158
+[e = _out_flag1 -> -> 1 `i `uc ]
+"159
+[e ++ _Close_Count1 -> -> 1 `i `us ]
+"160
 [e $ ! >= -> _Close_Count1 `ui -> -> 6 `i `ui 2445  ]
 [e = _flag_close1 -> -> 0 `i `us ]
 [e :U 2445 ]
-"158
+"161
 }
 [e :U 2444 ]
-"159
-[e $ ! == -> _time_close2 `ui -> -> 150 `i `ui 2446  ]
-"160
-{
-"161
-[e = _out_flag2 -> -> 1 `i `uc ]
 "162
-[e ++ _Close_Count2 -> -> 1 `i `us ]
+[e $ ! == -> _time_close2 `ui -> -> 150 `i `ui 2446  ]
 "163
-[e = _time_close2 -> -> 0 `i `us ]
+{
 "164
+[e = _out_flag2 -> -> 1 `i `uc ]
+"165
+[e ++ _Close_Count2 -> -> 1 `i `us ]
+"166
+[e = _time_close2 -> -> 0 `i `us ]
+"167
 [e $ ! >= -> _Close_Count2 `ui -> -> 6 `i `ui 2447  ]
 [e = _flag_close2 -> -> 0 `i `us ]
 [e :U 2447 ]
-"165
+"168
 }
 [e :U 2446 ]
-"168
-[e $ ! == -> _reply_flag `ui -> -> 1 `i `ui 2448  ]
-"169
-{
-"170
-[e ++ _reply_time -> -> 1 `i `us ]
 "171
-[e $ ! >= -> _reply_time `ui -> -> 200 `i `ui 2449  ]
+[e $ ! == -> _reply_flag `ui -> -> 1 `i `ui 2448  ]
 "172
 {
 "173
-[e = _reply_time -> -> 0 `i `us ]
+[e ++ _reply_time -> -> 1 `i `us ]
 "174
-[e = _reply_ok -> -> 1 `i `us ]
+[e $ ! >= -> _reply_time `ui -> -> 200 `i `ui 2449  ]
 "175
-[e = _reply_flag -> -> 0 `i `us ]
+{
 "176
+[e = _reply_time -> -> 0 `i `us ]
+"177
+[e = _reply_ok -> -> 1 `i `us ]
+"178
+[e = _reply_flag -> -> 0 `i `us ]
+"179
 }
 [e :U 2449 ]
-"177
+"180
 }
 [e :U 2448 ]
-"179
-[e $ ! > -> _g_uRs485TimeOut `ui -> -> 0 `i `ui 2450  ]
-"180
-{
-"181
-[e -- _g_uRs485TimeOut -> -> 1 `i `us ]
 "182
-[e $ ! && == -> _g_uRs485TimeOut `ui -> -> 0 `i `ui > -> _Rx_Length `i -> 0 `i 2451  ]
+[e $ ! > -> _g_uRs485TimeOut `ui -> -> 0 `i `ui 2450  ]
 "183
 {
+"184
+[e -- _g_uRs485TimeOut -> -> 1 `i `us ]
 "185
-[e = _g_bRs485Flag -> -> 1 `i `a ]
+[e $ ! && == -> _g_uRs485TimeOut `ui -> -> 0 `i `ui > -> _Rx_Length `i -> 0 `i 2451  ]
 "186
+{
+"188
+[e = _g_bRs485Flag -> -> 1 `i `a ]
+"189
 }
 [e :U 2451 ]
-"187
+"190
 }
 [e :U 2450 ]
-"188
+"191
 [e :UE 2438 ]
 }
-"190
+"193
 [v _g_Voltage1 `f ~T0 @X0 1 e ]
 [v _g_Voltage2 `f ~T0 @X0 1 e ]
-"191
+"194
 [v _powernum1 `f ~T0 @X0 1 e ]
 [v _powernum2 `f ~T0 @X0 1 e ]
-"193
+"196
 [v _Dimming_Pid `(v ~T0 @X0 1 ef ]
-"194
+"197
 {
 [e :U _Dimming_Pid ]
 [f ]
-"198
-[e $ ! || == -> _PIDflag1 `i -> 1 `i == -> _PIDflag1 `i -> 3 `i 2453  ]
-"199
-{
-"200
-[e = _g_Voltage1 * / -> ( _ADC_Result2 (1 . `E17525 9 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
 "201
-[e = _powernum1 / * ( _get_current (1 . `E17525 8 _g_Voltage1 -> .1000.0 `f ]
+[e $ ! || == -> _PIDflag1 `i -> 1 `i == -> _PIDflag1 `i -> 3 `i 2453  ]
 "202
-[e = _pwm_output ( _simple_regulator (2 , _power_pwm -> _power_time `ul ]
+{
 "203
-[e = _pwm1 ( _PID_Compute (3 , , &U _pid1 _pwm_output _powernum1 ]
+[e = _g_Voltage1 * / -> ( _ADC_Result2 (1 . `E17525 9 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
 "204
-[e ( _PWM_Set_Direct (2 , . `E17993 0 _pwm1 ]
+[e = _powernum1 / * ( _get_current (1 . `E17525 8 _g_Voltage1 -> .1000.0 `f ]
 "205
+[e = _pwm_output ( _simple_regulator (2 , _power_pwm -> _power_time `ul ]
+"206
+[e = _pwm1 ( _PID_Compute (3 , , &U _pid1 _pwm_output _powernum1 ]
+"207
+[e ( _PWM_Set_Direct (2 , . `E17994 0 _pwm1 ]
+"208
 }
 [e :U 2453 ]
-"209
-[e $ ! || == -> _PIDflag1 `i -> 2 `i == -> _PIDflag1 `i -> 3 `i 2454  ]
-"210
-{
-"211
-[e = _g_Voltage2 * / -> ( _ADC_Result2 (1 . `E17525 6 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
 "212
-[e = _powernum2 / * ( _get_current (1 . `E17525 5 _g_Voltage2 -> .1000.0 `f ]
+[e $ ! || == -> _PIDflag1 `i -> 2 `i == -> _PIDflag1 `i -> 3 `i 2454  ]
 "213
-[e = _pwm2 ( _PID_Compute (3 , , &U _pid2 -> _g_uChannel2Power `f _powernum2 ]
+{
 "214
-[e ( _PWM_Set_Direct (2 , . `E17993 1 _pwm2 ]
+[e = _g_Voltage2 * / -> ( _ADC_Result2 (1 . `E17525 6 `f -> .1000.0 `f / -> .3018.0 `f -> .18.0 `f ]
 "215
+[e = _powernum2 / * ( _get_current (1 . `E17525 5 _g_Voltage2 -> .1000.0 `f ]
+"216
+[e = _pwm2 ( _PID_Compute (3 , , &U _pid2 -> _g_uChannel2Power `f _powernum2 ]
+"217
+[e ( _PWM_Set_Direct (2 , . `E17994 1 _pwm2 ]
+"218
 }
 [e :U 2454 ]
-"218
+"221
 [e :UE 2452 ]
 }
-"220
+"223
 [v _Time0_AppInit `(v ~T0 @X0 1 ef ]
-"221
+"224
 {
 [e :U _Time0_AppInit ]
 [f ]
-"222
+"225
 [e ( _TMR0_PeriodMatchCallbackRegister (1 &U _Time0_start ]
-"223
+"226
 [e :UE 2455 ]
 }
-"225
+"228
 [v _Time2_AppInit `(v ~T0 @X0 1 ef ]
-"226
+"229
 {
 [e :U _Time2_AppInit ]
 [f ]
-"227
+"230
 [e ( _TMR2_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
-"228
+"231
 [e :UE 2456 ]
 }
-"230
+"233
 [v _PIDDimming_Init `(v ~T0 @X0 1 ef ]
-"231
+"234
 {
 [e :U _PIDDimming_Init ]
 [f ]
-"233
+"236
 [e :UE 2457 ]
 }

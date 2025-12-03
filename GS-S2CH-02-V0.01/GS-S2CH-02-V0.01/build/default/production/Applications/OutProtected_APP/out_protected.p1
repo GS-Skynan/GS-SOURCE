@@ -31,18 +31,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [v _Close_Count1 `us ~T0 @X0 0 e ]
 "169 Applications/OutProtected_APP/out_protected.c
-[c E18001 1 2 3 .. ]
-[n E18001 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+[c E18003 1 2 3 .. ]
+[n E18003 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18001 ]
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18003 ]
 "16 Applications/OutProtected_APP/out_protected.c
 [v _flag_close1 `us ~T0 @X0 0 e ]
 "18 Applications/Ticktime_APP/ticktime.h
 [v _Close_Count2 `us ~T0 @X0 0 e ]
 "16 Applications/OutProtected_APP/out_protected.c
 [v _flag_close2 `us ~T0 @X0 0 e ]
-"24 DriverLayer/GPIO/GPIO_driver.h
-[v _PFC_Off `(v ~T0 @X0 0 ef ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -2018,7 +2016,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "167
 [e = _PFC_Flag1 -> -> 1 `i `uc ]
 "169
-[e ( _LightPowerOff (1 . `E18001 0 ]
+[e ( _LightPowerOff (1 . `E18003 0 ]
 "170
 [e = _flag_close1 -> -> 1 `i `us ]
 "171
@@ -2033,7 +2031,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "177
 [e = _PFC_Flag1 -> -> 1 `i `uc ]
 "179
-[e ( _LightPowerOff (1 . `E18001 0 ]
+[e ( _LightPowerOff (1 . `E18003 0 ]
 "180
 [e = _flag_close1 -> -> 0 `i `us ]
 "181
@@ -2044,7 +2042,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "185
 {
 "187
-[e ( _LightPowerOff (1 . `E18001 0 ]
+[e ( _LightPowerOff (1 . `E18003 0 ]
 "188
 [e = _out_flag1 -> -> 0 `i `uc ]
 "189
@@ -2068,7 +2066,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "198
 [e = _PFC_Flag2 -> -> 2 `i `uc ]
 "200
-[e ( _LightPowerOff (1 . `E18001 1 ]
+[e ( _LightPowerOff (1 . `E18003 1 ]
 "201
 [e = _flag_close2 -> -> 1 `i `us ]
 "202
@@ -2083,7 +2081,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "207
 [e = _PFC_Flag2 -> -> 2 `i `uc ]
 "209
-[e ( _LightPowerOff (1 . `E18001 1 ]
+[e ( _LightPowerOff (1 . `E18003 1 ]
 "210
 [e = _flag_close2 -> -> 1 `i `us ]
 "211
@@ -2094,7 +2092,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214
 {
 "216
-[e ( _LightPowerOff (1 . `E18001 1 ]
+[e ( _LightPowerOff (1 . `E18003 1 ]
 "217
 [e = _out_flag2 -> -> 0 `i `uc ]
 "218
@@ -2111,38 +2109,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "222
 [e :UE 2438 ]
 }
-"223
-[v _Out_Protected `(v ~T0 @X0 1 ef ]
-"224
-{
-[e :U _Out_Protected ]
-[f ]
-[v F18373 `uc ~T0 @X0 -> 2 `i s ]
-[i F18373
-:U ..
-"226
--> -> 0 `i `uc
-..
-]
-[v _buffer `uc ~T0 @X0 -> 2 `i a ]
-[e = _buffer F18373 ]
-"228
-[e $ ! && && && == -> _PFC_Flag1 `i -> 1 `i == -> _PFC_Flag2 `i -> 2 `i == -> *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 4 `i == -> *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux `i -> 3 `i 2455  ]
-{
-[e ( _PFC_Off ..  ]
-}
-[e :U 2455 ]
-"229
-[e :UE 2454 ]
-}
-"232
+"225
 [v _OutProtectedTask `(v ~T0 @X0 1 ef ]
-"233
+"226
 {
 [e :U _OutProtectedTask ]
 [f ]
-"234
+"227
 [e ( _Out_Protect ..  ]
-"235
-[e :UE 2456 ]
+"228
+[e :UE 2454 ]
 }

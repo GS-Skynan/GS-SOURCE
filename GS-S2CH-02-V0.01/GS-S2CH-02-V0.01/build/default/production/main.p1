@@ -8,9 +8,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 Applications/PwmRegulation_APP/pwm_change.h
 [s S2424 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2424 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18277 `(v ~T0 @X0 0 tf ]
+[v F18280 `(v ~T0 @X0 0 tf ]
 "59 main.c
-[s S2425 `uc 1 `us 1 `us 1 `*F18277 1 ]
+[s S2425 `uc 1 `us 1 `us 1 `*F18280 1 ]
 [n S2425 . run timCount timRload pTaskFuncCb ]
 "11 Applications/USBCom_APP/usbcom.h
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
@@ -46,9 +46,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _NFCRead_APPInit `(v ~T0 @X0 0 ef ]
 "49 Applications/CurrentRead_APP/readcurrent.h
 [v _ReadNfcNumber `(v ~T0 @X0 0 ef ]
-[v F18187 `(v ~T0 @X0 0 tf ]
+[v F18188 `(v ~T0 @X0 0 tf ]
 "7 Applications/Ticktime_APP/ticktime.h
-[v _TaskScheduleCbReg `(v ~T0 @X0 0 ef1`*F18187 ]
+[v _TaskScheduleCbReg `(v ~T0 @X0 0 ef1`*F18188 ]
 [p mainexit ]
 "66 ./mcc_generated_files/system/system.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
@@ -1855,8 +1855,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 :U ..
 -> -> 0 `i `uc
--> -> 300 `i `us
--> -> 300 `i `us
+-> -> 50 `i `us
+-> -> 50 `i `us
 &U _IntProtectedTask
 ..
 :U ..
