@@ -185,7 +185,7 @@ void UsbcomAppInit(void)
 //    QueueInit(&uartQueue, uartQueueBuffer, sizeof (uartQueueBuffer));
     
 }
-
+uint8_t ds;
 void Display(void)
 {
     // float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
@@ -196,6 +196,7 @@ void Display(void)
 //           get_current(OUT_CURRENT2), pwm2, g_Voltage2,powernum2);
 //   printf("TP:%d|URGE1:%d|URGE2:%d| \n\r ",g_uTargetPower,UART_REG1,UART_REG2);
    printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
+   if(ds==1)printf("o \n\r ");
 
 }
 

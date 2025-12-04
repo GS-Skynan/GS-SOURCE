@@ -3,7 +3,7 @@
 
 #include "../../mcc_generated_files/system/system.h"
 
-
+extern uint8_t ds;
 
 extern uint8_t rs485_flag;
 

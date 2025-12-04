@@ -571,8 +571,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/12918/Desktop/PIC/bootloader3.0/Bootloader_V3.0/Bootloader_V3.0/app/app.X/debug/default/app_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="false"/>
         <property key="programoptions.pgmentry.voltage" value="high"/>

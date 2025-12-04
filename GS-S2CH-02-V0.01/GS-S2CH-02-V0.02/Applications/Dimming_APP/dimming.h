@@ -19,7 +19,6 @@ void DimmingControlTask(void);              //数据处理函数
 void DimmingStart(void);
 //uint16_t PID_Control(void);
 
-
 extern uint8_t PIDflag1;
 
 extern float power_pwm;

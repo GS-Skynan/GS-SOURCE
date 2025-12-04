@@ -2449,6 +2449,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "187
 [e :UE 2434 ]
 }
+"188
+[v _ds `uc ~T0 @X0 1 e ]
 "189
 [v _Display `(v ~T0 @X0 1 ef ]
 "190
@@ -2457,8 +2459,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "198
 [e ( _printf , (. :s 1C -> ( _ADC_Result2 (1 . `E17525 10 `ui ]
-"200
+"199
+[e $ ! == -> _ds `i -> 1 `i 2439  ]
+[e ( _printf :s 2C ]
+[e :U 2439 ]
+"201
 [e :UE 2438 ]
 }
 [p f _printf 8388736 ]
 [a 1C 86 105 110 58 37 100 124 32 10 13 32 0 ]
+[a 2C 111 32 10 13 32 0 ]

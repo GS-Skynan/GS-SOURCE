@@ -16,7 +16,7 @@
 #include "record.h"
 #include <math.h>
 #include "stdio.h"
-
+#include "readcurrent.h"
 
 
 /*变量定义*/
@@ -40,6 +40,7 @@ uint32_t start_time = 0;
 float target_value = 0;
 uint32_t transition_time = 1000;
 float power_pwm = 0;
+uint8_t ch1 = 1, ch2 = 1, ch12 = 1;
 
 void regulator_clear(void)
 {
@@ -152,6 +153,10 @@ bool ProtectionCheck(void)
 
     if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
     {
+
+        ch1 = 1;
+        ch2 = 1;
+        ch12 = 1;
         return true; // 检查是否有任意通道（1、2）的值大于等于 1
     }
 
@@ -159,47 +164,120 @@ bool ProtectionCheck(void)
 }
 
 
-uint8_t pwm_s=0;
- static uint8_t startup_step = 0;
-// 2. 在主循环中调用的函数
 
-void Startup_NonBlocking(void)
+static uint8_t startup_step = 0;
+
+void Startup_12CH(void)
 {
-   
+
     static uint32_t lastime = 0;
     uint32_t now = get_elapsed_since(lastime); // 获取当前系统时间（毫秒）
-
     switch (startup_step) {
     case 0: // 第一步：打开继电器1
         RELAY_On(RELAY_CHANNEL1);
+        RELAY_On(RELAY_CHANNEL2);
         lastime = get_systemtick_time();
-        startup_step = 1; // 进入下一步
-       
+        startup_step = 1;
         break;
 
-    case 1: // 等待150ms
-        if (now > 150) // 时间到
+    case 1:
+        if (now > 150)
         {
             L6562_On(L6562_CHANNEL1);
-            RELAY_On(RELAY_CHANNEL2);
+            L6562_On(L6562_CHANNEL2);
             lastime = get_systemtick_time();
-            startup_step = 2; // 进入下一步
-        
+            startup_step = 2;
+
         }
         break;
 
-    case 2: // 再等待150ms
-        if (now > 150) // 时间到
+    case 2:
+        if (now > 150)
         {
-            L6562_On(L6562_CHANNEL2);
-            startup_step = 3; // 完成
-   
+            PIDflag1 = 3;
+            startup_step = 3;
         }
         break;
 
     case 3: // 启动完成，什么都不做
-          pwm_s=1;
-  
+
+        break;
+    }
+}
+
+static uint8_t startup_s1 = 0;
+
+void Startup_1CH(void)
+{
+
+    static uint32_t lastime1 = 0;
+    uint32_t now1 = get_elapsed_since(lastime1); // 获取当前系统时间（毫秒）
+
+    switch (startup_s1) {
+    case 0: // 第一步：打开继电器1
+        RELAY_On(RELAY_CHANNEL1);
+        lastime1 = get_systemtick_time();
+        startup_s1 = 1;
+        break;
+
+    case 1:
+        if (now1 > 150)
+        {
+            L6562_On(L6562_CHANNEL1);
+            lastime1 = get_systemtick_time();
+            startup_s1 = 2;
+        }
+        break;
+
+    case 2:
+        if (now1 > 150)
+        {
+            PIDflag1 = 1;
+            startup_s1 = 3;
+        }
+        break;
+
+    case 3: // 启动完成，什么都不做
+
+        break;
+    }
+}
+
+
+static uint8_t startup_s2 = 0;
+
+void Startup_2CH(void)
+{
+
+    static uint32_t lastime2 = 0;
+    uint32_t now2 = get_elapsed_since(lastime2); // 获取当前系统时间（毫秒）
+
+    switch (startup_s2) {
+    case 0: // 第一步：打开继电器1
+        RELAY_On(RELAY_CHANNEL2);
+        lastime2 = get_systemtick_time();
+        startup_s2 = 1;
+        break;
+
+    case 1:
+        if (now2 > 150)
+        {
+            L6562_On(L6562_CHANNEL2);
+            lastime2 = get_systemtick_time();
+            startup_s2 = 2;
+        }
+        break;
+
+    case 2:
+        if (now2 > 150)
+        {
+            PIDflag1 = 2;
+            startup_s2 = 3;
+        }
+        break;
+
+    case 3: // 启动完成，什么都不做
+
         break;
     }
 }
@@ -207,20 +285,22 @@ void Startup_NonBlocking(void)
 typedef enum
 {
     PFC_ON = 1,
-    RELAY_ON,
-    L6562_ON
+    LED_ON_12CH,
+    LED_ON_1CH,
+    LED_ON_2CH,
+    LED_OFF,
 } eSTART;
 
 void DimmingStart(void)
 {
-    static eSTART state = PFC_ON;
+    static eSTART state = LED_OFF;
     static uint32_t last_state_change_time = 0;
     uint32_t state_elapsed = get_elapsed_since(last_state_change_time);
+    static uint8_t ch1 = 1;
 
-    if (pfc_flag)
+    if ((UART_REG1 > 0x01 || UART_REG2 > 0x01) && pfc_flag == 1)
     {
-        pwm_s=0;
-        startup_step=0;
+        last_state_change_time = get_systemtick_time();
         state = PFC_ON;
         pfc_flag = 0;
     }
@@ -230,95 +310,173 @@ void DimmingStart(void)
         PFC_On();
         if (state_elapsed > 400)
         {
-            state = RELAY_ON;
+            if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
+            {
+                state = LED_ON_12CH;
+                startup_step = 0;
+            }
+            if (UART_REG1 > 0x01 && UART_REG2 == 0x00)
+            {
+                state = LED_ON_1CH;
+                startup_s1 = 0;
+
+            }
+            if (UART_REG1 == 0x00 && UART_REG2 > 0x01)
+            {
+                state = LED_ON_2CH;
+                startup_s2 = 0;
+            }
             last_state_change_time = get_systemtick_time();
- 
         }
         break;
 
-    case RELAY_ON:
+    case LED_ON_12CH:
+        Startup_12CH();
+        if (UART_REG1 > 0x01 && UART_REG2 == 0x00)
+        {
+            LightPowerOff(LED_CHANNEL2_OFF);
+            state = LED_ON_1CH;
+            startup_s1 = 0;
+
+        }
+        if (UART_REG1 == 0x00 && UART_REG2 > 0x01)
+        {
+            LightPowerOff(LED_CHANNEL1_OFF);
+            state = LED_ON_2CH;
+            startup_s2 = 0;
+
+        }
+
+        break;
+
+
+    case LED_ON_1CH:
+      
+        Startup_1CH();
         if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
         {
-           Startup_NonBlocking();
-
+            state = LED_ON_12CH;
+            startup_step = 0;
+        }
+        if (UART_REG1 == 0x00 && UART_REG2 > 0x01)
+        {
+            LightPowerOff(LED_CHANNEL1_OFF);
+            state = LED_ON_2CH;
+            startup_s2 = 0;
         }
         break;
 
-    case L6562_ON:
+    case LED_ON_2CH:
+         
 
+        Startup_2CH();
+        if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
+        {
+            state = LED_ON_12CH;
+            startup_step = 0;
+        }
+
+        if (UART_REG1 > 0x01 && UART_REG2 == 0x00)
+        {
+            LightPowerOff(LED_CHANNEL2_OFF);
+            state = LED_ON_1CH;
+            startup_s1 = 0;
+        }
 
         break;
+
     }
 }
 
 void DimmingControlTask(void)
 {
-
-
-    //保护校验
+    //保护校验   
+     
     if (ProtectionCheck() == true)
     {
         LightPowerOff(LED_ALL_OFF);
+        printf("e");
         return;
     }
 
-    // 判断是否有通道开启
-    //    if (pfc_flag)
-    //    {
-    //        PFC_On(); // 打开 PFC
-    //        __delay_ms(400); // 延时 400ms，等待 PFC 稳定
-    //        pfc_flag = 0;
-    //    }
+    power_pwm = (float) Power_Compensation();
+//    //   判断是否有通道开启
+//    if ((UART_REG1 > 0x01 || UART_REG2 > 0x01) && pfc_flag == 1)
+//    {
+//        PFC_On(); // 打开 PFC
+//        __delay_ms(400); // 延时 400ms，等待 PFC 稳定
+//        pfc_flag = 0;
+//    }
+//
+//    if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
+//    {
+//        if (ch12 == 1)
+//        {
+//            ch1 = 1;
+//            ch2 = 1;
+//            RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
+//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
+//            L6562_On(L6562_CHANNEL1);
+//            RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
+//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
+//            L6562_On(L6562_CHANNEL2);
+//            PIDflag1 = 3;
+//            ch12 = 0;
+//        }
+//    }
+//    else if (UART_REG1 > 0x01 && UART_REG2 == 0)
+//    {
+//        if (ch1 == 1)
+//        {
+//            ch12 = 1;
+//            ch2 = 1;
+//            LightPowerOff(LED_CHANNEL2_OFF);
+//            RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
+//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
+//            L6562_On(L6562_CHANNEL1);
+//            PIDflag1 = 1;
+//            ch1 = 0;
+//        }
+//    }
+//    else if (UART_REG1 == 0 && UART_REG2 > 0x01)
+//    {
+//        if (ch2 == 1)
+//        {
+//            ch12 = 1;
+//            ch1 = 1;
+//            LightPowerOff(LED_CHANNEL1_OFF);
+//            RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
+//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
+//            L6562_On(L6562_CHANNEL2);
+//            PIDflag1 = 2;
+//            ch2 = 0;
+//        }
+//    }
 
-    //    if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
-    //    {
-    //        RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
-    //        __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
-    //        L6562_On(L6562_CHANNEL1);
-    //        RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
-    //        __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
-    //        L6562_On(L6562_CHANNEL2);
-    //    }
-    //    else if (UART_REG1 > 0x01)
-    //    {
-    //        LightPowerOff(LED_CHANNEL2_OFF);
-    //        RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
-    //        __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
-    //        L6562_On(L6562_CHANNEL1);
-    //    }
-    //    else if (UART_REG2 > 0x01)
-    //    {
-    //        LightPowerOff(LED_CHANNEL1_OFF);
-    //        RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
-    //        __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
-    //        L6562_On(L6562_CHANNEL2);
-    //    }
 
     DimmingStart();
-    if(pwm_s!=1)return;
-    power_pwm = (float) Power_Compensation();
 
-    if (UART_REG1 >= 0x01 && UART_REG2 == 0x00)
-    {
-        PIDflag1 = 1;
-    }
 
-    if (UART_REG1 == 0x00 && UART_REG2 >= 0x01)
-    {
-        PIDflag1 = 2;
-    }
-
-    if (UART_REG1 >= 0x01 && UART_REG2 >= 0x01)
-    {
-        PIDflag1 = 3;
-    }
-
-    if (UART_REG1 == 0x00 && UART_REG2 == 0x00)
-    {
-        PIDflag1 = 0;
-        power_pwm = 0;
-        pwm1 = 0;
-    }
+    //        if (UART_REG1 >= 0x01 && UART_REG2 == 0x00)
+    //        {
+    //            PIDflag1 = 1;
+    //        }
+    //    
+    //        if (UART_REG1 == 0x00 && UART_REG2 >= 0x01)
+    //        {
+    //            PIDflag1 = 2;
+    //        }
+    //    
+    //        if (UART_REG1 >= 0x01 && UART_REG2 >= 0x01)
+    //        {
+    //            PIDflag1 = 3;
+    //        }
+    //         if (UART_REG1 == 0x00 && UART_REG2== 0x00)
+    //        {
+    //            PIDflag1 = 0;
+    //            pwm1=0;
+    //            pwm2=0;      
+    //        }
 
     Dimming_Pid();
 

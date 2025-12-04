@@ -7,12 +7,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 Applications/PwmRegulation_APP/pwm_change.h
 [v _target_duty_cycle_Out1 `i ~T0 @X0 0 e ]
 [v _target_duty_cycle_Out2 `i ~T0 @X0 0 e ]
-"34 Applications/LightsOff_APP/closeled.c
+"32 Applications/LightsOff_APP/closeled.c
 [c E18013 1 2 3 4 5 .. ]
 [n E18013 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "15 DriverLayer/PWM/pwm_driver.h
 [v _PWM_Off_CHANNEL `(v ~T0 @X0 0 ef1`E18013 ]
-"35 Applications/LightsOff_APP/closeled.c
+"33 Applications/LightsOff_APP/closeled.c
 [c E17990 1 2 .. ]
 [n E17990 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "26 DriverLayer/GPIO/GPIO_driver.h
@@ -21,26 +21,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"39 Applications/LightsOff_APP/closeled.c
+"37 Applications/LightsOff_APP/closeled.c
 [c E17994 1 2 .. ]
 [n E17994 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "29 DriverLayer/GPIO/GPIO_driver.h
 [v _RELAY_Off `(v ~T0 @X0 0 ef1`E17994 ]
 "9 Applications/Dimming_APP/dimming.h
 [v _pfc_flag `uc ~T0 @X0 0 e ]
-"25
+"24
 [v _power_pwm `f ~T0 @X0 0 e ]
-"23
+"22
 [v _PIDflag1 `uc ~T0 @X0 0 e ]
-"27
+"26
 [v _regulator_clear `(v ~T0 @X0 0 ef ]
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
 [v _pwm2 `us ~T0 @X0 0 e ]
-"13
-[v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"14
-[v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
 "174 Applications/LightsOff_APP/closeled.c
 [c E17890 1 2 3 .. ]
 [n E17890 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
@@ -1786,254 +1782,112 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _ALL_Closed ]
 [f ]
-"22
+"21
 [e ( _PFC_Off ..  ]
-"25
+"24
 [e = . _pid1 10 -> 0 `i ]
-"26
+"25
 [e = . _pid1 8 -> .0.0 `f ]
-"27
+"26
 [e = . _pid1 9 -> .0.0 `f ]
-"28
+"27
 [e = . _pid2 10 -> 0 `i ]
-"29
+"28
 [e = . _pid2 8 -> .0.0 `f ]
-"30
+"29
 [e = . _pid2 9 -> .0.0 `f ]
-"31
+"30
 [e = _target_duty_cycle_Out1 -> 0 `i ]
-"32
+"31
 [e = _target_duty_cycle_Out2 -> 0 `i ]
-"34
+"32
 [e ( _PWM_Off_CHANNEL (1 . `E18013 4 ]
-"35
+"33
 [e ( _L6562_Off (1 . `E17990 0 ]
-"36
+"34
 [e ( _L6562_Off (1 . `E17990 1 ]
-"38
+"36
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"39
+"37
 [e ( _RELAY_Off (1 . `E17994 0 ]
-"40
+"38
 [e ( _RELAY_Off (1 . `E17994 1 ]
-"41
+"39
 [e = _pfc_flag -> -> 1 `i `uc ]
-"42
+"40
 [e = _power_pwm -> -> 0 `i `f ]
-"43
+"41
 [e = _PIDflag1 -> -> 0 `i `uc ]
-"44
+"42
 [e ( _regulator_clear ..  ]
-"45
+"43
 [e = _pwm1 -> -> 0 `i `us ]
-"46
+"44
 [e = _pwm2 -> -> 0 `i `us ]
-"47
-[e :UE 2422 ]
+"46
+[e :UE 2424 ]
 }
-"83
+"50
 [v _LED1_Close `(v ~T0 @X0 1 ef ]
-"84
+"51
 {
 [e :U _LED1_Close ]
 [f ]
-"85
-[v F18092 `uc ~T0 @X0 1 s state1 ]
-[i F18092
--> -> 0 `i `uc
-]
-"86
-[v F18093 `ul ~T0 @X0 1 s last_time ]
-[i F18093
--> -> -> 0 `i `l `ul
-]
-"87
-[v _elapsed1 `ul ~T0 @X0 1 a ]
-[e = _elapsed1 ( _get_elapsed_since (1 F18093 ]
-"89
-[e $U 2425  ]
-{
-"90
-[e :U 2426 ]
-"91
+"52
 [e = _power_pwm -> -> 0 `i `f ]
-"92
+"53
 [e ( _regulator_clear ..  ]
-"93
+"54
 [e = _pwm1 -> -> 0 `i `us ]
-"94
+"55
 [e = . _pid1 10 -> 0 `i ]
-"95
+"56
 [e = . _pid1 8 -> .0.0 `f ]
-"96
+"57
 [e = . _pid1 9 -> .0.0 `f ]
-"97
+"58
 [e = _target_duty_cycle_Out1 -> 0 `i ]
-"98
+"59
 [e ( _PWM_Off_CHANNEL (1 . `E18013 0 ]
-"99
-[e $ ! > _elapsed1 -> -> -> 100 `i `l `ul 2427  ]
-"100
-{
-"101
-[e = F18092 -> -> 1 `i `uc ]
-"102
-[e = F18093 ( _get_systemtick_time ..  ]
-"103
-}
-[e :U 2427 ]
-"104
-[e $U 2424  ]
-"106
-[e :U 2428 ]
-"107
+"60
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"61
 [e ( _L6562_Off (1 . `E17990 0 ]
-"108
-[e $ ! > _elapsed1 -> -> -> 100 `i `l `ul 2429  ]
-"109
-{
-"110
-[e = F18092 -> -> 2 `i `uc ]
-"111
-[e = F18093 ( _get_systemtick_time ..  ]
-"112
-}
-[e :U 2429 ]
-"113
-[e $U 2424  ]
-"115
-[e :U 2430 ]
-"116
+"62
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"64
 [e ( _RELAY_Off (1 . `E17990 0 ]
-"117
-[e $ ! > _elapsed1 -> -> -> 100 `i `l `ul 2431  ]
-"118
-{
-"119
-[e = F18092 -> -> 3 `i `uc ]
-"120
-[e = F18093 ( _get_systemtick_time ..  ]
-"121
+"65
+[e :UE 2425 ]
 }
-[e :U 2431 ]
-"122
-[e $U 2424  ]
-"123
-[e :U 2432 ]
-"125
-[e $U 2424  ]
-"126
-}
-[e $U 2424  ]
-[e :U 2425 ]
-[e [\ F18092 , $ -> 0 `i 2426
- , $ -> 1 `i 2428
- , $ -> 2 `i 2430
- , $ -> 3 `i 2432
- 2424 ]
-[e :U 2424 ]
-"127
-[e :UE 2423 ]
-}
-"129
+"67
 [v _LED2_Close `(v ~T0 @X0 1 ef ]
-"130
+"68
 {
 [e :U _LED2_Close ]
 [f ]
-"131
-[v F18096 `uc ~T0 @X0 1 s state ]
-[i F18096
--> -> 0 `i `uc
-]
-"132
-[v F18097 `ul ~T0 @X0 1 s last_time ]
-[i F18097
--> -> -> 0 `i `l `ul
-]
-"133
-[v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18097 ]
-"135
-[e $U 2435  ]
-{
-"136
-[e :U 2436 ]
-"137
+"69
 [e = _pwm2 -> -> 0 `i `us ]
-"138
+"70
 [e = . _pid2 10 -> 0 `i ]
-"139
+"71
 [e = . _pid2 8 -> .0.0 `f ]
-"140
+"72
 [e = . _pid2 9 -> .0.0 `f ]
-"141
+"73
 [e = _target_duty_cycle_Out2 -> 0 `i ]
-"142
+"74
 [e ( _PWM_Off_CHANNEL (1 . `E18013 1 ]
-"143
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2437  ]
-"144
-{
-"145
-[e = F18096 -> -> 1 `i `uc ]
-"146
-[e = F18097 ( _get_systemtick_time ..  ]
-"147
-}
-[e :U 2437 ]
-"149
-[e $U 2434  ]
-"151
-[e :U 2438 ]
-"152
+"75
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"76
 [e ( _L6562_Off (1 . `E17990 1 ]
-"153
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2439  ]
-"154
-{
-"155
-[e = F18096 -> -> 2 `i `uc ]
-"156
-[e = F18097 ( _get_systemtick_time ..  ]
-"157
-}
-[e :U 2439 ]
-"158
-[e $U 2434  ]
-"160
-[e :U 2440 ]
-"161
+"77
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"78
 [e ( _RELAY_Off (1 . `E17990 1 ]
-"162
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2441  ]
-"163
-{
-"164
-[e = F18096 -> -> 3 `i `uc ]
-"165
-[e = F18097 ( _get_systemtick_time ..  ]
-"166
-}
-[e :U 2441 ]
-"167
-[e $U 2434  ]
-"168
-[e :U 2442 ]
-"170
-[e $U 2434  ]
-"171
-}
-[e $U 2434  ]
-[e :U 2435 ]
-[e [\ F18096 , $ -> 0 `i 2436
- , $ -> 1 `i 2438
- , $ -> 2 `i 2440
- , $ -> 3 `i 2442
- 2434 ]
-[e :U 2434 ]
-"172
-[e :UE 2433 ]
+"79
+[e :UE 2426 ]
 }
 "174
 [v _LightPowerOff `(v ~T0 @X0 1 ef1`E17890 ]
@@ -2045,35 +1899,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "175
 [f ]
 "176
-[e $U 2445  ]
+[e $U 2429  ]
 {
 "177
-[e :U 2446 ]
+[e :U 2430 ]
 "178
 [e ( _LED1_Close ..  ]
 "179
-[e $U 2444  ]
+[e $U 2428  ]
 "181
-[e :U 2447 ]
+[e :U 2431 ]
 "182
 [e ( _LED2_Close ..  ]
 "183
-[e $U 2444  ]
+[e $U 2428  ]
 "185
-[e :U 2448 ]
+[e :U 2432 ]
 "186
 [e ( _ALL_Closed ..  ]
 "187
-[e $U 2444  ]
+[e $U 2428  ]
 "188
 }
-[e $U 2444  ]
-[e :U 2445 ]
-[e [\ -> _ledsta `ui , $ -> . `E17890 0 `ui 2446
- , $ -> . `E17890 1 `ui 2447
- , $ -> . `E17890 2 `ui 2448
- 2444 ]
-[e :U 2444 ]
+[e $U 2428  ]
+[e :U 2429 ]
+[e [\ -> _ledsta `ui , $ -> . `E17890 0 `ui 2430
+ , $ -> . `E17890 1 `ui 2431
+ , $ -> . `E17890 2 `ui 2432
+ 2428 ]
+[e :U 2428 ]
 "189
-[e :UE 2443 ]
+[e :UE 2427 ]
 }
