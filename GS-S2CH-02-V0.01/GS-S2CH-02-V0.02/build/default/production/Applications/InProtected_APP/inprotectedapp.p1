@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "131 Applications/InProtected_APP/inprotectedapp.c
-[c E18065 0 1 2 .. ]
-[n E18065 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
+[c E18067 0 1 2 .. ]
+[n E18067 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
 "13 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
 "139 Applications/InProtected_APP/inprotectedapp.c
@@ -22,19 +22,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E17974 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "14 Applications/LightsOff_APP/closeled.h
 [v _LightPowerOff `(v ~T0 @X0 0 ef1`E17974 ]
-"49613 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
-[s S2308 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2308 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"49612
-[u S2307 `S2308 1 ]
-[n S2307 . . ]
-"49624
-[v _PORTBbits `VS2307 ~T0 @X0 0 e@1231 ]
-"45 Applications/CurrentRead_APP/readcurrent.h
-[v _UART_REG1_Pre `uc ~T0 @X0 0 e ]
-[v _UART_REG2_Pre `uc ~T0 @X0 0 e ]
-"44
-[v _UART_REG2 `uc ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1799,65 +1786,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _VoltageInputProtection ]
 [f ]
 "131
-[v F18077 `E18065 ~T0 @X0 1 s state ]
-[i F18077
-. `E18065 0
+[v F18079 `E18067 ~T0 @X0 1 s state ]
+[i F18079
+. `E18067 0
 ]
 "132
-[v F18078 `uc ~T0 @X0 1 s startup_phase ]
-[i F18078
+[v F18080 `uc ~T0 @X0 1 s startup_phase ]
+[i F18080
 -> -> 0 `i `uc
 ]
 "133
-[v F18079 `ul ~T0 @X0 1 s state_entry_time ]
-[i F18079
+[v F18081 `ul ~T0 @X0 1 s state_entry_time ]
+[i F18081
 -> -> -> 0 `i `l `ul
 ]
 "134
-[v F18080 `ul ~T0 @X0 1 s power_on_time ]
-[i F18080
+[v F18082 `ul ~T0 @X0 1 s power_on_time ]
+[i F18082
 -> -> -> 0 `i `l `ul
 ]
 "135
-[v F18081 `a ~T0 @X0 1 s off_delay_done ]
-[i F18081
+[v F18083 `a ~T0 @X0 1 s off_delay_done ]
+[i F18083
 -> -> 0 `i `a
 ]
 "137
 [v _elapsed_in_state `ul ~T0 @X0 1 a ]
-[e = _elapsed_in_state ( _get_elapsed_since (1 F18079 ]
+[e = _elapsed_in_state ( _get_elapsed_since (1 F18081 ]
 "138
 [v _elapsed_since_power_on `ul ~T0 @X0 1 a ]
-[e = _elapsed_since_power_on ( _get_elapsed_since (1 F18080 ]
+[e = _elapsed_since_power_on ( _get_elapsed_since (1 F18082 ]
 "139
 [v _g_uVintValue `us ~T0 @X0 1 a ]
 [e = _g_uVintValue ( _ADC_Result2 (1 . `E17525 10 ]
 "142
-[v F18085 `a ~T0 @X0 1 s first_run ]
-[i F18085
+[v F18087 `a ~T0 @X0 1 s first_run ]
+[i F18087
 -> -> 1 `i `a
 ]
 "143
-[e $ ! != -> F18085 `i -> 0 `i 2422  ]
+[e $ ! != -> F18087 `i -> 0 `i 2422  ]
 "144
 {
 "145
-[e = F18080 ( _get_systemtick_time ..  ]
+[e = F18082 ( _get_systemtick_time ..  ]
 "146
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "147
-[e = F18081 -> -> 1 `i `a ]
+[e = F18083 -> -> 1 `i `a ]
 "148
-[e = F18085 -> -> 0 `i `a ]
+[e = F18087 -> -> 0 `i `a ]
 "149
 }
 [e :U 2422 ]
 "152
-[e $ ! && == -> F18078 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2423  ]
+[e $ ! && == -> F18080 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2423  ]
 "153
 {
 "154
-[e = F18078 -> -> 1 `i `uc ]
+[e = F18080 -> -> 1 `i `uc ]
 "155
 }
 [e :U 2423 ]
@@ -1867,7 +1854,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 [e :U 2426 ]
 "160
-[e $ ! ! != -> F18081 `i -> 0 `i 2427  ]
+[e $ ! ! != -> F18083 `i -> 0 `i 2427  ]
 "161
 {
 "163
@@ -1877,7 +1864,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "165
 [e = _start_flag -> -> 0 `i `uc ]
 "166
-[e = F18081 -> -> 1 `i `a ]
+[e = F18083 -> -> 1 `i `a ]
 "167
 }
 [e :U 2428 ]
@@ -1889,28 +1876,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "170
 {
 "171
-[e $ ! && == -> F18078 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2430  ]
+[e $ ! && == -> F18080 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2430  ]
 "172
 {
 "173
-[e = F18077 . `E18065 1 ]
+[e = F18079 . `E18067 1 ]
 "174
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "175
-[e = F18081 -> -> 0 `i `a ]
+[e = F18083 -> -> 0 `i `a ]
 "176
 }
 [e :U 2430 ]
 "178
-[e $ ! && == -> F18078 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2431  ]
+[e $ ! && == -> F18080 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2431  ]
 "179
 {
 "180
-[e = F18077 . `E18065 1 ]
+[e = F18079 . `E18067 1 ]
 "181
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "182
-[e = F18081 -> -> 0 `i `a ]
+[e = F18083 -> -> 0 `i `a ]
 "183
 }
 [e :U 2431 ]
@@ -1935,7 +1922,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "193
 [e = _start_flag -> -> 1 `i `uc ]
 "195
-[e $ ! == -> F18078 `i -> 1 `i 2434  ]
+[e $ ! == -> F18080 `i -> 1 `i 2434  ]
 "196
 {
 "198
@@ -1943,11 +1930,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "199
 {
 "200
-[e = F18077 . `E18065 0 ]
+[e = F18079 . `E18067 0 ]
 "201
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "202
-[e = F18081 -> -> 0 `i `a ]
+[e = F18083 -> -> 0 `i `a ]
 "203
 }
 [e $U 2436  ]
@@ -1957,9 +1944,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "205
 {
 "206
-[e = F18077 . `E18065 2 ]
+[e = F18079 . `E18067 2 ]
 "207
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "208
 }
 [e :U 2437 ]
@@ -1969,7 +1956,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2438  ]
 "210
 [e :U 2434 ]
-[e $ ! == -> F18078 `i -> 0 `i 2439  ]
+[e $ ! == -> F18080 `i -> 0 `i 2439  ]
 "211
 {
 "213
@@ -1977,13 +1964,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214
 {
 "215
-[e = F18078 -> -> 1 `i `uc ]
+[e = F18080 -> -> 1 `i `uc ]
 "216
-[e = F18077 . `E18065 0 ]
+[e = F18079 . `E18067 0 ]
 "217
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "218
-[e = F18081 -> -> 0 `i `a ]
+[e = F18083 -> -> 0 `i `a ]
 "219
 }
 [e $U 2441  ]
@@ -1993,9 +1980,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "221
 {
 "222
-[e = F18077 . `E18065 2 ]
+[e = F18079 . `E18067 2 ]
 "223
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "224
 }
 [e :U 2442 ]
@@ -2024,9 +2011,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "236
 {
 "237
-[e = F18077 . `E18065 1 ]
+[e = F18079 . `E18067 1 ]
 "238
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "239
 }
 [e $U 2446  ]
@@ -2036,11 +2023,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "241
 {
 "242
-[e = F18077 . `E18065 0 ]
+[e = F18079 . `E18067 0 ]
 "243
-[e = F18079 ( _get_systemtick_time ..  ]
+[e = F18081 ( _get_systemtick_time ..  ]
 "244
-[e = F18081 -> -> 0 `i `a ]
+[e = F18083 -> -> 0 `i `a ]
 "245
 }
 [e :U 2447 ]
@@ -2051,9 +2038,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2424  ]
 [e :U 2425 ]
-[e [\ -> F18077 `ui , $ -> . `E18065 0 `ui 2426
- , $ -> . `E18065 1 `ui 2432
- , $ -> . `E18065 2 `ui 2443
+[e [\ -> F18079 `ui , $ -> . `E18067 0 `ui 2426
+ , $ -> . `E18067 1 `ui 2432
+ , $ -> . `E18067 2 `ui 2443
  2424 ]
 [e :U 2424 ]
 "248
@@ -2252,30 +2239,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _IntProtectedTask ]
 [f ]
-"355
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 2467  ]
-"356
-{
-"358
+"357
 [e ( _VoltageInputProtection ..  ]
-"359
-}
-[e $U 2468  ]
-"360
-[e :U 2467 ]
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 0 `i 2469  ]
-"361
-{
-"363
-[e = _start_flag -> -> 1 `i `uc ]
-"364
-[e = _UART_REG1_Pre = _UART_REG1 -> -> 100 `i `uc ]
-"365
-[e = _UART_REG2_Pre = _UART_REG2 -> -> 100 `i `uc ]
-"366
-}
-[e :U 2469 ]
-[e :U 2468 ]
-"367
+"358
 [e :UE 2466 ]
 }

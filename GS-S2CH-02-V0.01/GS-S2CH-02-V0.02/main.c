@@ -66,11 +66,11 @@ typedef struct
 
 static TaskComps_t g_taskComps[] = {
     {0, 150, 150, Rs485Task},
-    {0, 50, 50, IntProtectedTask},
+    {0, 100, 100, IntProtectedTask},
 //    {0, 100, 100, LightsOffTask},
-    {0, 1000, 1000, TimeCalculationTask},
-    {0, 500, 500, TemapProtectedTask},
-    {0, 5, 5, DimmingControlTask},
+//    {0, 1000, 1000, TimeCalculationTask},
+ //   {0, 500, 500, TemapProtectedTask},
+    {0, 10, 10, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
     {0, 10, 10, LED_Task},
     {0, 5000, 5000, Display},

@@ -45,7 +45,8 @@ extern uint8_t UART_REG1,UART_REG2;
 extern uint8_t UART_REG1_Pre,UART_REG2_Pre;
 
 extern uint16_t power_time;
-extern uint16_t g_uChannel2Power;
+extern uint16_t g_uChanne2Power;
+
 void ReadNfcNumber(void);
 
 extern uint16_t g_uTargetPower;

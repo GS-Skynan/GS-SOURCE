@@ -42,6 +42,8 @@ void ALL_Closed(void)
     regulator_clear();
     pwm1 = 0;
     pwm2 = 0;
+    powernum1=0;
+    powernum2=0;
 
 }
 
@@ -49,6 +51,8 @@ void ALL_Closed(void)
 
 void LED1_Close(void)
 {
+    powernum1=0;
+    PIDflag1=0;
     power_pwm = 0;
     regulator_clear();
     pwm1 = 0;
@@ -59,13 +63,14 @@ void LED1_Close(void)
     PWM_Off_CHANNEL(PWM_CHANNEL_1);
     __delay_ms(100); // 延时 100ms，确保 PWM 完全关闭                                  
     L6562_Off(L6562_CHANNEL1);
-    __delay_ms(100); // 延时 100ms，确保 L6562 完全关闭      
-    // 关闭通道 1 的继电器  
-    RELAY_Off(L6562_CHANNEL1);
+    __delay_ms(500); // 延时 100ms，确保 L6562 完全关闭      
+    RELAY_Off(L6562_CHANNEL1);    // 关闭通道 1 的继电器  
 }
 
 void LED2_Close(void)
 {
+    powernum2=0;
+    PIDflag1=0;
     pwm2 = 0;
     pid2.PWM_duty_cycle = 0; // 清零通道 2 的 PWM 占空比
     pid2.integral = 0.0f; // 清零通道 2 的积分项
@@ -74,7 +79,7 @@ void LED2_Close(void)
     PWM_Off_CHANNEL(PWM_CHANNEL_2);
     __delay_ms(100);
     L6562_Off(L6562_CHANNEL2);
-    __delay_ms(100);
+    __delay_ms(500);
     RELAY_Off(L6562_CHANNEL2);
 }
 

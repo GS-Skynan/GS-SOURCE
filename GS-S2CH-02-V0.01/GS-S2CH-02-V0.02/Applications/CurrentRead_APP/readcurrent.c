@@ -52,28 +52,30 @@ void ReadNfcNumber(void)
 
 
 
-uint16_t g_uSetPower;
+uint16_t g_uChanne1Power;
 uint16_t g_uTargetPower;
-uint16_t g_uChannel2Power;
+uint16_t g_uChanne2Power;
 uint16_t g_Pzong;
+
 
 uint16_t Power_Compensation(void)
 {
-    g_uSetPower = g_uPower1 / 100 * UART_REG1;
-    g_uChannel2Power = g_uPower2 / 100 * UART_REG2;
-
-    g_Pzong = g_uSetPower + g_uChannel2Power;
-    if (g_Pzong > g_uPower1)
+    uint16_t setPower = 0;
+    setPower = g_uPower1;
+    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1);
+    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2);
+    g_Pzong = g_uChanne1Power + g_uChanne2Power;
+    if (g_Pzong > setPower)
     {
-        g_uTargetPower = g_uSetPower - (g_Pzong - g_uSetPower) - 22;
+        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power)-22 ;
     }
     else
-
     {
-        g_uTargetPower = g_uSetPower - 22;
+            g_uTargetPower = g_uChanne1Power-22 ;
     }
 
-    if(g_uTargetPower<0)g_uTargetPower=0;
+    if (g_uTargetPower < 0)g_uTargetPower = 0;
+
     return g_uTargetPower;
 }
 

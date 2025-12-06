@@ -352,17 +352,8 @@ void Input_Protected(void)
 
 void IntProtectedTask(void)
 {
-    if (Port_3_4_GetValue() == HIGH)
-    {
+ 
         //Input_Protected();
         VoltageInputProtection();
-    }
-    else if (Port_3_4_GetValue() == LOW)
-    {
-
-        start_flag = 1;
-        UART_REG1_Pre = UART_REG1 = 0x64;
-        UART_REG2_Pre = UART_REG2 = 0x64;
-    }
 }
 

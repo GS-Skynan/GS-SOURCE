@@ -1854,50 +1854,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2429 ]
 }
 "55
-[v _g_uSetPower `us ~T0 @X0 1 e ]
+[v _g_uChanne1Power `us ~T0 @X0 1 e ]
 "56
 [v _g_uTargetPower `us ~T0 @X0 1 e ]
 "57
-[v _g_uChannel2Power `us ~T0 @X0 1 e ]
+[v _g_uChanne2Power `us ~T0 @X0 1 e ]
 "58
 [v _g_Pzong `us ~T0 @X0 1 e ]
-"60
-[v _Power_Compensation `(us ~T0 @X0 1 ef ]
 "61
+[v _Power_Compensation `(us ~T0 @X0 1 ef ]
+"62
 {
 [e :U _Power_Compensation ]
 [f ]
-"62
-[e = _g_uSetPower -> * / -> _g_uPower1 `ui -> -> 100 `i `ui -> _UART_REG1 `ui `us ]
 "63
-[e = _g_uChannel2Power -> * / -> _g_uPower2 `ui -> -> 100 `i `ui -> _UART_REG2 `ui `us ]
+[v _setPower `us ~T0 @X0 1 a ]
+[e = _setPower -> -> 0 `i `us ]
+"64
+[e = _setPower _g_uPower1 ]
 "65
-[e = _g_Pzong -> + -> _g_uSetPower `ui -> _g_uChannel2Power `ui `us ]
+[e = _g_uChanne1Power -> * / -> _g_uPower1 `ui -> -> 100 `i `ui -> _UART_REG1 `ui `us ]
 "66
-[e $ ! > -> _g_Pzong `ui -> _g_uPower1 `ui 2431  ]
+[e = _g_uChanne2Power -> * / -> _g_uPower2 `ui -> -> 100 `i `ui -> _UART_REG2 `ui `us ]
 "67
-{
+[e = _g_Pzong -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
 "68
-[e = _g_uTargetPower -> - - -> _g_uSetPower `ui - -> _g_Pzong `ui -> _g_uSetPower `ui -> -> 22 `i `ui `us ]
+[e $ ! > -> _g_Pzong `ui -> _setPower `ui 2431  ]
 "69
+{
+"70
+[e = _g_uTargetPower -> - - -> _setPower `ui - -> _g_Pzong `ui -> _g_uChanne1Power `ui -> -> 22 `i `ui `us ]
+"71
 }
 [e $U 2432  ]
-"70
-[e :U 2431 ]
 "72
-{
+[e :U 2431 ]
 "73
-[e = _g_uTargetPower -> - -> _g_uSetPower `ui -> -> 22 `i `ui `us ]
+{
 "74
+[e = _g_uTargetPower -> - -> _g_uChanne1Power `ui -> -> 22 `i `ui `us ]
+"75
 }
 [e :U 2432 ]
-"76
+"77
 [e $ ! < -> _g_uTargetPower `ui -> -> 0 `i `ui 2433  ]
 [e = _g_uTargetPower -> -> 0 `i `us ]
 [e :U 2433 ]
-"77
+"79
 [e ) _g_uTargetPower ]
 [e $UE 2430  ]
-"78
+"80
 [e :UE 2430 ]
 }

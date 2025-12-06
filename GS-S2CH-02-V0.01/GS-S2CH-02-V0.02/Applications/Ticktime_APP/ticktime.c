@@ -135,7 +135,7 @@ static void Time0_start(void)
     if (buck_flag == 1)
     {
         time1++;
-        if (time1 == 500)
+        if (time1 ==200)
         {
             buck_ok1 = 1;
             buck_ok2 = 1;
@@ -148,7 +148,6 @@ static void Time0_start(void)
     if (time_close == 200) //200ms 
     {
         time_close = 0;
-        g_uInputTime5Sce++;
         if (flag_close1)time_close1++;
         if (flag_close2)time_close2++;
     }
@@ -168,16 +167,16 @@ static void Time0_start(void)
     }
 
 
-    if (reply_flag == 1) //应答计时
-    {
-        reply_time++;
-        if (reply_time >= 200)
-        {
-            reply_time = 0;
-            reply_ok = 1;
-            reply_flag = 0;
-        }
-    }
+//    if (reply_flag == 1) //应答计时
+//    {
+//        reply_time++;
+//        if (reply_time >= 200)
+//        {
+//            reply_time = 0;
+//            reply_ok = 1;
+//            reply_flag = 0;
+//        }
+//    }
     
         if (g_uRs485TimeOut > 0)
         {
@@ -198,24 +197,24 @@ void Dimming_Pid(void)
 //    if (PIDflag1 != 0) pidtime1++;
 //    if (pidtime1 == 10)
 //    {
-        if (PIDflag1 == 1 || PIDflag1 == 3)
-        {
-            g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-            powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
-            pwm_output = simple_regulator(power_pwm, power_time);
-            pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
-            PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
-        }
- //   }
- //   if (pidtime1 == 20)
- //   {
-        if (PIDflag1 == 2 || PIDflag1 == 3)
-        {
-            g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-            powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
-            pwm2 = PID_Compute(&pid2, g_uChannel2Power, powernum2);
-            PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
-        }
+//        if (PIDflag1 == 1 || PIDflag1 == 3)
+//        {
+//            g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+//            powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
+//            pwm_output = simple_regulator(power_pwm, 2000);
+//            pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
+//            PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
+//        }
+//    }
+//    if (pidtime1 == 20)
+//    {
+//        if (PIDflag1 == 2 || PIDflag1 == 3)
+//        {
+//            g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+//            powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
+//            pwm2 = PID_Compute(&pid2, g_uChanne2Power, powernum2);
+//            PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
+//        }
 //        pidtime1 = 0;
 //    }
 }
@@ -232,5 +231,5 @@ void Time2_AppInit(void)
 
 void PIDDimming_Init(void)
 {
-    //TMR4_PeriodMatchCallbackRegister(Dimming_Pid);
+   // TMR4_PeriodMatchCallbackRegister(Dimming_Pid);
 }

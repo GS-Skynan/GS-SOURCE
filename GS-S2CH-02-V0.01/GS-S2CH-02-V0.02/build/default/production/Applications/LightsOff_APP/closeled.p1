@@ -31,13 +31,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [v _power_pwm `f ~T0 @X0 0 e ]
 "22
-[v _PIDflag1 `uc ~T0 @X0 0 e ]
+[v _PIDflag1 `Vuc ~T0 @X0 0 e ]
 "26
 [v _regulator_clear `(v ~T0 @X0 0 ef ]
 "27 Applications/Ticktime_APP/ticktime.h
 [v _pwm1 `us ~T0 @X0 0 e ]
 [v _pwm2 `us ~T0 @X0 0 e ]
-"174 Applications/LightsOff_APP/closeled.c
+"30
+[v _powernum1 `f ~T0 @X0 0 e ]
+[v _powernum2 `f ~T0 @X0 0 e ]
+"179 Applications/LightsOff_APP/closeled.c
 [c E17890 1 2 3 .. ]
 [n E17890 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -1824,102 +1827,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _pwm1 -> -> 0 `i `us ]
 "44
 [e = _pwm2 -> -> 0 `i `us ]
+"45
+[e = _powernum1 -> -> 0 `i `f ]
 "46
+[e = _powernum2 -> -> 0 `i `f ]
+"48
 [e :UE 2424 ]
 }
-"50
+"52
 [v _LED1_Close `(v ~T0 @X0 1 ef ]
-"51
+"53
 {
 [e :U _LED1_Close ]
 [f ]
-"52
-[e = _power_pwm -> -> 0 `i `f ]
-"53
-[e ( _regulator_clear ..  ]
 "54
-[e = _pwm1 -> -> 0 `i `us ]
+[e = _powernum1 -> -> 0 `i `f ]
 "55
-[e = . _pid1 10 -> 0 `i ]
+[e = _PIDflag1 -> -> 0 `i `uc ]
 "56
-[e = . _pid1 8 -> .0.0 `f ]
+[e = _power_pwm -> -> 0 `i `f ]
 "57
-[e = . _pid1 9 -> .0.0 `f ]
+[e ( _regulator_clear ..  ]
 "58
-[e = _target_duty_cycle_Out1 -> 0 `i ]
+[e = _pwm1 -> -> 0 `i `us ]
 "59
-[e ( _PWM_Off_CHANNEL (1 . `E18013 0 ]
+[e = . _pid1 10 -> 0 `i ]
 "60
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e = . _pid1 8 -> .0.0 `f ]
 "61
-[e ( _L6562_Off (1 . `E17990 0 ]
+[e = . _pid1 9 -> .0.0 `f ]
 "62
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e = _target_duty_cycle_Out1 -> 0 `i ]
+"63
+[e ( _PWM_Off_CHANNEL (1 . `E18013 0 ]
 "64
-[e ( _RELAY_Off (1 . `E17990 0 ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "65
+[e ( _L6562_Off (1 . `E17990 0 ]
+"66
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"67
+[e ( _RELAY_Off (1 . `E17990 0 ]
+"68
 [e :UE 2425 ]
 }
-"67
+"70
 [v _LED2_Close `(v ~T0 @X0 1 ef ]
-"68
+"71
 {
 [e :U _LED2_Close ]
 [f ]
-"69
-[e = _pwm2 -> -> 0 `i `us ]
-"70
-[e = . _pid2 10 -> 0 `i ]
-"71
-[e = . _pid2 8 -> .0.0 `f ]
 "72
-[e = . _pid2 9 -> .0.0 `f ]
+[e = _powernum2 -> -> 0 `i `f ]
 "73
-[e = _target_duty_cycle_Out2 -> 0 `i ]
+[e = _PIDflag1 -> -> 0 `i `uc ]
 "74
-[e ( _PWM_Off_CHANNEL (1 . `E18013 1 ]
+[e = _pwm2 -> -> 0 `i `us ]
 "75
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e = . _pid2 10 -> 0 `i ]
 "76
-[e ( _L6562_Off (1 . `E17990 1 ]
+[e = . _pid2 8 -> .0.0 `f ]
 "77
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e = . _pid2 9 -> .0.0 `f ]
 "78
-[e ( _RELAY_Off (1 . `E17990 1 ]
+[e = _target_duty_cycle_Out2 -> 0 `i ]
 "79
+[e ( _PWM_Off_CHANNEL (1 . `E18013 1 ]
+"80
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"81
+[e ( _L6562_Off (1 . `E17990 1 ]
+"82
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"83
+[e ( _RELAY_Off (1 . `E17990 1 ]
+"84
 [e :UE 2426 ]
 }
-"174
+"179
 [v _LightPowerOff `(v ~T0 @X0 1 ef1`E17890 ]
-"175
+"180
 {
 [e :U _LightPowerOff ]
-"174
+"179
 [v _ledsta `E17890 ~T0 @X0 1 r1 ]
-"175
+"180
 [f ]
-"176
+"181
 [e $U 2429  ]
 {
-"177
-[e :U 2430 ]
-"178
-[e ( _LED1_Close ..  ]
-"179
-[e $U 2428  ]
-"181
-[e :U 2431 ]
 "182
-[e ( _LED2_Close ..  ]
+[e :U 2430 ]
 "183
+[e ( _LED1_Close ..  ]
+"184
 [e $U 2428  ]
-"185
-[e :U 2432 ]
 "186
-[e ( _ALL_Closed ..  ]
+[e :U 2431 ]
 "187
-[e $U 2428  ]
+[e ( _LED2_Close ..  ]
 "188
+[e $U 2428  ]
+"190
+[e :U 2432 ]
+"191
+[e ( _ALL_Closed ..  ]
+"192
+[e $U 2428  ]
+"193
 }
 [e $U 2428  ]
 [e :U 2429 ]
@@ -1928,6 +1943,6 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E17890 2 `ui 2432
  2428 ]
 [e :U 2428 ]
-"189
+"194
 [e :UE 2427 ]
 }

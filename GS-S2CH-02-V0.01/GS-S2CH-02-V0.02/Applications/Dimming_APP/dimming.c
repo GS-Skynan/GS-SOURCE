@@ -30,8 +30,7 @@ uint8_t current_control_mode_2 = 0; // 2 通道恒流模式标志：0-恒功率，1-恒流
 
 uint8_t mode_flag; //启动模式，确保通道切换时候是先关后开
 
-uint8_t PIDflag1;
-uint8_t PIDflag2;
+volatile uint8_t PIDflag1 = 0;
 
 
 float current_value = 0;
@@ -53,20 +52,69 @@ void regulator_clear(void)
 
 //平滑调光
 
+//float simple_regulator(float new_target, uint32_t time_ms)
+//{
+//
+//    uint32_t current_time = get_systemtick_time(); // 使用PIC18的时间函数
+//
+//    if (new_target != target_value)
+//    {
+//        target_value = new_target;
+//        start_value = current_value;
+//        start_time = current_time; // 记录绝对时间
+//        transition_time = time_ms;
+//    }
+//
+//    // 使用通用函数计算时间差
+//    uint32_t elapsed = get_elapsed_since(start_time);
+//
+//    if (elapsed >= transition_time)
+//    {
+//        current_value = target_value;
+//        return current_value;
+//    }
+//
+//    float progress = (float) elapsed / transition_time;
+//    current_value = start_value + (target_value - start_value) * progress;
+//
+//    return current_value;
+//}
+
+//加的时候是时间  减的时候没时间
 float simple_regulator(float new_target, uint32_t time_ms)
 {
-
-    uint32_t current_time = get_systemtick_time(); // 使用PIC18的时间函数
+    uint32_t current_time = get_systemtick_time();
 
     if (new_target != target_value)
     {
+        // 保存旧的起始值用于判断
+        float old_target = target_value;
         target_value = new_target;
-        start_value = current_value;
-        start_time = current_time; // 记录绝对时间
-        transition_time = time_ms;
+        
+        // 检查变化方向（基于当前值和新目标值）
+        if (new_target > current_value)
+        {
+            // 正向变化（增加）：使用时间过渡
+            start_value = current_value;
+            start_time = current_time;
+            transition_time = time_ms;
+        }
+        else
+        {
+            // 负向变化（减少）：立即完成
+            start_value = new_target;  // 将起始值设为目标值
+            current_value = new_target;  // 立即更新当前值
+            start_time = current_time;
+            transition_time = 0;  // 零过渡时间
+        }
     }
 
-    // 使用通用函数计算时间差
+    // 处理过渡逻辑
+    if (transition_time == 0)
+    {
+        return current_value;  // 立即返回，无过渡
+    }
+
     uint32_t elapsed = get_elapsed_since(start_time);
 
     if (elapsed >= transition_time)
@@ -75,7 +123,7 @@ float simple_regulator(float new_target, uint32_t time_ms)
         return current_value;
     }
 
-    float progress = (float) elapsed / transition_time;
+    float progress = (float)elapsed / transition_time;
     current_value = start_value + (target_value - start_value) * progress;
 
     return current_value;
@@ -153,23 +201,26 @@ bool ProtectionCheck(void)
 
     if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
     {
-
-        ch1 = 1;
-        ch2 = 1;
-        ch12 = 1;
         return true; // 检查是否有任意通道（1、2）的值大于等于 1
     }
 
     return false;
 }
 
+//void PID1(void)
+//{
+//        g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+//        powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
+//        pwm_output = simple_regulator(power_pwm, 2000);
+//        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
+//        PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
+//}
 
 
 static uint8_t startup_step = 0;
 
 void Startup_12CH(void)
 {
-
     static uint32_t lastime = 0;
     uint32_t now = get_elapsed_since(lastime); // 获取当前系统时间（毫秒）
     switch (startup_step) {
@@ -181,7 +232,7 @@ void Startup_12CH(void)
         break;
 
     case 1:
-        if (now > 150)
+        if (now > 200)
         {
             L6562_On(L6562_CHANNEL1);
             L6562_On(L6562_CHANNEL2);
@@ -192,11 +243,11 @@ void Startup_12CH(void)
         break;
 
     case 2:
-        if (now > 150)
-        {
-            PIDflag1 = 3;
-            startup_step = 3;
-        }
+        //        if (now > 150)
+        //       {
+        PIDflag1 = 3;
+        startup_step = 3;
+        //        }
         break;
 
     case 3: // 启动完成，什么都不做
@@ -221,7 +272,7 @@ void Startup_1CH(void)
         break;
 
     case 1:
-        if (now1 > 150)
+        if (now1 > 200)
         {
             L6562_On(L6562_CHANNEL1);
             lastime1 = get_systemtick_time();
@@ -230,11 +281,12 @@ void Startup_1CH(void)
         break;
 
     case 2:
-        if (now1 > 150)
-        {
-            PIDflag1 = 1;
-            startup_s1 = 3;
-        }
+        //        if (now1 > 150)
+        //        {
+       PIDflag1 = 1;
+        startup_s1 = 3;
+     //   PID1();
+        //       }
         break;
 
     case 3: // 启动完成，什么都不做
@@ -260,7 +312,7 @@ void Startup_2CH(void)
         break;
 
     case 1:
-        if (now2 > 150)
+        if (now2 > 200)
         {
             L6562_On(L6562_CHANNEL2);
             lastime2 = get_systemtick_time();
@@ -269,11 +321,11 @@ void Startup_2CH(void)
         break;
 
     case 2:
-        if (now2 > 150)
-        {
-            PIDflag1 = 2;
-            startup_s2 = 3;
-        }
+        //       if (now2 > 150)
+        //        {
+        PIDflag1 = 2;
+        startup_s2 = 3;
+        //        }
         break;
 
     case 3: // 启动完成，什么都不做
@@ -296,7 +348,6 @@ void DimmingStart(void)
     static eSTART state = LED_OFF;
     static uint32_t last_state_change_time = 0;
     uint32_t state_elapsed = get_elapsed_since(last_state_change_time);
-    static uint8_t ch1 = 1;
 
     if ((UART_REG1 > 0x01 || UART_REG2 > 0x01) && pfc_flag == 1)
     {
@@ -308,7 +359,7 @@ void DimmingStart(void)
     switch (state) {
     case PFC_ON:
         PFC_On();
-        if (state_elapsed > 400)
+        if (state_elapsed > 800)
         {
             if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
             {
@@ -351,7 +402,7 @@ void DimmingStart(void)
 
 
     case LED_ON_1CH:
-      
+
         Startup_1CH();
         if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
         {
@@ -367,7 +418,7 @@ void DimmingStart(void)
         break;
 
     case LED_ON_2CH:
-         
+
 
         Startup_2CH();
         if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
@@ -391,94 +442,34 @@ void DimmingStart(void)
 void DimmingControlTask(void)
 {
     //保护校验   
-     
+
     if (ProtectionCheck() == true)
     {
         LightPowerOff(LED_ALL_OFF);
-        printf("e");
         return;
     }
 
     power_pwm = (float) Power_Compensation();
-//    //   判断是否有通道开启
-//    if ((UART_REG1 > 0x01 || UART_REG2 > 0x01) && pfc_flag == 1)
-//    {
-//        PFC_On(); // 打开 PFC
-//        __delay_ms(400); // 延时 400ms，等待 PFC 稳定
-//        pfc_flag = 0;
-//    }
-//
-//    if (UART_REG1 > 0x01 && UART_REG2 > 0x01)
-//    {
-//        if (ch12 == 1)
-//        {
-//            ch1 = 1;
-//            ch2 = 1;
-//            RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
-//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
-//            L6562_On(L6562_CHANNEL1);
-//            RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
-//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
-//            L6562_On(L6562_CHANNEL2);
-//            PIDflag1 = 3;
-//            ch12 = 0;
-//        }
-//    }
-//    else if (UART_REG1 > 0x01 && UART_REG2 == 0)
-//    {
-//        if (ch1 == 1)
-//        {
-//            ch12 = 1;
-//            ch2 = 1;
-//            LightPowerOff(LED_CHANNEL2_OFF);
-//            RELAY_On(RELAY_CHANNEL1); // 打开通道 1 的继电器                                         
-//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                             
-//            L6562_On(L6562_CHANNEL1);
-//            PIDflag1 = 1;
-//            ch1 = 0;
-//        }
-//    }
-//    else if (UART_REG1 == 0 && UART_REG2 > 0x01)
-//    {
-//        if (ch2 == 1)
-//        {
-//            ch12 = 1;
-//            ch1 = 1;
-//            LightPowerOff(LED_CHANNEL1_OFF);
-//            RELAY_On(RELAY_CHANNEL2); // 打开通道 2 的继电器
-//            __delay_ms(150); // 延时 150ms，等待继电器稳定                                                     // 启动 L6562（PFC 控制器）
-//            L6562_On(L6562_CHANNEL2);
-//            PIDflag1 = 2;
-//            ch2 = 0;
-//        }
-//    }
-
-
     DimmingStart();
 
+    if (PIDflag1 == 1 || PIDflag1 == 3)
+    {
+        g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+        powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
+        pwm_output = simple_regulator(power_pwm, 2000);
+        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
+        PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
+    }
 
-    //        if (UART_REG1 >= 0x01 && UART_REG2 == 0x00)
-    //        {
-    //            PIDflag1 = 1;
-    //        }
-    //    
-    //        if (UART_REG1 == 0x00 && UART_REG2 >= 0x01)
-    //        {
-    //            PIDflag1 = 2;
-    //        }
-    //    
-    //        if (UART_REG1 >= 0x01 && UART_REG2 >= 0x01)
-    //        {
-    //            PIDflag1 = 3;
-    //        }
-    //         if (UART_REG1 == 0x00 && UART_REG2== 0x00)
-    //        {
-    //            PIDflag1 = 0;
-    //            pwm1=0;
-    //            pwm2=0;      
-    //        }
 
-    Dimming_Pid();
+    if (PIDflag1 == 2 || PIDflag1 == 3)
+    {
+
+        g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+        powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
+        pwm2 = PID_Compute(&pid2, g_uChanne2Power, powernum2);
+        PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
+    }
 
 
 }
