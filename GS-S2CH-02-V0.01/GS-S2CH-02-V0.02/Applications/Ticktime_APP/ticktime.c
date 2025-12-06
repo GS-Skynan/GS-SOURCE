@@ -25,12 +25,7 @@ void TaskScheduleCbReg(void (*pFunc)(void))
 
 uint16_t time1 = 0;
 
-uint16_t Close1_time1 = 0, Close_Count1 = 0, Close_Count2 = 0;
-uint16_t time_close = 0, time_close1 = 0, time_close2 = 0;
-uint16_t flag_close1 = 0, flag_close2 = 0;
 
-
-uint16_t reply_flag = 0, reply_ok = 0, reply_time;
 uint16_t g_uRs485TimeOut = 0;
 bool g_bRs485Flag = false;
 uint8_t pidtime1;
@@ -132,52 +127,6 @@ void LED_Task(void)
 
 static void Time0_start(void)
 {
-    if (buck_flag == 1)
-    {
-        time1++;
-        if (time1 ==200)
-        {
-            buck_ok1 = 1;
-            buck_ok2 = 1;
-            time1 = 0;
-            buck_flag = 0;
-        }
-    }
-    
-    time_close++;
-    if (time_close == 200) //200ms 
-    {
-        time_close = 0;
-        if (flag_close1)time_close1++;
-        if (flag_close2)time_close2++;
-    }
-    if (time_close1 == 150)
-    {
-        time_close1 = 0;
-        out_flag1 = 1;
-        Close_Count1++;
-        if (Close_Count1 >= 6) flag_close1 = 0;
-    }
-    if (time_close2 == 150)
-    {
-        out_flag2 = 1;
-        Close_Count2++;
-        time_close2 = 0;
-        if (Close_Count2 >= 6)flag_close2 = 0;
-    }
-
-
-//    if (reply_flag == 1) //Ó¦´ð¼ÆÊ±
-//    {
-//        reply_time++;
-//        if (reply_time >= 200)
-//        {
-//            reply_time = 0;
-//            reply_ok = 1;
-//            reply_flag = 0;
-//        }
-//    }
-    
         if (g_uRs485TimeOut > 0)
         {
             g_uRs485TimeOut--;

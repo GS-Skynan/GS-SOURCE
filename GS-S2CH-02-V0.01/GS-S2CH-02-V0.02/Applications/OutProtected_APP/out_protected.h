@@ -23,7 +23,6 @@ extern uint16_t g_VoltageProtect1;
 extern uint16_t g_VoltageProtect2;
 extern int lock_flag;  
 extern uint16_t  buck_open;
-extern uint8_t out_flag1,out_flag2;
 extern uint16_t V_Ret1 ,V_Ret2 ;        //保护标识，在输出保护说明
 float get_voltage(adc_channel_t channel);                   
 uint16_t Voltage_Judgment(adc_channel_t channel);

@@ -62,16 +62,16 @@ uint16_t Power_Compensation(void)
 {
     uint16_t setPower = 0;
     setPower = g_uPower1;
-    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1);
-    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2);
+    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1)-24;
+    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2)-19;
     g_Pzong = g_uChanne1Power + g_uChanne2Power;
     if (g_Pzong > setPower)
     {
-        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power)-22 ;
+        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power) -29 ;
     }
     else
-    {
-            g_uTargetPower = g_uChanne1Power-22 ;
+    {   
+            g_uTargetPower = (g_uChanne1Power) ;
     }
 
     if (g_uTargetPower < 0)g_uTargetPower = 0;

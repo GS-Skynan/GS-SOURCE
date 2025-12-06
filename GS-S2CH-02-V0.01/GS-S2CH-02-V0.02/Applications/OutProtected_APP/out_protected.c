@@ -16,7 +16,6 @@ uint16_t V_Ret1 = 0, V_Ret2 = 0; //保护标识，在输出保护说明
 extern uint16_t flag_close1, flag_close2; //输出保护关闭标识
 int lock_flag = 0; // 0: 未锁定, 1: 锁定(保护触发)
 uint16_t adc_value[2]; //ADC采集值，在time0里面定时采集
-uint8_t out_flag1 = 1, out_flag2 = 1;
 
 uint16_t g_VoltageProtect1;
 uint16_t g_VoltageProtect2;
@@ -269,90 +268,54 @@ void Out_Protect(void)
     if (UART_REG2 > 0x00)
     {
         uint16_t outprotect2 = Voltage_Judgment(Output2_voltage_ADC);
-//        
-//                if (outprotect2 == 1) // 电压异常
-//                {
-//                    if (!is_protecting3)
-//                    {
-//                        // 第一次检测到异常，开始计时
-//                        timesys2 = get_systemtick_time();
-//                        is_protecting3 = true;
-//                    }
-//                    else
-//                    {
-//                        if (protect2time > 1000)
-//                        {
-//                            // 保护时间到，执行动作
-//                            V_Ret2 = 1;
-//                            is_protecting3 = false;
-//                        }
-//                    }
-//                }
-//                else if (outprotect2 == 2)
-//                {
-//                    if (!is_protecting4)
-//                    {
-//                        // 第一次检测到异常，开始计时
-//                        timesys2 = get_systemtick_time();
-//                        is_protecting4 = true;
-//                    }
-//                    else
-//                    {
-//                        if (protect2time > 200)
-//                        {
-//                            // 保护时间到，执行动作
-//                            V_Ret2 = 2;
-//                            is_protecting4 = false;
-//                        }
-//                    }
-//        
-//                }
-//        
-//                else if (V_Ret2 == 0)
-//                {
-//                     V_Ret2=0;
-//                    // 电压正常，重置保护状态
-//                    is_protecting3 = false;
-//                    is_protecting4 = false;
-//                }
+        
+                if (outprotect2 == 1) // 电压异常
+                {
+                    if (!is_protecting3)
+                    {
+                        // 第一次检测到异常，开始计时
+                        timesys2 = get_systemtick_time();
+                        is_protecting3 = true;
+                    }
+                    else
+                    {
+                        if (protect2time > 1000)
+                        {
+                            // 保护时间到，执行动作
+                            V_Ret2 = 1;
+                            is_protecting3 = false;
+                        }
+                    }
+                }
+                else if (outprotect2 == 2)
+                {
+                    if (!is_protecting4)
+                    {
+                        // 第一次检测到异常，开始计时
+                        timesys2 = get_systemtick_time();
+                        is_protecting4 = true;
+                    }
+                    else
+                    {
+                        if (protect2time > 200)
+                        {
+                            // 保护时间到，执行动作
+                            V_Ret2 = 2;
+                            is_protecting4 = false;
+                        }
+                    }
+        
+                }
+        
+                else if (V_Ret2 == 0)
+                {
+                     V_Ret2=0;
+                    // 电压正常，重置保护状态
+                    is_protecting3 = false;
+                    is_protecting4 = false;
+                }
     }
 }
-
-
-//    if (UART_REG2 > 0x00)
-//    {
-//        V_Ret2 = Voltage_Judgment(Output2_voltage_ADC);
-//    }
-
-//
-//switch (state) {
-//case 1:
-//    if (protect_time >= 1000)
-//    {
-//        V_Ret1 = 1;
-//    }
-//
-//    break;
-//
-//case 1:
-//
-//
-//    break;
-//
-//
-//case 2:
-//
-//    break;
-//
-//case 3:
-//
-//
-//
-//
-//    break;
-
-//}
-
 
 //       if(UART_REG1 > 0x00)
 //       {

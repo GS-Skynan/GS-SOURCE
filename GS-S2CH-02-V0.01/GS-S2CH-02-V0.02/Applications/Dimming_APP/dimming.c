@@ -81,6 +81,7 @@ void regulator_clear(void)
 //}
 
 //加的时候是时间  减的时候没时间
+
 float simple_regulator(float new_target, uint32_t time_ms)
 {
     uint32_t current_time = get_systemtick_time();
@@ -90,7 +91,7 @@ float simple_regulator(float new_target, uint32_t time_ms)
         // 保存旧的起始值用于判断
         float old_target = target_value;
         target_value = new_target;
-        
+
         // 检查变化方向（基于当前值和新目标值）
         if (new_target > current_value)
         {
@@ -102,17 +103,17 @@ float simple_regulator(float new_target, uint32_t time_ms)
         else
         {
             // 负向变化（减少）：立即完成
-            start_value = new_target;  // 将起始值设为目标值
-            current_value = new_target;  // 立即更新当前值
+            start_value = new_target; // 将起始值设为目标值
+            current_value = new_target; // 立即更新当前值
             start_time = current_time;
-            transition_time = 0;  // 零过渡时间
+            transition_time = 0; // 零过渡时间
         }
     }
 
     // 处理过渡逻辑
     if (transition_time == 0)
     {
-        return current_value;  // 立即返回，无过渡
+        return current_value; // 立即返回，无过渡
     }
 
     uint32_t elapsed = get_elapsed_since(start_time);
@@ -123,7 +124,7 @@ float simple_regulator(float new_target, uint32_t time_ms)
         return current_value;
     }
 
-    float progress = (float)elapsed / transition_time;
+    float progress = (float) elapsed / transition_time;
     current_value = start_value + (target_value - start_value) * progress;
 
     return current_value;
@@ -193,9 +194,8 @@ bool ProtectionCheck(void)
     }
 
 
-    if (out_flag1 == 0 || V_Ret1 != 0 || V_Ret2 != 0 || out_flag2 == 0)
+    if (V_Ret1 != 0 || V_Ret2 != 0)
     {
-
         return true;
     }
 
@@ -243,7 +243,7 @@ void Startup_12CH(void)
         break;
 
     case 2:
-        //        if (now > 150)
+        //      if (now > 150)
         //       {
         PIDflag1 = 3;
         startup_step = 3;
@@ -283,9 +283,9 @@ void Startup_1CH(void)
     case 2:
         //        if (now1 > 150)
         //        {
-       PIDflag1 = 1;
+        PIDflag1 = 1;
         startup_s1 = 3;
-     //   PID1();
+        //   PID1();
         //       }
         break;
 
@@ -456,7 +456,7 @@ void DimmingControlTask(void)
     {
         g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
         powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
-        pwm_output = simple_regulator(power_pwm, 2000);
+        pwm_output = simple_regulator(power_pwm, 3000);
         pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
         PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
     }
