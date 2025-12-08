@@ -75,7 +75,7 @@ uint16_t Power_Compensation(void)
     }
 
     if (g_uTargetPower < 0)g_uTargetPower = 0;
-
+    if (g_uTargetPower > setPower)g_uTargetPower = setPower;
     return g_uTargetPower;
 }
 

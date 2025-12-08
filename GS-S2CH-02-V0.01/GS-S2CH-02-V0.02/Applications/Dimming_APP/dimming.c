@@ -186,35 +186,81 @@ float get_current(adc_channel_t channel)
     return (I_out * 1000.0f); // 统一转换为毫安(mA)单位
 }
 
-bool ProtectionCheck(void)
+uint8_t KAIJI(void)
 {
-    if (start_flag != 1)
+    static uint32_t opentime = 0;
+    uint32_t kj_time = get_elapsed_since(opentime);
+    static bool kj_state = false;
+    if (kj_state == false)
     {
-        return true;
+        opentime = get_systemtick_time();
+        kj_state = true;
+        return 0;
+   
     }
-
-
-    if (V_Ret1 != 0 || V_Ret2 != 0)
+    else
     {
-        return true;
+        if (kj_time > 1500)
+        {
+            return 1;
+        }
+        return 0;
     }
-
-    if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
-    {
-        return true; // 检查是否有任意通道（1、2）的值大于等于 1
-    }
-
-    return false;
 }
 
-//void PID1(void)
-//{
-//        g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-//        powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
-//        pwm_output = simple_regulator(power_pwm, 2000);
-//        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
-//        PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
-//}
+/*1关全部  2 关1  3关2*/
+uint8_t ProtectionCheck(void)
+{
+
+    if (start_flag != 1)
+    {
+        return 1;
+    }
+
+    else if (KAIJI() == 0)
+    {
+        return 1;
+    }
+
+    else if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
+    {
+        return 1; // 检查是否有任意通道（1、2）的值大于等于 1
+    }
+
+    else if (V_Ret1 != 0)
+    {
+        return 2;
+    }
+
+    else if (V_Ret2 != 0)
+    {
+        return 3;
+    }
+
+
+
+    return 0;
+}
+
+void PIDCH12(void)
+{
+    if (PIDflag1 == 1 || PIDflag1 == 3)
+    {
+        g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+        powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
+        pwm_output = simple_regulator(power_pwm, 3000);
+        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
+        PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
+    }
+
+    if (PIDflag1 == 2 || PIDflag1 == 3)
+    {
+        g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+        powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
+        pwm2 = PID_Compute(&pid2, g_uChanne2Power, powernum2);
+        PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
+    }
+}
 
 
 static uint8_t startup_step = 0;
@@ -243,16 +289,9 @@ void Startup_12CH(void)
         break;
 
     case 2:
-        //      if (now > 150)
-        //       {
         PIDflag1 = 3;
-        startup_step = 3;
-        //        }
         break;
 
-    case 3: // 启动完成，什么都不做
-
-        break;
     }
 }
 
@@ -281,17 +320,10 @@ void Startup_1CH(void)
         break;
 
     case 2:
-        //        if (now1 > 150)
-        //        {
         PIDflag1 = 1;
-        startup_s1 = 3;
-        //   PID1();
-        //       }
         break;
 
-    case 3: // 启动完成，什么都不做
 
-        break;
     }
 }
 
@@ -321,16 +353,11 @@ void Startup_2CH(void)
         break;
 
     case 2:
-        //       if (now2 > 150)
-        //        {
+
         PIDflag1 = 2;
-        startup_s2 = 3;
-        //        }
-        break;
-
-    case 3: // 启动完成，什么都不做
 
         break;
+
     }
 }
 
@@ -442,36 +469,20 @@ void DimmingStart(void)
 void DimmingControlTask(void)
 {
     //保护校验   
-
-    if (ProtectionCheck() == true)
+    static uint8_t ProtectionState;
+    ProtectionState = ProtectionCheck();
+    if (ProtectionState != 0)
     {
-        LightPowerOff(LED_ALL_OFF);
+        if (ProtectionState == 1) LightPowerOff(LED_ALL_OFF);
+        else if (ProtectionState == 2) LightPowerOff(LED_CHANNEL1_OFF);
+        else if (ProtectionState == 3)LightPowerOff(LED_CHANNEL2_OFF);
         return;
     }
 
     power_pwm = (float) Power_Compensation();
+
     DimmingStart();
-
-    if (PIDflag1 == 1 || PIDflag1 == 3)
-    {
-        g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-        powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
-        pwm_output = simple_regulator(power_pwm, 3000);
-        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
-        PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
-    }
-
-
-    if (PIDflag1 == 2 || PIDflag1 == 3)
-    {
-
-        g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-        powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
-        pwm2 = PID_Compute(&pid2, g_uChanne2Power, powernum2);
-        PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
-    }
-
-
+    PIDCH12();
 }
 
 

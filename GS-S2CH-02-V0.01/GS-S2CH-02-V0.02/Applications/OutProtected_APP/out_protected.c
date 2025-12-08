@@ -151,12 +151,12 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
         //   5. 转换为mV单位：* 1000
         g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
 
-        if (g_VoltageProtect1 >= 550)
+        if (g_VoltageProtect1 >= 550||(g_VoltageProtect1 <= 150))
         {
             return 1;
         }
 
-        else if (g_VoltageProtect1 <= 150)
+        else if (g_VoltageProtect1 <= 30)
         {
             return 2;
         }
@@ -244,11 +244,12 @@ void Out_Protect(void)
             }
             else
             {
-                if (protect1time > 300)
+                if (protect1time > 200)
                 {
-                    // 保护时间到，执行动作
-                    V_Ret1 = 2;
-                    is_protecting2 = false;
+                
+                        V_Ret1 = 2;
+                        is_protecting2 = false;
+                    
                 }
             }
 
@@ -268,52 +269,52 @@ void Out_Protect(void)
     if (UART_REG2 > 0x00)
     {
         uint16_t outprotect2 = Voltage_Judgment(Output2_voltage_ADC);
-        
-                if (outprotect2 == 1) // 电压异常
+
+        if (outprotect2 == 1) // 电压异常
+        {
+            if (!is_protecting3)
+            {
+                // 第一次检测到异常，开始计时
+                timesys2 = get_systemtick_time();
+                is_protecting3 = true;
+            }
+            else
+            {
+                if (protect2time > 1000)
                 {
-                    if (!is_protecting3)
-                    {
-                        // 第一次检测到异常，开始计时
-                        timesys2 = get_systemtick_time();
-                        is_protecting3 = true;
-                    }
-                    else
-                    {
-                        if (protect2time > 1000)
-                        {
-                            // 保护时间到，执行动作
-                            V_Ret2 = 1;
-                            is_protecting3 = false;
-                        }
-                    }
-                }
-                else if (outprotect2 == 2)
-                {
-                    if (!is_protecting4)
-                    {
-                        // 第一次检测到异常，开始计时
-                        timesys2 = get_systemtick_time();
-                        is_protecting4 = true;
-                    }
-                    else
-                    {
-                        if (protect2time > 200)
-                        {
-                            // 保护时间到，执行动作
-                            V_Ret2 = 2;
-                            is_protecting4 = false;
-                        }
-                    }
-        
-                }
-        
-                else if (V_Ret2 == 0)
-                {
-                     V_Ret2=0;
-                    // 电压正常，重置保护状态
+                    // 保护时间到，执行动作
+                    V_Ret2 = 1;
                     is_protecting3 = false;
+                }
+            }
+        }
+        else if (outprotect2 == 2)
+        {
+            if (!is_protecting4)
+            {
+                // 第一次检测到异常，开始计时
+                timesys2 = get_systemtick_time();
+                is_protecting4 = true;
+            }
+            else
+            {
+                if (protect2time > 200)
+                {
+                    // 保护时间到，执行动作
+                    V_Ret2 = 2;
                     is_protecting4 = false;
                 }
+            }
+
+        }
+
+        else if (V_Ret2 == 0)
+        {
+            V_Ret2 = 0;
+            // 电压正常，重置保护状态
+            is_protecting3 = false;
+            is_protecting4 = false;
+        }
     }
 }
 

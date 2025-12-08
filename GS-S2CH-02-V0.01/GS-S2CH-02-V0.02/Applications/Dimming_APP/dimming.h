@@ -15,7 +15,7 @@ float get_current(adc_channel_t channel);
 
 /*函数定义*/
 void DimmingControlTask(void);              //数据处理函数
-
+uint8_t ProtectionCheck(void);
 void DimmingStart(void);
 //uint16_t PID_Control(void);
 

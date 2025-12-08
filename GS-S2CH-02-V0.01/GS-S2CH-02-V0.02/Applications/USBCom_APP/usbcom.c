@@ -197,8 +197,8 @@ void Display(void)
   //     printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
 
 
-    printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
-    printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
+  //  printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
+  //  printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
 }
 
 
