@@ -17,21 +17,17 @@
 #include <math.h>
 #include "stdio.h"
 #include "readcurrent.h"
+#include "temp_protected.h"
 
 
-/*变量定义*/
-uint8_t Default_flag = 1; //
+
 uint8_t start_flag = 0; //注意,启动标识，1：表示系统启动
 uint8_t pfc_flag = 1; //PFC执行一次
-volatile uint8_t buck_flag = 0;
-uint8_t buck_ok1 = 0, buck_ok2 = 0; //保护判断标识，中断置1
-uint8_t current_control_mode_1 = 0; // 1 通道恒流模式标志：0-恒功率，1-恒流
-uint8_t current_control_mode_2 = 0; // 2 通道恒流模式标志：0-恒功率，1-恒流
+
 
 uint8_t mode_flag; //启动模式，确保通道切换时候是先关后开
 
 volatile uint8_t PIDflag1 = 0;
-
 
 float current_value = 0;
 float start_value = 0;
@@ -39,7 +35,6 @@ uint32_t start_time = 0;
 float target_value = 0;
 uint32_t transition_time = 1000;
 float power_pwm = 0;
-uint8_t ch1 = 1, ch2 = 1, ch12 = 1;
 
 void regulator_clear(void)
 {
@@ -186,28 +181,6 @@ float get_current(adc_channel_t channel)
     return (I_out * 1000.0f); // 统一转换为毫安(mA)单位
 }
 
-uint8_t KAIJI(void)
-{
-    static uint32_t opentime = 0;
-    uint32_t kj_time = get_elapsed_since(opentime);
-    static bool kj_state = false;
-    if (kj_state == false)
-    {
-        opentime = get_systemtick_time();
-        kj_state = true;
-        return 0;
-   
-    }
-    else
-    {
-        if (kj_time > 1500)
-        {
-            return 1;
-        }
-        return 0;
-    }
-}
-
 /*1关全部  2 关1  3关2*/
 uint8_t ProtectionCheck(void)
 {
@@ -217,33 +190,32 @@ uint8_t ProtectionCheck(void)
         return 1;
     }
 
-    else if (KAIJI() == 0)
+    if (Temp_protected_flag == 2)
     {
         return 1;
     }
 
-    else if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
+    if (UART_REG1 < 0x01 && UART_REG2 < 0x01)
     {
         return 1; // 检查是否有任意通道（1、2）的值大于等于 1
     }
 
-    else if (V_Ret1 != 0)
+    if (V_Ret1 != 0)
     {
         return 2;
     }
 
-    else if (V_Ret2 != 0)
+    if (V_Ret2 != 0)
     {
         return 3;
     }
-
-
 
     return 0;
 }
 
 void PIDCH12(void)
 {
+
     if (PIDflag1 == 1 || PIDflag1 == 3)
     {
         g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
@@ -480,6 +452,10 @@ void DimmingControlTask(void)
     }
 
     power_pwm = (float) Power_Compensation();
+    if (g_bPowerDownFlag == 1 || Temp_protected_flag == 1)
+    {
+        power_pwm = power_pwm / 2;
+    }
 
     DimmingStart();
     PIDCH12();

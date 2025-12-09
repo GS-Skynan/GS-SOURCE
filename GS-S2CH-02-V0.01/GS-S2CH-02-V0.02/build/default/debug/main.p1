@@ -16,6 +16,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
 "42 Applications/InProtected_APP/inprotectedapp.h
 [v _IntProtectedTask `(v ~T0 @X0 0 ef ]
+"9 Applications/TempProtected_APP/TEMP_PROTECTED.h
+[v _TemapProtectedTask `(v ~T0 @X0 0 ef ]
 "17 Applications/Dimming_APP/dimming.h
 [v _DimmingControlTask `(v ~T0 @X0 0 ef ]
 "31 Applications/OutProtected_APP/out_protected.h
@@ -1840,7 +1842,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "67 main.c
-[v _g_taskComps `S2425 ~T0 @X0 -> 6 `i s ]
+[v _g_taskComps `S2425 ~T0 @X0 -> 7 `i s ]
 [i _g_taskComps
 :U ..
 :U ..
@@ -1854,6 +1856,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 100 `i `us
 -> -> 100 `i `us
 &U _IntProtectedTask
+..
+:U ..
+-> -> 0 `i `uc
+-> -> 500 `i `us
+-> -> 500 `i `us
+&U _TemapProtectedTask
 ..
 :U ..
 -> -> 0 `i `uc
@@ -2005,7 +2013,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "150
 [e ( _APPInit ..  ]
 "151
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "153
 [e :U 2440 ]
 "154

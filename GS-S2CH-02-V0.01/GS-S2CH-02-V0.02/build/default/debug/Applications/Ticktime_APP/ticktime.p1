@@ -2,13 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 Applications/PwmRegulation_APP/pwm_change.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
+[v F18114 `(v ~T0 @X0 0 tf ]
 [v F18116 `(v ~T0 @X0 0 tf ]
 [v F18118 `(v ~T0 @X0 0 tf ]
-[v F18120 `(v ~T0 @X0 0 tf ]
-[v F18131 `(v ~T0 @X0 0 tf ]
-"103 Applications/Ticktime_APP/ticktime.c
-[c E18136 0 1 .. ]
-[n E18136 . LED_OFF LED_ON  ]
+[v F18129 `(v ~T0 @X0 0 tf ]
+"105 Applications/Ticktime_APP/ticktime.c
+[c E18134 0 1 .. ]
+[n E18134 . LED_OFF LED_ON  ]
 "20 DriverLayer/GPIO/GPIO_driver.h
 [v _Led_On `(v ~T0 @X0 0 ef ]
 "21
@@ -1755,14 +1755,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 "19
-[v _g_pTaskScheduleFunc `*F18116 ~T0 @X0 1 s ]
+[v _g_pTaskScheduleFunc `*F18114 ~T0 @X0 1 s ]
 "21
-[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18118 ]
+[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18116 ]
 "22
 {
 [e :U _TaskScheduleCbReg ]
 "21
-[v _pFunc `*F18120 ~T0 @X0 1 r1 ]
+[v _pFunc `*F18118 ~T0 @X0 1 r1 ]
 "22
 [f ]
 "23
@@ -1799,22 +1799,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _TaskHandler_Time ]
 [f ]
 "37
-[v F18130 `us ~T0 @X0 1 s ledtime ]
+[v F18128 `us ~T0 @X0 1 s ledtime ]
 "38
-[e ++ F18130 -> -> 1 `i `us ]
+[e ++ F18128 -> -> 1 `i `us ]
 "39
-[e $ ! == -> F18130 `ui -> -> 200 `i `ui 2425  ]
+[e $ ! == -> F18128 `ui -> -> 200 `i `ui 2425  ]
 "40
 {
 "42
-[e = F18130 -> -> 0 `i `us ]
+[e = F18128 -> -> 0 `i `us ]
 "43
 }
 [e :U 2425 ]
 "45
 [e ++ _system_tick -> -> 1 `i `Vul ]
 "47
-[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18131 2426  ]
+[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18129 2426  ]
 "48
 {
 "49
@@ -1874,143 +1874,143 @@ Version 4.0 HI-TECH Software Intermediate Code
 "91
 [e :UE 2428 ]
 }
-"101
+"103
 [v _LED_Task `(v ~T0 @X0 1 ef ]
-"102
+"104
 {
 [e :U _LED_Task ]
 [f ]
-"103
-[v F18141 `E18136 ~T0 @X0 1 s led_state ]
-[i F18141
-. `E18136 0
+"105
+[v F18139 `E18134 ~T0 @X0 1 s led_state ]
+[i F18139
+. `E18134 0
 ]
-"104
-[v F18142 `ul ~T0 @X0 1 s last_led_change_time ]
-[i F18142
+"106
+[v F18140 `ul ~T0 @X0 1 s last_led_change_time ]
+[i F18140
 -> -> -> 0 `i `l `ul
 ]
-"105
-[v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18142 ]
 "107
+[v _elapsed `ul ~T0 @X0 1 a ]
+[e = _elapsed ( _get_elapsed_since (1 F18140 ]
+"109
 [e $U 2433  ]
 {
-"108
-[e :U 2434 ]
-"109
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2435  ]
 "110
-{
+[e :U 2434 ]
 "111
-[e ( _Led_On ..  ]
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2435  ]
 "112
-[e = F18141 . `E18136 1 ]
+{
 "113
-[e = F18142 ( _get_systemtick_time ..  ]
+[e ( _Led_On ..  ]
 "114
+[e = F18139 . `E18134 1 ]
+"115
+[e = F18140 ( _get_systemtick_time ..  ]
+"116
 }
 [e :U 2435 ]
-"115
-[e $U 2432  ]
 "117
-[e :U 2436 ]
-"118
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2437  ]
+[e $U 2432  ]
 "119
-{
+[e :U 2436 ]
 "120
-[e ( _Led_Off ..  ]
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2437  ]
 "121
-[e = F18141 . `E18136 0 ]
+{
 "122
-[e = F18142 ( _get_systemtick_time ..  ]
+[e ( _Led_Off ..  ]
 "123
+[e = F18139 . `E18134 0 ]
+"124
+[e = F18140 ( _get_systemtick_time ..  ]
+"125
 }
 [e :U 2437 ]
-"124
+"126
 [e $U 2432  ]
-"125
+"127
 }
 [e $U 2432  ]
 [e :U 2433 ]
-[e [\ -> F18141 `ui , $ -> . `E18136 0 `ui 2434
- , $ -> . `E18136 1 `ui 2436
+[e [\ -> F18139 `ui , $ -> . `E18134 0 `ui 2434
+ , $ -> . `E18134 1 `ui 2436
  2432 ]
 [e :U 2432 ]
-"126
+"128
 [e :UE 2431 ]
 }
-"128
+"130
 [v _Time0_start `(v ~T0 @X0 1 sf ]
-"129
+"131
 {
 [e :U _Time0_start ]
 [f ]
-"132
-[e $ ! > -> _g_uRs485TimeOut `ui -> -> 0 `i `ui 2439  ]
-"133
-{
 "134
-[e -- _g_uRs485TimeOut -> -> 1 `i `us ]
+[e $ ! > -> _g_uRs485TimeOut `ui -> -> 0 `i `ui 2439  ]
 "135
-[e $ ! && == -> _g_uRs485TimeOut `ui -> -> 0 `i `ui > -> _Rx_Length `i -> 0 `i 2440  ]
-"136
 {
+"136
+[e -- _g_uRs485TimeOut -> -> 1 `i `us ]
+"137
+[e $ ! && == -> _g_uRs485TimeOut `ui -> -> 0 `i `ui > -> _Rx_Length `i -> 0 `i 2440  ]
 "138
+{
+"140
 [e = _g_bRs485Flag -> -> 1 `i `a ]
-"139
+"141
 }
 [e :U 2440 ]
-"140
+"142
 }
 [e :U 2439 ]
-"141
+"143
 [e :UE 2438 ]
 }
-"143
+"145
 [v _g_Voltage1 `f ~T0 @X0 1 e ]
 [v _g_Voltage2 `f ~T0 @X0 1 e ]
-"144
+"146
 [v _powernum1 `f ~T0 @X0 1 e ]
 [v _powernum2 `f ~T0 @X0 1 e ]
-"146
+"148
 [v _Dimming_Pid `(v ~T0 @X0 1 ef ]
-"147
+"149
 {
 [e :U _Dimming_Pid ]
 [f ]
-"171
+"173
 [e :UE 2441 ]
 }
-"173
+"175
 [v _Time0_AppInit `(v ~T0 @X0 1 ef ]
-"174
+"176
 {
 [e :U _Time0_AppInit ]
 [f ]
-"175
+"177
 [e ( _TMR0_PeriodMatchCallbackRegister (1 &U _Time0_start ]
-"176
+"178
 [e :UE 2442 ]
 }
-"178
+"180
 [v _Time2_AppInit `(v ~T0 @X0 1 ef ]
-"179
+"181
 {
 [e :U _Time2_AppInit ]
 [f ]
-"180
+"182
 [e ( _TMR2_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
-"181
+"183
 [e :UE 2443 ]
 }
-"183
+"185
 [v _PIDDimming_Init `(v ~T0 @X0 1 ef ]
-"184
+"186
 {
 [e :U _PIDDimming_Init ]
 [f ]
-"186
+"188
 [e :UE 2444 ]
 }

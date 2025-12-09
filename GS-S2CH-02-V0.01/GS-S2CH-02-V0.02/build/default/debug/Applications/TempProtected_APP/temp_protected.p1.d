@@ -45,4 +45,6 @@ Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 Applications/timerecord_app/record.h  \
 Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
 DriverLayer/NFC/nfc.h  \
-DriverLayer/NFC/../../mcc_generated_files//system/system.h 
+DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
+Applications/Ticktime_APP/ticktime.h  \
+Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h 

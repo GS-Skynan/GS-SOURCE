@@ -1741,7 +1741,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7 Applications/CurrentRead_APP/readcurrent.c
 [v _power_Hold_1 `us ~T0 @X0 1 e ]
 [v _power_Hold_2 `us ~T0 @X0 1 e ]
-"9
+"8
 [v _UART_REG1 `uc ~T0 @X0 1 e ]
 [i _UART_REG1
 -> -> 0 `i `uc
@@ -1750,163 +1750,154 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _UART_REG2
 -> -> 0 `i `uc
 ]
-"10
-[v _UART_REG1_Pre `uc ~T0 @X0 1 e ]
-[i _UART_REG1_Pre
--> -> 0 `i `uc
-]
-[v _UART_REG2_Pre `uc ~T0 @X0 1 e ]
-[i _UART_REG2_Pre
--> -> 0 `i `uc
-]
-"13
+"9
 [v _power_time `us ~T0 @X0 1 e ]
 [i _power_time
 -> -> 1 `i `us
 ]
-"14
+"10
 [v _g_uPower1 `us ~T0 @X0 1 e ]
 [v _g_uPower2 `us ~T0 @X0 1 e ]
-"16
+"12
 [v _ReadCurrentInit `(v ~T0 @X0 1 ef1`*uc ]
-"17
+"13
 {
 [e :U _ReadCurrentInit ]
-"16
+"12
 [v _nfcData `*uc ~T0 @X0 1 r1 ]
-"17
+"13
 [f ]
-"19
+"15
 [e = _power_Hold_1 -> ( _extractAndCombineEEPROMData (2 , *U + _nfcData * -> -> 2 `i `x -> -> # *U _nfcData `i `x *U + _nfcData * -> -> 3 `i `x -> -> # *U _nfcData `i `x `us ]
-"20
+"16
 [e $ ! >= -> _power_Hold_1 `ui -> -> 855 `i `ui 2422  ]
 [e = _power_Hold_1 -> -> 855 `i `us ]
 [e :U 2422 ]
-"21
+"17
 [e $ ! < -> _power_Hold_1 `ui -> -> 500 `i `ui 2423  ]
 [e = _power_Hold_1 -> -> 500 `i `us ]
 [e :U 2423 ]
-"22
+"18
 [e = _g_uPower1 _power_Hold_1 ]
-"23
-[e = _UART_REG1_Pre = _UART_REG1 *U + _nfcData * -> -> 0 `i `x -> -> # *U _nfcData `i `x ]
-"24
+"19
+[e = _UART_REG1 *U + _nfcData * -> -> 0 `i `x -> -> # *U _nfcData `i `x ]
+"20
 [e $ ! >= -> _UART_REG1 `i -> 100 `i 2424  ]
 [e = _UART_REG1 -> -> 100 `i `uc ]
 [e :U 2424 ]
-"27
+"23
 [e = _power_Hold_2 -> ( _extractAndCombineEEPROMData (2 , *U + _nfcData * -> -> 6 `i `x -> -> # *U _nfcData `i `x *U + _nfcData * -> -> 7 `i `x -> -> # *U _nfcData `i `x `us ]
-"28
+"24
 [e $ ! >= -> _power_Hold_2 `ui -> -> 113 `i `ui 2425  ]
 [e = _power_Hold_2 -> -> 113 `i `us ]
 [e :U 2425 ]
-"29
+"25
 [e $ ! < -> _power_Hold_2 `ui -> -> 50 `i `ui 2426  ]
 [e = _power_Hold_2 -> -> 50 `i `us ]
 [e :U 2426 ]
-"30
+"26
 [e = _g_uPower2 _power_Hold_2 ]
-"31
-[e = _UART_REG2_Pre = _UART_REG2 *U + _nfcData * -> -> 4 `i `x -> -> # *U _nfcData `i `x ]
-"32
+"27
+[e = _UART_REG2 *U + _nfcData * -> -> 4 `i `x -> -> # *U _nfcData `i `x ]
+"28
 [e $ ! >= -> _UART_REG2 `i -> 100 `i 2427  ]
 [e = _UART_REG2 -> -> 100 `i `uc ]
 [e :U 2427 ]
-"34
+"30
 [e :UE 2421 ]
 }
-"36
+"32
 [v _PowerCompensationTime `(v ~T0 @X0 1 ef1`*uc ]
-"37
+"33
 {
 [e :U _PowerCompensationTime ]
-"36
+"32
 [v _nfcData `*uc ~T0 @X0 1 r1 ]
-"37
+"33
 [f ]
-"38
+"34
 [v _time_H `uc ~T0 @X0 1 a ]
 [v _time_L `uc ~T0 @X0 1 a ]
-"40
+"36
 [e = _time_H -> + * >> -> *U + _nfcData * -> -> 64 `i `x -> -> # *U _nfcData `i `x `i -> 4 `i -> 10 `i & -> *U + _nfcData * -> -> 64 `i `x -> -> # *U _nfcData `i `x `i -> 15 `i `uc ]
-"41
+"37
 [e = _time_L -> + * >> -> *U + _nfcData * -> -> 65 `i `x -> -> # *U _nfcData `i `x `i -> 4 `i -> 10 `i & -> *U + _nfcData * -> -> 65 `i `x -> -> # *U _nfcData `i `x `i -> 15 `i `uc ]
-"42
+"38
 [e = _power_time -> + * -> _time_H `i -> 100 `i -> _time_L `i `us ]
-"43
+"39
 [e = _power_time -> * -> _power_time `ui -> -> 1000 `i `ui `us ]
-"44
+"40
 [e :UE 2428 ]
 }
-"46
+"42
 [v _ReadNfcNumber `(v ~T0 @X0 1 ef ]
-"47
+"43
 {
 [e :U _ReadNfcNumber ]
 [f ]
-"48
+"44
 [e ( _ReadCurrentInit (1 &U _I2C_receiveData ]
-"49
+"45
 [e ( _PowerCompensationTime (1 &U _I2C_receiveData ]
-"50
+"46
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"51
+"47
 [e :UE 2429 ]
 }
-"55
+"51
 [v _g_uChanne1Power `us ~T0 @X0 1 e ]
-"56
+"52
 [v _g_uTargetPower `us ~T0 @X0 1 e ]
-"57
+"53
 [v _g_uChanne2Power `us ~T0 @X0 1 e ]
-"58
+"54
 [v _g_Pzong `us ~T0 @X0 1 e ]
-"61
+"57
 [v _Power_Compensation `(us ~T0 @X0 1 ef ]
-"62
+"58
 {
 [e :U _Power_Compensation ]
 [f ]
-"63
+"59
 [v _setPower `us ~T0 @X0 1 a ]
 [e = _setPower -> -> 0 `i `us ]
-"64
+"60
 [e = _setPower _g_uPower1 ]
-"65
+"61
 [e = _g_uChanne1Power -> - * / -> _g_uPower1 `ui -> -> 100 `i `ui -> _UART_REG1 `ui -> -> 24 `i `ui `us ]
-"66
+"62
 [e = _g_uChanne2Power -> - * / -> _g_uPower2 `ui -> -> 100 `i `ui -> _UART_REG2 `ui -> -> 19 `i `ui `us ]
-"67
+"63
 [e = _g_Pzong -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
-"68
+"64
 [e $ ! > -> _g_Pzong `ui -> _setPower `ui 2431  ]
+"65
+{
+"66
+[e = _g_uTargetPower -> - - -> _setPower `ui - -> _g_Pzong `ui -> _g_uChanne1Power `ui -> -> 29 `i `ui `us ]
+"67
+}
+[e $U 2432  ]
+"68
+[e :U 2431 ]
 "69
 {
 "70
-[e = _g_uTargetPower -> - - -> _setPower `ui - -> _g_Pzong `ui -> _g_uChanne1Power `ui -> -> 29 `i `ui `us ]
+[e = _g_uTargetPower _g_uChanne1Power ]
 "71
 }
-[e $U 2432  ]
-"72
-[e :U 2431 ]
-"73
-{
-"74
-[e = _g_uTargetPower _g_uChanne1Power ]
-"75
-}
 [e :U 2432 ]
-"77
+"73
 [e $ ! < -> _g_uTargetPower `ui -> -> 0 `i `ui 2433  ]
 [e = _g_uTargetPower -> -> 0 `i `us ]
 [e :U 2433 ]
-"78
+"74
 [e $ ! > -> _g_uTargetPower `ui -> _setPower `ui 2434  ]
 [e = _g_uTargetPower _setPower ]
 [e :U 2434 ]
-"79
+"75
 [e ) _g_uTargetPower ]
 [e $UE 2430  ]
-"80
+"76
 [e :UE 2430 ]
 }

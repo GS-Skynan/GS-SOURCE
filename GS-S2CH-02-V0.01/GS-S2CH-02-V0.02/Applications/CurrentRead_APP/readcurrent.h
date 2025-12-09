@@ -42,7 +42,7 @@ uint16_t Power_Compensation(void);
 
 extern uint16_t power_Hold_1,power_Hold_2; 
 extern uint8_t UART_REG1,UART_REG2;
-extern uint8_t UART_REG1_Pre,UART_REG2_Pre;
+
 
 extern uint16_t power_time;
 extern uint16_t g_uChanne2Power;

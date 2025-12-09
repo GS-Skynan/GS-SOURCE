@@ -59,4 +59,6 @@ Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 Applications/timerecord_app/record.h  \
-Applications/timerecord_app/../../mcc_generated_files/system/system.h 
+Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
+Applications/TempProtected_APP/temp_protected.h  \
+Applications/TempProtected_APP/../../mcc_generated_files/system/system.h 

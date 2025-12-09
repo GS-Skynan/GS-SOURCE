@@ -22,10 +22,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 Applications/Bootloader/Bootloader.h
 [v _start_flag `uc ~T0 @X0 0 e ]
 "120 Applications/Bootloader/Bootloader.c
-[c E18391 1 2 3 .. ]
-[n E18391 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+[c E18392 1 2 3 .. ]
+[n E18392 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18391 ]
+[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18392 ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1838,8 +1838,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _BootFlagSetJump ]
 [f ]
-[v F18432 `uc ~T0 @X0 -> 4 `i s ]
-[i F18432
+[v F18433 `uc ~T0 @X0 -> 4 `i s ]
+[i F18433
 :U ..
 "70
 -> -> 90 `i `uc
@@ -1849,7 +1849,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _magic_data `uc ~T0 @X0 -> 4 `i a ]
-[e = _magic_data F18432 ]
+[e = _magic_data F18433 ]
 "77
 [v _checksum_value `us ~T0 @X0 1 a ]
 [e = _checksum_value ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 4 `i `uc ]
@@ -1931,7 +1931,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "118
 [e = _start_flag -> -> 0 `i `uc ]
 "120
-[e ( _LightPowerOff (1 . `E18391 2 ]
+[e ( _LightPowerOff (1 . `E18392 2 ]
 "121
 [e :UE 2439 ]
 }

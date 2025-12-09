@@ -42,6 +42,6 @@ void Port_3_4(void);
 void IntProtectedTask(void);
 
 extern bool g_bLowVoltageFlag;
-
+extern bool g_bPowerDownFlag;
 #endif 
 

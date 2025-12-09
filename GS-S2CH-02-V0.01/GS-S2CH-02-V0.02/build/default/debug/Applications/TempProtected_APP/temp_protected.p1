@@ -5,22 +5,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [s S2423 `ui 1 `ui 1 `ui 1 `uc 1 `S2422 1 `ui 1 ]
 [n S2423 . total_power_time_H power_time_minutes power_time_msecond power_timer_flag record_time save_flag ]
-"19 Applications/TempProtected_APP/temp_protected.c
+"95 Applications/TempProtected_APP/temp_protected.c
 [c E17525 59 60 61 62 63 0 1 3 4 5 13 .. ]
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "211 Applications/TempProtected_APP/../../mcc_generated_files/system/../adc/adc.h
 [v _ADC_ChannelSelectAndConvert `(s ~T0 @X0 0 ef1`E17525 ]
-"44 Applications/CurrentRead_APP/readcurrent.h
-[v _UART_REG1 `uc ~T0 @X0 0 e ]
-"8 Applications/Dimming_APP/dimming.h
-[v _start_flag `uc ~T0 @X0 0 e ]
-"64 Applications/TempProtected_APP/temp_protected.c
-[c E17952 1 2 3 .. ]
-[n E17952 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
-"14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E17952 ]
-"10 Applications/timerecord_app/record.h
-[v _tem_flag `us ~T0 @X0 0 e ]
+"14 Applications/Ticktime_APP/ticktime.h
+[v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
+"13
+[v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
+"162 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/math.h
+[v _fabsf `(f ~T0 @X0 0 ef1`f ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1792,145 +1787,259 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"12 Applications/TempProtected_APP/temp_protected.c
+"25 Applications/Ticktime_APP/ticktime.h
+[v _system_tick `Vul ~T0 @X0 1 e ]
+"14 Applications/TempProtected_APP/temp_protected.c
 [v _T_flag `uc ~T0 @X0 1 e ]
 [i _T_flag
 -> -> 0 `i `uc
 ]
-"13
+"15
 [v _Temp_Flag `uc ~T0 @X0 1 e ]
-"14
+"16
 [v _Temp_protected_flag `uc ~T0 @X0 1 e ]
 [i _Temp_protected_flag
 -> -> 0 `i `uc
 ]
-"15
-[v _Temp_protected_flag `uc ~T0 @X0 1 e ]
 "17
+[v _Temp_Res `f ~T0 @X0 1 e ]
+"89
 [v _Temp_Protected `(v ~T0 @X0 1 ef ]
-"18
+"90
 {
 [e :U _Temp_Protected ]
 [f ]
-"19
-[v _temperature `s ~T0 @X0 1 a ]
-[e = _temperature ( _ADC_ChannelSelectAndConvert (1 . `E17525 7 ]
-"20
-[v _voltage `f ~T0 @X0 1 a ]
-[e = _voltage * / -> _temperature `f -> .4095.0 `f -> .4.096 `f ]
-"21
-[v F18208 `uc ~T0 @X0 1 s protection_state ]
-[i F18208
+"91
+[v F18984 `uc ~T0 @X0 1 s Tempstate ]
+[i F18984
 -> -> 0 `i `uc
 ]
-"24
-[v _target_state `uc ~T0 @X0 1 a ]
-"25
-[e $ ! >= _voltage -> .3.2 `f 2425  ]
-[e = _target_state -> -> 2 `i `uc ]
-[e :U 2425 ]
-"26
-[e $ ! && >= _voltage -> .2.6 `f < _voltage -> .2.8 `f 2426  ]
-[e = _target_state -> -> 1 `i `uc ]
-[e :U 2426 ]
-"27
-[e $ ! <= _voltage -> .2.3 `f 2427  ]
-[e = _target_state -> -> 0 `i `uc ]
-[e :U 2427 ]
-"30
-[e $ ! && == -> _Temp_Flag `i -> 0 `i != -> _target_state `i -> F18208 `i 2428  ]
-"31
+"92
+[v F18985 `ul ~T0 @X0 1 s temptime ]
+[i F18985
+-> -> -> 0 `i `l `ul
+]
+"93
+[v F18986 `uc ~T0 @X0 1 s temp_stable_count ]
+[i F18986
+-> -> 0 `i `uc
+]
+"95
+[v _temperature `s ~T0 @X0 1 a ]
+[e = _temperature ( _ADC_ChannelSelectAndConvert (1 . `E17525 7 ]
+"96
+[v _voltage `f ~T0 @X0 1 a ]
+[e = _voltage * / -> _temperature `f -> .4095.0 `f -> .4.096 `f ]
+"97
+[e = _Temp_Res _voltage ]
+"99
+[v _current_time `ul ~T0 @X0 1 a ]
+[e = _current_time ( _get_systemtick_time ..  ]
+"100
+[v _elapsed_time `ul ~T0 @X0 1 a ]
+[e = _elapsed_time ( _get_elapsed_since (1 F18985 ]
+"103
+[v F18991 `f ~T0 @X0 1 s last_voltage ]
+[i F18991
+-> -> 0 `i `f
+]
+"104
+[e $ ! < ( _fabsf (1 - _voltage F18991 -> .0.05 `f 2427  ]
+"105
 {
-"32
-[e = F18208 _target_state ]
-"34
-[e $U 2430  ]
-{
-"35
-[e :U 2431 ]
-"36
-[e $ ! != -> _T_flag `i -> 0 `i 2432  ]
-"37
-{
-"38
-[e = _UART_REG1 -> * -> _UART_REG1 `i -> 2 `i `uc ]
-"39
-[e = _T_flag -> -> 0 `i `uc ]
-"40
-}
-[e :U 2432 ]
-"41
-[e = _Temp_protected_flag -> -> 0 `i `uc ]
-"44
-[e = _start_flag -> -> 1 `i `uc ]
-"45
-[e $U 2429  ]
-"47
-[e :U 2433 ]
-"48
-[e $ ! ! != -> _T_flag `i -> 0 `i 2434  ]
-"49
-{
-"50
-[e = _UART_REG1 -> / -> _UART_REG1 `i -> 2 `i `uc ]
-"51
-[e = _T_flag -> -> 1 `i `uc ]
-"53
-}
-[e :U 2434 ]
-"54
-[e $U 2429  ]
-"55
-[e :U 2435 ]
-"56
-[e $ ! != -> _T_flag `i -> 0 `i 2436  ]
-"57
-{
-"58
-[e = _UART_REG1 -> * -> _UART_REG1 `i -> 2 `i `uc ]
-"59
-[e = _T_flag -> -> 0 `i `uc ]
-"60
-}
-[e :U 2436 ]
-"61
-[e = _Temp_protected_flag -> -> 1 `i `uc ]
-"62
-[e = _start_flag -> -> 0 `i `uc ]
-"64
-[e ( _LightPowerOff (1 . `E17952 2 ]
-"65
-[e $U 2429  ]
-"66
-}
-[e $U 2429  ]
-[e :U 2430 ]
-[e [\ F18208 , $ -> 0 `i 2431
- , $ -> 1 `i 2433
- , $ -> 2 `i 2435
- 2429 ]
-[e :U 2429 ]
-"67
-}
+"106
+[e $ ! < -> F18986 `i -> 5 `i 2428  ]
+[e ++ F18986 -> -> 1 `i `uc ]
 [e :U 2428 ]
-"68
-[e :UE 2424 ]
+"107
 }
-"70
+[e $U 2429  ]
+"108
+[e :U 2427 ]
+"109
+{
+"110
+[e = F18986 -> -> 0 `i `uc ]
+"111
+}
+[e :U 2429 ]
+"112
+[e = F18991 _voltage ]
+"115
+[e $U 2431  ]
+"116
+{
+"117
+[e :U 2432 ]
+"118
+[e = _Temp_protected_flag -> -> 0 `i `uc ]
+"120
+[e $ ! >= -> F18986 `i -> 5 `i 2433  ]
+"121
+{
+"122
+[e $ ! && >= _voltage -> .1.8 `f < _voltage -> .2.2 `f 2434  ]
+"123
+{
+"125
+[e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2435  ]
+"126
+{
+"127
+[e = F18984 -> -> 1 `i `uc ]
+"128
+[e = F18985 _current_time ]
+"129
+}
+[e :U 2435 ]
+"130
+}
+[e $U 2436  ]
+"131
+[e :U 2434 ]
+[e $ ! >= _voltage -> .2.4 `f 2437  ]
+"132
+{
+"134
+[e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2438  ]
+"135
+{
+"136
+[e = F18984 -> -> 2 `i `uc ]
+"137
+[e = F18985 _current_time ]
+"138
+}
+[e :U 2438 ]
+"139
+}
+[e $U 2439  ]
+"140
+[e :U 2437 ]
+"141
+{
+"143
+[e = F18985 _current_time ]
+"144
+}
+[e :U 2439 ]
+[e :U 2436 ]
+"145
+}
+[e :U 2433 ]
+"146
+[e $U 2430  ]
+"148
+[e :U 2440 ]
+"149
+[e = _Temp_protected_flag -> -> 1 `i `uc ]
+"151
+[e $ ! >= -> F18986 `i -> 5 `i 2441  ]
+"152
+{
+"153
+[e $ ! <= _voltage -> .1.3 `f 2442  ]
+"154
+{
+"156
+[e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2443  ]
+"157
+{
+"158
+[e = F18984 -> -> 0 `i `uc ]
+"159
+[e = F18985 _current_time ]
+"160
+}
+[e :U 2443 ]
+"161
+}
+[e $U 2444  ]
+"162
+[e :U 2442 ]
+[e $ ! >= _voltage -> .2.4 `f 2445  ]
+"163
+{
+"165
+[e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2446  ]
+"166
+{
+"167
+[e = F18984 -> -> 2 `i `uc ]
+"168
+[e = F18985 _current_time ]
+"169
+}
+[e :U 2446 ]
+"170
+}
+[e $U 2447  ]
+"171
+[e :U 2445 ]
+"172
+{
+"174
+[e = F18985 _current_time ]
+"175
+}
+[e :U 2447 ]
+[e :U 2444 ]
+"176
+}
+[e :U 2441 ]
+"177
+[e $U 2430  ]
+"179
+[e :U 2448 ]
+"180
+[e = _Temp_protected_flag -> -> 2 `i `uc ]
+"182
+[e $ ! >= -> F18986 `i -> 5 `i 2449  ]
+"183
+{
+"184
+[e $ ! <= _voltage -> .1.3 `f 2450  ]
+"185
+{
+"187
+[e $ ! >= _elapsed_time -> -> -> 2000 `i `l `ul 2451  ]
+"188
+{
+"189
+[e = F18984 -> -> 0 `i `uc ]
+"190
+[e = F18985 _current_time ]
+"191
+}
+[e :U 2451 ]
+"192
+}
+[e :U 2450 ]
+"193
+}
+[e :U 2449 ]
+"194
+[e $U 2430  ]
+"195
+}
+[e $U 2430  ]
+[e :U 2431 ]
+[e [\ F18984 , $ -> 0 `i 2432
+ , $ -> 1 `i 2440
+ , $ -> 2 `i 2448
+ 2430 ]
+[e :U 2430 ]
+"196
+[e :UE 2426 ]
+}
+"197
 [v _TemapProtectedTask `(v ~T0 @X0 1 ef ]
-"71
+"198
 {
 [e :U _TemapProtectedTask ]
 [f ]
-"72
-[e $ ! == -> _tem_flag `ui -> -> 1 `i `ui 2438  ]
-"73
-{
-"74
+"201
 [e ( _Temp_Protected ..  ]
-"75
-}
-[e :U 2438 ]
-"76
-[e :UE 2437 ]
+"203
+[e :UE 2452 ]
 }

@@ -1940,39 +1940,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2440 ]
 "206
-[v F18373 `ul ~T0 @X0 1 s timesys1 ]
-[i F18373
+[v F18371 `ul ~T0 @X0 1 s timesys1 ]
+[i F18371
 -> -> -> 0 `i `l `ul
 ]
 "207
-[v F18374 `ul ~T0 @X0 1 s timesys2 ]
-[i F18374
+[v F18372 `ul ~T0 @X0 1 s timesys2 ]
+[i F18372
 -> -> -> 0 `i `l `ul
 ]
 "208
 [v _protect1time `ul ~T0 @X0 1 a ]
-[e = _protect1time ( _get_elapsed_since (1 F18373 ]
+[e = _protect1time ( _get_elapsed_since (1 F18371 ]
 "209
 [v _protect2time `ul ~T0 @X0 1 a ]
-[e = _protect2time ( _get_elapsed_since (1 F18374 ]
+[e = _protect2time ( _get_elapsed_since (1 F18372 ]
 "210
-[v F18377 `a ~T0 @X0 1 s is_protecting1 ]
-[i F18377
+[v F18375 `a ~T0 @X0 1 s is_protecting1 ]
+[i F18375
 -> -> 0 `i `a
 ]
 "211
-[v F18378 `a ~T0 @X0 1 s is_protecting2 ]
-[i F18378
+[v F18376 `a ~T0 @X0 1 s is_protecting2 ]
+[i F18376
 -> -> 0 `i `a
 ]
 "213
-[v F18379 `a ~T0 @X0 1 s is_protecting3 ]
-[i F18379
+[v F18377 `a ~T0 @X0 1 s is_protecting3 ]
+[i F18377
 -> -> 0 `i `a
 ]
 "214
-[v F18380 `a ~T0 @X0 1 s is_protecting4 ]
-[i F18380
+[v F18378 `a ~T0 @X0 1 s is_protecting4 ]
+[i F18378
 -> -> 0 `i `a
 ]
 "216
@@ -1987,13 +1987,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "220
 {
 "221
-[e $ ! ! != -> F18377 `i -> 0 `i 2443  ]
+[e $ ! ! != -> F18375 `i -> 0 `i 2443  ]
 "222
 {
 "224
-[e = F18373 ( _get_systemtick_time ..  ]
+[e = F18371 ( _get_systemtick_time ..  ]
 "225
-[e = F18377 -> -> 1 `i `a ]
+[e = F18375 -> -> 1 `i `a ]
 "226
 }
 [e $U 2444  ]
@@ -2008,7 +2008,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "232
 [e = _V_Ret1 -> -> 1 `i `us ]
 "233
-[e = F18377 -> -> 0 `i `a ]
+[e = F18375 -> -> 0 `i `a ]
 "234
 }
 [e :U 2445 ]
@@ -2024,13 +2024,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "238
 {
 "239
-[e $ ! ! != -> F18378 `i -> 0 `i 2448  ]
+[e $ ! ! != -> F18376 `i -> 0 `i 2448  ]
 "240
 {
 "242
-[e = F18373 ( _get_systemtick_time ..  ]
+[e = F18371 ( _get_systemtick_time ..  ]
 "243
-[e = F18378 -> -> 1 `i `a ]
+[e = F18376 -> -> 1 `i `a ]
 "244
 }
 [e $U 2449  ]
@@ -2045,7 +2045,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "250
 [e = _V_Ret1 -> -> 2 `i `us ]
 "251
-[e = F18378 -> -> 0 `i `a ]
+[e = F18376 -> -> 0 `i `a ]
 "253
 }
 [e :U 2450 ]
@@ -2063,9 +2063,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "260
 [e = _V_Ret1 -> -> 0 `i `us ]
 "262
-[e = F18377 -> -> 0 `i `a ]
+[e = F18375 -> -> 0 `i `a ]
 "263
-[e = F18378 -> -> 0 `i `a ]
+[e = F18376 -> -> 0 `i `a ]
 "264
 }
 [e :U 2452 ]
@@ -2086,13 +2086,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "274
 {
 "275
-[e $ ! ! != -> F18379 `i -> 0 `i 2455  ]
+[e $ ! ! != -> F18377 `i -> 0 `i 2455  ]
 "276
 {
 "278
-[e = F18374 ( _get_systemtick_time ..  ]
+[e = F18372 ( _get_systemtick_time ..  ]
 "279
-[e = F18379 -> -> 1 `i `a ]
+[e = F18377 -> -> 1 `i `a ]
 "280
 }
 [e $U 2456  ]
@@ -2107,7 +2107,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "286
 [e = _V_Ret2 -> -> 1 `i `us ]
 "287
-[e = F18379 -> -> 0 `i `a ]
+[e = F18377 -> -> 0 `i `a ]
 "288
 }
 [e :U 2457 ]
@@ -2123,13 +2123,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "292
 {
 "293
-[e $ ! ! != -> F18380 `i -> 0 `i 2460  ]
+[e $ ! ! != -> F18378 `i -> 0 `i 2460  ]
 "294
 {
 "296
-[e = F18374 ( _get_systemtick_time ..  ]
+[e = F18372 ( _get_systemtick_time ..  ]
 "297
-[e = F18380 -> -> 1 `i `a ]
+[e = F18378 -> -> 1 `i `a ]
 "298
 }
 [e $U 2461  ]
@@ -2144,7 +2144,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "304
 [e = _V_Ret2 -> -> 2 `i `us ]
 "305
-[e = F18380 -> -> 0 `i `a ]
+[e = F18378 -> -> 0 `i `a ]
 "306
 }
 [e :U 2462 ]
@@ -2162,9 +2162,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "313
 [e = _V_Ret2 -> -> 0 `i `us ]
 "315
-[e = F18379 -> -> 0 `i `a ]
+[e = F18377 -> -> 0 `i `a ]
 "316
-[e = F18380 -> -> 0 `i `a ]
+[e = F18378 -> -> 0 `i `a ]
 "317
 }
 [e :U 2464 ]

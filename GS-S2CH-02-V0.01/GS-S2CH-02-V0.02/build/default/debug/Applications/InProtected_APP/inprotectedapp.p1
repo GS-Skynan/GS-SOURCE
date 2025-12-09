@@ -13,15 +13,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
 "8 Applications/Dimming_APP/dimming.h
 [v _start_flag `uc ~T0 @X0 0 e ]
-"44 Applications/CurrentRead_APP/readcurrent.h
-[v _UART_REG1 `uc ~T0 @X0 0 e ]
-"7 Applications/TempProtected_APP/TEMP_PROTECTED.h
-[v _Temp_Flag `uc ~T0 @X0 0 e ]
-"294 Applications/InProtected_APP/inprotectedapp.c
-[c E17974 1 2 3 .. ]
-[n E17974 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
-"14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E17974 ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1908,339 +1899,134 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2424  ]
 "187
 [e :U 2432 ]
-"188
-[e $ ! == -> _g_bPowerDownFlag `i -> 1 `i 2433  ]
 "189
-{
-"190
-[e = _UART_REG1 -> * -> _UART_REG1 `i -> 2 `i `uc ]
-"191
 [e = _g_bPowerDownFlag -> -> 0 `i `a ]
-"192
-}
-[e :U 2433 ]
-"193
+"190
 [e = _start_flag -> -> 1 `i `uc ]
+"192
+[e $ ! == -> F18079 `i -> 1 `i 2433  ]
+"193
+{
 "195
-[e $ ! == -> F18079 `i -> 1 `i 2434  ]
+[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2434  ]
 "196
 {
-"198
-[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2435  ]
-"199
-{
-"200
+"197
 [e = F18078 . `E18066 0 ]
-"201
+"198
 [e = F18080 ( _get_systemtick_time ..  ]
-"202
+"199
 [e = F18082 -> -> 0 `i `a ]
-"203
+"200
 }
-[e $U 2436  ]
-"204
-[e :U 2435 ]
-[e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2437  ]
-"205
-{
-"206
-[e = F18078 . `E18066 2 ]
-"207
-[e = F18080 ( _get_systemtick_time ..  ]
-"208
-}
-[e :U 2437 ]
-[e :U 2436 ]
-"209
-}
-[e $U 2438  ]
-"210
+[e $U 2435  ]
+"201
 [e :U 2434 ]
-[e $ ! == -> F18079 `i -> 0 `i 2439  ]
+[e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2436  ]
+"202
+{
+"203
+[e = F18078 . `E18066 2 ]
+"204
+[e = F18080 ( _get_systemtick_time ..  ]
+"205
+}
+[e :U 2436 ]
+[e :U 2435 ]
+"206
+}
+[e $U 2437  ]
+"207
+[e :U 2433 ]
+[e $ ! == -> F18079 `i -> 0 `i 2438  ]
+"208
+{
+"210
+[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2439  ]
 "211
 {
-"213
-[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2440  ]
-"214
-{
-"215
+"212
 [e = F18079 -> -> 1 `i `uc ]
+"213
+[e = F18078 . `E18066 0 ]
+"214
+[e = F18080 ( _get_systemtick_time ..  ]
+"215
+[e = F18082 -> -> 0 `i `a ]
 "216
-[e = F18078 . `E18066 0 ]
+}
+[e $U 2440  ]
 "217
-[e = F18080 ( _get_systemtick_time ..  ]
-"218
-[e = F18082 -> -> 0 `i `a ]
-"219
-}
-[e $U 2441  ]
-"220
-[e :U 2440 ]
-[e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2442  ]
-"221
-{
-"222
-[e = F18078 . `E18066 2 ]
-"223
-[e = F18080 ( _get_systemtick_time ..  ]
-"224
-}
-[e :U 2442 ]
-[e :U 2441 ]
-"225
-}
 [e :U 2439 ]
+[e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2441  ]
+"218
+{
+"219
+[e = F18078 . `E18066 2 ]
+"220
+[e = F18080 ( _get_systemtick_time ..  ]
+"221
+}
+[e :U 2441 ]
+[e :U 2440 ]
+"222
+}
 [e :U 2438 ]
+[e :U 2437 ]
+"223
+[e $U 2424  ]
+"225
+[e :U 2442 ]
 "226
-[e $U 2424  ]
-"228
-[e :U 2443 ]
-"229
-[e $ ! == -> _g_bPowerDownFlag `i -> 0 `i 2444  ]
-"230
-{
-"231
 [e = _g_bPowerDownFlag -> -> 1 `i `a ]
-"232
-[e = _UART_REG1 -> / -> _UART_REG1 `i -> 2 `i `uc ]
-"233
-}
-[e :U 2444 ]
-"235
-[e $ ! > -> _g_uVintValue `ui -> -> 2100 `i `ui 2445  ]
-"236
+"227
+[e $ ! > -> _g_uVintValue `ui -> -> 2100 `i `ui 2443  ]
+"228
 {
-"237
+"229
 [e = F18078 . `E18066 1 ]
-"238
+"230
 [e = F18080 ( _get_systemtick_time ..  ]
-"239
+"231
 }
-[e $U 2446  ]
-"240
-[e :U 2445 ]
-[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2447  ]
-"241
+[e $U 2444  ]
+"232
+[e :U 2443 ]
+[e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2445  ]
+"233
 {
-"242
+"234
 [e = F18078 . `E18066 0 ]
-"243
+"235
 [e = F18080 ( _get_systemtick_time ..  ]
-"244
+"236
 [e = F18082 -> -> 0 `i `a ]
-"245
+"237
 }
-[e :U 2447 ]
-[e :U 2446 ]
-"246
+[e :U 2445 ]
+[e :U 2444 ]
+"238
 [e $U 2424  ]
-"247
+"239
 }
 [e $U 2424  ]
 [e :U 2425 ]
 [e [\ -> F18078 `ui , $ -> . `E18066 0 `ui 2426
  , $ -> . `E18066 1 `ui 2432
- , $ -> . `E18066 2 `ui 2443
+ , $ -> . `E18066 2 `ui 2442
  2424 ]
 [e :U 2424 ]
-"248
+"240
 [e :UE 2421 ]
 }
-"254
-[v _Input_Protected `(v ~T0 @X0 1 ef ]
-"255
-{
-[e :U _Input_Protected ]
-[f ]
-"256
-[v _Input_result `us ~T0 @X0 1 a ]
-[e = _Input_result ( _ADC_Result2 (1 . `E17525 10 ]
-"257
-[e $U 2450  ]
-{
-"258
-[e :U 2451 ]
-"260
-[e $ ! && > -> _Input_result `ui -> -> 1900 `i `ui == -> _start_flag `i -> 0 `i 2452  ]
-"261
-{
-"262
-[e = _state -> -> 1 `i `us ]
-"263
-}
-[e :U 2452 ]
-"264
-[e $ ! && < -> _Input_result `ui -> -> 1685 `i `ui == -> _start_flag `i -> 0 `i 2453  ]
-"265
-{
-"266
-[e = _start_flag -> -> 0 `i `uc ]
-"267
-[e = _Temp_Flag -> -> 1 `i `uc ]
-"269
-[e $UE 2448  ]
-"270
-}
-[e :U 2453 ]
-"271
-[e $U 2449  ]
-"272
-[e :U 2454 ]
-"273
-[e $ ! > -> _Input_result `ui -> -> 2100 `i `ui 2455  ]
-"274
-{
-"275
-[e = _start_flag -> -> 1 `i `uc ]
-"276
-[e = _state -> -> 3 `i `us ]
-"277
-[e $ ! != -> _target_power `ui -> -> 0 `i `ui 2456  ]
-"278
-{
-"286
-[e = _target_power -> -> 0 `i `us ]
-"287
-[e = _target_power2 -> -> 1 `i `uc ]
-"288
-}
-[e :U 2456 ]
-"289
-[e = _Temp_Flag -> -> 0 `i `uc ]
-"290
-}
-[e :U 2455 ]
-"291
-[e $ ! <= -> _Input_result `ui -> -> 1780 `i `ui 2457  ]
-"292
-{
-"294
-[e ( _LightPowerOff (1 . `E17974 2 ]
-"295
-[e = _state -> -> 0 `i `us ]
-"296
-[e = _Temp_Flag -> -> 1 `i `uc ]
-"297
-[e = _start_flag -> -> 0 `i `uc ]
-"298
-}
-[e :U 2457 ]
-"299
-[e $U 2449  ]
-"300
-[e :U 2458 ]
-"301
-[e $ ! <= -> _Input_result `ui -> -> 1780 `i `ui 2459  ]
-"302
-{
-"304
-[e ( _LightPowerOff (1 . `E17974 2 ]
-"305
-[e = _state -> -> 0 `i `us ]
-"306
-[e = _start_flag -> -> 0 `i `uc ]
-"308
-[e =* _UART_REG1 -> -> 2 `i `uc ]
-"309
-[e = _target_power -> -> 1 `i `us ]
-"310
-[e = _Temp_Flag -> -> 1 `i `uc ]
-"311
-[e = _power_reduced -> -> 0 `i `uc ]
-"312
-}
-[e :U 2459 ]
-"313
-[e $ ! && >= -> _Input_result `ui -> -> 2000 `i `ui != -> _power_reduced `i -> 0 `i 2460  ]
-"314
-{
-"316
-[e =* _UART_REG1 -> -> 2 `i `uc ]
-"317
-[e = _power_reduced -> -> 0 `i `uc ]
-"318
-[e = _target_power2 -> -> 0 `i `uc ]
-"319
-[e = _start_flag -> -> 1 `i `uc ]
-"320
-[e = _Temp_Flag -> -> 1 `i `uc ]
-"321
-[e = _state -> -> 1 `i `us ]
-"322
-}
-[e :U 2460 ]
-"323
-[e $U 2449  ]
-"324
-[e :U 2461 ]
-"325
-[e $ ! && && > -> _Input_result `ui -> -> 1760 `i `ui < -> _Input_result `ui -> -> 1890 `i `ui ! != -> _power_reduced `i -> 0 `i 2462  ]
-"326
-{
-"328
-[e $ ! != -> _target_power2 `i -> 0 `i 2463  ]
-"329
-{
-"330
-[e = _power_reduced -> -> 1 `i `uc ]
-"331
-[e = _start_flag -> -> 1 `i `uc ]
-"333
-[e = _state -> -> 2 `i `us ]
-"334
-[e = _target_power2 -> -> 0 `i `uc ]
-"335
-}
-[e :U 2463 ]
-"336
-[e $ ! ! != -> _target_power2 `i -> 0 `i 2464  ]
-"337
-{
-"338
-[e = _UART_REG1 -> / -> _UART_REG1 `i -> 2 `i `uc ]
-"339
-[e = _power_reduced -> -> 1 `i `uc ]
-"340
-[e = _start_flag -> -> 1 `i `uc ]
-"342
-[e = _state -> -> 2 `i `us ]
-"343
-[e = _target_power2 -> -> 1 `i `uc ]
-"344
-}
-[e :U 2464 ]
-"345
-}
-[e :U 2462 ]
-"346
-[e $U 2449  ]
-"347
-[e :U 2465 ]
-"348
-[e = _state -> -> 0 `i `us ]
-"349
-[e $U 2449  ]
-"350
-}
-[e $U 2449  ]
-[e :U 2450 ]
-[e [\ -> _state `ui , $ -> -> 0 `i `ui 2451
- , $ -> -> 1 `i `ui 2454
- , $ -> -> 2 `i `ui 2458
- , $ -> -> 3 `i `ui 2461
- 2465 ]
-[e :U 2449 ]
-"351
-[e :UE 2448 ]
-}
-"353
+"243
 [v _IntProtectedTask `(v ~T0 @X0 1 ef ]
-"354
+"244
 {
 [e :U _IntProtectedTask ]
 [f ]
-"357
+"247
 [e ( _VoltageInputProtection ..  ]
-"358
-[e :UE 2466 ]
+"248
+[e :UE 2446 ]
 }

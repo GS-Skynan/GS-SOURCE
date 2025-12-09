@@ -10,6 +10,7 @@
 #include "dimming.h"
 #include "ticktime.h"
 #include "out_protected.h"
+#include "temp_protected.h"
 
 
 uint16_t flag_Compensation; //≤π≥•±Í ∂
@@ -188,10 +189,10 @@ void Display(void)
 {
 //     float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
 //     printf("|V:%d|\n\r",ADC_Result2(Input_voltage_ADC));
-        printf("CH1|I:%.2f|PWM:%d|V:%.2f|P:%.2f|\n\r ",
-              get_current(OUT_CURRENT1), pwm1, g_Voltage1,powernum1);
-       printf("CH2|I:%.2f|PWM:%d|V:%.2f|P:%.2f|\n\r ",
-               get_current(OUT_CURRENT2), pwm2, g_Voltage2,powernum2);
+        printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+              get_current(OUT_CURRENT1), g_Voltage1,powernum1, pwm1);
+       printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+               get_current(OUT_CURRENT2), g_Voltage2,powernum2, pwm2);
        
        printf("TP:%.2f|URGE1:%d|URGE2:%d| \n\r ", power_pwm,UART_REG1,UART_REG2);
   //     printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
@@ -199,6 +200,8 @@ void Display(void)
 
   //  printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
   //  printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
+       
+ //      printf("Temp:%.2f|\n\r ", Temp_Res);
 }
 
 

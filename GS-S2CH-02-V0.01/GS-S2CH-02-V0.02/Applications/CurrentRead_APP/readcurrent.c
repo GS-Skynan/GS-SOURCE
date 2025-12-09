@@ -5,11 +5,7 @@
 
 
 uint16_t power_Hold_1, power_Hold_2;
-
 uint8_t UART_REG1 = 0X00, UART_REG2 = 0X00;
-uint8_t UART_REG1_Pre = 0X00, UART_REG2_Pre = 0X00;
-
-
 uint16_t power_time = 1;
 uint16_t g_uPower1, g_uPower2;
 
@@ -20,7 +16,7 @@ void ReadCurrentInit(uint8_t* nfcData)
     if (power_Hold_1 >= 855) power_Hold_1 = 855; // 限幅处理：功率保持值不能超过3500
     if (power_Hold_1 < 500) power_Hold_1 = 500; // 限幅处理：功率保持值小于2300时视为无效值，置为0
     g_uPower1 = power_Hold_1; // 将处理后的功率保持值赋给当前通道电流变量
-    UART_REG1_Pre = UART_REG1 = nfcData[0]; // 从I2C接收数据的第0字节获取UART寄存器值，并保存当前值和前值
+    UART_REG1 = nfcData[0]; // 从I2C接收数据的第0字节获取UART寄存器值，并保存当前值和前值
     if (UART_REG1 >= 0x64)UART_REG1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
 
     /*2通道*/
@@ -28,7 +24,7 @@ void ReadCurrentInit(uint8_t* nfcData)
     if (power_Hold_2 >= 113) power_Hold_2 = 113; // 限幅处理：功率保持值不能超过1200
     if (power_Hold_2 < 50) power_Hold_2 = 50; // 限幅处理：功率保持值小于700时视为无效值，置为0
     g_uPower2 = power_Hold_2; // 将处理后的功率保持值赋给当前通道电流变量
-    UART_REG2_Pre = UART_REG2 = nfcData[4]; // 从I2C接收数据的第4字节获取UART寄存器值，并保存当前值和前值
+    UART_REG2 = nfcData[4]; // 从I2C接收数据的第4字节获取UART寄存器值，并保存当前值和前值
     if (UART_REG2 >= 0x64)UART_REG2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
     // 直接使用功率时间值作为time2  
 }

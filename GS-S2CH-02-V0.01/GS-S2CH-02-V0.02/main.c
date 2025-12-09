@@ -69,7 +69,7 @@ static TaskComps_t g_taskComps[] = {
     {0, 100, 100, IntProtectedTask},
 //    {0, 100, 100, LightsOffTask},
 //    {0, 1000, 1000, TimeCalculationTask},
- //   {0, 500, 500, TemapProtectedTask},
+    {0, 500, 500, TemapProtectedTask},
     {0, 10, 10, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
     {0, 10, 10, LED_Task},
@@ -148,7 +148,7 @@ int main(void)
     //INTERRUPT_GlobalInterruptDisable(); 
 
     APPInit();
-    __delay_ms(200);
+    __delay_ms(1500);
 
     while (1)
     {

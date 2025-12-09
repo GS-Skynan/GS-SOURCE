@@ -3,9 +3,8 @@
 
 #include "../../mcc_generated_files/system/system.h"
 
-
-extern uint8_t Temp_Flag;
-
+extern uint8_t Temp_protected_flag;
+extern float Temp_Res;
 void Temp_Protected(void);
 void TemapProtectedTask(void);
 
