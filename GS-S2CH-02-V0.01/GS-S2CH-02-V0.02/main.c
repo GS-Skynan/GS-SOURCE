@@ -50,6 +50,7 @@
 #include "dimming.h"
 #include "out_protected.h"
 #include "GPIO_driver.h"
+#include "version_task.h"
 
 /*
     Main application
@@ -119,6 +120,7 @@ static void APPInit(void)
     ReadNfcNumber();
     TaskScheduleCbReg(TaskScheduleCb);
 
+    VersionStore();
 }
 
 int main(void)

@@ -48,6 +48,7 @@ extern uint16_t power_time;
 extern uint16_t g_uChanne2Power;
 
 void ReadNfcNumber(void);
+void Readcalibration(void);
 
 extern uint16_t g_uTargetPower;
 

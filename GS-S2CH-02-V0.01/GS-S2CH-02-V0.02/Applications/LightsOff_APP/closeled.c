@@ -52,7 +52,7 @@ void ALL_Closed(void)
 void LED1_Close(void)
 {
         powernum1 = 0;
-        PIDflag1 = 0;
+        //PIDflag1 = 0;
         power_pwm = 0;
         regulator_clear();
         pwm1 = 0;
@@ -70,7 +70,7 @@ void LED1_Close(void)
 void LED2_Close(void)
 {
     powernum2 = 0;
-    PIDflag1 = 0;
+    //PIDflag1 = 0;
     pwm2 = 0;
     pid2.PWM_duty_cycle = 0; // 清零通道 2 的 PWM 占空比
     pid2.integral = 0.0f; // 清零通道 2 的积分项

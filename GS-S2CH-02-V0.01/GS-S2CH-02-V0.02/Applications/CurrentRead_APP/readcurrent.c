@@ -1,6 +1,7 @@
 #include "readcurrent.h"
 #include "nfc.h"
 #include "nfcapp.h"
+#include "EEPROM_driver.h"
 
 
 
@@ -8,6 +9,8 @@ uint16_t power_Hold_1, power_Hold_2;
 uint8_t UART_REG1 = 0X00, UART_REG2 = 0X00;
 uint16_t power_time = 1;
 uint16_t g_uPower1, g_uPower2;
+
+uint8_t calibrationBUFF[3];
 
 void ReadCurrentInit(uint8_t* nfcData)
 {
@@ -21,8 +24,8 @@ void ReadCurrentInit(uint8_t* nfcData)
 
     /*2通道*/
     power_Hold_2 = extractAndCombineEEPROMData(nfcData[6], nfcData[7]); // 从I2C接收数据的第6和第7字节提取并组合成16位功率保持值
-    if (power_Hold_2 >= 113) power_Hold_2 = 113; // 限幅处理：功率保持值不能超过1200
-    if (power_Hold_2 < 50) power_Hold_2 = 50; // 限幅处理：功率保持值小于700时视为无效值，置为0
+    if (power_Hold_2 >= 300) power_Hold_2 = 300; // 限幅处理：功率保持值不能超过1200
+    if (power_Hold_2 < 100) power_Hold_2 = 100; // 限幅处理：功率保持值小于700时视为无效值，置为0
     g_uPower2 = power_Hold_2; // 将处理后的功率保持值赋给当前通道电流变量
     UART_REG2 = nfcData[4]; // 从I2C接收数据的第4字节获取UART寄存器值，并保存当前值和前值
     if (UART_REG2 >= 0x64)UART_REG2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
@@ -39,6 +42,11 @@ void PowerCompensationTime(uint8_t* nfcData)
     power_time = power_time * 1000;
 }
 
+void Readcalibration(void)
+{
+    EepromReadBuffer(0, calibrationBUFF, sizeof (calibrationBUFF));
+}
+
 void ReadNfcNumber(void)
 {
     ReadCurrentInit(I2C_receiveData);
@@ -46,33 +54,75 @@ void ReadNfcNumber(void)
     __delay_ms(5);
 }
 
+//
+//
+//uint16_t  g_uChanne1Power;
+//uint16_t  g_uTargetPower;
+//uint16_t  g_uChanne2Power;
+//uint16_t  g_Pzong;
+//
+//
+//uint16_t  Power_Compensation(void)
+//{
+//    uint16_t setPower = 0;
+//    setPower = g_uPower1;
+//    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1)-24;
+//    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2)-19;
+//
+//    if (g_uChanne2Power < 0)g_uChanne2Power = 0;
+//    if (g_uChanne2Power > g_uPower2)g_uChanne2Power = g_uPower2;
+//    g_Pzong = g_uChanne1Power + g_uChanne2Power;
+//    if (g_Pzong > setPower)
+//    {
+//        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power) -29 ;
+//    }
+//    else
+//    {   
+//            g_uTargetPower = (g_uChanne1Power) ;
+//    }
+//
+//    if (g_uTargetPower < 0)g_uTargetPower = 0;
+//    if (g_uTargetPower > setPower)g_uTargetPower = setPower;
+//    return g_uTargetPower;
+//}
+
 
 
 uint16_t g_uChanne1Power;
 uint16_t g_uTargetPower;
-uint16_t g_uChanne2Power;
+uint16_t g_uChanne2Power; // 保持uint16_t，外部使用
 uint16_t g_Pzong;
-
 
 uint16_t Power_Compensation(void)
 {
-    uint16_t setPower = 0;
-    setPower = g_uPower1;
-    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1)-24;
-    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2)-19;
+    int32_t temp; // 用32位有符号计算，避免溢出
+    uint16_t setPower = g_uPower1;
+
+
+    temp = ((int32_t) g_uPower1 * UART_REG1 / 100) - 24;
+    if (temp < 0) temp = 0;
+    if (temp > g_uPower1) temp = g_uPower1;
+    g_uChanne1Power = (uint16_t) temp;
+
+    temp = ((int32_t) g_uPower2 * UART_REG2 / 100) - 19;
+    if (temp < 0)temp = 0;
+    if (temp > g_uPower2)temp = g_uPower2;
+    g_uChanne2Power = (uint16_t) temp;
+
     g_Pzong = g_uChanne1Power + g_uChanne2Power;
+
     if (g_Pzong > setPower)
     {
-        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power) -29 ;
+        temp = (int32_t) setPower - (g_Pzong - g_uChanne1Power) - 29;
     }
     else
-    {   
-            g_uTargetPower = (g_uChanne1Power) ;
+    {
+        temp = (int32_t) g_uChanne1Power;
     }
 
-    if (g_uTargetPower < 0)g_uTargetPower = 0;
-    if (g_uTargetPower > setPower)g_uTargetPower = setPower;
+    if (temp < 0) temp = 0;
+    if (temp > setPower) temp = setPower;
+
+    g_uTargetPower = (uint16_t) temp;
     return g_uTargetPower;
 }
-
-

@@ -51,4 +51,6 @@ Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 Applications/OutProtected_APP/out_protected.h  \
 Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/TempProtected_APP/temp_protected.h  \
-Applications/TempProtected_APP/../../mcc_generated_files/system/system.h 
+Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
+Applications/version_read/version_task.h  \
+Applications/version_read/../../mcc_generated_files/system/system.h 

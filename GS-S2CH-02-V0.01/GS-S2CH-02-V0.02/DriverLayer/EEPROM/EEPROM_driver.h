@@ -11,6 +11,7 @@
 
 uint8_t EepromReadByte(uint24_t offset);
 void EepromWriteByte(uint24_t offset, uint8_t data);
-
+void EepromWriteBuffer(uint16_t offset, uint8_t *data, uint16_t length);
+void EepromReadBuffer(uint16_t offset, uint8_t *buffer, uint16_t length);
 #endif 
 

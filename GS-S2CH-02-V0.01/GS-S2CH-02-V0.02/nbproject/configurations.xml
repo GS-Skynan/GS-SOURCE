@@ -76,6 +76,12 @@
         <itemPath>Applications/USBCom_APP/usbcom.c</itemPath>
         <itemPath>Applications/USBCom_APP/usbcom.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="version_read"
+                     displayName="version_read"
+                     projectFiles="true">
+        <itemPath>Applications/version_read/version_task.c</itemPath>
+        <itemPath>Applications/version_read/version_task.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="DriverLayer" displayName="DriverLayer" projectFiles="true">
       <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
@@ -291,7 +297,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
-                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE"/>
+                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\version_read"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -1520,6 +1526,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/debug/default/default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
