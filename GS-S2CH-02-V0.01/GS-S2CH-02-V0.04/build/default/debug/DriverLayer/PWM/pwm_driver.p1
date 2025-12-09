@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "5 DriverLayer/PWM/pwm_driver.c
-[c E17890 1 2 3 4 5 .. ]
-[n E17890 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
+[c E17885 1 2 3 4 5 .. ]
+[n E17885 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "83 DriverLayer/PWM/../../mcc_generated_files/system/../pwm/pwm2_16bit.h
 [v _PWM2_16BIT_SetSlice1Output1DutyCycleRegister `(v ~T0 @X0 0 ef1`us ]
 "101
@@ -1725,12 +1725,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51171
 [; <" TOSU equ 04FFh ;# ">
 "5 DriverLayer/PWM/pwm_driver.c
-[v _PWM_Set_Direct `(v ~T0 @X0 1 ef2`E17890`us ]
+[v _PWM_Set_Direct `(v ~T0 @X0 1 ef2`E17885`us ]
 "6
 {
 [e :U _PWM_Set_Direct ]
 "5
-[v _channel `E17890 ~T0 @X0 1 r1 ]
+[v _channel `E17885 ~T0 @X0 1 r1 ]
 [v _duty_cycle `us ~T0 @X0 1 r2 ]
 "6
 [f ]
@@ -1769,22 +1769,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2422  ]
 [e :U 2423 ]
-[e [\ -> _channel `ui , $ -> . `E17890 0 `ui 2424
- , $ -> . `E17890 1 `ui 2425
- , $ -> . `E17890 2 `ui 2426
- , $ -> . `E17890 3 `ui 2427
+[e [\ -> _channel `ui , $ -> . `E17885 0 `ui 2424
+ , $ -> . `E17885 1 `ui 2425
+ , $ -> . `E17885 2 `ui 2426
+ , $ -> . `E17885 3 `ui 2427
  2428 ]
 [e :U 2422 ]
 "29
 [e :UE 2421 ]
 }
 "32
-[v _PWM_Off_CHANNEL `(v ~T0 @X0 1 ef1`E17890 ]
+[v _PWM_Off_CHANNEL `(v ~T0 @X0 1 ef1`E17885 ]
 "33
 {
 [e :U _PWM_Off_CHANNEL ]
 "32
-[v _channel `E17890 ~T0 @X0 1 r1 ]
+[v _channel `E17885 ~T0 @X0 1 r1 ]
 "33
 [f ]
 "34

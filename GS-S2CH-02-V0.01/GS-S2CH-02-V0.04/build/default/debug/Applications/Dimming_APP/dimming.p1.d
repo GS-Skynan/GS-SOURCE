@@ -36,14 +36,11 @@ Applications/OutProtected_APP/out_protected.h  \
 Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/NFC/nfc.h  \
 DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
-Applications/NFCService_APP/nfcapp.h  \
-Applications/NFCService_APP/../../mcc_generated_files/system/system.h  \
 Applications/USBCom_APP/usbcom.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/PowerComp_APP/powercomp.h  \
-Applications/PowerComp_APP/../../mcc_generated_files/system/system.h  \
 Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 Applications/PwmRegulation_APP/pwm_change.h  \
@@ -61,4 +58,6 @@ DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 Applications/timerecord_app/record.h  \
 Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
 Applications/TempProtected_APP/temp_protected.h  \
-Applications/TempProtected_APP/../../mcc_generated_files/system/system.h 
+Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
+Applications/Bootloader/Bootloader.h  \
+Applications/Bootloader/../../mcc_generated_files/system/system.h 

@@ -1,4 +1,3 @@
-#include "nfcapp.h"
 #include "adc_driver.h"
 #include "out_protected.h"
 #include "readcurrent.h"
@@ -317,84 +316,6 @@ void Out_Protect(void)
         }
     }
 }
-
-//       if(UART_REG1 > 0x00)
-//       {
-//            buck_flag = 1; //
-//            if(buck_ok1&&pwm1>=300) V_Ret1 = Voltage_Judgment(Output1_voltage_ADC);
-//       }
-//       if(UART_REG2 >0x00)
-//       {
-//           buck_flag = 1; //
-//           if(buck_ok2&&pwm2>=200)V_Ret2 = Voltage_Judgment(Output2_voltage_ADC);                      //2通道迅速
-//       }
-
-
-//
-//    // 仅在Buck电路就绪且系统已启动时执行保护逻辑
-//    if(buck_ok1 == 1 || buck_ok2 == 1)
-//    {
-//        if(out_flag1)
-//        {     
-//            if(V_Ret1 == 1 && UART_REG1 >  0x1  && Close_Count1 <= 5)
-//            {    //通道1                           
-//                out_flag1 = 0;       //关闭通道1，30s后定时器值1（使得1通道重新启动）
-//                PFC_Flag1 = 1;       //设置通道1保护标志（全部短路）
-////                LED1_Close();        //关闭通道1输出
-//                LightPowerOff(LED_CHANNEL1_OFF);
-//                flag_close1 = 1;     //启用通道1关闭定时器
-//            }
-//
-//            //V_Ret1 == 2 ;表示短路
-//            if(V_Ret1 == 2 && UART_REG1 > 0x1 )
-//            {
-//                out_flag1 = 0;       //关闭通道1；30s后定时器值1（使得1通道重新启动）
-//                PFC_Flag1 = 1;       //设置通道1保护标志
-// //               LED1_Close();        //关闭通道1输出
-//                        LightPowerOff(LED_CHANNEL1_OFF);
-//                flag_close1 = 0;     //禁用通道1关闭定时器（可能立即保护，使得只触发一次）
-//            }
-//            
-//            // 通道1连续多次触发保护时，强制关闭输出
-//            if(Close_Count1 > 5)
-//            {
-//              //  LED1_Close();   
-//                        LightPowerOff(LED_CHANNEL1_OFF);
-//                out_flag1 = 0;       //关闭通道1，30s后定时器值1                
-//                Close_Count1 = 6;    //锁定保护状态
-//            }
-//        }
-//        
-//        if(out_flag2)
-//        {     
-//            if(V_Ret2 == 1 && UART_REG2 > 0x1 && Close_Count2 <= 5)
-//            {
-//                out_flag2 = 0;
-//                PFC_Flag2 = 2;       //设置通道2保护标志（全部短路）
-//             //   LED2_Close();        //关闭通道2输出
-//                        LightPowerOff(LED_CHANNEL2_OFF);
-//                flag_close2 = 1;     //启用通道2关闭定时器
-//            }
-//            
-//            if(V_Ret2 == 2 && UART_REG2 > 0x1)
-//            {          //短路
-//                out_flag2 = 0;
-//                PFC_Flag2 = 2;       //设置通道2保护标志
-//             //   LED2_Close();        //关闭通道2输出
-//                       LightPowerOff(LED_CHANNEL2_OFF);
-//                flag_close2 = 1;     //启用通道2关闭定时器
-//            }            
-//            // 通道2连续多次触发保护时，强制关闭输出
-//            if(Close_Count2 > 5)
-//            {
-//              //  LED2_Close();        
-//                       LightPowerOff(LED_CHANNEL2_OFF);
-//                out_flag2 = 0;
-//                Close_Count2 = 6;    //锁定保护状态
-//            }
-//        }
-//    }
-//}
 
 void OutProtectedTask(void)
 {

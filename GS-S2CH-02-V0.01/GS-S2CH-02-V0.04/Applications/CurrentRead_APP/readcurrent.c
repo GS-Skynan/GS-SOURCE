@@ -1,6 +1,5 @@
 #include "readcurrent.h"
 #include "nfc.h"
-#include "nfcapp.h"
 #include "EEPROM_driver.h"
 
 
@@ -11,6 +10,7 @@ uint16_t power_time = 1;
 uint16_t g_uPower1, g_uPower2;
 
 uint8_t calibrationBUFF[3];
+uint8_t I2C_receiveData[72];
 
 void ReadCurrentInit(uint8_t* nfcData)
 {
@@ -47,12 +47,17 @@ void Readcalibration(void)
     EepromReadBuffer(0, calibrationBUFF, sizeof (calibrationBUFF));
 }
 
-void ReadNfcNumber(void)
+
+
+void NFCRead_APPInit(void)
 {
+    READ_NFC_SET_START();     
+    Read_NFC_Data(0x0000,I2C_receiveData,MAX_NFC_DATA_LENGTH);
+    __delay_ms(10);                                                                // ±ÿ–Î”–—” ± 
     ReadCurrentInit(I2C_receiveData);
     PowerCompensationTime(I2C_receiveData);
-    __delay_ms(5);
 }
+
 
 //
 //

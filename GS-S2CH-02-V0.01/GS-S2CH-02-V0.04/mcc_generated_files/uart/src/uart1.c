@@ -35,8 +35,7 @@
   Section: Included Files
 */
 #include "../uart1.h"
-#include "queue.h"
-#include "ticktime.h"
+
 /**
   Section: Macro Declarations
 */
@@ -126,7 +125,6 @@ void UART1_ReceiveISR(void);
 /**
   Section: UART1  APIs
 */
-
 
 void UART1_Initialize(void)
 {
@@ -389,7 +387,8 @@ uint8_t UART1_GetRxCount(void)
     return uart1RxCount;
 }
 
-void __interrupt(irq(IRQ_U1RX), base(8)) UART1_Receive_Vector_ISR(void)
+
+void __interrupt(irq(IRQ_U1RX), base(12296)) UART1_Receive_Vector_ISR(void)
 {   
      UART1_ReceiveISR();
      PIR4bits.U1RXIF = 0;  
@@ -400,7 +399,7 @@ void UART1_ReceiveISR(void)
 {
     uint8_t regValue;
     uint8_t tempRxHead;
-     //use this default receive interrupt handler code
+    // use this default receive interrupt handler code
     uart1RxStatusBuffer[uart1RxHead].status = 0;
 
     if(true == U1ERRIRbits.FERIF)
@@ -428,30 +427,8 @@ void UART1_ReceiveISR(void)
         }   
     }  
  
-
     regValue = U1RXB;
  
-     // 使用队列环形缓冲区
-
-//    QueueStatus_t status = QueuePush(&uartQueue, regValue);
-
-  
-//   if(status == QUEUE_OVERLOAD) 
-//    {
-//        // 队列溢出处理
-//      
-//        if(NULL != UART1_OverrunErrorHandler)
-//        {
-//            UART1_OverrunErrorHandler();
-//        }   
-//    }
-//    else 
-//    {
-//        // 成功入队，更新原来的计数变量以保持兼容性
-//        uart1RxCount = QueueCount(&uartQueue);
-//    }
-//    
-   
     tempRxHead = (uart1RxHead + 1U) & UART1_RX_BUFFER_MASK;
     if (tempRxHead == uart1RxTail) 
     {
@@ -464,7 +441,6 @@ void UART1_ReceiveISR(void)
 		uart1RxCount++;
 	}   
     
-   
     if(NULL != UART1_RxCompleteInterruptHandler)
     {
         (*UART1_RxCompleteInterruptHandler)();
@@ -495,7 +471,7 @@ void UART1_Write(uint8_t txData)
     PIE4bits.U1TXIE = 1;
 }
 
-void __interrupt(irq(IRQ_U1TX), base(8)) UART1_Transmit_Vector_ISR(void)
+void __interrupt(irq(IRQ_U1TX), base(12296)) UART1_Transmit_Vector_ISR(void)
 {   
     UART1_TransmitISR();
 }
@@ -521,6 +497,10 @@ void UART1_TransmitISR(void)
         (*UART1_TxCompleteInterruptHandler)();
     }
 }
+
+
+
+
 
 static void UART1_DefaultFramingErrorCallback(void)
 {

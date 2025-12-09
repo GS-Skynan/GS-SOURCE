@@ -1,6 +1,5 @@
 #include "temp_protected.h"
 #include "dimming.h"
-#include "nfcapp.h"
 #include "inprotectedapp.h"
 #include "adc_driver.h"
 #include "closeled.h"
@@ -196,8 +195,5 @@ void Temp_Protected(void)
 }
 void TemapProtectedTask(void)
 {
-    //  if (tem_flag == 1)
-    //   {
     Temp_Protected();
-    //    }
 }

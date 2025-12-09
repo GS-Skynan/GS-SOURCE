@@ -4,7 +4,6 @@
 #include "Bootloader.h"
 #include "crc.h"
 #include "queue.h"
-#include "nfcapp.h"
 #include "adc_driver.h"
 #include <stdio.h>
 #include "dimming.h"
@@ -26,6 +25,8 @@ uint16_t g_uCheckCRCResult;
 
 volatile uint8_t Rx_Buffer_ISR[RX_BUFFER_SIZE];
 volatile uint8_t Rx_Length = 0;
+
+
 
 void UartReceivedISR(void)
 {
@@ -96,28 +97,36 @@ void Rs485Task(void)
         UART_REG1 = Rx_Buffer[8]; //第一通道
         UART_REG2 = Rx_Buffer[10]; //第一通道
     }
-    
-        //其他功能指令
-    if (Rx_Buffer[0] == 0xAA && Rx_Buffer[1] == 0x5A)
+
+    //其他功能指令
+    if (Rx_Buffer[0] == 0xAA && Rx_Buffer[1] == 0x5A) 
     {
         switch (Rx_Buffer[3]) {
-        case 0x01:
+        case 0x01:   //读写版本
             if (Rx_Buffer[2] == 0x01)
             {
                 Readhandle_version(Rx_Buffer);
             }
             if (Rx_Buffer[2] == 0x02)
             {
-               Writehandle_version(Rx_Buffer);
+                Writehandle_version(Rx_Buffer);
             }
             break;
+
+        case 0x17: //Boot升级
+            if (Rx_Buffer[2] == 0x01)
+            {
+                    Access_Bootloder();
+            }
+            break;
+
+
 
         default: break;
         }
     }
     ClearReceiveData();
 }
-
 
 void UsbcomAppInit(void)
 {
@@ -130,21 +139,21 @@ void UsbcomAppInit(void)
 
 void Display(void)
 {
-//     float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
-//     printf("|V:%d|\n\r",ADC_Result2(Input_voltage_ADC));
-        printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
-              get_current(OUT_CURRENT1), g_Voltage1,powernum1, pwm1);
-       printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
-               get_current(OUT_CURRENT2), g_Voltage2,powernum2, pwm2);
-       
-       printf("TP:%.2f|URGE1:%d|URGE2:%d| \n\r ", power_pwm,UART_REG1,UART_REG2);
-  //     printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
+    //     float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
+    //     printf("|V:%d|\n\r",ADC_Result2(Input_voltage_ADC));
+    printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+           get_current(OUT_CURRENT1), g_Voltage1, powernum1, pwm1);
+    printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+           get_current(OUT_CURRENT2), g_Voltage2, powernum2, pwm2);
+
+    printf("TP:%.2f|URGE1:%d|URGE2:%d| \n\r ", power_pwm, UART_REG1, UART_REG2);
+    //     printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
 
 
-  //  printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
-  //  printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
-       
- //      printf("Temp:%.2f|\n\r ", Temp_Res);
+    //  printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
+    //  printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
+
+    //      printf("Temp:%.2f|\n\r ", Temp_Res);
 }
 
 

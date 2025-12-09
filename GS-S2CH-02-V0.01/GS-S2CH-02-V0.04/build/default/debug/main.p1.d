@@ -33,8 +33,6 @@ Applications/timerecord_app/record.h  \
 Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
 Applications/PwmRegulation_APP/pwm_change.h  \
 Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
-Applications/NFCService_APP/nfcapp.h  \
-Applications/NFCService_APP/../../mcc_generated_files/system/system.h  \
 Applications/USBCom_APP/usbcom.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
@@ -46,7 +44,6 @@ Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 Applications/PowerComp_APP/powercomp.h  \
-Applications/PowerComp_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 Applications/Dimming_APP/dimming.h  \

@@ -43,7 +43,6 @@ Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/ADC/adc_driver.h  \
 DriverLayer/ADC/../../mcc_generated_files/system/system.h  \
 Applications/PowerComp_APP/powercomp.h  \
-Applications/PowerComp_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \

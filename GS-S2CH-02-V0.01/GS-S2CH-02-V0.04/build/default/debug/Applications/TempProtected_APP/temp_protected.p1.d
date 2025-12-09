@@ -32,8 +32,6 @@ Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr4.h 
 Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
 Applications/Dimming_APP/dimming.h  \
 Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
-Applications/NFCService_APP/nfcapp.h  \
-Applications/NFCService_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/ADC/adc_driver.h  \

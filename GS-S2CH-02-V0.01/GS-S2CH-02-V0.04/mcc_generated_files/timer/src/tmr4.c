@@ -143,7 +143,7 @@ void TMR4_TMRInterruptDisable(void)
     PIE11bits.TMR4IE = 0;
 }
 
-void __interrupt(irq(TMR4),base(8),low_priority) TMR4_ISR(void)
+void __interrupt(irq(TMR4),base(12296),low_priority) TMR4_ISR(void)
 {
     // The ticker is set to 1 -> The callback function gets called every time this ISR executes.
     if(NULL != TMR4_PeriodMatchCallback)

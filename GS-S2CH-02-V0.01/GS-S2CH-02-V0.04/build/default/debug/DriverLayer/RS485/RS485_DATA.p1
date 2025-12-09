@@ -1731,77 +1731,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"16 Applications/NFCService_APP/nfcapp.h
-[v _con1 `uc ~T0 @X0 1 e ]
-[i _con1
--> -> 1 `i `uc
-]
-[v _con2 `uc ~T0 @X0 1 e ]
-[i _con2
--> -> 1 `i `uc
-]
-[v _con3 `uc ~T0 @X0 1 e ]
-[i _con3
--> -> 1 `i `uc
-]
-[v _con4 `uc ~T0 @X0 1 e ]
-[i _con4
--> -> 1 `i `uc
-]
-"8 DriverLayer/RS485/RS485_DATA.c
+"6 DriverLayer/RS485/RS485_DATA.c
 [v _Rs485_DataSend `(v ~T0 @X0 1 ef2`*uc`uc ]
-"9
+"7
 {
 [e :U _Rs485_DataSend ]
-"8
+"6
 [v _data `*uc ~T0 @X0 1 r1 ]
 [v _dataLength `uc ~T0 @X0 1 r2 ]
-"9
+"7
 [f ]
-"10
+"8
 [v _commWriteDataCount `uc ~T0 @X0 1 a ]
-"11
+"9
 [e = _commWriteDataCount -> -> 0 `i `uc ]
-"13
+"11
 [e :U 2426 ]
 {
 [e = . . _LATFbits 0 3 -> -> 1 `i `uc ]
 }
 [e :U 2425 ]
-"14
+"12
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"15
+"13
 [e $U 2427  ]
 [e :U 2428 ]
+"14
+{
+"15
+[e $ ! != -> ( _UART1_IsTxReady ..  `i -> 0 `i 2430  ]
 "16
 {
 "17
-[e $ ! != -> ( _UART1_IsTxReady ..  `i -> 0 `i 2430  ]
-"18
-{
-"19
 [e ( _UART1_Write (1 *U _data ]
-"20
+"18
 [e ++ _commWriteDataCount -> -> 1 `i `uc ]
-"21
+"19
 [e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
-"22
+"20
 }
 [e :U 2430 ]
-"23
+"21
 }
 [e :U 2427 ]
-"15
+"13
 [e $ < -> _commWriteDataCount `i -> _dataLength `i 2428  ]
 [e :U 2429 ]
-"24
+"22
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"25
+"23
 [e :U 2433 ]
 {
 [e = . . _LATFbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2432 ]
-"26
+"24
 [e :UE 2423 ]
 }

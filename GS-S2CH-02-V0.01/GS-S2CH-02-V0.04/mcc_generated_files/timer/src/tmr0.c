@@ -122,78 +122,9 @@ void TMR0_TMRInterruptDisable(void)
 {
     PIE3bits.TMR0IE = 0;
 }
-//unsigned int time1=0; 
-//extern volatile unsigned char buck_flag;
-//extern unsigned char buck_ok1,buck_ok2;
-//
-//extern unsigned char start_flag;         //注意
-//unsigned int Close1_time1 = 0,Close_Count1 = 0,Close_Count2 = 0;
-//unsigned int time_close = 0,time_close1 = 0,time_close2 = 0;
-//unsigned int flag_close1 = 0,flag_close2 = 0;
-//
-//extern unsigned int buck_open;
-//extern unsigned int adc_value[2];
-//extern unsigned char out_flag1,out_flag2;
-//unsigned int reply_flag = 0,reply_ok = 0,reply_time;
 
-void __interrupt(irq(TMR0),base(8)) TMR0_ISR()
+void __interrupt(irq(TMR0),base(12296)) TMR0_ISR()
 {
-    
-    
-     //Clear the TMR0 interrupt flag
-    
-    
-    
-    //        uart_timeout_counter++;
-//        
-//        if (uart_timeout_counter >= 100) {  //100ms清理一次
-//            Rx_Length = 0;
-//            uart_timeout_counter = 0;
-//        }   
-    
-    
-//    if(buck_flag == 1){
-//        time1++;
-//        if(time1 == 200){
-//            buck_ok1 = 1;
-//            buck_ok2 = 1;
-//            time1 = 0;
-//            buck_flag = 0;
-//        }                  
-//    }    
-//    time_close++;
-//    if(time_close == 200){     //200ms 
-//        if(flag_close1)time_close1++;
-//        if(flag_close2)time_close2++;
-//        time_close = 0;
-//    }
-//    if(time_close1 == 150){        
-//        out_flag1 = 1; 
-//        Close_Count1++;
-//        time_close1 = 0;
-//        if(Close_Count1 >= 6) flag_close1 = 0;                        
-//    }
-//    if(time_close2 == 150){
-//        out_flag2 = 1;
-//        Close_Count2++;
-//        time_close2 = 0;
-//        if(Close_Count2 >= 6)flag_close2 = 0;
-//    }
-//    
-//
-//    if(reply_flag==1)   //应答计时
-//        {
-//           reply_time++;
-//           if(reply_time>=200)
-//           {
-//              reply_time=0;
-//              reply_ok=1;
-//              reply_flag=0;
-//           }
-//        }   
-//     PIR3bits.TMR0IF = 0;
-    
-//     TMR0_Reload(TMR0H);
     if(NULL != TMR0_PeriodMatchCallback)
     {
         TMR0_PeriodMatchCallback();

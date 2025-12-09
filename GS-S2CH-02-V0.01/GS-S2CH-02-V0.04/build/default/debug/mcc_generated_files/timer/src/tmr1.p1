@@ -83,7 +83,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24479
 [v _T1GCONbits `VS1166 ~T0 @X0 0 e@799 ]
 [t ~ __interrupt . k ]
-[t T1 __interrupt irq ( TMR1 ) base ( 8 ) ]
+[t T1 __interrupt irq ( TMR1 ) base ( 12296 ) ]
 [v F17201 `(v ~T0 @X0 0 tf ]
 [v F17203 `(v ~T0 @X0 0 tf ]
 [v F17205 `(v ~T0 @X0 0 tf ]

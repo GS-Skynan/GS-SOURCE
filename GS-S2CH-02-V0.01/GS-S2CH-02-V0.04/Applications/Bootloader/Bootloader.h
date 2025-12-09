@@ -10,7 +10,7 @@
 
 
 extern uint8_t start_flag;   
-
+extern bool g_uBootUpgradeFlag;
 
 void Close_ALL_LED(void);
 bool BootFlagIsValid(void);

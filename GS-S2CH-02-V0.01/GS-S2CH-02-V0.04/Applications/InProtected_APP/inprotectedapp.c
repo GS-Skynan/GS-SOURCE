@@ -1,7 +1,6 @@
 #include "inprotectedapp.h"
 #include "nfc.h"
 #include "TEMP_PROTECTED.h"
-#include "nfcapp.h"
 #include "adc_driver.h"
 #include "closeled.h"
 #include "readcurrent.h"
@@ -243,7 +242,6 @@ void VoltageInputProtection(void)
 void IntProtectedTask(void)
 {
 
-    //Input_Protected();
     VoltageInputProtection();
 }
 

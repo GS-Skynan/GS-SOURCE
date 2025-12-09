@@ -325,7 +325,7 @@ uint8_t UART2_Read(void)
     return readValue;
 }
 
-void __interrupt(irq(IRQ_U2RX), base(8), low_priority) UART2_Receive_Vector_ISR(void)
+void __interrupt(irq(IRQ_U2RX), base(12296), low_priority) UART2_Receive_Vector_ISR(void)
 {   
     UART2_ReceiveISR();
 }
@@ -406,7 +406,7 @@ void UART2_Write(uint8_t txData)
     PIE8bits.U2TXIE = 1;
 }
 
-void __interrupt(irq(IRQ_U2TX), base(8), low_priority) UART2_Transmit_Vector_ISR(void)
+void __interrupt(irq(IRQ_U2TX), base(12296), low_priority) UART2_Transmit_Vector_ISR(void)
 {   
     UART2_TransmitISR();
 }

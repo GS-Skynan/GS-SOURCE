@@ -1,6 +1,4 @@
 #include "RS485_DATA.h"
-#include "nfcapp.h"
-
 #include <stdio.h>
 
 

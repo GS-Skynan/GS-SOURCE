@@ -50,7 +50,7 @@ void  INTERRUPT_Initialize (void)
     IVTLOCKbits.IVTLOCKED = 0x00; // unlock IVT
 
     IVTBASEU = 0;
-    IVTBASEH = 0; //48
+    IVTBASEH = 48;
     IVTBASEL = 8;
 
     IVTLOCK = 0x55;
@@ -58,43 +58,47 @@ void  INTERRUPT_Initialize (void)
     IVTLOCKbits.IVTLOCKED = 0x01; // lock IVT
 
     GIE = state;
-//    // Assign peripheral interrupt priority vectors
-//    IPR3bits.TMR2IP = 1;
-//    IPR3bits.TMR1IP = 1;
-//    IPR3bits.TMR0IP = 1;
-//    IPR4bits.U1RXIP = 1;
-//    IPR4bits.U1TXIP = 1;
-//    IPR8bits.U2RXIP = 1;
-//    IPR8bits.U2TXIP = 1;
-//    IPR8bits.U2IP = 1;
-//
-//    // Clear the interrupt flag
-//    // Set the external interrupt edge detect
-//    EXT_INT0_InterruptFlagClear();   
-//    EXT_INT0_risingEdgeSet();    
-//    // Set Default Interrupt Handler
-//    INT0_SetInterruptHandler(INT0_DefaultInterruptHandler);
-//    // EXT_INT0_InterruptEnable();
-//
-//    // Clear the interrupt flag
-//    // Set the external interrupt edge detect
-//    EXT_INT1_InterruptFlagClear();   
-//    EXT_INT1_risingEdgeSet();    
-//    // Set Default Interrupt Handler
-//    INT1_SetInterruptHandler(INT1_DefaultInterruptHandler);
-//    // EXT_INT1_InterruptEnable();
-//
-//    // Clear the interrupt flag
-//    // Set the external interrupt edge detect
-//    EXT_INT2_InterruptFlagClear();   
-//    EXT_INT2_risingEdgeSet();    
-//    // Set Default Interrupt Handler
-//    INT2_SetInterruptHandler(INT2_DefaultInterruptHandler);
-//    // EXT_INT2_InterruptEnable();
+    // Assign peripheral interrupt priority vectors
+    IPR3bits.TMR2IP = 1;
+    IPR3bits.TMR1IP = 1;
+    IPR3bits.TMR0IP = 1;
+    IPR4bits.U1RXIP = 1;
+    IPR4bits.U1TXIP = 1;
+    IPR7bits.I2C1RXIP = 0;
+    IPR7bits.I2C1TXIP = 0;
+    IPR7bits.I2C1IP = 0;
+    IPR7bits.I2C1EIP = 0;
+    IPR8bits.U2RXIP = 0;
+    IPR8bits.U2TXIP = 0;
+    IPR11bits.TMR4IP = 0;
+
+    // Clear the interrupt flag
+    // Set the external interrupt edge detect
+    EXT_INT0_InterruptFlagClear();   
+    EXT_INT0_risingEdgeSet();    
+    // Set Default Interrupt Handler
+    INT0_SetInterruptHandler(INT0_DefaultInterruptHandler);
+    // EXT_INT0_InterruptEnable();
+
+    // Clear the interrupt flag
+    // Set the external interrupt edge detect
+    EXT_INT1_InterruptFlagClear();   
+    EXT_INT1_risingEdgeSet();    
+    // Set Default Interrupt Handler
+    INT1_SetInterruptHandler(INT1_DefaultInterruptHandler);
+    // EXT_INT1_InterruptEnable();
+
+    // Clear the interrupt flag
+    // Set the external interrupt edge detect
+    EXT_INT2_InterruptFlagClear();   
+    EXT_INT2_risingEdgeSet();    
+    // Set Default Interrupt Handler
+    INT2_SetInterruptHandler(INT2_DefaultInterruptHandler);
+    // EXT_INT2_InterruptEnable();
 
 }
 
-void __interrupt(irq(default),base(8)) Default_ISR()
+void __interrupt(irq(default),base(12296)) Default_ISR()
 {
 }
 
@@ -107,7 +111,7 @@ void __interrupt(irq(default),base(8)) Default_ISR()
  * @param None.
  * @return None.
  */
-void __interrupt(irq(INT0),base(8)) INT0_ISR()
+void __interrupt(irq(INT0),base(12296)) INT0_ISR()
 {
     EXT_INT0_InterruptFlagClear();
 
@@ -141,7 +145,7 @@ void INT0_DefaultInterruptHandler(void){
  * @param None.
  * @return None.
  */
-void __interrupt(irq(INT1),base(8)) INT1_ISR()
+void __interrupt(irq(INT1),base(12296)) INT1_ISR()
 {
     EXT_INT1_InterruptFlagClear();
 
@@ -175,7 +179,7 @@ void INT1_DefaultInterruptHandler(void){
  * @param None.
  * @return None.
  */
-void __interrupt(irq(INT2),base(8)) INT2_ISR()
+void __interrupt(irq(INT2),base(12296)) INT2_ISR()
 {
     EXT_INT2_InterruptFlagClear();
 
@@ -205,5 +209,3 @@ void INT2_DefaultInterruptHandler(void){
 /**
  End of File
 */
-
-

@@ -88,7 +88,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27597
 [v _T4RSTbits `VS1323 ~T0 @X0 0 e@819 ]
 [t ~ __interrupt . k ]
-[t T1 __interrupt irq ( TMR4 ) base ( 8 ) low_priority ]
+[t T1 __interrupt irq ( TMR4 ) base ( 12296 ) low_priority ]
 [v F17242 `(v ~T0 @X0 0 tf ]
 [v F17244 `(v ~T0 @X0 0 tf ]
 [v F17246 `(v ~T0 @X0 0 tf ]

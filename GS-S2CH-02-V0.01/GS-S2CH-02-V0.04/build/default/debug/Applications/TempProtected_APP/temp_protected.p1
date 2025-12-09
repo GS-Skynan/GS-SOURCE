@@ -5,7 +5,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [s S2423 `ui 1 `ui 1 `ui 1 `uc 1 `S2422 1 `ui 1 ]
 [n S2423 . total_power_time_H power_time_minutes power_time_msecond power_timer_flag record_time save_flag ]
-"95 Applications/TempProtected_APP/temp_protected.c
+"94 Applications/TempProtected_APP/temp_protected.c
 [c E17525 59 60 61 62 63 0 1 3 4 5 13 .. ]
 [n E17525 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA0 ADC_CHANNEL_ANA1 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANA5 ADC_CHANNEL_ANB5  ]
 "211 Applications/TempProtected_APP/../../mcc_generated_files/system/../adc/adc.h
@@ -1730,23 +1730,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"16 Applications/NFCService_APP/nfcapp.h
-[v _con1 `uc ~T0 @X0 1 e ]
-[i _con1
--> -> 1 `i `uc
-]
-[v _con2 `uc ~T0 @X0 1 e ]
-[i _con2
--> -> 1 `i `uc
-]
-[v _con3 `uc ~T0 @X0 1 e ]
-[i _con3
--> -> 1 `i `uc
-]
-[v _con4 `uc ~T0 @X0 1 e ]
-[i _con4
--> -> 1 `i `uc
-]
 "33 Applications/timerecord_app/record.h
 [v _StartTime `S2423 ~T0 @X0 1 e ]
 [i _StartTime
@@ -1789,257 +1772,257 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"14 Applications/TempProtected_APP/temp_protected.c
+"13 Applications/TempProtected_APP/temp_protected.c
 [v _T_flag `uc ~T0 @X0 1 e ]
 [i _T_flag
 -> -> 0 `i `uc
 ]
-"15
+"14
 [v _Temp_Flag `uc ~T0 @X0 1 e ]
-"16
+"15
 [v _Temp_protected_flag `uc ~T0 @X0 1 e ]
 [i _Temp_protected_flag
 -> -> 0 `i `uc
 ]
-"17
+"16
 [v _Temp_Res `f ~T0 @X0 1 e ]
-"89
+"88
 [v _Temp_Protected `(v ~T0 @X0 1 ef ]
-"90
+"89
 {
 [e :U _Temp_Protected ]
 [f ]
-"91
-[v F18985 `uc ~T0 @X0 1 s Tempstate ]
-[i F18985
+"90
+[v F18934 `uc ~T0 @X0 1 s Tempstate ]
+[i F18934
 -> -> 0 `i `uc
 ]
-"92
-[v F18986 `ul ~T0 @X0 1 s temptime ]
-[i F18986
+"91
+[v F18935 `ul ~T0 @X0 1 s temptime ]
+[i F18935
 -> -> -> 0 `i `l `ul
 ]
-"93
-[v F18987 `uc ~T0 @X0 1 s temp_stable_count ]
-[i F18987
+"92
+[v F18936 `uc ~T0 @X0 1 s temp_stable_count ]
+[i F18936
 -> -> 0 `i `uc
 ]
-"95
+"94
 [v _temperature `s ~T0 @X0 1 a ]
 [e = _temperature ( _ADC_ChannelSelectAndConvert (1 . `E17525 7 ]
-"96
+"95
 [v _voltage `f ~T0 @X0 1 a ]
 [e = _voltage * / -> _temperature `f -> .4095.0 `f -> .4.096 `f ]
-"97
+"96
 [e = _Temp_Res _voltage ]
-"99
+"98
 [v _current_time `ul ~T0 @X0 1 a ]
 [e = _current_time ( _get_systemtick_time ..  ]
-"100
+"99
 [v _elapsed_time `ul ~T0 @X0 1 a ]
-[e = _elapsed_time ( _get_elapsed_since (1 F18986 ]
-"103
-[v F18992 `f ~T0 @X0 1 s last_voltage ]
-[i F18992
+[e = _elapsed_time ( _get_elapsed_since (1 F18935 ]
+"102
+[v F18941 `f ~T0 @X0 1 s last_voltage ]
+[i F18941
 -> -> 0 `i `f
 ]
+"103
+[e $ ! < ( _fabsf (1 - _voltage F18941 -> .0.05 `f 2427  ]
 "104
-[e $ ! < ( _fabsf (1 - _voltage F18992 -> .0.05 `f 2427  ]
-"105
 {
-"106
-[e $ ! < -> F18987 `i -> 5 `i 2428  ]
-[e ++ F18987 -> -> 1 `i `uc ]
+"105
+[e $ ! < -> F18936 `i -> 5 `i 2428  ]
+[e ++ F18936 -> -> 1 `i `uc ]
 [e :U 2428 ]
-"107
+"106
 }
 [e $U 2429  ]
-"108
+"107
 [e :U 2427 ]
-"109
+"108
 {
+"109
+[e = F18936 -> -> 0 `i `uc ]
 "110
-[e = F18987 -> -> 0 `i `uc ]
-"111
 }
 [e :U 2429 ]
-"112
-[e = F18992 _voltage ]
-"115
+"111
+[e = F18941 _voltage ]
+"114
 [e $U 2431  ]
+"115
+{
 "116
-{
-"117
 [e :U 2432 ]
-"118
+"117
 [e = _Temp_protected_flag -> -> 0 `i `uc ]
+"119
+[e $ ! >= -> F18936 `i -> 5 `i 2433  ]
 "120
-[e $ ! >= -> F18987 `i -> 5 `i 2433  ]
+{
 "121
-{
-"122
 [e $ ! && >= _voltage -> .1.8 `f < _voltage -> .2.2 `f 2434  ]
-"123
+"122
 {
-"125
+"124
 [e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2435  ]
-"126
+"125
 {
+"126
+[e = F18934 -> -> 1 `i `uc ]
 "127
-[e = F18985 -> -> 1 `i `uc ]
+[e = F18935 _current_time ]
 "128
-[e = F18986 _current_time ]
-"129
 }
 [e :U 2435 ]
-"130
+"129
 }
 [e $U 2436  ]
-"131
+"130
 [e :U 2434 ]
 [e $ ! >= _voltage -> .2.4 `f 2437  ]
-"132
+"131
 {
-"134
+"133
 [e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2438  ]
-"135
+"134
 {
+"135
+[e = F18934 -> -> 2 `i `uc ]
 "136
-[e = F18985 -> -> 2 `i `uc ]
+[e = F18935 _current_time ]
 "137
-[e = F18986 _current_time ]
-"138
 }
 [e :U 2438 ]
-"139
+"138
 }
 [e $U 2439  ]
-"140
+"139
 [e :U 2437 ]
-"141
+"140
 {
+"142
+[e = F18935 _current_time ]
 "143
-[e = F18986 _current_time ]
-"144
 }
 [e :U 2439 ]
 [e :U 2436 ]
-"145
+"144
 }
 [e :U 2433 ]
-"146
+"145
 [e $U 2430  ]
-"148
+"147
 [e :U 2440 ]
-"149
+"148
 [e = _Temp_protected_flag -> -> 1 `i `uc ]
+"150
+[e $ ! >= -> F18936 `i -> 5 `i 2441  ]
 "151
-[e $ ! >= -> F18987 `i -> 5 `i 2441  ]
+{
 "152
-{
-"153
 [e $ ! <= _voltage -> .1.3 `f 2442  ]
-"154
+"153
 {
-"156
+"155
 [e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2443  ]
-"157
+"156
 {
+"157
+[e = F18934 -> -> 0 `i `uc ]
 "158
-[e = F18985 -> -> 0 `i `uc ]
+[e = F18935 _current_time ]
 "159
-[e = F18986 _current_time ]
-"160
 }
 [e :U 2443 ]
-"161
+"160
 }
 [e $U 2444  ]
-"162
+"161
 [e :U 2442 ]
 [e $ ! >= _voltage -> .2.4 `f 2445  ]
-"163
+"162
 {
-"165
+"164
 [e $ ! >= _elapsed_time -> -> -> 1000 `i `l `ul 2446  ]
-"166
+"165
 {
+"166
+[e = F18934 -> -> 2 `i `uc ]
 "167
-[e = F18985 -> -> 2 `i `uc ]
+[e = F18935 _current_time ]
 "168
-[e = F18986 _current_time ]
-"169
 }
 [e :U 2446 ]
-"170
+"169
 }
 [e $U 2447  ]
-"171
+"170
 [e :U 2445 ]
-"172
+"171
 {
+"173
+[e = F18935 _current_time ]
 "174
-[e = F18986 _current_time ]
-"175
 }
 [e :U 2447 ]
 [e :U 2444 ]
-"176
+"175
 }
 [e :U 2441 ]
-"177
+"176
 [e $U 2430  ]
-"179
+"178
 [e :U 2448 ]
-"180
+"179
 [e = _Temp_protected_flag -> -> 2 `i `uc ]
+"181
+[e $ ! >= -> F18936 `i -> 5 `i 2449  ]
 "182
-[e $ ! >= -> F18987 `i -> 5 `i 2449  ]
+{
 "183
-{
-"184
 [e $ ! <= _voltage -> .1.3 `f 2450  ]
-"185
+"184
 {
-"187
+"186
 [e $ ! >= _elapsed_time -> -> -> 2000 `i `l `ul 2451  ]
-"188
+"187
 {
+"188
+[e = F18934 -> -> 0 `i `uc ]
 "189
-[e = F18985 -> -> 0 `i `uc ]
+[e = F18935 _current_time ]
 "190
-[e = F18986 _current_time ]
-"191
 }
 [e :U 2451 ]
-"192
+"191
 }
 [e :U 2450 ]
-"193
+"192
 }
 [e :U 2449 ]
-"194
+"193
 [e $U 2430  ]
-"195
+"194
 }
 [e $U 2430  ]
 [e :U 2431 ]
-[e [\ F18985 , $ -> 0 `i 2432
+[e [\ F18934 , $ -> 0 `i 2432
  , $ -> 1 `i 2440
  , $ -> 2 `i 2448
  2430 ]
 [e :U 2430 ]
-"196
+"195
 [e :UE 2426 ]
 }
-"197
+"196
 [v _TemapProtectedTask `(v ~T0 @X0 1 ef ]
-"198
+"197
 {
 [e :U _TemapProtectedTask ]
 [f ]
-"201
+"198
 [e ( _Temp_Protected ..  ]
-"203
+"199
 [e :UE 2452 ]
 }

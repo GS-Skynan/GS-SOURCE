@@ -101,7 +101,7 @@ I2C_Status_t Write_NFC_Data(uint16_t nfc_dataAdd, uint8_t *nfcdata, uint8_t data
     // 创建合并的缓冲区：地址(2字节) + 数据(dataLength字节)
     int8_t combined_buffer[2 + MAX_NFC_DATA_LENGTH ];
     
-    // 复制地址到缓冲区前两个字节
+//    复制地址到缓冲区前两个字节
 //    combined_buffer[0] = nfc_dataAdd[0];  // 地址高字节
 //    combined_buffer[1] = nfc_dataAdd[1];  // 地址低字节
     
@@ -123,30 +123,4 @@ I2C_Status_t Write_NFC_Data(uint16_t nfc_dataAdd, uint8_t *nfcdata, uint8_t data
     }
       __delay_ms(100);
     return I2C_SUCCESS;
-}
-
-
-
-/*选择通道，对NFC的数据进行转换
- *unsigned char channel：通道
- * unsigned char* eeprom_data_ptr：相应的通道数据（NFC数据）
- * unsigned char read_eeprom_H：高8位
- * unsigned char read_eeprom_L：低八位
- */
-void processChannelDataIfNeeded(unsigned char channel, unsigned char* eeprom_data_ptr, unsigned char read_eeprom_H, unsigned char read_eeprom_L)
-{
-}
-/*处理通道数据的函数
- *unsigned char channel:通道选择
- *unsigned int channelData：通道数据，即NFC刷的电流值（十进制）
- */
-void processChannelData(unsigned char channel, unsigned int channelData)
-{
-}
-/*电流数据处理,四通道*/
-//unsigned char flag3;
-//unsigned char flag4;
-//unsigned char Data[2];
-void Current_Data_Processing(unsigned char channel, unsigned int channelData)
-{
 }

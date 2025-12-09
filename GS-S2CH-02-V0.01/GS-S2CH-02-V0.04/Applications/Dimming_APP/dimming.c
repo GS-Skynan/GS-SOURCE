@@ -2,7 +2,6 @@
 #include "adc_driver.h"
 #include "out_protected.h"
 #include "nfc.h"
-#include "nfcapp.h"
 #include "usbcom.h"
 #include "inprotectedapp.h"
 #include "powercomp.h"
@@ -18,7 +17,7 @@
 #include "stdio.h"
 #include "readcurrent.h"
 #include "temp_protected.h"
-
+#include "Bootloader.h"
 
 
 uint8_t start_flag = 0; //注意,启动标识，1：表示系统启动
@@ -186,6 +185,11 @@ uint8_t ProtectionCheck(void)
 {
 
     if (start_flag != 1)
+    {
+        return 1;
+    }
+    
+    if(g_uBootUpgradeFlag==1)
     {
         return 1;
     }

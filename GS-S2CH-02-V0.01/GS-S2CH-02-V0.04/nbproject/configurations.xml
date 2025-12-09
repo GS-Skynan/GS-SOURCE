@@ -30,23 +30,11 @@
         <itemPath>Applications/LightsOff_APP/closeled.c</itemPath>
         <itemPath>Applications/LightsOff_APP/closeled.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="NFCService_APP"
-                     displayName="NFCService_APP"
-                     projectFiles="true">
-        <itemPath>Applications/NFCService_APP/nfcapp.c</itemPath>
-        <itemPath>Applications/NFCService_APP/nfcapp.h</itemPath>
-      </logicalFolder>
       <logicalFolder name="OutProtected_APP"
                      displayName="OutProtected_APP"
                      projectFiles="true">
         <itemPath>Applications/OutProtected_APP/out_protected.c</itemPath>
         <itemPath>Applications/OutProtected_APP/out_protected.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="PowerComp_APP"
-                     displayName="PowerComp_APP"
-                     projectFiles="true">
-        <itemPath>Applications/PowerComp_APP/powercomp.c</itemPath>
-        <itemPath>Applications/PowerComp_APP/powercomp.h</itemPath>
       </logicalFolder>
       <logicalFolder name="PwmRegulation_APP"
                      displayName="PwmRegulation_APP"
@@ -65,12 +53,6 @@
                      projectFiles="true">
         <itemPath>Applications/Ticktime_APP/ticktime.c</itemPath>
         <itemPath>Applications/Ticktime_APP/ticktime.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="timerecord_app"
-                     displayName="timerecord_app"
-                     projectFiles="true">
-        <itemPath>Applications/timerecord_app/record.c</itemPath>
-        <itemPath>Applications/timerecord_app/record.h</itemPath>
       </logicalFolder>
       <logicalFolder name="USBCom_APP" displayName="USBCom_APP" projectFiles="true">
         <itemPath>Applications/USBCom_APP/usbcom.c</itemPath>
@@ -327,7 +309,7 @@
         <property key="additional-options-checksum" value=""/>
         <property key="additional-options-checksumAVR" value=""/>
         <property key="additional-options-checksumAVR2" value="0"/>
-        <property key="additional-options-code-offset" value=""/>
+        <property key="additional-options-code-offset" value="3000"/>
         <property key="additional-options-command-line" value=""/>
         <property key="additional-options-errata" value=""/>
         <property key="additional-options-extend-address" value="false"/>
@@ -1527,7 +1509,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
         <property key="programmerToGoFilePath"
-                  value="C:/Users/12918/Desktop/PIC/bootloader3.0/Bootloader_V3.0/Bootloader_V3.0/app/app.X/debug/default/app_ptg"/>
+                  value="D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.04/debug/default/default_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

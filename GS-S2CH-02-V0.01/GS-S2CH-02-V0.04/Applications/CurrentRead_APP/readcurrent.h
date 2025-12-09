@@ -47,8 +47,9 @@ extern uint8_t UART_REG1,UART_REG2;
 extern uint16_t power_time;
 extern uint16_t g_uChanne2Power;
 
-void ReadNfcNumber(void);
+
 void Readcalibration(void);
+void NFCRead_APPInit(void);
 
 extern uint16_t g_uTargetPower;
 

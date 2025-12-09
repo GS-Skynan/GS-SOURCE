@@ -29,6 +29,4 @@ DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr1_deprecated.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr2.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr2_deprecated.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr4.h  \
-DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
-Applications/NFCService_APP/nfcapp.h  \
-Applications/NFCService_APP/../../mcc_generated_files/system/system.h 
+DriverLayer/RS485/../../mcc_generated_files/system/../timer/tmr4_deprecated.h 

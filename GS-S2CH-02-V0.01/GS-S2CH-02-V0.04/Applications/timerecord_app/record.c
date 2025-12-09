@@ -1,5 +1,4 @@
 #include "record.h"
-#include "nfcapp.h"
 #include "EEPROM_driver.h"
 #include "nfc.h"
 #include "dimming.h"

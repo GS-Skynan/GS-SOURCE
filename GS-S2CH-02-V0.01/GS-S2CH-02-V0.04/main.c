@@ -33,12 +33,9 @@
     THIS SOFTWARE.
  */
 
-
-
 #include "mcc_generated_files/system/system.h"
 #include "record.h"
 #include "pwm_change.h"
-#include "nfcapp.h"
 #include "usbcom.h"
 #include "inprotectedapp.h"
 #include "TEMP_PROTECTED.h"
@@ -74,7 +71,7 @@ static TaskComps_t g_taskComps[] = {
     {0, 10, 10, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
     {0, 10, 10, LED_Task},
-    {0, 5000, 5000, Display},
+//    {0, 5000, 5000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))
@@ -111,13 +108,11 @@ static void APPInit(void)
 {
     GPIO_APPInit();
     Time0_AppInit();
-    Time1_AppInit();
     PIDDimming_Init();
     Time2_AppInit();
     UsbcomAppInit();
     PID_Init_Parameters(); // 初始化两路 PID 控制器
     NFCRead_APPInit();
-    ReadNfcNumber();
     TaskScheduleCbReg(TaskScheduleCb);
 
     VersionStore();

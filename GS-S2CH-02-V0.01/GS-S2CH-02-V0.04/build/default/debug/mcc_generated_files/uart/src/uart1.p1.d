@@ -30,8 +30,4 @@ mcc_generated_files/uart/src/../../system/../timer/tmr2.h  \
 mcc_generated_files/uart/src/../../system/../timer/tmr2_deprecated.h  \
 mcc_generated_files/uart/src/../../system/../timer/tmr4.h  \
 mcc_generated_files/uart/src/../../system/../timer/tmr4_deprecated.h  \
-mcc_generated_files/uart/src/../uart_drv_interface.h  \
-Middlewares/QUEUE/queue.h  \
-Middlewares/QUEUE/../../mcc_generated_files/system/system.h  \
-Applications/Ticktime_APP/ticktime.h  \
-Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h 
+mcc_generated_files/uart/src/../uart_drv_interface.h 

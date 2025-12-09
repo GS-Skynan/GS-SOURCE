@@ -3,8 +3,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _EepromReadByte `(uc ~T0 @X0 0 ef1`um ]
 "13
 [v _EepromWriteByte `(v ~T0 @X0 0 ef2`um`uc ]
-"15 Applications/Bootloader/Bootloader.h
-[v _Close_ALL_LED `(v ~T0 @X0 0 ef ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
@@ -19,13 +17,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _LATFbits `VS2291 ~T0 @X0 0 e@1219 ]
 "15 DriverLayer/RS485/RS485_DATA.h
 [v _Rs485_DataSend `(v ~T0 @X0 0 ef2`*uc`uc ]
-"12 Applications/Bootloader/Bootloader.h
-[v _start_flag `uc ~T0 @X0 0 e ]
-"120 Applications/Bootloader/Bootloader.c
-[c E18392 1 2 3 .. ]
-[n E18392 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
-"14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E18392 ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1742,196 +1733,203 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"19 Applications/Bootloader/Bootloader.c
-[v _Boot_Buffer `uc ~T0 @X0 -> 6 `i e ]
-"23
+"23 Applications/Bootloader/Bootloader.c
+[v _Boot_Buffer `uc ~T0 @X0 -> 8 `i e ]
+"24
+[v _g_uBootUpgradeFlag `a ~T0 @X0 1 e ]
+[i _g_uBootUpgradeFlag
+-> -> 0 `i `a
+]
+"26
 [v _BootCalculateChecksum `(us ~T0 @X0 1 ef2`*Cuc`uc ]
+"27
 {
 [e :U _BootCalculateChecksum ]
+"26
 [v _data `*Cuc ~T0 @X0 1 r1 ]
 [v _len `uc ~T0 @X0 1 r2 ]
+"27
 [f ]
-"24
+"28
 [v _sum `ul ~T0 @X0 1 a ]
 [e = _sum -> -> -> 0 `i `l `ul ]
-"26
+"30
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 2428  ]
 [e :U 2425 ]
+"31
 {
-"27
+"32
 [e =+ _sum -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `ul ]
-"28
+"33
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 2428 ]
 [e $ < -> _i `i -> _len `i 2425  ]
 [e :U 2426 ]
 }
-"30
+"35
 [e ) -> & _sum -> -> 65535 `ui `ul `us ]
 [e $UE 2424  ]
-"31
+"36
 [e :UE 2424 ]
 }
-"34
+"38
 [v _BootFlagIsValid `(a ~T0 @X0 1 ef ]
-"35
+"39
 {
 [e :U _BootFlagIsValid ]
 [f ]
-"36
-[v _magic_data `uc ~T0 @X0 -> 4 `i a ]
-"38
-[e = *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> -> 1018 `ui `um ]
-"39
-[e = *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1018 `ui -> -> 1 `i `ui `um ]
 "40
-[e = *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1018 `ui -> -> 2 `i `ui `um ]
-"41
-[e = *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1018 `ui -> -> 3 `i `ui `um ]
+[v _magic_data `uc ~T0 @X0 -> 6 `i a ]
+"42
+[e = *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> -> 1016 `ui `um ]
 "43
-[e $ ! || || || != -> *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 90 `i != -> *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 165 `i != -> *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 195 `i != -> *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 60 `i 2430  ]
+[e = *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 1 `i `ui `um ]
+"44
+[e = *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 2 `i `ui `um ]
+"45
+[e = *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 3 `i `ui `um ]
+"46
+[e = *U + &U _magic_data * -> -> -> 4 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 4 `i `ui `um ]
 "47
-{
+[e = *U + &U _magic_data * -> -> -> 5 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 5 `i `ui `um ]
 "48
+[e $ ! || || || || || != -> *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 6 `i != -> *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 5 `i != -> *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 4 `i != -> *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 3 `i != -> *U + &U _magic_data * -> -> -> 4 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 2 `i != -> *U + &U _magic_data * -> -> -> 5 `i `ui `ux -> -> # *U &U _magic_data `ui `ux `i -> 1 `i 2430  ]
+"54
+{
+"55
 [e ) -> -> 0 `i `a ]
 [e $UE 2429  ]
-"49
+"56
 }
 [e :U 2430 ]
-"51
+"58
 [v _checksum_high `uc ~T0 @X0 1 a ]
-[e = _checksum_high ( _EepromReadByte (1 -> + -> 1018 `ui -> -> 4 `i `ui `um ]
-"52
+[e = _checksum_high ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 6 `i `ui `um ]
+"59
 [v _checksum_low `uc ~T0 @X0 1 a ]
-[e = _checksum_low ( _EepromReadByte (1 -> + -> 1018 `ui -> -> 5 `i `ui `um ]
-"53
+[e = _checksum_low ( _EepromReadByte (1 -> + -> 1016 `ui -> -> 7 `i `ui `um ]
+"60
 [v _stored_checksum `us ~T0 @X0 1 a ]
 [e = _stored_checksum -> | << -> _checksum_high `i -> 8 `i -> _checksum_low `i `us ]
-"56
+"63
 [v _calculated_checksum `us ~T0 @X0 1 a ]
-[e = _calculated_checksum ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 4 `i `uc ]
-"59
+[e = _calculated_checksum ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 6 `i `uc ]
+"66
 [e $ ! == -> _stored_checksum `ui -> _calculated_checksum `ui 2431  ]
-"60
+"67
 [e ) -> -> 1 `i `a ]
 [e $UE 2429  ]
 [e $U 2432  ]
-"61
+"68
 [e :U 2431 ]
-"62
+"69
 {
-"63
+"70
 [e ) -> -> 0 `i `a ]
 [e $UE 2429  ]
-"64
+"71
 }
 [e :U 2432 ]
-"65
+"72
 [e :UE 2429 ]
 }
-"69
+"74
 [v _BootFlagSetJump `(v ~T0 @X0 1 ef ]
+"75
 {
 [e :U _BootFlagSetJump ]
 [f ]
-[v F18441 `uc ~T0 @X0 -> 4 `i s ]
-[i F18441
+[v F18438 `uc ~T0 @X0 -> 6 `i s ]
+[i F18438
 :U ..
-"70
--> -> 90 `i `uc
--> -> 165 `i `uc
--> -> 195 `i `uc
--> -> 60 `i `uc
+"76
+-> -> 6 `i `uc
+-> -> 5 `i `uc
+-> -> 4 `i `uc
+-> -> 3 `i `uc
+-> -> 2 `i `uc
+-> -> 1 `i `uc
 ..
 ]
-[v _magic_data `uc ~T0 @X0 -> 4 `i a ]
-[e = _magic_data F18441 ]
-"77
+[v _magic_data `uc ~T0 @X0 -> 6 `i a ]
+[e = _magic_data F18438 ]
+"85
 [v _checksum_value `us ~T0 @X0 1 a ]
-[e = _checksum_value ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 4 `i `uc ]
-"79
+[e = _checksum_value ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 6 `i `uc ]
+"87
 [v _checksum_high `uc ~T0 @X0 1 a ]
 [e = _checksum_high -> & >> -> _checksum_value `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"80
+"88
 [v _checksum_low `uc ~T0 @X0 1 a ]
 [e = _checksum_low -> & -> _checksum_value `ui -> -> 255 `i `ui `uc ]
-"82
-[e ( _EepromWriteByte (2 , -> -> 1018 `ui `um *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
-"83
-[e ( _EepromWriteByte (2 , -> + -> 1018 `ui -> -> 1 `i `ui `um *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
-"84
-[e ( _EepromWriteByte (2 , -> + -> 1018 `ui -> -> 2 `i `ui `um *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
-"85
-[e ( _EepromWriteByte (2 , -> + -> 1018 `ui -> -> 3 `i `ui `um *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
-"86
-[e ( _EepromWriteByte (2 , -> + -> 1018 `ui -> -> 4 `i `ui `um _checksum_high ]
-"87
-[e ( _EepromWriteByte (2 , -> + -> 1018 `ui -> -> 5 `i `ui `um _checksum_low ]
-"88
+"90
+[e ( _EepromWriteByte (2 , -> -> 1016 `ui `um *U + &U _magic_data * -> -> -> 0 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"91
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 1 `i `ui `um *U + &U _magic_data * -> -> -> 1 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"92
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 2 `i `ui `um *U + &U _magic_data * -> -> -> 2 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"93
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 3 `i `ui `um *U + &U _magic_data * -> -> -> 3 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"94
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 4 `i `ui `um *U + &U _magic_data * -> -> -> 4 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"95
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 5 `i `ui `um *U + &U _magic_data * -> -> -> 5 `i `ui `ux -> -> # *U &U _magic_data `ui `ux ]
+"96
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 6 `i `ui `um _checksum_high ]
+"97
+[e ( _EepromWriteByte (2 , -> + -> 1016 `ui -> -> 7 `i `ui `um _checksum_low ]
+"98
 [e :UE 2433 ]
 }
-"90
+"100
 [v _Access_Bootloder `(v ~T0 @X0 1 ef ]
-"91
+"101
 {
 [e :U _Access_Bootloder ]
 [f ]
-"93
-[e ( _Close_ALL_LED ..  ]
-"95
+"105
 [e ( _BootFlagSetJump ..  ]
-"96
+"106
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"98
+"108
 [e $ ! == -> ( _BootFlagIsValid ..  `i -> 1 `i 2435  ]
-"99
+"109
 {
-"100
+"110
+[e = _g_uBootUpgradeFlag -> -> 1 `i `a ]
+"111
 [e :U 2438 ]
 {
 [e = . . _LATFbits 0 3 -> -> 1 `i `uc ]
 }
 [e :U 2437 ]
-"101
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"102
-[e = *U + &U _Boot_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1018 `i `m `um ]
-"103
-[e = *U + &U _Boot_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1019 `i `m `um ]
-"104
-[e = *U + &U _Boot_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1020 `i `m `um ]
-"105
-[e = *U + &U _Boot_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1021 `i `m `um ]
-"106
-[e = *U + &U _Boot_Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1022 `i `m `um ]
-"107
-[e = *U + &U _Boot_Buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1023 `i `m `um ]
-"108
-[e ( _Rs485_DataSend (2 , &U _Boot_Buffer -> -> # _Boot_Buffer `ui `uc ]
-"109
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"111
-[; <" reset ;# ">
 "112
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"113
+[e = *U + &U _Boot_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1016 `i `m `um ]
+"114
+[e = *U + &U _Boot_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1017 `i `m `um ]
+"115
+[e = *U + &U _Boot_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1018 `i `m `um ]
+"116
+[e = *U + &U _Boot_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1019 `i `m `um ]
+"117
+[e = *U + &U _Boot_Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1020 `i `m `um ]
+"118
+[e = *U + &U _Boot_Buffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _Boot_Buffer `ui `ux ( _EepromReadByte (1 -> -> -> 1021 `i `m `um ]
+"119
+[e ( _Rs485_DataSend (2 , &U _Boot_Buffer -> -> # _Boot_Buffer `ui `uc ]
+"121
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"123
+[; <" reset ;# ">
+"124
 }
 [e :U 2435 ]
-"113
+"125
 [e :UE 2434 ]
-}
-"116
-[v _Close_ALL_LED `(v ~T0 @X0 1 ef ]
-"117
-{
-[e :U _Close_ALL_LED ]
-[f ]
-"118
-[e = _start_flag -> -> 0 `i `uc ]
-"120
-[e ( _LightPowerOff (1 . `E18392 2 ]
-"121
-[e :UE 2439 ]
 }

@@ -26,23 +26,11 @@ I2C_Status_t Write_NFC_Data(uint16_t nfc_dataAdd, uint8_t *nfcdata, uint8_t data
 /* NFC初始化设置 */
 void READ_NFC_SET_START(void);
 
-
-
-
 unsigned int extractAndCombineEEPROMData(unsigned char read_eeprom_H, unsigned char read_eeprom_L);
 /* 函数：读取EEPROM数据并拆分为高字节和低字节 */
 void readEEPROMData(unsigned char *data, unsigned char *highByte, unsigned char *lowByte);
 /* 函数：将高字节和低字节合并为16位数据 */
 unsigned int combineEEPROMData(unsigned char highByte, unsigned char lowByte);
-
-
-
-/*NFC数据处理*/
-void float_to_string(float number, char *str, int decimal_places);
-void processChannelDataIfNeeded(unsigned char channel, unsigned char* eeprom_data_ptr, unsigned char read_eeprom_H, unsigned char read_eeprom_L);
-void processChannelData(unsigned char channel, unsigned int channelData);
-/*电流数据处理*/
-void Current_Data_Processing(unsigned char channel, unsigned int channelData);
 
 #endif 
 

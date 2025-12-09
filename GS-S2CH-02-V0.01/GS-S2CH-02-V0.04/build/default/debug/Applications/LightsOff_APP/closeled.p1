@@ -7,25 +7,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 Applications/PwmRegulation_APP/pwm_change.h
 [v _target_duty_cycle_Out1 `i ~T0 @X0 0 e ]
 [v _target_duty_cycle_Out2 `i ~T0 @X0 0 e ]
-"32 Applications/LightsOff_APP/closeled.c
-[c E18013 1 2 3 4 5 .. ]
-[n E18013 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
+"31 Applications/LightsOff_APP/closeled.c
+[c E17977 1 2 3 4 5 .. ]
+[n E17977 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "15 DriverLayer/PWM/pwm_driver.h
-[v _PWM_Off_CHANNEL `(v ~T0 @X0 0 ef1`E18013 ]
-"33 Applications/LightsOff_APP/closeled.c
-[c E17990 1 2 .. ]
-[n E17990 . L6562_CHANNEL1 L6562_CHANNEL2  ]
+[v _PWM_Off_CHANNEL `(v ~T0 @X0 0 ef1`E17977 ]
+"32 Applications/LightsOff_APP/closeled.c
+[c E17954 1 2 .. ]
+[n E17954 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "26 DriverLayer/GPIO/GPIO_driver.h
-[v _L6562_Off `(v ~T0 @X0 0 ef1`E17990 ]
+[v _L6562_Off `(v ~T0 @X0 0 ef1`E17954 ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
-"37 Applications/LightsOff_APP/closeled.c
-[c E17994 1 2 .. ]
-[n E17994 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
+"36 Applications/LightsOff_APP/closeled.c
+[c E17958 1 2 .. ]
+[n E17958 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "29 DriverLayer/GPIO/GPIO_driver.h
-[v _RELAY_Off `(v ~T0 @X0 0 ef1`E17994 ]
+[v _RELAY_Off `(v ~T0 @X0 0 ef1`E17958 ]
 "9 Applications/Dimming_APP/dimming.h
 [v _pfc_flag `uc ~T0 @X0 0 e ]
 "24
@@ -40,9 +40,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [v _powernum1 `f ~T0 @X0 0 e ]
 [v _powernum2 `f ~T0 @X0 0 e ]
-"87 Applications/LightsOff_APP/closeled.c
-[c E17890 1 2 3 .. ]
-[n E17890 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
+"86 Applications/LightsOff_APP/closeled.c
+[c E17885 1 2 3 .. ]
+[n E17885 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1757,188 +1757,171 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"16 Applications/NFCService_APP/nfcapp.h
-[v _con1 `uc ~T0 @X0 1 e ]
-[i _con1
--> -> 1 `i `uc
-]
-[v _con2 `uc ~T0 @X0 1 e ]
-[i _con2
--> -> 1 `i `uc
-]
-[v _con3 `uc ~T0 @X0 1 e ]
-[i _con3
--> -> 1 `i `uc
-]
-[v _con4 `uc ~T0 @X0 1 e ]
-[i _con4
--> -> 1 `i `uc
-]
 "36 Applications/PwmRegulation_APP/pwm_change.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
 [v _pid2 `S2421 ~T0 @X0 1 e ]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"18 Applications/LightsOff_APP/closeled.c
+"17 Applications/LightsOff_APP/closeled.c
 [v _ALL_Closed `(v ~T0 @X0 1 ef ]
-"19
+"18
 {
 [e :U _ALL_Closed ]
 [f ]
-"21
+"20
 [e ( _PFC_Off ..  ]
-"24
+"23
 [e = . _pid1 10 -> 0 `i ]
-"25
+"24
 [e = . _pid1 8 -> .0.0 `f ]
-"26
+"25
 [e = . _pid1 9 -> .0.0 `f ]
-"27
+"26
 [e = . _pid2 10 -> 0 `i ]
-"28
+"27
 [e = . _pid2 8 -> .0.0 `f ]
-"29
+"28
 [e = . _pid2 9 -> .0.0 `f ]
-"30
+"29
 [e = _target_duty_cycle_Out1 -> 0 `i ]
-"31
+"30
 [e = _target_duty_cycle_Out2 -> 0 `i ]
+"31
+[e ( _PWM_Off_CHANNEL (1 . `E17977 4 ]
 "32
-[e ( _PWM_Off_CHANNEL (1 . `E18013 4 ]
+[e ( _L6562_Off (1 . `E17954 0 ]
 "33
-[e ( _L6562_Off (1 . `E17990 0 ]
-"34
-[e ( _L6562_Off (1 . `E17990 1 ]
-"36
+[e ( _L6562_Off (1 . `E17954 1 ]
+"35
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"36
+[e ( _RELAY_Off (1 . `E17958 0 ]
 "37
-[e ( _RELAY_Off (1 . `E17994 0 ]
+[e ( _RELAY_Off (1 . `E17958 1 ]
 "38
-[e ( _RELAY_Off (1 . `E17994 1 ]
-"39
 [e = _pfc_flag -> -> 1 `i `uc ]
-"40
+"39
 [e = _power_pwm -> -> 0 `i `f ]
-"41
+"40
 [e = _PIDflag1 -> -> 0 `i `uc ]
-"42
+"41
 [e ( _regulator_clear ..  ]
-"43
+"42
 [e = _pwm1 -> -> 0 `i `us ]
-"44
+"43
 [e = _pwm2 -> -> 0 `i `us ]
-"45
+"44
 [e = _powernum1 -> -> 0 `i `f ]
-"46
+"45
 [e = _powernum2 -> -> 0 `i `f ]
-"48
+"47
 [e :UE 2424 ]
 }
-"52
+"51
 [v _LED1_Close `(v ~T0 @X0 1 ef ]
-"53
+"52
 {
 [e :U _LED1_Close ]
 [f ]
-"54
+"53
 [e = _powernum1 -> -> 0 `i `f ]
-"56
+"55
 [e = _power_pwm -> -> 0 `i `f ]
-"57
+"56
 [e ( _regulator_clear ..  ]
-"58
+"57
 [e = _pwm1 -> -> 0 `i `us ]
-"59
+"58
 [e = . _pid1 10 -> 0 `i ]
-"60
+"59
 [e = . _pid1 8 -> .0.0 `f ]
-"61
+"60
 [e = . _pid1 9 -> .0.0 `f ]
-"62
+"61
 [e = _target_duty_cycle_Out1 -> 0 `i ]
+"62
+[e ( _PWM_Off_CHANNEL (1 . `E17977 0 ]
 "63
-[e ( _PWM_Off_CHANNEL (1 . `E18013 0 ]
-"64
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"64
+[e ( _L6562_Off (1 . `E17954 0 ]
 "65
-[e ( _L6562_Off (1 . `E17990 0 ]
-"66
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"66
+[e ( _RELAY_Off (1 . `E17954 0 ]
 "67
-[e ( _RELAY_Off (1 . `E17990 0 ]
-"68
 [e :UE 2425 ]
 }
-"70
+"69
 [v _LED2_Close `(v ~T0 @X0 1 ef ]
-"71
+"70
 {
 [e :U _LED2_Close ]
 [f ]
-"72
+"71
 [e = _powernum2 -> -> 0 `i `f ]
-"74
+"73
 [e = _pwm2 -> -> 0 `i `us ]
-"75
+"74
 [e = . _pid2 10 -> 0 `i ]
-"76
+"75
 [e = . _pid2 8 -> .0.0 `f ]
-"77
+"76
 [e = . _pid2 9 -> .0.0 `f ]
-"78
+"77
 [e = _target_duty_cycle_Out2 -> 0 `i ]
+"78
+[e ( _PWM_Off_CHANNEL (1 . `E17977 1 ]
 "79
-[e ( _PWM_Off_CHANNEL (1 . `E18013 1 ]
-"80
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"80
+[e ( _L6562_Off (1 . `E17954 1 ]
 "81
-[e ( _L6562_Off (1 . `E17990 1 ]
-"82
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"82
+[e ( _RELAY_Off (1 . `E17954 1 ]
 "83
-[e ( _RELAY_Off (1 . `E17990 1 ]
-"84
 [e :UE 2426 ]
 }
+"86
+[v _LightPowerOff `(v ~T0 @X0 1 ef1`E17885 ]
 "87
-[v _LightPowerOff `(v ~T0 @X0 1 ef1`E17890 ]
-"88
 {
 [e :U _LightPowerOff ]
+"86
+[v _ledsta `E17885 ~T0 @X0 1 r1 ]
 "87
-[v _ledsta `E17890 ~T0 @X0 1 r1 ]
-"88
 [f ]
-"89
+"88
 [e $U 2429  ]
 {
-"90
+"89
 [e :U 2430 ]
-"91
+"90
 [e ( _LED1_Close ..  ]
-"92
+"91
 [e $U 2428  ]
-"94
+"93
 [e :U 2431 ]
-"95
+"94
 [e ( _LED2_Close ..  ]
-"96
+"95
 [e $U 2428  ]
-"98
+"97
 [e :U 2432 ]
-"99
+"98
 [e ( _ALL_Closed ..  ]
-"100
+"99
 [e $U 2428  ]
-"101
+"100
 }
 [e $U 2428  ]
 [e :U 2429 ]
-[e [\ -> _ledsta `ui , $ -> . `E17890 0 `ui 2430
- , $ -> . `E17890 1 `ui 2431
- , $ -> . `E17890 2 `ui 2432
+[e [\ -> _ledsta `ui , $ -> . `E17885 0 `ui 2430
+ , $ -> . `E17885 1 `ui 2431
+ , $ -> . `E17885 2 `ui 2432
  2428 ]
 [e :U 2428 ]
-"102
+"101
 [e :UE 2427 ]
 }

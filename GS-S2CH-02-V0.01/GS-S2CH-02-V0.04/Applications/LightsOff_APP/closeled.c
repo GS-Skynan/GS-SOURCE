@@ -1,5 +1,4 @@
 #include "closeled.h"
-#include "nfcapp.h"
 #include "inprotectedapp.h"
 #include "readcurrent.h"
 #include "pwm_change.h"

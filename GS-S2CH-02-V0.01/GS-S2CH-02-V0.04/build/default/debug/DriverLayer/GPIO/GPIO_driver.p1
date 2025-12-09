@@ -8,8 +8,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49158
 [v _LATFbits `VS2291 ~T0 @X0 0 e@1219 ]
 "36 DriverLayer/GPIO/GPIO_driver.c
-[c E17890 1 2 .. ]
-[n E17890 . L6562_CHANNEL1 L6562_CHANNEL2  ]
+[c E17885 1 2 .. ]
+[n E17885 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "49115 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [s S2290 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2290 . LATE0 LATE1 LATE2 ]
@@ -19,8 +19,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49121
 [v _LATEbits `VS2289 ~T0 @X0 0 e@1218 ]
 "60 DriverLayer/GPIO/GPIO_driver.c
-[c E17894 1 2 .. ]
-[n E17894 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
+[c E17889 1 2 .. ]
+[n E17889 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "48991 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [s S2286 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2286 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -1834,12 +1834,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2441 ]
 }
 "36
-[v _L6562_Off `(v ~T0 @X0 1 ef1`E17890 ]
+[v _L6562_Off `(v ~T0 @X0 1 ef1`E17885 ]
 "37
 {
 [e :U _L6562_Off ]
 "36
-[v _channel `E17890 ~T0 @X0 1 r1 ]
+[v _channel `E17885 ~T0 @X0 1 r1 ]
 "37
 [f ]
 "38
@@ -1872,12 +1872,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2445 ]
 }
 "48
-[v _L6562_On `(v ~T0 @X0 1 ef1`E17890 ]
+[v _L6562_On `(v ~T0 @X0 1 ef1`E17885 ]
 "49
 {
 [e :U _L6562_On ]
 "48
-[v _channel `E17890 ~T0 @X0 1 r1 ]
+[v _channel `E17885 ~T0 @X0 1 r1 ]
 "49
 [f ]
 "50
@@ -1910,12 +1910,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2454 ]
 }
 "60
-[v _RELAY_Off `(v ~T0 @X0 1 ef1`E17894 ]
+[v _RELAY_Off `(v ~T0 @X0 1 ef1`E17889 ]
 "61
 {
 [e :U _RELAY_Off ]
 "60
-[v _channel `E17894 ~T0 @X0 1 r1 ]
+[v _channel `E17889 ~T0 @X0 1 r1 ]
 "61
 [f ]
 "63
@@ -1948,12 +1948,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2463 ]
 }
 "73
-[v _RELAY_On `(v ~T0 @X0 1 ef1`E17894 ]
+[v _RELAY_On `(v ~T0 @X0 1 ef1`E17889 ]
 "74
 {
 [e :U _RELAY_On ]
 "73
-[v _channel `E17894 ~T0 @X0 1 r1 ]
+[v _channel `E17889 ~T0 @X0 1 r1 ]
 "74
 [f ]
 "76

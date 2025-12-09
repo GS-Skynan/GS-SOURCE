@@ -3,40 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/OutProtected_APP/out_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/ADC/adc_driver.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/mcc_generated_files/adc/adc.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/CurrentRead_APP/readcurrent.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/USBCom_APP/usbcom.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/PwmRegulation_APP/pwm_change.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/Dimming_APP/dimming.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/InProtected_APP/inprotectedapp.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/Dimming_APP/dimming.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/PwmRegulation_APP/pwm_change.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/LightsOff_APP/closeled.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/LightsOff_APP/closeled.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/Ticktime_APP/ticktime.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/OutProtected_APP/out_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/InProtected_APP/inprotectedapp.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/Bootloader/Bootloader.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/Bootloader/Bootloader.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/main.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/TempProtected_APP/temp_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/TempProtected_APP/temp_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/timerecord_app/record.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/CurrentRead_APP/readcurrent.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/EEPROM/EEPROM_driver.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/mcc_generated_files/nvm/nvm.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/EEPROM/EEPROM_driver.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/USBCom_APP/usbcom.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/PowerComp_APP/powercomp.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/version_read/version_task.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/version_read/version_task.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/Applications/NFCService_APP/nfcapp.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/NFC/nfc.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/NFC/nfc.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/DriverLayer/RS485/RS485_DATA.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/ReadMe.txt</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.04/Applications/InProtected_APP/inprotectedapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.04/Applications/LightsOff_APP/closeled.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.04/Applications/NFCService_APP/nfcapp.c</file>
         </group>
     </open-files>
 </project-private>

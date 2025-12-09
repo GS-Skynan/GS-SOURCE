@@ -1,10 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"32 DriverLayer/NFC/nfc.h
+"29 DriverLayer/NFC/nfc.h
 [v _extractAndCombineEEPROMData `(ui ~T0 @X0 0 ef2`uc`uc ]
 "15 DriverLayer/EEPROM/EEPROM_driver.h
 [v _EepromReadBuffer `(v ~T0 @X0 0 ef3`us`*uc`us ]
-"8 Applications/NFCService_APP/nfcapp.h
-[v _I2C_receiveData `uc ~T0 @X0 -> 0 `x e ]
+"27 DriverLayer/NFC/nfc.h
+[v _READ_NFC_SET_START `(v ~T0 @X0 0 ef ]
+"55 Applications/CurrentRead_APP/readcurrent.c
+[c E17898 0 1 2 3 .. ]
+[n E17898 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
+"23 DriverLayer/NFC/nfc.h
+[v _Read_NFC_Data `(E17898 ~T0 @X0 0 ef3`us`*uc`uc ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
@@ -1723,27 +1728,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"16 Applications/NFCService_APP/nfcapp.h
-[v _con1 `uc ~T0 @X0 1 e ]
-[i _con1
--> -> 1 `i `uc
-]
-[v _con2 `uc ~T0 @X0 1 e ]
-[i _con2
--> -> 1 `i `uc
-]
-[v _con3 `uc ~T0 @X0 1 e ]
-[i _con3
--> -> 1 `i `uc
-]
-[v _con4 `uc ~T0 @X0 1 e ]
-[i _con4
--> -> 1 `i `uc
-]
-"8 Applications/CurrentRead_APP/readcurrent.c
+"7 Applications/CurrentRead_APP/readcurrent.c
 [v _power_Hold_1 `us ~T0 @X0 1 e ]
 [v _power_Hold_2 `us ~T0 @X0 1 e ]
-"9
+"8
 [v _UART_REG1 `uc ~T0 @X0 1 e ]
 [i _UART_REG1
 -> -> 0 `i `uc
@@ -1752,16 +1740,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _UART_REG2
 -> -> 0 `i `uc
 ]
-"10
+"9
 [v _power_time `us ~T0 @X0 1 e ]
 [i _power_time
 -> -> 1 `i `us
 ]
-"11
+"10
 [v _g_uPower1 `us ~T0 @X0 1 e ]
 [v _g_uPower2 `us ~T0 @X0 1 e ]
-"13
+"12
 [v _calibrationBUFF `uc ~T0 @X0 -> 3 `i e ]
+"13
+[v _I2C_receiveData `uc ~T0 @X0 -> 72 `i e ]
 "15
 [v _ReadCurrentInit `(v ~T0 @X0 1 ef1`*uc ]
 "16
@@ -1844,97 +1834,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48
 [e :UE 2429 ]
 }
-"50
-[v _ReadNfcNumber `(v ~T0 @X0 1 ef ]
-"51
-{
-[e :U _ReadNfcNumber ]
-[f ]
 "52
-[e ( _ReadCurrentInit (1 &U _I2C_receiveData ]
+[v _NFCRead_APPInit `(v ~T0 @X0 1 ef ]
 "53
-[e ( _PowerCompensationTime (1 &U _I2C_receiveData ]
+{
+[e :U _NFCRead_APPInit ]
+[f ]
 "54
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e ( _READ_NFC_SET_START ..  ]
 "55
+[e ( _Read_NFC_Data (3 , , -> -> 0 `i `us &U _I2C_receiveData -> -> 70 `i `uc ]
+"56
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"57
+[e ( _ReadCurrentInit (1 &U _I2C_receiveData ]
+"58
+[e ( _PowerCompensationTime (1 &U _I2C_receiveData ]
+"59
 [e :UE 2430 ]
 }
-"91
-[v _g_uChanne1Power `us ~T0 @X0 1 e ]
-"92
-[v _g_uTargetPower `us ~T0 @X0 1 e ]
-"93
-[v _g_uChanne2Power `us ~T0 @X0 1 e ]
-"94
-[v _g_Pzong `us ~T0 @X0 1 e ]
 "96
-[v _Power_Compensation `(us ~T0 @X0 1 ef ]
+[v _g_uChanne1Power `us ~T0 @X0 1 e ]
 "97
+[v _g_uTargetPower `us ~T0 @X0 1 e ]
+"98
+[v _g_uChanne2Power `us ~T0 @X0 1 e ]
+"99
+[v _g_Pzong `us ~T0 @X0 1 e ]
+"101
+[v _Power_Compensation `(us ~T0 @X0 1 ef ]
+"102
 {
 [e :U _Power_Compensation ]
 [f ]
-"98
+"103
 [v _temp `l ~T0 @X0 1 a ]
-"99
+"104
 [v _setPower `us ~T0 @X0 1 a ]
 [e = _setPower _g_uPower1 ]
-"102
+"107
 [e = _temp - / * -> _g_uPower1 `l -> _UART_REG1 `l -> -> 100 `i `l -> -> 24 `i `l ]
-"103
+"108
 [e $ ! < _temp -> -> 0 `i `l 2432  ]
 [e = _temp -> -> 0 `i `l ]
 [e :U 2432 ]
-"104
+"109
 [e $ ! > _temp -> _g_uPower1 `l 2433  ]
 [e = _temp -> _g_uPower1 `l ]
 [e :U 2433 ]
-"105
+"110
 [e = _g_uChanne1Power -> _temp `us ]
-"107
+"112
 [e = _temp - / * -> _g_uPower2 `l -> _UART_REG2 `l -> -> 100 `i `l -> -> 19 `i `l ]
-"108
+"113
 [e $ ! < _temp -> -> 0 `i `l 2434  ]
 [e = _temp -> -> 0 `i `l ]
 [e :U 2434 ]
-"109
+"114
 [e $ ! > _temp -> _g_uPower2 `l 2435  ]
 [e = _temp -> _g_uPower2 `l ]
 [e :U 2435 ]
-"110
-[e = _g_uChanne2Power -> _temp `us ]
-"112
-[e = _g_Pzong -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
-"114
-[e $ ! > -> _g_Pzong `ui -> _setPower `ui 2436  ]
 "115
-{
-"116
-[e = _temp - - -> _setPower `l -> - -> _g_Pzong `ui -> _g_uChanne1Power `ui `l -> -> 29 `i `l ]
+[e = _g_uChanne2Power -> _temp `us ]
 "117
+[e = _g_Pzong -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
+"119
+[e $ ! > -> _g_Pzong `ui -> _setPower `ui 2436  ]
+"120
+{
+"121
+[e = _temp - - -> _setPower `l -> - -> _g_Pzong `ui -> _g_uChanne1Power `ui `l -> -> 29 `i `l ]
+"122
 }
 [e $U 2437  ]
-"118
+"123
 [e :U 2436 ]
-"119
+"124
 {
-"120
+"125
 [e = _temp -> _g_uChanne1Power `l ]
-"121
+"126
 }
 [e :U 2437 ]
-"123
+"128
 [e $ ! < _temp -> -> 0 `i `l 2438  ]
 [e = _temp -> -> 0 `i `l ]
 [e :U 2438 ]
-"124
+"129
 [e $ ! > _temp -> _setPower `l 2439  ]
 [e = _temp -> _setPower `l ]
 [e :U 2439 ]
-"126
+"131
 [e = _g_uTargetPower -> _temp `us ]
-"127
+"132
 [e ) _g_uTargetPower ]
 [e $UE 2431  ]
-"128
+"133
 [e :UE 2431 ]
 }

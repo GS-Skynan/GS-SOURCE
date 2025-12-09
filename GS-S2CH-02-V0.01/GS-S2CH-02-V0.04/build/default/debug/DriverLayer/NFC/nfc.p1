@@ -8,8 +8,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
 "63 DriverLayer/NFC/nfc.c
-[c E17891 0 1 2 3 .. ]
-[n E17891 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
+[c E17886 0 1 2 3 .. ]
+[n E17886 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -2418,7 +2418,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2424 ]
 }
 "63
-[v _Read_NFC_Data `(E17891 ~T0 @X0 1 ef3`us`*uc`uc ]
+[v _Read_NFC_Data `(E17886 ~T0 @X0 1 ef3`us`*uc`uc ]
 "64
 {
 [e :U _Read_NFC_Data ]
@@ -2445,7 +2445,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == _timeout -> -> -> 0 `i `l `ul 2443  ]
 {
 "74
-[e ) . `E17891 1 ]
+[e ) . `E17886 1 ]
 [e $UE 2439  ]
 "75
 }
@@ -2470,7 +2470,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == _timeout -> -> -> 0 `i `l `ul 2447  ]
 {
 "86
-[e ) . `E17891 1 ]
+[e ) . `E17886 1 ]
 [e $UE 2439  ]
 "87
 }
@@ -2488,13 +2488,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "91
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "92
-[e ) . `E17891 0 ]
+[e ) . `E17886 0 ]
 [e $UE 2439  ]
 "94
 [e :UE 2439 ]
 }
 "97
-[v _Write_NFC_Data `(E17891 ~T0 @X0 1 ef3`us`*uc`uc ]
+[v _Write_NFC_Data `(E17886 ~T0 @X0 1 ef3`us`*uc`uc ]
 "98
 {
 [e :U _Write_NFC_Data ]
@@ -2537,7 +2537,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == _timeout -> -> -> 0 `i `l `ul 2456  ]
 {
 "119
-[e ) . `E17891 1 ]
+[e ) . `E17886 1 ]
 [e $UE 2448  ]
 "120
 }
@@ -2555,49 +2555,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "124
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "125
-[e ) . `E17891 0 ]
+[e ) . `E17886 0 ]
 [e $UE 2448  ]
 "126
 [e :UE 2448 ]
-}
-"136
-[v _processChannelDataIfNeeded `(v ~T0 @X0 1 ef4`uc`*uc`uc`uc ]
-"137
-{
-[e :U _processChannelDataIfNeeded ]
-"136
-[v _channel `uc ~T0 @X0 1 r1 ]
-[v _eeprom_data_ptr `*uc ~T0 @X0 1 r2 ]
-[v _read_eeprom_H `uc ~T0 @X0 1 r3 ]
-[v _read_eeprom_L `uc ~T0 @X0 1 r4 ]
-"137
-[f ]
-"138
-[e :UE 2457 ]
-}
-"143
-[v _processChannelData `(v ~T0 @X0 1 ef2`uc`ui ]
-"144
-{
-[e :U _processChannelData ]
-"143
-[v _channel `uc ~T0 @X0 1 r1 ]
-[v _channelData `ui ~T0 @X0 1 r2 ]
-"144
-[f ]
-"145
-[e :UE 2458 ]
-}
-"150
-[v _Current_Data_Processing `(v ~T0 @X0 1 ef2`uc`ui ]
-"151
-{
-[e :U _Current_Data_Processing ]
-"150
-[v _channel `uc ~T0 @X0 1 r1 ]
-[v _channelData `ui ~T0 @X0 1 r2 ]
-"151
-[f ]
-"152
-[e :UE 2459 ]
 }

@@ -38,8 +38,7 @@
 #include <xc.h>
 #include "../adc.h"
 #include "../adc_types.h"
-#include "stdint.h"
-#include "stdio.h"
+
 
 static void (*ADC_ConversionDoneCallback)(void);
 static void (*ADC_ThresholdCallback)(void);
@@ -406,7 +405,7 @@ void ADC_ThresholdInterruptDisable(void)
     PIE2bits.ADTIE = ADC_BIT_CLEAR;    
 }
 
-void __interrupt(irq(AD),base(8)) ADC_ISR(void)
+void __interrupt(irq(AD),base(12296)) ADC_ISR(void)
 {
     PIR1bits.ADIF = ADC_BIT_CLEAR;
 
@@ -420,7 +419,7 @@ void __interrupt(irq(AD),base(8)) ADC_ISR(void)
     }
 }
 
-void __interrupt(irq(ADT),base(8)) ADC_ThresholdISR(void)
+void __interrupt(irq(ADT),base(12296)) ADC_ThresholdISR(void)
 {
     PIR2bits.ADTIF = ADC_BIT_CLEAR;
 
@@ -433,4 +432,3 @@ void __interrupt(irq(ADT),base(8)) ADC_ThresholdISR(void)
         // Do nothing
     }
 }
-
