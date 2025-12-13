@@ -37,4 +37,6 @@ Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 DriverLayer/EEPROM/EEPROM_driver.h  \
-DriverLayer/EEPROM/../../mcc_generated_files/system/system.h 
+DriverLayer/EEPROM/../../mcc_generated_files/system/system.h  \
+Middlewares/CRC/crc.h  \
+Middlewares/CRC/../../mcc_generated_files/system/system.h 

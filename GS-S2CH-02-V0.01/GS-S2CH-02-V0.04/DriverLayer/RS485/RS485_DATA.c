@@ -22,3 +22,14 @@ void Rs485_DataSend(uint8_t *data, uint8_t dataLength)
     __delay_ms(10);
     IO_RF3_SetLow(); 
 }
+
+
+void putch(char data) 
+{
+   IO_RF3_SetHigh();
+   __delay_ms(5);
+    while (!UART1_IsTxReady());
+       UART1_Write(data);
+    __delay_ms(2);
+    IO_RF3_SetLow();
+}

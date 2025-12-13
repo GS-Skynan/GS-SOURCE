@@ -21,11 +21,11 @@ extern uint16_t pidpwm;
 extern uint8_t timepwm;
 extern uint16_t pwm;
 
-extern float pwm_output;
 volatile uint32_t system_tick;
 extern uint8_t  pidtime;
-extern uint16_t pwm1,pwm2;
 
+extern uint16_t pwm1, pwm2;
+extern float pwm_output1,pwm_output2;
 extern float g_Voltage1,g_Voltage2;
 extern float powernum1,powernum2;
 

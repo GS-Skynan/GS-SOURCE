@@ -22,8 +22,8 @@ void DimmingStart(void);
 extern volatile uint8_t PIDflag1;
 
 extern float power_pwm;
-float simple_regulator(float new_target, uint32_t time_ms) ;
-void regulator_clear(void);
+//float simple_regulator(float new_target, uint32_t time_ms) ;
+//void regulator_clear(void);
 extern float current_value;
 #endif 
 

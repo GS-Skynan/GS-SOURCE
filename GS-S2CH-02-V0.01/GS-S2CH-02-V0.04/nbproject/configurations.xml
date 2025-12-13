@@ -154,6 +154,10 @@
                    projectFiles="true">
     </logicalFolder>
     <logicalFolder name="Middlewares" displayName="Middlewares" projectFiles="true">
+      <logicalFolder name="Arithmetic" displayName="Arithmetic" projectFiles="true">
+        <itemPath>Middlewares/Arithmetic/arithmetic.c</itemPath>
+        <itemPath>Middlewares/Arithmetic/arithmetic.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="CRC" displayName="CRC" projectFiles="true">
         <itemPath>Middlewares/CRC/crc.c</itemPath>
         <itemPath>Middlewares/CRC/crc.h</itemPath>
@@ -279,7 +283,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
-                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\version_read"/>
+                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\version_read;Middlewares\Arithmetic"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>

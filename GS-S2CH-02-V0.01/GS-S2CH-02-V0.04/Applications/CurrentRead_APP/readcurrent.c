@@ -1,7 +1,7 @@
 #include "readcurrent.h"
 #include "nfc.h"
 #include "EEPROM_driver.h"
-
+#include "stdio.h"
 
 
 uint16_t power_Hold_1, power_Hold_2;
@@ -42,18 +42,64 @@ void PowerCompensationTime(uint8_t* nfcData)
     power_time = power_time * 1000;
 }
 
-void Readcalibration(void)
+void ReadCalibration(void)
 {
-    EepromReadBuffer(0, calibrationBUFF, sizeof (calibrationBUFF));
+    EepromReadBuffer(4, calibrationBUFF, sizeof (calibrationBUFF));
+    __delay_ms(10);
+    for (uint8_t i = 0; i <= 4; i++)
+    {
+        printf("EEP:%02X", calibrationBUFF[i]);
+    }
 }
 
-
+void WriteCalibration(uint8_t *w_eeprom)
+{
+    //    uint8_t eeprom_write[4] = {20,21,22,0};
+    //    uint8_t write_buffer[17] = {0};
+    //
+    //    // 复制数据到缓冲区
+    //    memcpy(write_buffer, w_eeprom, 17);
+    //
+    //    // 提取EEPROM写入数据
+    //
+    //     EepromWriteBuffer(4,eeprom_write,i);
+    //      __delay_ms(1);
+    //    
+    //
+    //    // 写入版本号到EEPROM
+    //    Write_Versions(I2C_HARDWARE_VERSION_ADDR, eeprom_write, 4);
+    //    __delay_ms(10);
+    //
+    //    // 设置固定值
+    //    write_buffer[0] = 0x55;
+    //
+    //    // 读取版本号 - 使用memcpy
+    //    uint8_t *numb = Read_Versions(I2C_HARDWARE_VERSION_ADDR, 4);
+    //    memcpy(write_buffer + 7, numb, 4);
+    //
+    //    // 读取版本信息
+    //    uint8_t *ver = Read_Versions(I2C_SOFTWARE_VERSION_ADDR, 3);
+    //    write_buffer[11] = ver[2];
+    //
+    //    // 计算CRC
+    //    uint16_t wcrc = CRC16(write_buffer, 15);
+    //    write_buffer[15] = wcrc & 0xFF;
+    //    write_buffer[16] = (wcrc >> 8) & 0xFF;
+    //
+    //    // 一次性打印所有数据
+    //    for (uint8_t j = 0; j < 17; j++)
+    //    {
+    //        printf("%02X", write_buffer[j]);
+    //        if (j < 16) printf(" "); // 最后一个字节后不加空格
+    //    }
+    //    memcpy(write_buffer, 0, 17);
+}
 
 void NFCRead_APPInit(void)
 {
-    READ_NFC_SET_START();     
-    Read_NFC_Data(0x0000,I2C_receiveData,MAX_NFC_DATA_LENGTH);
-    __delay_ms(10);                                                                // 必须有延时 
+    READ_NFC_SET_START();
+    Read_NFC_Data(0x0000, I2C_receiveData, MAX_NFC_DATA_LENGTH);
+    __delay_ms(10); // 必须有延时 
     ReadCurrentInit(I2C_receiveData);
     PowerCompensationTime(I2C_receiveData);
 }
@@ -118,7 +164,7 @@ uint16_t Power_Compensation(void)
 
     if (g_Pzong > setPower)
     {
-        temp = (int32_t) setPower - (g_Pzong - g_uChanne1Power) - 29;
+        temp = (int32_t) setPower - (g_Pzong - g_uChanne1Power) - 33;
     }
     else
     {

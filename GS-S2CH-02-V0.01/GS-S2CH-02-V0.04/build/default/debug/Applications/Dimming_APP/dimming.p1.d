@@ -60,4 +60,6 @@ Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
 Applications/TempProtected_APP/temp_protected.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/Bootloader/Bootloader.h  \
-Applications/Bootloader/../../mcc_generated_files/system/system.h 
+Applications/Bootloader/../../mcc_generated_files/system/system.h  \
+Middlewares/Arithmetic/arithmetic.h  \
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 

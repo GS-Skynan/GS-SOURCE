@@ -25,12 +25,13 @@ void TaskScheduleCbReg(void (*pFunc)(void))
 
 uint16_t time1 = 0;
 
+uint16_t pwm1, pwm2;
+float pwm_output1,pwm_output2;
 
 uint16_t g_uRs485TimeOut = 0;
 bool g_bRs485Flag = false;
 uint8_t pidtime1;
-uint16_t pwm1, pwm2;
-float pwm_output;
+
 
 static void TaskHandler_Time(void)
 {
@@ -131,15 +132,15 @@ static void Time0_start(void)
 {
     
     
-        if (g_uRs485TimeOut > 0)
-        {
-            g_uRs485TimeOut--;
-            if (g_uRs485TimeOut == 0 && Rx_Length > 0)
-            {
-                // 超时时间到，表示一帧接收完成
-                g_bRs485Flag = 1;
-            }
-        }     
+//        if (g_uRs485TimeOut > 0)
+//        {
+//            g_uRs485TimeOut--;
+//            if (g_uRs485TimeOut == 0 && Rx_Length > 0)
+//            {
+//                // 超时时间到，表示一帧接收完成
+//                g_bRs485Flag = 1;
+//            }
+//        }     
 }
 
 float g_Voltage1, g_Voltage2;

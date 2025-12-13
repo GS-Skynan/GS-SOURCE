@@ -5,7 +5,6 @@
 #include "dimming.h"
 #include "closeled.h"
 #include "GPIO_driver.h"
-
 #include "stdio.h"
 
 //uint16_t buck_open=0;       //无用的变量
@@ -18,7 +17,10 @@ uint16_t adc_value[2]; //ADC采集值，在time0里面定时采集
 
 uint16_t g_VoltageProtect1;
 uint16_t g_VoltageProtect2;
+uint16_t g_PoweProtect1;
+uint16_t g_PoweProtect2;
 
+uint8_t g_uFaultCode = 0;
 //获取硬件电压（此时灯板电压）
 
 /*
@@ -149,16 +151,26 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
         //   4. 分压电路转换：实际ADC值 = 目标电压 * (18/3018)
         //   5. 转换为mV单位：* 1000
         g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
+        g_PoweProtect1 = (float) get_current(OUT_CURRENT1) * g_VoltageProtect1 / 1000.0f;
 
-        if (g_VoltageProtect1 >= 550||(g_VoltageProtect1 <= 150))
+        if (g_VoltageProtect1 >= 550 || (g_VoltageProtect1 <= 150))
         {
+            g_uFaultCode = 1;
             return 1;
         }
 
         else if (g_VoltageProtect1 <= 30)
         {
+            g_uFaultCode = 2;
             return 2;
         }
+
+        else if (g_PoweProtect1 > ((float) g_uPower1 * 1.10f))
+        {
+            g_uFaultCode = 3;
+            return 2;
+        }
+
         else
         {
             return 0; // 正常状态
@@ -169,17 +181,23 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
     /*红外光通道电压判断*/
     if (channel == Output2_voltage_ADC)
     {
-
         g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
-
+        g_PoweProtect2 = (float) get_current(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
 
         if (g_VoltageProtect2 >= 300)
         {
+            g_uFaultCode = 4;
             return 1;
         }
 
         else if (g_VoltageProtect2 <= 20)
         {
+            g_uFaultCode = 5;
+            return 2;
+        }
+        else if (g_PoweProtect2 > ((float) g_uPower2 * 1.10f))
+        {
+            g_uFaultCode = 6;
             return 2;
         }
         else
@@ -245,10 +263,10 @@ void Out_Protect(void)
             {
                 if (protect1time > 200)
                 {
-                
-                        V_Ret1 = 2;
-                        is_protecting2 = false;
-                    
+
+                    V_Ret1 = 2;
+                    is_protecting2 = false;
+
                 }
             }
 

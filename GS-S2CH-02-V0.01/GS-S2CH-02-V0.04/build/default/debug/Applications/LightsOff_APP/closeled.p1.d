@@ -45,4 +45,6 @@ Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/Dimming_APP/dimming.h  \
 Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
-Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h 
+Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
+Middlewares/Arithmetic/arithmetic.h  \
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 

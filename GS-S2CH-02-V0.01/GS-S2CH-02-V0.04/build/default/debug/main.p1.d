@@ -53,4 +53,6 @@ Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
 DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
 Applications/version_read/version_task.h  \
-Applications/version_read/../../mcc_generated_files/system/system.h 
+Applications/version_read/../../mcc_generated_files/system/system.h  \
+Middlewares/Arithmetic/arithmetic.h  \
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 

@@ -385,30 +385,11 @@ void ADC_ThresholdCallbackRegister(void (*callback)(void))
     ADC_ThresholdCallback = callback;
 }
 
-void ADC_ConversionDoneInterruptEnable(void)
+void ADC_Tasks(void)
 {
-    PIE1bits.ADIE = ADC_BIT_SET;
-}
-
-void ADC_ConversionDoneInterruptDisable(void)
-{
-    PIE1bits.ADIE = ADC_BIT_CLEAR;
-}
-
-void ADC_ThresholdInterruptEnable(void)
-{
-    PIE2bits.ADTIE = ADC_BIT_SET;    
-}
-
-void ADC_ThresholdInterruptDisable(void)
-{
-    PIE2bits.ADTIE = ADC_BIT_CLEAR;    
-}
-
-void __interrupt(irq(AD),base(12296)) ADC_ISR(void)
+    if (1U == PIR1bits.ADIF)
 {
     PIR1bits.ADIF = ADC_BIT_CLEAR;
-
     if (NULL != ADC_ConversionDoneCallback)
     {
         ADC_ConversionDoneCallback();
@@ -418,15 +399,22 @@ void __interrupt(irq(AD),base(12296)) ADC_ISR(void)
         // Do nothing
     }
 }
-
-void __interrupt(irq(ADT),base(12296)) ADC_ThresholdISR(void)
+    else
 {
+        // Do nothing
+    }
+    if (1U == PIR2bits.ADTIF)
+    {
     PIR2bits.ADTIF = ADC_BIT_CLEAR;
-
     if (NULL != ADC_ThresholdCallback)
     {
         ADC_ThresholdCallback();
     }
+    else
+    {
+        // Do nothing
+    }
+}
     else
     {
         // Do nothing

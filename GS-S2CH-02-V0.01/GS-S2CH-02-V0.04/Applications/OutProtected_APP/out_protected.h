@@ -18,7 +18,7 @@
 extern uint16_t adc_value[2];    
 
 
-
+extern uint8_t g_uFaultCode;
 extern uint16_t g_VoltageProtect1;
 extern uint16_t g_VoltageProtect2;
 extern int lock_flag;  

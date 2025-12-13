@@ -48,7 +48,7 @@
 #include "out_protected.h"
 #include "GPIO_driver.h"
 #include "version_task.h"
-
+#include "arithmetic.h"
 /*
     Main application
  */
@@ -58,11 +58,12 @@ typedef struct
     uint8_t run;
     uint16_t timCount;
     uint16_t timRload;
+    
     void (*pTaskFuncCb)(void);
-} TaskComps_t;
+} tTaskComps;
 
 
-static TaskComps_t g_taskComps[] = {
+static tTaskComps g_taskComps[] = {
     {0, 150, 150, Rs485Task},
     {0, 100, 100, IntProtectedTask},
 //    {0, 100, 100, LightsOffTask},
@@ -71,7 +72,7 @@ static TaskComps_t g_taskComps[] = {
     {0, 10, 10, DimmingControlTask},
     {0, 30, 30, OutProtectedTask},
     {0, 10, 10, LED_Task},
-//    {0, 5000, 5000, Display},
+    {0, 5000, 5000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))
@@ -106,12 +107,13 @@ static void TaskScheduleCb(void)
 
 static void APPInit(void)
 {
-    GPIO_APPInit();
+  //  GPIO_APPInit();
     Time0_AppInit();
     PIDDimming_Init();
     Time2_AppInit();
     UsbcomAppInit();
     PID_Init_Parameters(); // 初始化两路 PID 控制器
+    init_all_pwm_regulators();
     NFCRead_APPInit();
     TaskScheduleCbReg(TaskScheduleCb);
 
@@ -152,64 +154,3 @@ int main(void)
         TaskHandler();
     }
 }
-
-
-
-
-
-
-//        if(start_flag == 1 && MCU2_Init == 0)
-//        {
-//           MCU2_Init=1; 
-//           NFC_MCU2_DATA[3] = I2C_receiveData[8];
-//           NFC_MCU2_DATA[6] = I2C_receiveData[12];
-//            for(unsigned int i = 0;i<9 ;i++){
-//                while(!UART2_IsTxReady());
-//                UART2_Write(NFC_MCU2_DATA[i]);
-//                while(!UART2_IsTxDone());       
-//            }
-//            
-//           memset(NFC_MCU2_DATA,0,9); 
-//        } 
-/*输入电压检测,Port_3_4_GetValue():默认高电平（3，4脚不短路）*/
-//        if(Port_3_4_GetValue() == HIGH)
-//        {   
-//            Input_Protected();
-//        }
-//        else if(Port_3_4_GetValue() == LOW){
-//           
-//            start_flag = 1;
-//            UART_REG1_Pre = UART_REG1 = 0x64;
-//            UART_REG2_Pre = UART_REG2 = 0x64;
-//        }
-/*关闭*/
-//        ALL_Closed();
-//        Close_1();
-//        Close_2();   
-
-/*时间记录*/
-//        Time_Calculation();
-/*温度保护*/
-//        if(tem_flag == 1)
-//           Temp_Protected();
-/*数字调光*/
-
-//        if(( Default_flag == 1) || ( Default_flag2 == 1)){     
-// 
-//             Data_Processing();    
-//        }    
-//            
-//         OutProtectedTask();
-/*输出电压检测*/
-//         if(Port_3_4_GetValue() == HIGH  && start_flag == 1){                   //3,4脚短路时Port_3_4_GetValue() = 0
-//            if(UART_REG1 > 0x00){
-//                 buck_flag = 1; 
-//                if(buck_ok1)V_Ret1 = Voltage_Judgment(V_Out1);
-//            }
-//            if(UART_REG2 >0x00){
-//                 buck_flag = 1; 
-//                if(buck_ok2)V_Ret2 = Voltage_Judgment(V_Out2);                      //2通道迅速
-//            }
-//            Out_Protect();                
-//            if(lock_flag == 1) Out_Protected();                                 //所有通道都触发输出保护时候，关闭PFC。 
-//        }  

@@ -12,7 +12,7 @@
 #include "temp_protected.h"
 #include "version_task.h"
 
-
+#define FRAME_TIMEOUT_MS   10  // 帧超时时间
 
 #define RX_BUFFER_SIZE 40
 
@@ -25,16 +25,17 @@ uint16_t g_uCheckCRCResult;
 
 volatile uint8_t Rx_Buffer_ISR[RX_BUFFER_SIZE];
 volatile uint8_t Rx_Length = 0;
-
-
-
+volatile uint32_t last_receive_time = 0;
+ 
 void UartReceivedISR(void)
 {
+
+ 
     if (Rx_Length < sizeof (Rx_Buffer_ISR))
     {
         Rx_Buffer_ISR[Rx_Length] = UART1_Read();
         Rx_Length++;
-        g_uRs485TimeOut = 10;
+        last_receive_time = get_systemtick_time();
     }
     else
     {
@@ -42,6 +43,8 @@ void UartReceivedISR(void)
         memset(Rx_Buffer_ISR, 0, sizeof (Rx_Buffer_ISR));
     }
 }
+
+
 
 static void ClearReceiveData(void)
 {
@@ -53,6 +56,16 @@ static void ClearReceiveData(void)
 
 void Rs485Task(void)
 {
+
+
+    uint32_t out_time = get_elapsed_since(last_receive_time);
+    
+    if (out_time > FRAME_TIMEOUT_MS && Rx_Length > 0)
+    {
+            g_bRs485Flag = 1;
+    }
+
+  
 
     //判断一帧数据是否结束
     if (g_bRs485Flag != 1)
@@ -99,10 +112,10 @@ void Rs485Task(void)
     }
 
     //其他功能指令
-    if (Rx_Buffer[0] == 0xAA && Rx_Buffer[1] == 0x5A) 
+    if (Rx_Buffer[0] == 0xAA && Rx_Buffer[1] == 0x5A)
     {
         switch (Rx_Buffer[3]) {
-        case 0x01:   //读写版本
+        case 0x01: //读写版本
             if (Rx_Buffer[2] == 0x01)
             {
                 Readhandle_version(Rx_Buffer);
@@ -114,9 +127,20 @@ void Rs485Task(void)
             break;
 
         case 0x17: //Boot升级
+            if (Rx_Buffer[2] == 0x02)
+            {
+                Access_Bootloder(Rx_Buffer);
+            }
+            break;
+
+        case 0x57:
             if (Rx_Buffer[2] == 0x01)
             {
-                    Access_Bootloder();
+
+            }
+            if (Rx_Buffer[2] == 0x02)
+            {
+                // WriteCalibration(Rx_Buffer);
             }
             break;
 
@@ -130,28 +154,22 @@ void Rs485Task(void)
 
 void UsbcomAppInit(void)
 {
-    IO_RF3_SetLow();
-    __delay_ms(10);
     UART1_RxCompleteCallbackRegister(UartReceivedISR);
-    //    QueueInit(&uartQueue, uartQueueBuffer, sizeof (uartQueueBuffer));
-
 }
 
 void Display(void)
 {
-    //     float  powernum= (float)get_current(OUT_CURRENT1)*g_Voltage/1000.0f;
-    //     printf("|V:%d|\n\r",ADC_Result2(Input_voltage_ADC));
+    printf("Vin:%d| \n\r ", ADC_Result2(Input_voltage_ADC));
     printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
            get_current(OUT_CURRENT1), g_Voltage1, powernum1, pwm1);
     printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
            get_current(OUT_CURRENT2), g_Voltage2, powernum2, pwm2);
 
-    printf("TP:%.2f|URGE1:%d|URGE2:%d| \n\r ", power_pwm, UART_REG1, UART_REG2);
-    //     printf("Vin:%d| \n\r ",ADC_Result2(Input_voltage_ADC));
+    printf("SP:%.2f|URGE1:%d|URGE2:%d| \n\r ", power_pwm, UART_REG1, UART_REG2);
 
-
-    //  printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
-    //  printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
+    printf("Pro:%d|\n\r ", g_uFaultCode);
+    //    printf("Vout1:%d|Pro:%d|\n\r ", g_VoltageProtect1, V_Ret1);
+    //    printf("Vout2:%d|Pro:%d|\n\r ", g_VoltageProtect2, V_Ret2);
 
     //      printf("Temp:%.2f|\n\r ", Temp_Res);
 }

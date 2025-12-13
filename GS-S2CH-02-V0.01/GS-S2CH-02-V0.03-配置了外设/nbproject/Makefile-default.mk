@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -82,7 +82,7 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F57Q43
 # ------------------------------------------------------------------------------------
@@ -731,7 +731,7 @@ endif
 # Rules for buildStep: createResponseFiles
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk    
-		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.map " > nbproject/default.debug"
+		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.map " > nbproject/default.debug"
 	@cmd /C "gnuecho -n "-D__DEBUG=1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-mdebugger=snap " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-memi=wordwrite " >> nbproject/default.debug"
@@ -745,7 +745,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	@cmd /C "gnuecho -n "-Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "-Wl,--memorysummary,${DISTDIR}/memoryfile.xml " >> nbproject/default.debug"
-	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.debug"
+	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Applications/Bootloader/Bootloader.p1 ${OBJECTDIR}/Applications/CurrentRead_APP/readcurrent.p1 ${OBJECTDIR}/Applications/Dimming_APP/dimming.p1 ${OBJECTDIR}/Applications/InProtected_APP/inprotectedapp.p1 ${OBJECTDIR}/Applications/LightsOff_APP/closeled.p1 ${OBJECTDIR}/Applications/NFCService_APP/nfcapp.p1 ${OBJECTDIR}/Applications/OutProtected_APP/out_protected.p1 ${OBJECTDIR}/Applications/PowerComp_APP/powercomp.p1 ${OBJECTDIR}/Applications/PwmRegulation_APP/pwm_change.p1 ${OBJECTDIR}/Applications/TempProtected_APP/temp_protected.p1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Applications/Ticktime_APP/ticktime.p1 ${OBJECTDIR}/Applications/timerecord_app/record.p1 ${OBJECTDIR}/Applications/USBCom_APP/usbcom.p1 ${OBJECTDIR}/DriverLayer/ADC/adc_driver.p1 ${OBJECTDIR}/DriverLayer/EEPROM/EEPROM_driver.p1 ${OBJECTDIR}/DriverLayer/GPIO/GPIO_driver.p1 ${OBJECTDIR}/DriverLayer/NFC/nfc.p1 ${OBJECTDIR}/DriverLayer/PWM/pwm_driver.p1 ${OBJECTDIR}/DriverLayer/RS485/RS485_DATA.p1 ${OBJECTDIR}/Middlewares/CRC/crc.p1 ${OBJECTDIR}/Middlewares/QUEUE/queue.p1 ${OBJECTDIR}/mcc_generated_files/adc/src/adc.p1 " >> nbproject/default.debug"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/mcc_generated_files/fvr/src/fvr.p1 ${OBJECTDIR}/mcc_generated_files/i2c_host/src/i2c1.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm2_16bit.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm3_16bit.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 " >> nbproject/default.debug"
@@ -754,7 +754,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	
 else
 nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk   
-		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.map " > nbproject/default.production"
+		@cmd /C "gnuecho -n "-mcpu=$(MP_PROCESSOR_OPTION) $(MP_EXTRA_LD_PRE) -Wl,-Map=${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.map " > nbproject/default.production"
 	@cmd /C "gnuecho -n "-memi=wordwrite " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-O0 -fasmfile -maddrqual=require " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-xassembler-with-cpp -I\"DriverLayer/ADC\" -I\"DriverLayer/EEPROM\" -I\"DriverLayer/GPIO\" -I\"DriverLayer/NFC\" -I\"DriverLayer/PWM\" -I\"DriverLayer/RS485\" -I\"Applications/Bootloader\" -I\"Applications/CurrentRead_APP\" -I\"Applications/Dimming_APP\" -I\"Applications/InProtected_APP\" -I\"Applications/LightsOff_APP\" -I\"Applications/NFCService_APP\" -I\"Applications/OutProtected_APP\" -I\"Applications/PowerComp_APP\" -I\"Applications/PwmRegulation_APP\" -I\"Applications/TempProtected_APP\" -I\"Applications/Ticktime_APP\" -I\"Applications/timerecord_app\" " >> nbproject/default.production"
@@ -766,7 +766,7 @@ nbproject/$(CND_CONF).$(IMAGE_TYPE):   nbproject/Makefile-${CND_CONF}.mk
 	@cmd /C "gnuecho -n "-Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "-Wl,--memorysummary,${DISTDIR}/memoryfile.xml " >> nbproject/default.production"
-	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.production"
+	@cmd /C "gnuecho -n "-o ${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Applications/Bootloader/Bootloader.p1 ${OBJECTDIR}/Applications/CurrentRead_APP/readcurrent.p1 ${OBJECTDIR}/Applications/Dimming_APP/dimming.p1 ${OBJECTDIR}/Applications/InProtected_APP/inprotectedapp.p1 ${OBJECTDIR}/Applications/LightsOff_APP/closeled.p1 ${OBJECTDIR}/Applications/NFCService_APP/nfcapp.p1 ${OBJECTDIR}/Applications/OutProtected_APP/out_protected.p1 ${OBJECTDIR}/Applications/PowerComp_APP/powercomp.p1 ${OBJECTDIR}/Applications/PwmRegulation_APP/pwm_change.p1 ${OBJECTDIR}/Applications/TempProtected_APP/temp_protected.p1 " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/Applications/Ticktime_APP/ticktime.p1 ${OBJECTDIR}/Applications/timerecord_app/record.p1 ${OBJECTDIR}/Applications/USBCom_APP/usbcom.p1 ${OBJECTDIR}/DriverLayer/ADC/adc_driver.p1 ${OBJECTDIR}/DriverLayer/EEPROM/EEPROM_driver.p1 ${OBJECTDIR}/DriverLayer/GPIO/GPIO_driver.p1 ${OBJECTDIR}/DriverLayer/NFC/nfc.p1 ${OBJECTDIR}/DriverLayer/PWM/pwm_driver.p1 ${OBJECTDIR}/DriverLayer/RS485/RS485_DATA.p1 ${OBJECTDIR}/Middlewares/CRC/crc.p1 ${OBJECTDIR}/Middlewares/QUEUE/queue.p1 ${OBJECTDIR}/mcc_generated_files/adc/src/adc.p1 " >> nbproject/default.production"
 	@cmd /C "gnuecho -n "${OBJECTDIR}/mcc_generated_files/fvr/src/fvr.p1 ${OBJECTDIR}/mcc_generated_files/i2c_host/src/i2c1.p1 ${OBJECTDIR}/mcc_generated_files/nvm/src/nvm.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm2_16bit.p1 ${OBJECTDIR}/mcc_generated_files/pwm/src/pwm3_16bit.p1 ${OBJECTDIR}/mcc_generated_files/system/src/clock.p1 ${OBJECTDIR}/mcc_generated_files/system/src/interrupt.p1 ${OBJECTDIR}/mcc_generated_files/system/src/config_bits.p1 ${OBJECTDIR}/mcc_generated_files/system/src/system.p1 ${OBJECTDIR}/mcc_generated_files/system/src/pins.p1 " >> nbproject/default.production"
@@ -778,13 +778,13 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: linkWithResponseFileStandalone
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk    
+${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
 	${MP_CC}  @nbproject/$(CND_CONF).$(IMAGE_TYPE) 
-	@${RM} ${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.hex 
+	@${RM} ${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.hex 
 	
 else
-${DISTDIR}/GS-S2CH-02-V0.03.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk   
+${DISTDIR}/GS-S2CH-02-V0.03-_____.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES} nbproject/$(CND_CONF).$(IMAGE_TYPE)  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
 	${MP_CC}  @nbproject/$(CND_CONF).$(IMAGE_TYPE) 
 	

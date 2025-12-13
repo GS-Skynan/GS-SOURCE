@@ -18,31 +18,32 @@
 #include "readcurrent.h"
 #include "temp_protected.h"
 #include "Bootloader.h"
-
+#include "arithmetic.h"
 
 uint8_t start_flag = 0; //注意,启动标识，1：表示系统启动
 uint8_t pfc_flag = 1; //PFC执行一次
-
-
 uint8_t mode_flag; //启动模式，确保通道切换时候是先关后开
+
+
+
 
 volatile uint8_t PIDflag1 = 0;
 
-float current_value = 0;
-float start_value = 0;
-uint32_t start_time = 0;
-float target_value = 0;
-uint32_t transition_time = 1000;
+//float current_value = 0;
+//float start_value = 0;
+//uint32_t start_time = 0;
+//float target_value = 0;
+//uint32_t transition_time = 1000;
 float power_pwm = 0;
 
-void regulator_clear(void)
-{
-    current_value = 0;
-    start_value = 0;
-    start_time = 0;
-    target_value = 0;
-    transition_time = 1000;
-}
+//void regulator_clear(void)
+//{
+//    current_value = 0;
+//    start_value = 0;
+//    start_time = 0;
+//    target_value = 0;
+//    transition_time = 1000;
+//}
 
 //平滑调光
 
@@ -76,53 +77,53 @@ void regulator_clear(void)
 
 //加的时候是时间  减的时候没时间
 
-float simple_regulator(float new_target, uint32_t time_ms)
-{
-    uint32_t current_time = get_systemtick_time();
-
-    if (new_target != target_value)
-    {
-        // 保存旧的起始值用于判断
-        float old_target = target_value;
-        target_value = new_target;
-
-        // 检查变化方向（基于当前值和新目标值）
-        if (new_target > current_value)
-        {
-            // 正向变化（增加）：使用时间过渡
-            start_value = current_value;
-            start_time = current_time;
-            transition_time = time_ms;
-        }
-        else
-        {
-            // 负向变化（减少）：立即完成
-            start_value = new_target; // 将起始值设为目标值
-            current_value = new_target; // 立即更新当前值
-            start_time = current_time;
-            transition_time = 0; // 零过渡时间
-        }
-    }
-
-    // 处理过渡逻辑
-    if (transition_time == 0)
-    {
-        return current_value; // 立即返回，无过渡
-    }
-
-    uint32_t elapsed = get_elapsed_since(start_time);
-
-    if (elapsed >= transition_time)
-    {
-        current_value = target_value;
-        return current_value;
-    }
-
-    float progress = (float) elapsed / transition_time;
-    current_value = start_value + (target_value - start_value) * progress;
-
-    return current_value;
-}
+//float simple_regulator(float new_target, uint32_t time_ms)
+//{
+//    uint32_t current_time = get_systemtick_time();
+//
+//    if (new_target != target_value)
+//    {
+//        // 保存旧的起始值用于判断
+//        float old_target = target_value;
+//        target_value = new_target;
+//
+//        // 检查变化方向（基于当前值和新目标值）
+//        if (new_target > current_value)
+//        {
+//            // 正向变化（增加）：使用时间过渡
+//            start_value = current_value;
+//            start_time = current_time;
+//            transition_time = time_ms;
+//        }
+//        else
+//        {
+//            // 负向变化（减少）：立即完成
+//            start_value = new_target; // 将起始值设为目标值
+//            current_value = new_target; // 立即更新当前值
+//            start_time = current_time;
+//            transition_time = 0; // 零过渡时间
+//        }
+//    }
+//
+//    // 处理过渡逻辑
+//    if (transition_time == 0)
+//    {
+//        return current_value; // 立即返回，无过渡
+//    }
+//
+//    uint32_t elapsed = get_elapsed_since(start_time);
+//
+//    if (elapsed >= transition_time)
+//    {
+//        current_value = target_value;
+//        return current_value;
+//    }
+//
+//    float progress = (float) elapsed / transition_time;
+//    current_value = start_value + (target_value - start_value) * progress;
+//
+//    return current_value;
+//}
 
 /**
  * @brief 获取指定通道的电流值（单位：mA）
@@ -188,8 +189,8 @@ uint8_t ProtectionCheck(void)
     {
         return 1;
     }
-    
-    if(g_uBootUpgradeFlag==1)
+
+    if (g_uBootUpgradeFlag == 1)
     {
         return 1;
     }
@@ -224,8 +225,9 @@ void PIDCH12(void)
     {
         g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
         powernum1 = (float) get_current(OUT_CURRENT1) * g_Voltage1 / 1000.0f;
-        pwm_output = simple_regulator(power_pwm, 3000);
-        pwm1 = PID_Compute(&pid1, pwm_output, powernum1);
+        pwm_output1 = update_pwm_output_ch1(power_pwm);
+                //simple_regulator(power_pwm, 3000);
+        pwm1 = PID_Compute(&pid1, pwm_output1, powernum1);
         PWM_Set_Direct(PWM_CHANNEL_1, pwm1);
     }
 
@@ -233,7 +235,8 @@ void PIDCH12(void)
     {
         g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (3018.0f / 18.0f);
         powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
-        pwm2 = PID_Compute(&pid2, g_uChanne2Power, powernum2);
+        pwm_output2=update_pwm_output_ch2(g_uChanne2Power);
+        pwm2 = PID_Compute(&pid2, pwm_output2, powernum2);
         PWM_Set_Direct(PWM_CHANNEL_2, pwm2);
     }
 }
@@ -329,7 +332,7 @@ void Startup_2CH(void)
         break;
 
     case 2:
-
+        
         PIDflag1 = 2;
 
         break;
@@ -449,12 +452,24 @@ void DimmingControlTask(void)
     ProtectionState = ProtectionCheck();
     if (ProtectionState != 0)
     {
-        if (ProtectionState == 1) LightPowerOff(LED_ALL_OFF);
-        else if (ProtectionState == 2) LightPowerOff(LED_CHANNEL1_OFF);
-        else if (ProtectionState == 3)LightPowerOff(LED_CHANNEL2_OFF);
-        return;
+        if (ProtectionState == 1)
+        {
+            LightPowerOff(LED_ALL_OFF);
+            return;
+        }
+        else if (ProtectionState == 2 && UART_REG1 > 0X01)
+        {
+            LightPowerOff(LED_CHANNEL1_OFF);
+        }
+        else if (ProtectionState == 3 && UART_REG2 > 0X01)
+        {
+            LightPowerOff(LED_CHANNEL2_OFF);
+        }
     }
-
+    else
+    {
+        g_uFaultCode = 0;
+    }
     power_pwm = (float) Power_Compensation();
     if (g_bPowerDownFlag == 1 || Temp_protected_flag == 1)
     {
@@ -465,5 +480,55 @@ void DimmingControlTask(void)
     PIDCH12();
 }
 
-
-
+//
+//void DimmingControlTask(void)
+//{
+//    // 保护校验   
+//    static uint8_t ProtectionState;
+//    static uint8_t ProtectionExecuted = 0;  // 新增：保护是否已执行标志
+//    
+//    uint8_t currentState = ProtectionCheck();
+//    
+//    // 状态发生变化时重新执行保护
+//    if (currentState != ProtectionState)
+//    {
+//        ProtectionState = currentState;
+//        ProtectionExecuted = 0;  // 状态变化，重置执行标志
+//    }
+//    
+//    if (ProtectionState != 0)
+//    {
+//        if (ProtectionState == 1) 
+//        {
+//            LightPowerOff(LED_ALL_OFF);
+//            return;  // 状态1直接返回
+//        }
+//        else if (ProtectionState == 2 && !ProtectionExecuted)
+//        {
+//            LightPowerOff(LED_CHANNEL1_OFF);  // 只执行一次（有延时）
+//            ProtectionExecuted = 1;  // 标记已执行
+//        }
+//        else if (ProtectionState == 3 && !ProtectionExecuted)
+//        {
+//            LightPowerOff(LED_CHANNEL2_OFF);  // 只执行一次（有延时）
+//            ProtectionExecuted = 1;  // 标记已执行
+//        }
+//    }
+//    else
+//    {
+//        ProtectionExecuted = 0;  // 正常状态时重置标志
+//          g_uFaultCode = 0;
+//    }
+//    
+//    // 继续执行控制逻辑（状态0、2、3都会到这里）
+//  
+//    power_pwm = (float) Power_Compensation();
+//    
+//    if (g_bPowerDownFlag == 1 || Temp_protected_flag == 1)
+//    {
+//        power_pwm = power_pwm / 2;
+//    }
+//
+//    DimmingStart();
+//    PIDCH12();
+//}
