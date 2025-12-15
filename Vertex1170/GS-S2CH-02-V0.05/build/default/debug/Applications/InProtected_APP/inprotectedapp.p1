@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"130 Applications/InProtected_APP/inprotectedapp.c
-[c E17957 0 1 2 .. ]
-[n E17957 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
+"129 Applications/InProtected_APP/inprotectedapp.c
+[c E17955 0 1 2 .. ]
+[n E17955 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
 "13 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"138 Applications/InProtected_APP/inprotectedapp.c
+"137 Applications/InProtected_APP/inprotectedapp.c
 [c E17462 59 60 61 62 63 3 4 17 22 28 44 0 .. ]
 [n E17462 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANC1 ADC_CHANNEL_ANC6 ADC_CHANNEL_AND4 ADC_CHANNEL_ANF4 ADC_CHANNEL_ANA0  ]
 "17 DriverLayer/ADC/adc_driver.h
@@ -1729,287 +1729,287 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"43 Applications/InProtected_APP/inprotectedapp.c
+"42 Applications/InProtected_APP/inprotectedapp.c
 [v _state `us ~T0 @X0 1 s ]
 [i _state
 -> -> 0 `i `us
 ]
-"44
+"43
 [v _power_reduced `uc ~T0 @X0 1 e ]
 [i _power_reduced
 -> -> 0 `i `uc
 ]
-"45
+"44
 [v _target_power `us ~T0 @X0 1 e ]
-"47
+"46
 [v _target_power2 `uc ~T0 @X0 1 e ]
-"49
+"48
 [v _g_bLowVoltageFlag `a ~T0 @X0 1 e ]
 [i _g_bLowVoltageFlag
 -> -> 0 `i `a
 ]
-"50
+"49
 [v _g_bPowerDownFlag `a ~T0 @X0 1 e ]
 [i _g_bPowerDownFlag
 -> -> 0 `i `a
 ]
-"128
+"127
 [v _VoltageInputProtection `(v ~T0 @X0 1 ef ]
-"129
+"128
 {
 [e :U _VoltageInputProtection ]
 [f ]
-"130
-[v F17969 `E17957 ~T0 @X0 1 s state ]
-[i F17969
-. `E17957 0
+"129
+[v F17967 `E17955 ~T0 @X0 1 s state ]
+[i F17967
+. `E17955 0
 ]
-"131
-[v F17970 `uc ~T0 @X0 1 s startup_phase ]
-[i F17970
+"130
+[v F17968 `uc ~T0 @X0 1 s startup_phase ]
+[i F17968
 -> -> 0 `i `uc
 ]
+"131
+[v F17969 `ul ~T0 @X0 1 s state_entry_time ]
+[i F17969
+-> -> -> 0 `i `l `ul
+]
 "132
-[v F17971 `ul ~T0 @X0 1 s state_entry_time ]
-[i F17971
+[v F17970 `ul ~T0 @X0 1 s power_on_time ]
+[i F17970
 -> -> -> 0 `i `l `ul
 ]
 "133
-[v F17972 `ul ~T0 @X0 1 s power_on_time ]
-[i F17972
--> -> -> 0 `i `l `ul
-]
-"134
-[v F17973 `a ~T0 @X0 1 s off_delay_done ]
-[i F17973
+[v F17971 `a ~T0 @X0 1 s off_delay_done ]
+[i F17971
 -> -> 0 `i `a
 ]
-"136
+"135
 [v _elapsed_in_state `ul ~T0 @X0 1 a ]
-[e = _elapsed_in_state ( _get_elapsed_since (1 F17971 ]
-"137
+[e = _elapsed_in_state ( _get_elapsed_since (1 F17969 ]
+"136
 [v _elapsed_since_power_on `ul ~T0 @X0 1 a ]
-[e = _elapsed_since_power_on ( _get_elapsed_since (1 F17972 ]
-"138
+[e = _elapsed_since_power_on ( _get_elapsed_since (1 F17970 ]
+"137
 [v _g_uVintValue `us ~T0 @X0 1 a ]
 [e = _g_uVintValue ( _ADC_Result2 (1 . `E17462 10 ]
-"141
-[v F17977 `a ~T0 @X0 1 s first_run ]
-[i F17977
+"140
+[v F17975 `a ~T0 @X0 1 s first_run ]
+[i F17975
 -> -> 1 `i `a
 ]
+"141
+[e $ ! != -> F17975 `i -> 0 `i 2420  ]
 "142
-[e $ ! != -> F17977 `i -> 0 `i 2420  ]
-"143
 {
+"143
+[e = F17970 ( _get_systemtick_time ..  ]
 "144
-[e = F17972 ( _get_systemtick_time ..  ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "145
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 1 `i `a ]
 "146
-[e = F17973 -> -> 1 `i `a ]
+[e = F17975 -> -> 0 `i `a ]
 "147
-[e = F17977 -> -> 0 `i `a ]
-"148
 }
 [e :U 2420 ]
+"150
+[e $ ! && == -> F17968 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2421  ]
 "151
-[e $ ! && == -> F17970 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2421  ]
-"152
 {
+"152
+[e = F17968 -> -> 1 `i `uc ]
 "153
-[e = F17970 -> -> 1 `i `uc ]
-"154
 }
 [e :U 2421 ]
-"156
+"155
 [e $U 2423  ]
 {
-"157
+"156
 [e :U 2424 ]
+"158
+[e $ ! ! != -> F17971 `i -> 0 `i 2425  ]
 "159
-[e $ ! ! != -> F17973 `i -> 0 `i 2425  ]
-"160
 {
-"162
+"161
 [e $ ! >= _elapsed_in_state -> -> -> 3000 `i `l `ul 2426  ]
-"163
+"162
 {
-"164
+"163
 [e = _start_flag -> -> 0 `i `uc ]
+"164
+[e = F17971 -> -> 1 `i `a ]
 "165
-[e = F17973 -> -> 1 `i `a ]
-"166
 }
 [e :U 2426 ]
-"167
+"166
 }
 [e $U 2427  ]
-"168
+"167
 [e :U 2425 ]
+"168
+{
 "169
-{
+[e $ ! && == -> F17968 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2428  ]
 "170
-[e $ ! && == -> F17970 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2428  ]
-"171
 {
+"171
+[e = F17967 . `E17955 1 ]
 "172
-[e = F17969 . `E17957 1 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "173
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 0 `i `a ]
 "174
-[e = F17973 -> -> 0 `i `a ]
-"175
 }
 [e :U 2428 ]
+"176
+[e $ ! && == -> F17968 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2429  ]
 "177
-[e $ ! && == -> F17970 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2429  ]
-"178
 {
+"178
+[e = F17967 . `E17955 1 ]
 "179
-[e = F17969 . `E17957 1 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "180
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 0 `i `a ]
 "181
-[e = F17973 -> -> 0 `i `a ]
-"182
 }
 [e :U 2429 ]
-"183
+"182
 }
 [e :U 2427 ]
-"184
+"183
 [e $U 2422  ]
-"186
+"185
 [e :U 2430 ]
-"188
+"187
 [e = _g_bPowerDownFlag -> -> 0 `i `a ]
-"189
+"188
 [e = _start_flag -> -> 1 `i `uc ]
+"190
+[e $ ! == -> F17968 `i -> 1 `i 2431  ]
 "191
-[e $ ! == -> F17970 `i -> 1 `i 2431  ]
-"192
 {
-"194
+"193
 [e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2432  ]
-"195
+"194
 {
+"195
+[e = F17967 . `E17955 0 ]
 "196
-[e = F17969 . `E17957 0 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "197
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 0 `i `a ]
 "198
-[e = F17973 -> -> 0 `i `a ]
-"199
 }
 [e $U 2433  ]
-"200
+"199
 [e :U 2432 ]
 [e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2434  ]
-"201
+"200
 {
+"201
+[e = F17967 . `E17955 2 ]
 "202
-[e = F17969 . `E17957 2 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "203
-[e = F17971 ( _get_systemtick_time ..  ]
-"204
 }
 [e :U 2434 ]
 [e :U 2433 ]
-"205
+"204
 }
 [e $U 2435  ]
-"206
+"205
 [e :U 2431 ]
-[e $ ! == -> F17970 `i -> 0 `i 2436  ]
-"207
+[e $ ! == -> F17968 `i -> 0 `i 2436  ]
+"206
 {
-"209
+"208
 [e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2437  ]
-"210
+"209
 {
+"210
+[e = F17968 -> -> 1 `i `uc ]
 "211
-[e = F17970 -> -> 1 `i `uc ]
+[e = F17967 . `E17955 0 ]
 "212
-[e = F17969 . `E17957 0 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "213
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 0 `i `a ]
 "214
-[e = F17973 -> -> 0 `i `a ]
-"215
 }
 [e $U 2438  ]
-"216
+"215
 [e :U 2437 ]
 [e $ ! && > -> _g_uVintValue `ui -> -> 1750 `i `ui < -> _g_uVintValue `ui -> -> 1850 `i `ui 2439  ]
-"217
+"216
 {
+"217
+[e = F17967 . `E17955 2 ]
 "218
-[e = F17969 . `E17957 2 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "219
-[e = F17971 ( _get_systemtick_time ..  ]
-"220
 }
 [e :U 2439 ]
 [e :U 2438 ]
-"221
+"220
 }
 [e :U 2436 ]
 [e :U 2435 ]
-"222
+"221
 [e $U 2422  ]
-"224
+"223
 [e :U 2440 ]
-"225
+"224
 [e = _g_bPowerDownFlag -> -> 1 `i `a ]
-"226
+"225
 [e $ ! > -> _g_uVintValue `ui -> -> 2100 `i `ui 2441  ]
-"227
+"226
 {
+"227
+[e = F17967 . `E17955 1 ]
 "228
-[e = F17969 . `E17957 1 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "229
-[e = F17971 ( _get_systemtick_time ..  ]
-"230
 }
 [e $U 2442  ]
-"231
+"230
 [e :U 2441 ]
 [e $ ! < -> _g_uVintValue `ui -> -> 1700 `i `ui 2443  ]
-"232
+"231
 {
+"232
+[e = F17967 . `E17955 0 ]
 "233
-[e = F17969 . `E17957 0 ]
+[e = F17969 ( _get_systemtick_time ..  ]
 "234
-[e = F17971 ( _get_systemtick_time ..  ]
+[e = F17971 -> -> 0 `i `a ]
 "235
-[e = F17973 -> -> 0 `i `a ]
-"236
 }
 [e :U 2443 ]
 [e :U 2442 ]
-"237
+"236
 [e $U 2422  ]
-"238
+"237
 }
 [e $U 2422  ]
 [e :U 2423 ]
-[e [\ -> F17969 `ui , $ -> . `E17957 0 `ui 2424
- , $ -> . `E17957 1 `ui 2430
- , $ -> . `E17957 2 `ui 2440
+[e [\ -> F17967 `ui , $ -> . `E17955 0 `ui 2424
+ , $ -> . `E17955 1 `ui 2430
+ , $ -> . `E17955 2 `ui 2440
  2422 ]
 [e :U 2422 ]
-"239
+"238
 [e :UE 2419 ]
 }
-"242
+"241
 [v _IntProtectedTask `(v ~T0 @X0 1 ef ]
-"243
+"242
 {
 [e :U _IntProtectedTask ]
 [f ]
-"245
+"244
 [e ( _VoltageInputProtection ..  ]
-"246
+"245
 [e :UE 2444 ]
 }

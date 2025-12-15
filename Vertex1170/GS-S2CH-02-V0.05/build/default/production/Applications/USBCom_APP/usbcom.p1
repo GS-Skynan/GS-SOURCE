@@ -26,12 +26,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Writehandle_version `(v ~T0 @X0 0 ef1`*uc ]
 "18 Applications/Bootloader/Bootloader.h
 [v _Access_Bootloder `(v ~T0 @X0 0 ef1`*uc ]
-"18 DriverLayer/GPIO/GPIO_driver.h
-[v _RS485_RXEN `(v ~T0 @X0 0 ef ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
+"48 Applications/CurrentRead_APP/readcurrent.h
+[v _WriteCalibrationSingleChannel `(v ~T0 @X0 0 ef1`*uc ]
+"49
+[v _WriteCalibrationMultiChannel `(v ~T0 @X0 0 ef1`*uc ]
 [v F17425 `(v ~T0 @X0 0 tf ]
 "354 Applications/USBCom_APP/../../mcc_generated_files/system/../uart/uart1.h
 [v _UART1_RxCompleteCallbackRegister `(v ~T0 @X0 0 ef1`*F17425 ]
@@ -2496,55 +2494,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "133
 [e :U 2441 ]
 "134
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2442  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2442  ]
 "135
 {
+"136
+[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
 "137
 }
 [e :U 2442 ]
 "138
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2443  ]
-"139
-{
-"141
-}
+[e $U 2434  ]
+"140
 [e :U 2443 ]
+"141
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2444  ]
 "142
-[e $U 2434  ]
-"146
+{
+"143
+[e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
+"144
+}
 [e :U 2444 ]
+"145
 [e $U 2434  ]
-"147
+"150
+[e :U 2445 ]
+[e $U 2434  ]
+"151
 }
 [e $U 2434  ]
 [e :U 2435 ]
 [e [\ *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux , $ -> 1 `i 2436
  , $ -> 23 `i 2439
  , $ -> 87 `i 2441
- 2444 ]
+ , $ -> 88 `i 2443
+ 2445 ]
 [e :U 2434 ]
-"148
+"152
 }
 [e :U 2433 ]
-"149
+"153
 [e ( _ClearReceiveData ..  ]
-"151
+"155
 [e :UE 2427 ]
 }
-"153
+"157
 [v _UsbcomAppInit `(v ~T0 @X0 1 ef ]
-"154
+"158
 {
 [e :U _UsbcomAppInit ]
 [f ]
-"155
-[e ( _RS485_RXEN ..  ]
-"156
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"157
+"159
 [e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
 "160
-[e :UE 2445 ]
+[e :UE 2446 ]
 }
 "162
 [v _Display `(v ~T0 @X0 1 ef ]
@@ -2571,7 +2574,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "179
 [e ( _printf , (. :s 7C -> ( _ADC_Result2 (1 . `E17462 9 `ui ]
 "180
-[e :UE 2446 ]
+[e :UE 2447 ]
 }
 [p f _printf 8462464 ]
 [a 7C 86 58 37 100 0 ]

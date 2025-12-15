@@ -2002,5 +2002,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87
 [e ( _RS485_RXEN ..  ]
 "88
+[e ( _PFC_Off ..  ]
+"89
+[e ( _L6562_Off (1 . `E17823 0 ]
+"90
+[e ( _L6562_Off (1 . `E17823 1 ]
+"91
+[e ( _RELAY_Off (1 . `E17827 0 ]
+"92
+[e ( _RELAY_Off (1 . `E17827 1 ]
+"93
 [e :UE 2479 ]
 }

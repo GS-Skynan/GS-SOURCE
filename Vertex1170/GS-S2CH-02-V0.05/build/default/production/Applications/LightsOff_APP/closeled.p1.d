@@ -33,8 +33,6 @@ Applications/InProtected_APP/inprotectedapp.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
-Applications/PwmRegulation_APP/pwm_change.h  \
-Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
 DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
 DriverLayer/PWM/pwm_driver.h  \
@@ -46,4 +44,6 @@ Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 Middlewares/Arithmetic/arithmetic.h  \
-Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h  \
+Middlewares/PID/pid_controller.h  \
+Middlewares/PID/../../mcc_generated_files/system/system.h 

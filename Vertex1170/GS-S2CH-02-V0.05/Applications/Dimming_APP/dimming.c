@@ -6,20 +6,17 @@
 #include "inprotectedapp.h"
 #include "powercomp.h"
 #include "closeled.h"
-#include "pwm_change.h"
 #include "readcurrent.h"
 #include "GPIO_driver.h"
 #include "pwm_driver.h"
 #include "ticktime.h"
 #include "RS485_DATA.h"
-#include "record.h"
 #include <math.h>
 #include "stdio.h"
-#include "readcurrent.h"
-#include "temp_protected.h"
 #include "Bootloader.h"
 #include "arithmetic.h"
-
+#include "pid_controller.h"
+#include "temp_protected.h"
 
 
 #define I1_R1  720.0f 
@@ -118,7 +115,7 @@ void PIDCH12(void)
 
     if (PIDflag1 == 2 || PIDflag1 == 3)
     {
-        g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U1_R1 / U1_R2);
+        g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
         powernum2 = (float) get_current(OUT_CURRENT2) * g_Voltage2 / 1000.0f;
         pwm_output2 = update_pwm_output_ch2(g_uChanne2Power);
         pwm2 = PID_Compute(&pid2, pwm_output2, powernum2);
@@ -208,7 +205,7 @@ void Startup_2CH(void)
         break;
 
     case 1:
-        if (now2 > 200)
+        if (now2 > 100)
         {
             L6562_On(L6562_CHANNEL2);
             lastime2 = get_systemtick_time();
@@ -364,56 +361,3 @@ void DimmingControlTask(void)
     DimmingStart();
     PIDCH12();
 }
-
-//
-//void DimmingControlTask(void)
-//{
-//    // 保护校验   
-//    static uint8_t ProtectionState;
-//    static uint8_t ProtectionExecuted = 0;  // 新增：保护是否已执行标志
-//    
-//    uint8_t currentState = ProtectionCheck();
-//    
-//    // 状态发生变化时重新执行保护
-//    if (currentState != ProtectionState)
-//    {
-//        ProtectionState = currentState;
-//        ProtectionExecuted = 0;  // 状态变化，重置执行标志
-//    }
-//    
-//    if (ProtectionState != 0)
-//    {
-//        if (ProtectionState == 1) 
-//        {
-//            LightPowerOff(LED_ALL_OFF);
-//            return;  // 状态1直接返回
-//        }
-//        else if (ProtectionState == 2 && !ProtectionExecuted)
-//        {
-//            LightPowerOff(LED_CHANNEL1_OFF);  // 只执行一次（有延时）
-//            ProtectionExecuted = 1;  // 标记已执行
-//        }
-//        else if (ProtectionState == 3 && !ProtectionExecuted)
-//        {
-//            LightPowerOff(LED_CHANNEL2_OFF);  // 只执行一次（有延时）
-//            ProtectionExecuted = 1;  // 标记已执行
-//        }
-//    }
-//    else
-//    {
-//        ProtectionExecuted = 0;  // 正常状态时重置标志
-//          g_uFaultCode = 0;
-//    }
-//    
-//    // 继续执行控制逻辑（状态0、2、3都会到这里）
-//  
-//    power_pwm = (float) Power_Compensation();
-//    
-//    if (g_bPowerDownFlag == 1 || Temp_protected_flag == 1)
-//    {
-//        power_pwm = power_pwm / 2;
-//    }
-//
-//    DimmingStart();
-//    PIDCH12();
-//}

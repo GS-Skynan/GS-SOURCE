@@ -1,14 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 Applications/PwmRegulation_APP/pwm_change.h
-[s S2419 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
-[n S2419 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18050 `(v ~T0 @X0 0 tf ]
-[v F18052 `(v ~T0 @X0 0 tf ]
-[v F18054 `(v ~T0 @X0 0 tf ]
-[v F18066 `(v ~T0 @X0 0 tf ]
-"105 Applications/Ticktime_APP/ticktime.c
-[c E18071 0 1 .. ]
-[n E18071 . LED_OFF LED_ON  ]
+[v F18008 `(v ~T0 @X0 0 tf ]
+[v F18010 `(v ~T0 @X0 0 tf ]
+[v F18012 `(v ~T0 @X0 0 tf ]
+[v F18024 `(v ~T0 @X0 0 tf ]
+"85 Applications/Ticktime_APP/ticktime.c
+[c E18029 0 1 .. ]
+[n E18029 . LED_OFF LED_ON  ]
 "20 DriverLayer/GPIO/GPIO_driver.h
 [v _Led_On `(v ~T0 @X0 0 ef ]
 "21
@@ -16,9 +13,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F17634 `(v ~T0 @X0 0 tf ]
 "256 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/../timer/tmr0.h
 [v _TMR0_PeriodMatchCallbackRegister `(v ~T0 @X0 0 ef1`*F17634 ]
-[v F17740 `(v ~T0 @X0 0 tf ]
-"547 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/../timer/tmr2.h
-[v _TMR2_PeriodMatchCallbackRegister `(v ~T0 @X0 0 ef1`*F17740 ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1735,263 +1729,258 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"36 Applications/PwmRegulation_APP/pwm_change.h
-[v _pid1 `S2419 ~T0 @X0 1 e ]
-[v _pid2 `S2419 ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"15 Applications/Ticktime_APP/ticktime.c
+"14 Applications/Ticktime_APP/ticktime.c
 [v _g_bInputActiveTime `a ~T0 @X0 1 e ]
 [i _g_bInputActiveTime
 -> -> 0 `i `a
 ]
-"16
+"15
 [v _g_uInputTime5Sce `uc ~T0 @X0 1 e ]
-"17
+"16
 [v _system_tick `Vul ~T0 @X0 1 e ]
 [i _system_tick
 -> -> -> 0 `i `l `ul
 ]
-"19
-[v _g_pTaskScheduleFunc `*F18050 ~T0 @X0 1 s ]
+"18
+[v _g_pTaskScheduleFunc `*F18008 ~T0 @X0 1 s ]
+"20
+[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18010 ]
 "21
-[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18052 ]
-"22
 {
 [e :U _TaskScheduleCbReg ]
+"20
+[v _pFunc `*F18012 ~T0 @X0 1 r1 ]
 "21
-[v _pFunc `*F18054 ~T0 @X0 1 r1 ]
-"22
 [f ]
-"23
+"22
 [e = _g_pTaskScheduleFunc _pFunc ]
-"24
-[e :UE 2421 ]
+"23
+[e :UE 2420 ]
 }
-"26
+"25
 [v _time1 `us ~T0 @X0 1 e ]
 [i _time1
 -> -> 0 `i `us
 ]
-"29
+"28
 [v _g_uRs485TimeOut `us ~T0 @X0 1 e ]
 [i _g_uRs485TimeOut
 -> -> 0 `i `us
 ]
-"30
+"29
 [v _g_bRs485Flag `a ~T0 @X0 1 e ]
 [i _g_bRs485Flag
 -> -> 0 `i `a
 ]
-"31
+"30
 [v _pidtime1 `uc ~T0 @X0 1 e ]
-"32
+"31
 [v _pwm1 `us ~T0 @X0 1 e ]
 [v _pwm2 `us ~T0 @X0 1 e ]
-"33
+"32
 [v _pwm_output1 `f ~T0 @X0 1 e ]
 [v _pwm_output2 `f ~T0 @X0 1 e ]
-"35
+"34
 [v _TaskHandler_Time `(v ~T0 @X0 1 sf ]
-"36
+"35
 {
 [e :U _TaskHandler_Time ]
 [f ]
+"36
+[v F18023 `us ~T0 @X0 1 s ledtime ]
 "37
-[v F18065 `us ~T0 @X0 1 s ledtime ]
+[e ++ F18023 -> -> 1 `i `us ]
 "38
-[e ++ F18065 -> -> 1 `i `us ]
+[e $ ! == -> F18023 `ui -> -> 200 `i `ui 2422  ]
 "39
-[e $ ! == -> F18065 `ui -> -> 200 `i `ui 2423  ]
-"40
 {
+"41
+[e = F18023 -> -> 0 `i `us ]
 "42
-[e = F18065 -> -> 0 `i `us ]
-"43
+}
+[e :U 2422 ]
+"44
+[e ++ _system_tick -> -> 1 `i `Vul ]
+"46
+[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18024 2423  ]
+"47
+{
+"48
+[e $UE 2421  ]
+"49
 }
 [e :U 2423 ]
-"45
-[e ++ _system_tick -> -> 1 `i `Vul ]
-"47
-[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18066 2424  ]
-"48
-{
-"49
-[e $UE 2422  ]
 "50
-}
-[e :U 2424 ]
-"51
 [e ( *U _g_pTaskScheduleFunc ..  ]
-"52
-[e :UE 2422 ]
+"51
+[e :UE 2421 ]
 }
-"54
+"53
 [v _get_systemtick_time `(ul ~T0 @X0 1 ef ]
-"55
+"54
 {
 [e :U _get_systemtick_time ]
 [f ]
-"56
+"55
 [e ) _system_tick ]
-[e $UE 2425  ]
-"57
-[e :UE 2425 ]
+[e $UE 2424  ]
+"56
+[e :UE 2424 ]
 }
-"79
+"59
 [v _get_elapsed_since `(ul ~T0 @X0 1 ef1`ul ]
-"80
+"60
 {
 [e :U _get_elapsed_since ]
-"79
+"59
 [v _since_time `ul ~T0 @X0 1 r1 ]
-"80
+"60
 [f ]
-"81
+"61
 [v _current `ul ~T0 @X0 1 a ]
 [e = _current ( _get_systemtick_time ..  ]
-"83
-[e $ ! >= _current _since_time 2427  ]
-"84
+"63
+[e $ ! >= _current _since_time 2426  ]
+"64
 {
-"85
+"65
 [e ) - _current _since_time ]
-[e $UE 2426  ]
-"86
+[e $UE 2425  ]
+"66
 }
-[e $U 2428  ]
-"87
-[e :U 2427 ]
-"88
+[e $U 2427  ]
+"67
+[e :U 2426 ]
+"68
 {
-"89
+"69
 [e ) + + - -> 4294967295 `ul _since_time _current -> -> -> 1 `i `l `ul ]
-[e $UE 2426  ]
-"90
+[e $UE 2425  ]
+"70
 }
-[e :U 2428 ]
-"91
-[e :UE 2426 ]
+[e :U 2427 ]
+"71
+[e :UE 2425 ]
 }
-"103
+"83
 [v _LED_Task `(v ~T0 @X0 1 ef ]
-"104
+"84
 {
 [e :U _LED_Task ]
 [f ]
-"105
-[v F18076 `E18071 ~T0 @X0 1 s led_state ]
-[i F18076
-. `E18071 0
+"85
+[v F18034 `E18029 ~T0 @X0 1 s led_state ]
+[i F18034
+. `E18029 0
 ]
-"106
-[v F18077 `ul ~T0 @X0 1 s last_led_change_time ]
-[i F18077
+"86
+[v F18035 `ul ~T0 @X0 1 s last_led_change_time ]
+[i F18035
 -> -> -> 0 `i `l `ul
 ]
-"107
+"87
 [v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18077 ]
-"109
-[e $U 2431  ]
-{
-"110
-[e :U 2432 ]
-"111
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2433  ]
-"112
-{
-"113
-[e ( _Led_On ..  ]
-"114
-[e = F18076 . `E18071 1 ]
-"115
-[e = F18077 ( _get_systemtick_time ..  ]
-"116
-}
-[e :U 2433 ]
-"117
+[e = _elapsed ( _get_elapsed_since (1 F18035 ]
+"89
 [e $U 2430  ]
-"119
-[e :U 2434 ]
-"120
-[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2435  ]
-"121
 {
-"122
-[e ( _Led_Off ..  ]
-"123
-[e = F18076 . `E18071 0 ]
-"124
-[e = F18077 ( _get_systemtick_time ..  ]
-"125
-}
-[e :U 2435 ]
-"126
-[e $U 2430  ]
-"127
-}
-[e $U 2430  ]
+"90
 [e :U 2431 ]
-[e [\ -> F18076 `ui , $ -> . `E18071 0 `ui 2432
- , $ -> . `E18071 1 `ui 2434
- 2430 ]
-[e :U 2430 ]
-"128
-[e :UE 2429 ]
+"91
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2432  ]
+"92
+{
+"93
+[e ( _Led_On ..  ]
+"94
+[e = F18034 . `E18029 1 ]
+"95
+[e = F18035 ( _get_systemtick_time ..  ]
+"96
 }
-"130
+[e :U 2432 ]
+"97
+[e $U 2429  ]
+"99
+[e :U 2433 ]
+"100
+[e $ ! > _elapsed -> -> -> 100 `i `l `ul 2434  ]
+"101
+{
+"102
+[e ( _Led_Off ..  ]
+"103
+[e = F18034 . `E18029 0 ]
+"104
+[e = F18035 ( _get_systemtick_time ..  ]
+"105
+}
+[e :U 2434 ]
+"106
+[e $U 2429  ]
+"107
+}
+[e $U 2429  ]
+[e :U 2430 ]
+[e [\ -> F18034 `ui , $ -> . `E18029 0 `ui 2431
+ , $ -> . `E18029 1 `ui 2433
+ 2429 ]
+[e :U 2429 ]
+"108
+[e :UE 2428 ]
+}
+"110
 [v _Time0_start `(v ~T0 @X0 1 sf ]
-"131
+"111
 {
 [e :U _Time0_start ]
+[f ]
+"113
+[e :UE 2435 ]
+}
+"115
+[v _g_Voltage1 `f ~T0 @X0 1 e ]
+[v _g_Voltage2 `f ~T0 @X0 1 e ]
+"116
+[v _powernum1 `f ~T0 @X0 1 e ]
+[v _powernum2 `f ~T0 @X0 1 e ]
+"118
+[v _Dimming_Pid `(v ~T0 @X0 1 ef ]
+"119
+{
+[e :U _Dimming_Pid ]
 [f ]
 "143
 [e :UE 2436 ]
 }
 "145
-[v _g_Voltage1 `f ~T0 @X0 1 e ]
-[v _g_Voltage2 `f ~T0 @X0 1 e ]
-"146
-[v _powernum1 `f ~T0 @X0 1 e ]
-[v _powernum2 `f ~T0 @X0 1 e ]
-"148
-[v _Dimming_Pid `(v ~T0 @X0 1 ef ]
-"149
-{
-[e :U _Dimming_Pid ]
-[f ]
-"173
-[e :UE 2437 ]
-}
-"175
 [v _Time0_AppInit `(v ~T0 @X0 1 ef ]
-"176
+"146
 {
 [e :U _Time0_AppInit ]
 [f ]
-"177
-[e ( _TMR0_PeriodMatchCallbackRegister (1 &U _Time0_start ]
-"178
-[e :UE 2438 ]
+"147
+[e ( _TMR0_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
+"148
+[e :UE 2437 ]
 }
-"180
+"150
 [v _Time2_AppInit `(v ~T0 @X0 1 ef ]
-"181
+"151
 {
 [e :U _Time2_AppInit ]
 [f ]
-"182
-[e ( _TMR2_PeriodMatchCallbackRegister (1 &U _TaskHandler_Time ]
-"183
-[e :UE 2439 ]
+"153
+[e :UE 2438 ]
 }
-"185
+"155
 [v _PIDDimming_Init `(v ~T0 @X0 1 ef ]
-"186
+"156
 {
 [e :U _PIDDimming_Init ]
 [f ]
-"188
-[e :UE 2440 ]
+"158
+[e :UE 2439 ]
 }

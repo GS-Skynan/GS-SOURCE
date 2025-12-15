@@ -102,7 +102,7 @@ void Access_Bootloder(uint8_t *boot_ack)
 {
     //关闭输出
 
-    //存入E2标志数据
+    //存入标志数据
     BootFlagSetJump();
     __delay_ms(100);
     //应答

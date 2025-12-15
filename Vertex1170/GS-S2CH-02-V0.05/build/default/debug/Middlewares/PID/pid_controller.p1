@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 Applications/PwmRegulation_APP/pwm_change.h
+"21 Middlewares/PID/pid_controller.h
 [s S2419 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2419 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
 "162 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/math.h
@@ -1722,261 +1722,252 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"36 Applications/PwmRegulation_APP/pwm_change.h
-[v _pid1 `S2419 ~T0 @X0 1 e ]
-[v _pid2 `S2419 ~T0 @X0 1 e ]
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"9 Applications/PwmRegulation_APP/pwm_change.c
+"35 Middlewares/PID/pid_controller.h
+[v _pid1 `S2419 ~T0 @X0 1 e ]
+[v _pid2 `S2419 ~T0 @X0 1 e ]
+"7 Middlewares/PID/pid_controller.c
 [v _Pwm_flag_1 `i ~T0 @X0 1 e ]
 [v _Pwm_flag_2 `i ~T0 @X0 1 e ]
 [i _Pwm_flag_2
 -> 0 `i
 ]
-"11
+"9
 [v _target_duty_cycle_Out1 `i ~T0 @X0 1 e ]
 [v _target_duty_cycle_Out2 `i ~T0 @X0 1 e ]
-"12
-[v _return_flag1 `uc ~T0 @X0 1 e ]
-[i _return_flag1
--> -> 0 `i `uc
-]
-[v _return_flag2 `uc ~T0 @X0 1 e ]
-[i _return_flag2
--> -> 0 `i `uc
-]
-"31
+"28
 [v _PID_Init `(v ~T0 @X0 1 ef8`*S2419`uc`f`f`f`f`f`us ]
-"33
+"30
 {
 [e :U _PID_Init ]
-"31
+"28
 [v _pid `*S2419 ~T0 @X0 1 r1 ]
 [v _flag `uc ~T0 @X0 1 r2 ]
 [v _Kp `f ~T0 @X0 1 r3 ]
 [v _Ki `f ~T0 @X0 1 r4 ]
 [v _Kd `f ~T0 @X0 1 r5 ]
-"32
+"29
 [v _output_max `f ~T0 @X0 1 r6 ]
 [v _output_min `f ~T0 @X0 1 r7 ]
 [v _PWM_duty_cycle `us ~T0 @X0 1 r8 ]
-"33
+"30
 [f ]
-"34
+"31
 [e = . *U _pid 0 _flag ]
-"35
+"32
 [e = . *U _pid 1 _Kp ]
-"36
+"33
 [e = . *U _pid 2 _Ki ]
-"37
+"34
 [e = . *U _pid 3 _Kd ]
-"38
+"35
 [e = . *U _pid 6 _output_max ]
-"39
+"36
 [e = . *U _pid 7 _output_min ]
-"42
+"39
 [e = . *U _pid 4 -> .800.0 `f ]
-"43
+"40
 [e = . *U _pid 5 -U -> .800.0 `f ]
-"44
+"41
 [e = . *U _pid 8 -> .0.0 `f ]
-"45
+"42
 [e = . *U _pid 9 -> .0.0 `f ]
-"46
+"43
 [e = . *U _pid 10 -> _PWM_duty_cycle `i ]
-"47
+"44
 [e :UE 2420 ]
 }
-"50
+"47
 [v _PID_Init_Parameters `(v ~T0 @X0 1 ef ]
-"51
+"48
 {
 [e :U _PID_Init_Parameters ]
 [f ]
-"58
-[e ( _PID_Init (4 , , , , , , , &U _pid1 -> -> 1 `i `uc -> .0.11 `f -> .0.002 `f -> .0.17 `f -> .3200.0 `f -> .0.0 `f -> -> 0 `i `us ]
-"60
+"55
+[e ( _PID_Init (4 , , , , , , , &U _pid1 -> -> 1 `i `uc -> .0.09 `f -> .0.002 `f -> .0.17 `f -> .3200.0 `f -> .0.0 `f -> -> 0 `i `us ]
+"57
 [e ( _PID_Init (4 , , , , , , , &U _pid2 -> -> 2 `i `uc -> .0.3 `f -> .0.005 `f -> .0.001 `f -> .3200.0 `f -> .0.0 `f -> -> 0 `i `us ]
-"62
+"59
 [e :UE 2421 ]
 }
-"119
+"116
 [v _PID_Compute `(us ~T0 @X0 1 ef3`*S2419`f`f ]
-"120
+"117
 {
 [e :U _PID_Compute ]
-"119
+"116
 [v _pid `*S2419 ~T0 @X0 1 r1 ]
 [v _setpoint `f ~T0 @X0 1 r2 ]
 [v _measured_value `f ~T0 @X0 1 r3 ]
-"120
+"117
 [f ]
-"121
+"118
 [v _error `f ~T0 @X0 1 a ]
 [e = _error - _setpoint _measured_value ]
-"122
+"119
 [v _abs_error `f ~T0 @X0 1 a ]
 [e = _abs_error ( _fabsf (1 _error ]
-"125
+"122
 [v _adaptive_Ki `f ~T0 @X0 1 a ]
 [e = _adaptive_Ki . *U _pid 2 ]
-"126
+"123
 [e $ ! > _abs_error -> .50.0 `f 2423  ]
-"127
+"124
 {
-"128
+"125
 [e =* _adaptive_Ki -> .0.1 `f ]
-"129
+"126
 }
 [e $U 2424  ]
-"130
+"127
 [e :U 2423 ]
 [e $ ! > _abs_error -> .20.0 `f 2425  ]
-"131
+"128
 {
-"132
+"129
 [e =* _adaptive_Ki -> .0.3 `f ]
-"133
+"130
 }
 [e $U 2426  ]
-"134
+"131
 [e :U 2425 ]
 [e $ ! < _abs_error -> .5.0 `f 2427  ]
-"135
+"132
 {
-"136
+"133
 [e =* _adaptive_Ki -> .2.0 `f ]
-"137
+"134
 }
 [e :U 2427 ]
 [e :U 2426 ]
 [e :U 2424 ]
-"140
+"137
 [v _proportional `f ~T0 @X0 1 a ]
 [e = _proportional * . *U _pid 1 _error ]
-"159
+"156
 [e $ ! < _abs_error -> .50.0 `f 2428  ]
-"160
+"157
 {
-"161
+"158
 [v _integral_step `f ~T0 @X0 1 a ]
 [e = _integral_step _error ]
-"164
+"161
 [e $ ! > _abs_error -> .30.0 `f 2429  ]
-"165
+"162
 {
-"167
+"164
 [e $ ! > _integral_step -> .40.0 `f 2430  ]
 [e = _integral_step -> .40.0 `f ]
 [e :U 2430 ]
-"168
+"165
 [e $ ! < _integral_step -U -> .40.0 `f 2431  ]
 [e = _integral_step -U -> .40.0 `f ]
 [e :U 2431 ]
-"169
+"166
 }
 [e $U 2432  ]
-"170
+"167
 [e :U 2429 ]
 [e $ ! > _abs_error -> .10.0 `f 2433  ]
-"171
+"168
 {
-"173
+"170
 [v _limit `f ~T0 @X0 1 a ]
 [e = _limit * _abs_error -> .0.8 `f ]
-"174
+"171
 [e $ ! > _integral_step _limit 2434  ]
 [e = _integral_step _limit ]
 [e :U 2434 ]
-"175
+"172
 [e $ ! < _integral_step -U _limit 2435  ]
 [e = _integral_step -U _limit ]
 [e :U 2435 ]
-"176
+"173
 }
 [e $U 2436  ]
-"177
+"174
 [e :U 2433 ]
-"178
+"175
 {
-"181
+"178
 [e $ ! > _integral_step -> .5.0 `f 2437  ]
 [e = _integral_step -> .5.0 `f ]
 [e :U 2437 ]
-"182
+"179
 [e $ ! < _integral_step -U -> .5.0 `f 2438  ]
 [e = _integral_step -U -> .5.0 `f ]
 [e :U 2438 ]
-"183
+"180
 }
 [e :U 2436 ]
 [e :U 2432 ]
-"186
+"183
 [e =* _integral_step / _adaptive_Ki . *U _pid 2 ]
-"188
+"185
 [e =+ . *U _pid 8 _integral_step ]
-"191
+"188
 [e = . *U _pid 8 ( _fmaxf (2 , . *U _pid 5 ( _fminf (2 , . *U _pid 8 . *U _pid 4 ]
-"192
+"189
 }
 [e $U 2439  ]
-"193
+"190
 [e :U 2428 ]
-"194
+"191
 {
-"196
+"193
 [e = . *U _pid 8 -> -> 0 `i `f ]
-"197
+"194
 }
 [e :U 2439 ]
-"198
+"195
 [v _integral `f ~T0 @X0 1 a ]
 [e = _integral * _adaptive_Ki . *U _pid 8 ]
-"201
+"198
 [v _derivative `f ~T0 @X0 1 a ]
 [e = _derivative * . *U _pid 3 - _error . *U _pid 9 ]
-"204
-[v F18380 `f ~T0 @X0 1 s prev_derivative ]
-[i F18380
+"201
+[v F18378 `f ~T0 @X0 1 s prev_derivative ]
+[i F18378
 -> -> 0 `i `f
 ]
+"202
+[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18378 ]
+"203
+[e = F18378 _derivative ]
 "205
-[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18380 ]
-"206
-[e = F18380 _derivative ]
-"208
 [e = . *U _pid 9 _error ]
-"211
+"208
 [v _output `f ~T0 @X0 1 a ]
 [e = _output + + _proportional _integral _derivative ]
-"214
+"211
 [e $ ! == -> . *U _pid 0 `i -> 1 `i 2440  ]
-"215
+"212
 {
-"217
+"214
 [e =+ _target_duty_cycle_Out1 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
-"218
+"215
 [e = _target_duty_cycle_Out1 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out1 `f -> -> 3200 `i `f `us `i ]
-"219
+"216
 [e ) -> _target_duty_cycle_Out1 `us ]
 [e $UE 2422  ]
-"220
+"217
 }
 [e :U 2440 ]
-"221
+"218
 [e $ ! == -> . *U _pid 0 `i -> 2 `i 2441  ]
-"222
+"219
 {
-"224
+"221
 [e =+ _target_duty_cycle_Out2 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
-"225
+"222
 [e = _target_duty_cycle_Out2 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out2 `f -> -> 3200 `i `f `us `i ]
-"226
+"223
 [e ) -> _target_duty_cycle_Out2 `us ]
 [e $UE 2422  ]
-"227
+"224
 }
 [e :U 2441 ]
-"229
+"226
 [e :UE 2422 ]
 }

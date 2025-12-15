@@ -1868,7 +1868,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2431  ]
 "96
 [e :U 2430 ]
-[e $ ! <= -> _g_VoltageProtect2 `ui -> -> 15 `i `ui 2432  ]
+[e $ ! <= -> _g_VoltageProtect2 `ui -> -> 20 `i `ui 2432  ]
 "97
 {
 "98
@@ -1933,39 +1933,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2438 ]
 "126
-[v F18277 `ul ~T0 @X0 1 s timesys1 ]
-[i F18277
+[v F18279 `ul ~T0 @X0 1 s timesys1 ]
+[i F18279
 -> -> -> 0 `i `l `ul
 ]
 "127
-[v F18278 `ul ~T0 @X0 1 s timesys2 ]
-[i F18278
+[v F18280 `ul ~T0 @X0 1 s timesys2 ]
+[i F18280
 -> -> -> 0 `i `l `ul
 ]
 "128
 [v _protect1time `ul ~T0 @X0 1 a ]
-[e = _protect1time ( _get_elapsed_since (1 F18277 ]
+[e = _protect1time ( _get_elapsed_since (1 F18279 ]
 "129
 [v _protect2time `ul ~T0 @X0 1 a ]
-[e = _protect2time ( _get_elapsed_since (1 F18278 ]
+[e = _protect2time ( _get_elapsed_since (1 F18280 ]
 "130
-[v F18281 `a ~T0 @X0 1 s is_protecting1 ]
-[i F18281
--> -> 0 `i `a
-]
-"131
-[v F18282 `a ~T0 @X0 1 s is_protecting2 ]
-[i F18282
--> -> 0 `i `a
-]
-"133
-[v F18283 `a ~T0 @X0 1 s is_protecting3 ]
+[v F18283 `a ~T0 @X0 1 s is_protecting1 ]
 [i F18283
 -> -> 0 `i `a
 ]
-"134
-[v F18284 `a ~T0 @X0 1 s is_protecting4 ]
+"131
+[v F18284 `a ~T0 @X0 1 s is_protecting2 ]
 [i F18284
+-> -> 0 `i `a
+]
+"133
+[v F18285 `a ~T0 @X0 1 s is_protecting3 ]
+[i F18285
+-> -> 0 `i `a
+]
+"134
+[v F18286 `a ~T0 @X0 1 s is_protecting4 ]
+[i F18286
 -> -> 0 `i `a
 ]
 "136
@@ -1980,13 +1980,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "140
 {
 "141
-[e $ ! ! != -> F18281 `i -> 0 `i 2441  ]
+[e $ ! ! != -> F18283 `i -> 0 `i 2441  ]
 "142
 {
 "144
-[e = F18277 ( _get_systemtick_time ..  ]
+[e = F18279 ( _get_systemtick_time ..  ]
 "145
-[e = F18281 -> -> 1 `i `a ]
+[e = F18283 -> -> 1 `i `a ]
 "146
 }
 [e $U 2442  ]
@@ -2001,7 +2001,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "152
 [e = _V_Ret1 -> -> 1 `i `us ]
 "153
-[e = F18281 -> -> 0 `i `a ]
+[e = F18283 -> -> 0 `i `a ]
 "154
 }
 [e :U 2443 ]
@@ -2017,13 +2017,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 {
 "159
-[e $ ! ! != -> F18282 `i -> 0 `i 2446  ]
+[e $ ! ! != -> F18284 `i -> 0 `i 2446  ]
 "160
 {
 "162
-[e = F18277 ( _get_systemtick_time ..  ]
+[e = F18279 ( _get_systemtick_time ..  ]
 "163
-[e = F18282 -> -> 1 `i `a ]
+[e = F18284 -> -> 1 `i `a ]
 "164
 }
 [e $U 2447  ]
@@ -2038,7 +2038,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "170
 [e = _V_Ret1 -> -> 2 `i `us ]
 "171
-[e = F18282 -> -> 0 `i `a ]
+[e = F18284 -> -> 0 `i `a ]
 "173
 }
 [e :U 2448 ]
@@ -2056,9 +2056,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "180
 [e = _V_Ret1 -> -> 0 `i `us ]
 "182
-[e = F18281 -> -> 0 `i `a ]
+[e = F18283 -> -> 0 `i `a ]
 "183
-[e = F18282 -> -> 0 `i `a ]
+[e = F18284 -> -> 0 `i `a ]
 "184
 }
 [e :U 2450 ]
@@ -2079,13 +2079,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "194
 {
 "195
-[e $ ! ! != -> F18283 `i -> 0 `i 2453  ]
+[e $ ! ! != -> F18285 `i -> 0 `i 2453  ]
 "196
 {
 "198
-[e = F18278 ( _get_systemtick_time ..  ]
+[e = F18280 ( _get_systemtick_time ..  ]
 "199
-[e = F18283 -> -> 1 `i `a ]
+[e = F18285 -> -> 1 `i `a ]
 "200
 }
 [e $U 2454  ]
@@ -2100,7 +2100,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "206
 [e = _V_Ret2 -> -> 1 `i `us ]
 "207
-[e = F18283 -> -> 0 `i `a ]
+[e = F18285 -> -> 0 `i `a ]
 "208
 }
 [e :U 2455 ]
@@ -2116,13 +2116,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "212
 {
 "213
-[e $ ! ! != -> F18284 `i -> 0 `i 2458  ]
+[e $ ! ! != -> F18286 `i -> 0 `i 2458  ]
 "214
 {
 "216
-[e = F18278 ( _get_systemtick_time ..  ]
+[e = F18280 ( _get_systemtick_time ..  ]
 "217
-[e = F18284 -> -> 1 `i `a ]
+[e = F18286 -> -> 1 `i `a ]
 "218
 }
 [e $U 2459  ]
@@ -2137,7 +2137,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "224
 [e = _V_Ret2 -> -> 2 `i `us ]
 "225
-[e = F18284 -> -> 0 `i `a ]
+[e = F18286 -> -> 0 `i `a ]
 "226
 }
 [e :U 2460 ]
@@ -2155,9 +2155,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "233
 [e = _V_Ret2 -> -> 0 `i `us ]
 "235
-[e = F18283 -> -> 0 `i `a ]
+[e = F18285 -> -> 0 `i `a ]
 "236
-[e = F18284 -> -> 0 `i `a ]
+[e = F18286 -> -> 0 `i `a ]
 "237
 }
 [e :U 2462 ]

@@ -1,5 +1,5 @@
-build/default/debug/Applications/PwmRegulation_APP/pwm_change.p1:  \
-Applications/PwmRegulation_APP/pwm_change.c  \
+build/default/debug/Middlewares/PID/pid_controller.p1:  \
+Middlewares/PID/pid_controller.c  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/../system/config_bits.h  \
@@ -31,7 +31,7 @@ Applications/CurrentRead_APP/../../mcc_generated_files/system/../timer/tmr4.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
 DriverLayer/PWM/pwm_driver.h  \
 DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
-Applications/PwmRegulation_APP/pwm_change.h  \
-Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
-Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h 
+Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
+Middlewares/PID/pid_controller.h  \
+Middlewares/PID/../../mcc_generated_files/system/system.h 

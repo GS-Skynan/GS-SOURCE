@@ -42,8 +42,6 @@ Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/PowerComp_APP/powercomp.h  \
 Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
-Applications/PwmRegulation_APP/pwm_change.h  \
-Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
@@ -54,11 +52,11 @@ Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 DriverLayer/RS485/RS485_DATA.h  \
 DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
-Applications/timerecord_app/record.h  \
-Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
-Applications/TempProtected_APP/temp_protected.h  \
-Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/Bootloader/Bootloader.h  \
 Applications/Bootloader/../../mcc_generated_files/system/system.h  \
 Middlewares/Arithmetic/arithmetic.h  \
-Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h  \
+Middlewares/PID/pid_controller.h  \
+Middlewares/PID/../../mcc_generated_files/system/system.h  \
+Applications/TempProtected_APP/temp_protected.h  \
+Applications/TempProtected_APP/../../mcc_generated_files/system/system.h 

@@ -45,7 +45,8 @@ extern uint16_t g_uPower1, g_uPower2;
 extern uint16_t power_time;
 extern uint16_t g_uChanne2Power;
 
-void WriteCalibration(uint8_t *w_eeprom);
+void WriteCalibrationSingleChannel(uint8_t *w_eeprom);
+void WriteCalibrationMultiChannel(uint8_t *w_eeprom);
 void ReadCalibration(void);
 void NFCRead_APPInit(void);
 

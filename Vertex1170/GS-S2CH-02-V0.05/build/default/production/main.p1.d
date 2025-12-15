@@ -28,10 +28,6 @@ mcc_generated_files/system/../timer/tmr2.h  \
 mcc_generated_files/system/../timer/tmr2_deprecated.h  \
 mcc_generated_files/system/../timer/tmr4.h  \
 mcc_generated_files/system/../timer/tmr4_deprecated.h  \
-Applications/timerecord_app/record.h  \
-Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
-Applications/PwmRegulation_APP/pwm_change.h  \
-Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
 Applications/USBCom_APP/usbcom.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
@@ -56,4 +52,6 @@ Applications/version_read/../../mcc_generated_files/system/system.h  \
 DriverLayer/PWM/pwm_driver.h  \
 DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
 Middlewares/Arithmetic/arithmetic.h  \
-Middlewares/Arithmetic/../../mcc_generated_files/system/system.h 
+Middlewares/Arithmetic/../../mcc_generated_files/system/system.h  \
+Middlewares/PID/pid_controller.h  \
+Middlewares/PID/../../mcc_generated_files/system/system.h 

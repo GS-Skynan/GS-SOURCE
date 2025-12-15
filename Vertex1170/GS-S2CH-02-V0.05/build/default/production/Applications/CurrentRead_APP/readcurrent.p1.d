@@ -32,4 +32,6 @@ Applications/CurrentRead_APP/../../mcc_generated_files/system/../timer/tmr4_depr
 DriverLayer/NFC/nfc.h  \
 DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
 DriverLayer/EEPROM/EEPROM_driver.h  \
-DriverLayer/EEPROM/../../mcc_generated_files/system/system.h 
+DriverLayer/EEPROM/../../mcc_generated_files/system/system.h  \
+Middlewares/CRC/crc.h  \
+Middlewares/CRC/../../mcc_generated_files/system/system.h 

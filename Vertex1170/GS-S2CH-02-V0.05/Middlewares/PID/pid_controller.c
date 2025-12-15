@@ -1,14 +1,12 @@
 #include "readcurrent.h"
 #include "pwm_driver.h"
-#include "pwm_change.h"
 #include "ticktime.h"
 #include <math.h>
-
+#include "pid_controller.h"
 
 int Pwm_flag_1, Pwm_flag_2 = 0;
 
 int target_duty_cycle_Out1, target_duty_cycle_Out2;
-uint8_t return_flag1 = 0, return_flag2 = 0;
 
 //void PID_Init(PIDController *pid, unsigned char flag, float Kp, float Ki, float Kd, float output_max, float output_min, uint16_t PWM_duty_cycle)
 //{

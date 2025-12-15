@@ -4,7 +4,6 @@
 #include "adc_driver.h"
 #include "closeled.h"
 #include "readcurrent.h"
-#include "record.h"
 #include "nfc.h"
 #include "ticktime.h"
 #include "stdio.h"

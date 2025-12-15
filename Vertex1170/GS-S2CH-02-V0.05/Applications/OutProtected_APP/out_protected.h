@@ -8,8 +8,8 @@
 
 
 
-#define U1_R1 1095.0f
-#define U1_R2 15.0f
+#define U2_R1 1095.0f
+#define U2_R2 15.0f
 
 
 extern uint16_t adc_value[2];    

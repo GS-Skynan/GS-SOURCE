@@ -84,7 +84,7 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
     /*红外光通道电压判断*/
     if (channel == Output2_voltage_ADC)
     {
-        g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U1_R1 / U1_R2);
+        g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
         g_PoweProtect2 = (float) get_current(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
 
         if (g_VoltageProtect2 >= 300)
@@ -93,7 +93,7 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
             return 1;
         }
 
-        else if (g_VoltageProtect2 <= 15)
+        else if (g_VoltageProtect2 <= 20)
         {
             g_uFaultCode = 5;
             return 2;

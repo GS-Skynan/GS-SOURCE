@@ -36,12 +36,6 @@
         <itemPath>Applications/OutProtected_APP/out_protected.c</itemPath>
         <itemPath>Applications/OutProtected_APP/out_protected.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="PwmRegulation_APP"
-                     displayName="PwmRegulation_APP"
-                     projectFiles="true">
-        <itemPath>Applications/PwmRegulation_APP/pwm_change.c</itemPath>
-        <itemPath>Applications/PwmRegulation_APP/pwm_change.h</itemPath>
-      </logicalFolder>
       <logicalFolder name="TempProtected_APP"
                      displayName="TempProtected_APP"
                      projectFiles="true">
@@ -159,6 +153,10 @@
       <logicalFolder name="CRC" displayName="CRC" projectFiles="true">
         <itemPath>Middlewares/CRC/crc.c</itemPath>
         <itemPath>Middlewares/CRC/crc.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="PID" displayName="PID" projectFiles="true">
+        <itemPath>Middlewares/PID/pid_controller.c</itemPath>
+        <itemPath>Middlewares/PID/pid_controller.h</itemPath>
       </logicalFolder>
       <logicalFolder name="QUEUE" displayName="QUEUE" projectFiles="true">
         <itemPath>Middlewares/QUEUE/queue.c</itemPath>
@@ -279,7 +277,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
-                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Applications\PwmRegulation_APP;Applications\TempProtected_APP;Applications\Ticktime_APP;Applications\timerecord_app;Applications\USBCom_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\version_read;Middlewares\Arithmetic"/>
+                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Middlewares\PID;Applications\Ticktime_APP;Applications\TempProtected_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\version_read;Middlewares\Arithmetic;Applications\USBCom_APP"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -1508,8 +1506,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/12918/Desktop/PIC/bootloader3.0/Bootloader_V3.0/Bootloader_V3.0/app/app.X/debug/default/app_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

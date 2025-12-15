@@ -34,8 +34,6 @@
  */
 
 #include "mcc_generated_files/system/system.h"
-#include "record.h"
-#include "pwm_change.h"
 #include "usbcom.h"
 #include "inprotectedapp.h"
 #include "TEMP_PROTECTED.h"
@@ -50,7 +48,7 @@
 #include "version_task.h"
 #include "pwm_driver.h"
 #include "arithmetic.h"
-
+#include "pid_controller.h"
 /*
     Main application
  */
@@ -65,15 +63,15 @@ typedef struct
 
 
 static tTaskComps g_taskComps[] = {
-    {0, 150, 150, Rs485Task},
+    {0, 100, 100, Rs485Task},
     {0, 100, 100, IntProtectedTask},
 
     //    {0, 1000, 1000, TimeCalculationTask},
-     {0, 500, 500, TemapProtectedTask},
+    {0, 500, 500, TemapProtectedTask},
     {0, 10, 10, DimmingControlTask},
-    {0, 50, 50, OutProtectedTask},
+    {0, 20, 20, OutProtectedTask},
     {0, 10, 10, LED_Task},
-    {0, 5000, 5000, Display},
+ //   {0, 5000, 5000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))
@@ -110,14 +108,14 @@ static void APPInit(void)
 {
     GPIO_APPInit();
     Time0_AppInit();
-    PIDDimming_Init();
-    Time2_AppInit();
+//    PIDDimming_Init();
+//    Time2_AppInit();
     UsbcomAppInit();
     PID_Init_Parameters(); // 初始化两路 PID 控制器
     init_all_pwm_regulators();
     NFCRead_APPInit();
-    TaskScheduleCbReg(TaskScheduleCb);
-
+    TaskScheduleCbReg(TaskScheduleCb); 
+    
     VersionStore();
 }
 

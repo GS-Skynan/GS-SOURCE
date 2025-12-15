@@ -39,8 +39,6 @@ Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
-Applications/timerecord_app/record.h  \
-Applications/timerecord_app/../../mcc_generated_files/system/system.h  \
 DriverLayer/NFC/nfc.h  \
 DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \

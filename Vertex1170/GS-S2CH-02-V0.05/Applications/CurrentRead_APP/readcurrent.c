@@ -2,15 +2,16 @@
 #include "nfc.h"
 #include "EEPROM_driver.h"
 #include "stdio.h"
-
+#include "string.h"
+#include "crc.h"
 
 uint16_t power_Hold_1, power_Hold_2;
 uint8_t UART_REG1 = 0X00, UART_REG2 = 0X00;
 uint16_t power_time = 1;
 uint16_t g_uPower1, g_uPower2;
-
-uint8_t calibrationBUFF[3];
 uint8_t I2C_receiveData[72];
+
+int8_t CalibrationBuff[3];
 
 void ReadCurrentInit(uint8_t* nfcData)
 {
@@ -42,57 +43,97 @@ void PowerCompensationTime(uint8_t* nfcData)
     power_time = power_time * 1000;
 }
 
-void ReadCalibration(void)
+void WriteCalibrationSingleChannel(uint8_t *w_eeprom)
 {
-    EepromReadBuffer(4, calibrationBUFF, sizeof (calibrationBUFF));
-    __delay_ms(10);
-    for (uint8_t i = 0; i <= 4; i++)
+    uint8_t write_buffer[17] = {0};
+
+    // 复制数据到缓冲区
+    memcpy(write_buffer, w_eeprom, 17);
+
+    if (write_buffer[7] == 0x01)
     {
-        printf("EEP:%02X", calibrationBUFF[i]);
+        EepromWriteByte(0x0004, write_buffer[8]);
+        __delay_ms(1);
+        CalibrationBuff[0] = EepromReadByte(0x0004);
     }
+
+    else if (write_buffer[7] == 0x02)
+    {
+        EepromWriteByte(0x0004, write_buffer[8]);
+        __delay_ms(1);
+        CalibrationBuff[0] = -EepromReadByte(0x0004);
+    }
+
+    if (write_buffer[9] == 0x01)
+    {
+        EepromWriteByte(0x0005, write_buffer[10]);
+        __delay_ms(1);
+        CalibrationBuff[1] = EepromReadByte(0x0005);
+    }
+
+    else if (write_buffer[9] == 0x02)
+    {
+        EepromWriteByte(0x0005, write_buffer[10]);
+        __delay_ms(1);
+        CalibrationBuff[1] = -EepromReadByte(0x0005);
+    }
+
+    write_buffer[0] = 0x55;
+    // 计算CRC
+    uint16_t wcrc = CRC16(write_buffer, 15);
+    write_buffer[16] = wcrc & 0xFF;
+    write_buffer[15] = (wcrc >> 8) & 0xFF;
+    //    一次性打印所有数据
+    for (uint8_t j = 0; j < 17; j++)
+    {
+        printf("%02X", write_buffer[j]);
+        if (j < 16) printf(" "); // 最后一个字节后不加空格
+    }
+    memcpy(write_buffer, 0, 17);
 }
 
-void WriteCalibration(uint8_t *w_eeprom)
+
+
+void WriteCalibrationMultiChannel(uint8_t *w_eeprom)
 {
-    //    uint8_t eeprom_write[4] = {20,21,22,0};
-    //    uint8_t write_buffer[17] = {0};
-    //
-    //    // 复制数据到缓冲区
-    //    memcpy(write_buffer, w_eeprom, 17);
-    //
-    //    // 提取EEPROM写入数据
-    //
-    //     EepromWriteBuffer(4,eeprom_write,i);
-    //      __delay_ms(1);
-    //    
-    //
-    //    // 写入版本号到EEPROM
-    //    Write_Versions(I2C_HARDWARE_VERSION_ADDR, eeprom_write, 4);
-    //    __delay_ms(10);
-    //
-    //    // 设置固定值
-    //    write_buffer[0] = 0x55;
-    //
-    //    // 读取版本号 - 使用memcpy
-    //    uint8_t *numb = Read_Versions(I2C_HARDWARE_VERSION_ADDR, 4);
-    //    memcpy(write_buffer + 7, numb, 4);
-    //
-    //    // 读取版本信息
-    //    uint8_t *ver = Read_Versions(I2C_SOFTWARE_VERSION_ADDR, 3);
-    //    write_buffer[11] = ver[2];
-    //
-    //    // 计算CRC
-    //    uint16_t wcrc = CRC16(write_buffer, 15);
-    //    write_buffer[15] = wcrc & 0xFF;
-    //    write_buffer[16] = (wcrc >> 8) & 0xFF;
-    //
-    //    // 一次性打印所有数据
-    //    for (uint8_t j = 0; j < 17; j++)
-    //    {
-    //        printf("%02X", write_buffer[j]);
-    //        if (j < 16) printf(" "); // 最后一个字节后不加空格
-    //    }
-    //    memcpy(write_buffer, 0, 17);
+    uint8_t write_buffer[17] = {0};
+
+    // 复制数据到缓冲区
+    memcpy(write_buffer, w_eeprom, 17);
+
+    if (write_buffer[7] == 0x01)
+    {
+        EepromWriteByte(0x0006, write_buffer[8]);
+        __delay_ms(1);
+        CalibrationBuff[2] = EepromReadByte(0x0006);
+    }
+
+    else if (write_buffer[7] == 0x02)
+    {
+        EepromWriteByte(0x0006, write_buffer[8]);
+        __delay_ms(1);
+        CalibrationBuff[2] = -EepromReadByte(0x0006);
+    }
+
+    write_buffer[0] = 0x55;
+    // 计算CRC
+    uint16_t wcrc = CRC16(write_buffer, 15);
+    write_buffer[16] = wcrc & 0xFF;
+    write_buffer[15] = (wcrc >> 8) & 0xFF;
+    //    一次性打印所有数据
+    for (uint8_t j = 0; j < 17; j++)
+    {
+        printf("%02X", write_buffer[j]);
+        if (j < 16) printf(" "); // 最后一个字节后不加空格
+    }
+    memcpy(write_buffer, 0, 17);
+}
+
+void ReadCalibration(void)
+{
+    CalibrationBuff[0] = EepromReadByte(0x0004);
+    CalibrationBuff[1] = EepromReadByte(0x0005);
+    CalibrationBuff[2] = EepromReadByte(0x0006);
 }
 
 void NFCRead_APPInit(void)
@@ -102,40 +143,9 @@ void NFCRead_APPInit(void)
     __delay_ms(10); // 必须有延时 
     ReadCurrentInit(I2C_receiveData);
     PowerCompensationTime(I2C_receiveData);
+    ReadCalibration();
 }
 
-
-//
-//
-//uint16_t  g_uChanne1Power;
-//uint16_t  g_uTargetPower;
-//uint16_t  g_uChanne2Power;
-//uint16_t  g_Pzong;
-//
-//
-//uint16_t  Power_Compensation(void)
-//{
-//    uint16_t setPower = 0;
-//    setPower = g_uPower1;
-//    g_uChanne1Power = (g_uPower1 / 100 * UART_REG1)-24;
-//    g_uChanne2Power = (g_uPower2 / 100 * UART_REG2)-19;
-//
-//    if (g_uChanne2Power < 0)g_uChanne2Power = 0;
-//    if (g_uChanne2Power > g_uPower2)g_uChanne2Power = g_uPower2;
-//    g_Pzong = g_uChanne1Power + g_uChanne2Power;
-//    if (g_Pzong > setPower)
-//    {
-//        g_uTargetPower = setPower - (g_Pzong - g_uChanne1Power) -29 ;
-//    }
-//    else
-//    {   
-//            g_uTargetPower = (g_uChanne1Power) ;
-//    }
-//
-//    if (g_uTargetPower < 0)g_uTargetPower = 0;
-//    if (g_uTargetPower > setPower)g_uTargetPower = setPower;
-//    return g_uTargetPower;
-//}
 
 
 
@@ -150,13 +160,13 @@ uint16_t Power_Compensation(void)
     uint16_t setPower = g_uPower1;
 
 
-    temp = ((int32_t) g_uPower1 * UART_REG1 / 100)- 21;
-    if (temp < 0) temp = 0;
+    temp = ((int32_t) g_uPower1 * UART_REG1 / 100) - (0XFF - (0XFF - CalibrationBuff[0]));
+    if (temp < 20) temp = 20;
     if (temp > g_uPower1) temp = g_uPower1;
     g_uChanne1Power = (uint16_t) temp;
 
-    temp = ((int32_t) g_uPower2 * UART_REG2 / 100)-15;
-    if (temp < 0)temp = 0;
+    temp = ((int32_t) g_uPower2 * UART_REG2 / 100) - (0XFF - (0XFF - CalibrationBuff[1]));
+    if (temp < 20)temp = 20;
     if (temp > g_uPower2)temp = g_uPower2;
     g_uChanne2Power = (uint16_t) temp;
 
@@ -164,14 +174,14 @@ uint16_t Power_Compensation(void)
 
     if (g_Pzong > setPower)
     {
-        temp = (int32_t) setPower - (g_Pzong - g_uChanne1Power)- 20;
+        temp = (int32_t) setPower - (g_Pzong - g_uChanne1Power) - (0XFF - (0XFF - CalibrationBuff[2]));
     }
     else
     {
         temp = (int32_t) g_uChanne1Power;
     }
 
-    if (temp < 0) temp = 0;
+    if (temp < 20) temp = 20;
     if (temp > setPower) temp = setPower;
 
     g_uTargetPower = (uint16_t) temp;

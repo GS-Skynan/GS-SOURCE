@@ -9,9 +9,9 @@
 #include "dimming.h"
 #include "ticktime.h"
 #include "out_protected.h"
-#include "temp_protected.h"
 #include "version_task.h"
 #include "GPIO_driver.h"
+#include "temp_protected.h"
 
 
 #define FRAME_TIMEOUT_MS 10
@@ -131,18 +131,22 @@ void Rs485Task(void)
             break;
 
         case 0x57:
-            if (Rx_Buffer[2] == 0x01)
-            {
-
-            }
             if (Rx_Buffer[2] == 0x02)
             {
-                // WriteCalibration(Rx_Buffer);
+                 WriteCalibrationSingleChannel(Rx_Buffer);
+            }
+            break;
+    
+        case 0x58:
+            if (Rx_Buffer[2] == 0x02)
+            {
+                   WriteCalibrationMultiChannel(Rx_Buffer);
             }
             break;
 
-
-
+            
+          
+            
         default: break;
         }
     }
@@ -152,17 +156,13 @@ void Rs485Task(void)
 
 void UsbcomAppInit(void)
 {
-    RS485_RXEN();
-    __delay_ms(10);
     UART1_RxCompleteCallbackRegister(UartReceivedISR);
-    //    QueueInit(&uartQueue, uartQueueBuffer, sizeof (uartQueueBuffer));
-
 }
 
 void Display(void)
 {
     g_Voltage1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (1087.5f / 7.5f);
-    g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U1_R1 / U1_R2);
+    g_Voltage2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
     printf("Vin:%d| \n\r ", ADC_Result2(Input_voltage_ADC));
     printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
            get_current(OUT_CURRENT1), g_Voltage1, powernum1, pwm1);

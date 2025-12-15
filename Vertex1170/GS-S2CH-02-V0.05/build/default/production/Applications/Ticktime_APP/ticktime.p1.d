@@ -33,8 +33,6 @@ Applications/OutProtected_APP/out_protected.h  \
 Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
-Applications/PwmRegulation_APP/pwm_change.h  \
-Applications/PwmRegulation_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/PWM/pwm_driver.h  \
 DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
 Applications/Dimming_APP/dimming.h  \

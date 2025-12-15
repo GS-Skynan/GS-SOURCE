@@ -85,4 +85,9 @@ void RELAY_On(RELAY_CHANNEL channel)
 void GPIO_APPInit(void)
 {
     RS485_RXEN();
+    PFC_Off();
+    L6562_Off(L6562_CHANNEL1);
+    L6562_Off(L6562_CHANNEL2);
+    RELAY_Off(RELAY_CHANNEL1);
+    RELAY_Off(RELAY_CHANNEL2);
 }

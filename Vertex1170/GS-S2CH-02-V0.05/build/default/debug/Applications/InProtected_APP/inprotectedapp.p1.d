@@ -31,8 +31,6 @@ Applications/InProtected_APP/../../mcc_generated_files/system/../timer/tmr4.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
 DriverLayer/NFC/nfc.h  \
 DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
-Applications/TempProtected_APP/TEMP_PROTECTED.h  \
-Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/ADC/adc_driver.h  \
 DriverLayer/ADC/../../mcc_generated_files/system/system.h  \
 Applications/LightsOff_APP/closeled.h  \

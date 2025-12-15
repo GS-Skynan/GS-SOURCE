@@ -1,7 +1,6 @@
 #include "ticktime.h"
 #include "out_protected.h"
 #include "readcurrent.h"
-#include "pwm_change.h"
 #include "pwm_driver.h"
 #include "dimming.h"
 #include "adc_driver.h"
@@ -57,25 +56,6 @@ uint32_t get_systemtick_time(void)
 }
 
 
-//// 获取经过时间并自动更新时间点
-//uint32_t get_elapsed_and_update(uint32_t *since_time)
-//{
-//    uint32_t current = get_systemtick_time();
-//    uint32_t elapsed;
-//    
-//    if (current >= *since_time) {
-//        elapsed = current - *since_time;
-//    } else {
-//        elapsed = (0xFFFFFFFF - *since_time) + current + 1;
-//    }
-//    
-//    *since_time = current;  // 自动更新
-//    return elapsed;
-//}
-// 获取从指定时间点到当前经过的时间（不修改原值）
-
-// 不自动更新
-
 uint32_t get_elapsed_since(uint32_t since_time) //这是判断回绕函数 
 {
     uint32_t current = get_systemtick_time();
@@ -129,17 +109,7 @@ void LED_Task(void)
 
 static void Time0_start(void)
 {
-    
-    
-//        if (g_uRs485TimeOut > 0)
-//        {
-//            g_uRs485TimeOut--;
-//            if (g_uRs485TimeOut == 0 && Rx_Length > 0)
-//            {
-//                // 超时时间到，表示一帧接收完成
-//                g_bRs485Flag = 1;
-//            }
-//        }     
+     
 }
 
 float g_Voltage1, g_Voltage2;
@@ -174,12 +144,12 @@ void Dimming_Pid(void)
 
 void Time0_AppInit(void)
 {
-    TMR0_PeriodMatchCallbackRegister(Time0_start);
+    TMR0_PeriodMatchCallbackRegister(TaskHandler_Time);
 }
 
 void Time2_AppInit(void)
 {
-    TMR2_PeriodMatchCallbackRegister(TaskHandler_Time);
+    //TMR2_PeriodMatchCallbackRegister(TaskHandler_Time);
 }
 
 void PIDDimming_Init(void)

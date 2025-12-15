@@ -1,6 +1,5 @@
 #include "inprotectedapp.h"
 #include "nfc.h"
-#include "TEMP_PROTECTED.h"
 #include "adc_driver.h"
 #include "closeled.h"
 #include "readcurrent.h"

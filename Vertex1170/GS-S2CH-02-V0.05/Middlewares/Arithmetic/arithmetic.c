@@ -93,7 +93,7 @@ float update_pwm_output_ch1(float up_pwm)
 
 float update_pwm_output_ch2(float up_pwm)
 {
-    return regulator_update(&pwm_regulator2, up_pwm, 500);
+    return regulator_update(&pwm_regulator2, up_pwm, 200);
 }
 
 void RegulatorClear(uint8_t ch)
