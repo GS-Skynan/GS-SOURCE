@@ -1,0 +1,4520 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F57Q43 ]
+[d frameptr 1249 ]
+"148 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[e E17837 . `uc
+I2C_SUCCESS 0
+I2C_ERROR_TIMEOUT 1
+I2C_ERROR_WRITE_FAILED 2
+I2C_ERROR_READ_FAILED 3
+]
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[e E17462 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"132
+[e E17925 . `uc
+RELAY_CHANNEL1 1
+RELAY_CHANNEL2 2
+]
+"141
+[e E17921 . `uc
+L6562_CHANNEL1 1
+L6562_CHANNEL2 2
+]
+"184
+[e E17944 . `uc
+PWM_CHANNEL_1 1
+PWM_CHANNEL_2 2
+PWM_CHANNEL_3 3
+PWM_CHANNEL_4 4
+PWM_ALLOFF 5
+]
+"239
+[e E19018 . `uc
+PFC_ON 1
+LED_ON_12CH 2
+LED_ON_1CH 3
+LED_ON_2CH 4
+LED_OFF 5
+]
+"283
+[e E17901 . `uc
+LED_CHANNEL1_OFF 1
+LED_CHANNEL2_OFF 2
+LED_ALL_OFF 3
+]
+"55 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/InProtected_APP/inprotectedapp.c
+[e E17952 . `uc
+LED_STATE_OFF 0
+LED_STATE_ON 1
+LED_STATE_POWER_DOWN 2
+]
+"63
+[e E17462 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"22 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/LightsOff_APP/closeled.c
+[e E17873 . `uc
+PWM_CHANNEL_1 1
+PWM_CHANNEL_2 2
+PWM_CHANNEL_3 3
+PWM_CHANNEL_4 4
+PWM_ALLOFF 5
+]
+"23
+[e E17850 . `uc
+L6562_CHANNEL1 1
+L6562_CHANNEL2 2
+]
+"27
+[e E17854 . `uc
+RELAY_CHANNEL1 1
+RELAY_CHANNEL2 2
+]
+"58
+[e E17823 . `uc
+LED_CHANNEL1_OFF 1
+LED_CHANNEL2_OFF 2
+LED_ALL_OFF 3
+]
+"39 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/OutProtected_APP/out_protected.c
+[e E17462 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"93 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/TempProtected_APP/temp_protected.c
+[e E17462 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"85 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[e E18025 . `uc
+LED_OFF 0
+LED_ON 1
+]
+"30 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[e E17841 . `uc
+I2C_SUCCESS 0
+I2C_ERROR_TIMEOUT 1
+I2C_ERROR_WRITE_FAILED 2
+I2C_ERROR_READ_FAILED 3
+]
+"64 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/ADC/adc_driver.c
+[e E17462 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"13 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/EEPROM/EEPROM_driver.c
+[e E17204 . `uc
+NVM_OK 0
+NVM_ERROR 1
+]
+"34 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[e E17823 . `uc
+L6562_CHANNEL1 1
+L6562_CHANNEL2 2
+]
+"59
+[e E17827 . `uc
+RELAY_CHANNEL1 1
+RELAY_CHANNEL2 2
+]
+"63 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[e E17824 . `uc
+I2C_SUCCESS 0
+I2C_ERROR_TIMEOUT 1
+I2C_ERROR_WRITE_FAILED 2
+I2C_ERROR_READ_FAILED 3
+]
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/PWM/pwm_driver.c
+[e E17823 . `uc
+PWM_CHANNEL_1 1
+PWM_CHANNEL_2 2
+PWM_CHANNEL_3 3
+PWM_CHANNEL_4 4
+PWM_ALLOFF 5
+]
+"34 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/QUEUE/queue.c
+[e E17829 . `uc
+QUEUE_OK 0
+QUEUE_ERROR 1
+QUEUE_OVERLOAD 2
+QUEUE_EMPTY 3
+]
+"139 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[e E17119 . `uc
+ADC_CHANNEL_VSS 59
+ADC_CHANNEL_TEMP 60
+ADC_CHANNEL_DAC1 61
+ADC_CHANNEL_FVR_BUFFER1 62
+ADC_CHANNEL_FVR_BUFFER2 63
+ADC_CHANNEL_ANA3 3
+ADC_CHANNEL_ANA4 4
+ADC_CHANNEL_ANC1 17
+ADC_CHANNEL_ANC6 22
+ADC_CHANNEL_AND4 28
+ADC_CHANNEL_ANF4 44
+ADC_CHANNEL_ANA0 0
+]
+"164
+[e E17133 . `uc
+ADC_BASIC 0
+ADC_SERIES_ACCUMULATE 1
+ADC_SERIES_AVERAGE 2
+ADC_BURST_AVERAGE 3
+ADC_LOW_PASS_FILTER 4
+]
+"169
+[e E17147 . `uc
+ADC_NEVER_INTERRUPT 0
+ADC_BELOW_LOWER_THRESHOLD 1
+ADC_ABOVE_LOWER_THRESHOLD 2
+ADC_INSIDE_LOWER_AND_UPPER_THRESHOLD 3
+ADC_OUTSIDE_LOWER_AND_UPPER_THRESHOLD 4
+ADC_BELOW_UPPER_THRESHOLD 5
+ADC_ABOVE_UPPER_THRESHOLD 6
+ADC_ALWAYS_INTERRUPT 7
+]
+"308
+[e E17195 . `uc
+ADC_NOT_CONVERTING 0
+ADC_1ST_PRECHARGE 1
+ADC_1ST_ACQUISITION 2
+ADC_1ST_CONVERSION 3
+ADC_SUSPENDED_BETWEEN_1ST_AND_2ND_SAMPLE 4
+ADC_2ND_PRECHARGE 5
+ADC_2ND_ACQUISITION 6
+ADC_2ND_CONVERSION 7
+]
+"313
+[e E17157 . `uc
+ADC_TRIGGER_SOURCE_DISABLED 0
+ADC_TRIGGER_SOURCE_ADACTPPS 1
+ADC_TRIGGER_SOURCE_TMR0 2
+ADC_TRIGGER_SOURCE_TMR1 3
+ADC_TRIGGER_SOURCE_TMR2 4
+ADC_TRIGGER_SOURCE_TMR3 5
+ADC_TRIGGER_SOURCE_TMR4 6
+ADC_TRIGGER_SOURCE_TMR5 7
+ADC_TRIGGER_SOURCE_TMR6 8
+ADC_TRIGGER_SOURCE_SMT1_OVERFLOW 14
+ADC_TRIGGER_SOURCE_CCP1 15
+ADC_TRIGGER_SOURCE_CCP2 16
+ADC_TRIGGER_SOURCE_CCP3 17
+ADC_TRIGGER_SOURCE_PWM1_OUT1 18
+ADC_TRIGGER_SOURCE_PWM1_OUT2 19
+ADC_TRIGGER_SOURCE_PWM2_OUT1 20
+ADC_TRIGGER_SOURCE_PWM2_OUT2 21
+ADC_TRIGGER_SOURCE_PWM3_OUT1 22
+ADC_TRIGGER_SOURCE_PWM3_OUT2 23
+ADC_TRIGGER_SOURCE_NCO1 26
+ADC_TRIGGER_SOURCE_NCO2 27
+ADC_TRIGGER_SOURCE_NCO3 28
+ADC_TRIGGER_SOURCE_CMP1 29
+ADC_TRIGGER_SOURCE_CMP2 30
+ADC_TRIGGER_SOURCE_LOGICAL_OR_OF_ALL_IOC_FLAGS 31
+ADC_TRIGGER_SOURCE_CLC1 32
+ADC_TRIGGER_SOURCE_CLC2 33
+ADC_TRIGGER_SOURCE_CLC3 34
+ADC_TRIGGER_SOURCE_CLC4 35
+ADC_TRIGGER_SOURCE_CLC5 36
+ADC_TRIGGER_SOURCE_CLC6 37
+ADC_TRIGGER_SOURCE_CLC7 38
+ADC_TRIGGER_SOURCE_CLC8 39
+ADC_TRIGGER_SOURCE_ADERRH 61
+ADC_TRIGGER_SOURCE_ADRESH 62
+ADC_TRIGGER_SOURCE_ADPCH 63
+]
+"318
+[e E17140 . `uc
+ADC_FIRST_DERIVATIVE_OF_SINGLE_MEASUREMENT 0
+ADC_ACTUAL_RESULT_VS_SETPOINT 1
+ADC_ACTUAL_RESULT_VS_FILTERED_VALUE 2
+ADC_FIRST_DERIVATIVE_OF_FILTERED_VALUE 4
+ADC_FILTERED_VALUE_VS_SETPOINT 5
+]
+"78 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[e E17116 . `uc
+I2C_ERROR_NONE 0
+I2C_ERROR_ADDR_NACK 1
+I2C_ERROR_DATA_NACK 2
+I2C_ERROR_BUS_COLLISION 3
+]
+"53 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[e E17119 . `uc
+NVM_OK 0
+NVM_ERROR 1
+]
+"101 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr2.c
+[e E17115 . `uc
+TMR2_ROP_STARTS_TMRON 0
+TMR2_ROP_STARTS_TMRON_ERSHIGH 1
+TMR2_ROP_STARTS_TMRON_ERSLOW 2
+TMR2_ROP_RESETS_ERSBOTHEDGE 3
+TMR2_ROP_RESETS_ERSRISINGEDGE 4
+TMR2_ROP_RESETS_ERSFALLINGEDGE 5
+TMR2_ROP_RESETS_ERSLOW 6
+TMR2_ROP_RESETS_ERSHIGH 7
+TMR2_OS_STARTS_TMRON 8
+TMR2_OS_STARTS_ERSRISINGEDGE 9
+TMR2_OS_STARTS_ERSFALLINGEDGE 10
+TMR2_OS_STARTS_ERSBOTHEDGE 11
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR2_OS_STARTS_TMRON_ERSHIGH 22
+TMR2_OS_STARTS_TMRON_ERSLOW 23
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"106
+[e E17138 . `uc
+TMR2_T2CKIPPS_PIN 0
+TMR2_TMR4_POSTSCALED 2
+TMR2_TMR6_POSTSCALED 3
+TMR2_CCP1OUT 4
+TMR2_CCP2OUT 5
+TMR2_CCP3OUT 6
+TMR2_PWM1_OUT1 7
+TMR2_PWM1_OUT2 8
+TMR2_PWM2_OUT1 9
+TMR2_PWM2_OUT2 10
+TMR2_PWM3_OUT1 11
+TMR2_PWM3_OUT2 12
+TMR2_CMP1OUT 15
+TMR2_CMP2OUT 16
+TMR2_ZCDOUT 17
+TMR2_CLC1_OUT 18
+TMR2_CLC2_OUT 19
+TMR2_CLC3_OUT 20
+TMR2_CLC4_OUT 21
+TMR2_CLC5_OUT 22
+TMR2_CLC6_OUT 23
+TMR2_CLC7_OUT 24
+TMR2_CLC8_OUT 25
+TMR2_UART1_RX_EDGE 26
+TMR2_UART1_TX_EDGE 27
+TMR2_UART2_RX_EDGE 28
+TMR2_UART2_TX_EDGE 29
+TMR2_UART3_RX_EDGE 30
+TMR2_UART3_TX_EDGE 31
+TMR2_UART4_RX_EDGE 32
+TMR2_UART4_TX_EDGE 33
+TMR2_UART5_RX_EDGE 34
+TMR2_UART5_TX_EDGE 35
+]
+"101 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr4.c
+[e E17115 . `uc
+TMR4_ROP_STARTS_TMRON 0
+TMR4_ROP_STARTS_TMRON_ERSHIGH 1
+TMR4_ROP_STARTS_TMRON_ERSLOW 2
+TMR4_ROP_RESETS_ERSBOTHEDGE 3
+TMR4_ROP_RESETS_ERSRISINGEDGE 4
+TMR4_ROP_RESETS_ERSFALLINGEDGE 5
+TMR4_ROP_RESETS_ERSLOW 6
+TMR4_ROP_RESETS_ERSHIGH 7
+TMR4_OS_STARTS_TMRON 8
+TMR4_OS_STARTS_ERSRISINGEDGE 9
+TMR4_OS_STARTS_ERSFALLINGEDGE 10
+TMR4_OS_STARTS_ERSBOTHEDGE 11
+TMR4_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR4_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR4_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR4_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR4_OS_STARTS_TMRON_ERSHIGH 22
+TMR4_OS_STARTS_TMRON_ERSLOW 23
+TMR4_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR4_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR4_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"106
+[e E17138 . `uc
+TMR4_T4CKIPPS_PIN 0
+TMR4_TMR2_POSTSCALED 1
+TMR4_TMR6_POSTSCALED 3
+TMR4_CCP1OUT 4
+TMR4_CCP2OUT 5
+TMR4_CCP3OUT 6
+TMR4_PWM1_OUT1 7
+TMR4_PWM1_OUT2 8
+TMR4_PWM2_OUT1 9
+TMR4_PWM2_OUT2 10
+TMR4_PWM3_OUT1 11
+TMR4_PWM3_OUT2 12
+TMR4_CMP1OUT 15
+TMR4_CMP2OUT 16
+TMR4_ZCDOUT 17
+TMR4_CLC1_OUT 18
+TMR4_CLC2_OUT 19
+TMR4_CLC3_OUT 20
+TMR4_CLC4_OUT 21
+TMR4_CLC5_OUT 22
+TMR4_CLC6_OUT 23
+TMR4_CLC7_OUT 24
+TMR4_CLC8_OUT 25
+TMR4_UART1_RX_EDGE 26
+TMR4_UART1_TX_EDGE 27
+TMR4_UART2_RX_EDGE 28
+TMR4_UART2_TX_EDGE 29
+TMR4_UART3_RX_EDGE 30
+TMR4_UART3_TX_EDGE 31
+TMR4_UART4_RX_EDGE 32
+TMR4_UART4_TX_EDGE 33
+TMR4_UART5_RX_EDGE 34
+TMR4_UART5_TX_EDGE 35
+]
+"27 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Bootloader/Bootloader.c
+[v _BootCalculateChecksum BootCalculateChecksum `(us  1 e 2 0 ]
+"39
+[v _BootFlagIsValid BootFlagIsValid `(a  1 e 1 0 ]
+"75
+[v _BootFlagSetJump BootFlagSetJump `(v  1 e 1 0 ]
+"101
+[v _Access_Bootloder Access_Bootloder `(v  1 e 1 0 ]
+"23 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _ReadTargetPower ReadTargetPower `(v  1 e 1 0 ]
+"44
+[v _ActualPowerTime ActualPowerTime `(v  1 e 1 0 ]
+"54
+[v _WriteCalibrationSingleChannel WriteCalibrationSingleChannel `(v  1 e 1 0 ]
+"103
+[v _WriteCalibrationMultiChannel WriteCalibrationMultiChannel `(v  1 e 1 0 ]
+"138
+[v _ReadCalibration ReadCalibration `(v  1 e 1 0 ]
+"145
+[v _NFCRead_APPInit NFCRead_APPInit `(v  1 e 1 0 ]
+"162
+[v _Power_Compensation Power_Compensation `(us  1 e 2 0 ]
+"37 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _PIDDimming_Clear PIDDimming_Clear `(v  1 e 1 0 ]
+"47
+[v _GetChannelCurrentValue GetChannelCurrentValue `(f  1 e 4 0 ]
+"76
+[v _ProtectionCheck ProtectionCheck `(uc  1 e 1 0 ]
+"95
+[v _ClearChannelValue ClearChannelValue `(v  1 e 1 0 ]
+"158
+[v _LightOnChannel1 LightOnChannel1 `(v  1 e 1 0 ]
+"193
+[v _LightOnChannel2 LightOnChannel2 `(v  1 e 1 0 ]
+"237
+[v _LightOnLogic LightOnLogic `(v  1 e 1 0 ]
+"340
+[v _PIDCH12 PIDCH12 `(v  1 e 1 0 ]
+"362
+[v _DimmingControlTask DimmingControlTask `(v  1 e 1 0 ]
+"404
+[v _Display Display `(v  1 e 1 0 ]
+"53 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/InProtected_APP/inprotectedapp.c
+[v _VoltageInputProtection VoltageInputProtection `(v  1 e 1 0 ]
+"168
+[v _IntProtectedTask IntProtectedTask `(v  1 e 1 0 ]
+"14 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/LightsOff_APP/closeled.c
+[v _ALL_Closed ALL_Closed `(v  1 e 1 0 ]
+"34
+[v _LED1_Close LED1_Close `(v  1 e 1 0 ]
+"47
+[v _LED2_Close LED2_Close `(v  1 e 1 0 ]
+"58
+[v _LightPowerOff LightPowerOff `(v  1 e 1 0 ]
+"39 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/OutProtected_APP/out_protected.c
+[v _Voltage_Judgment Voltage_Judgment `(us  1 e 2 0 ]
+"117
+[v _OutProtected_CH1 OutProtected_CH1 `(v  1 e 1 0 ]
+"205
+[v _OutProtected_CH2 OutProtected_CH2 `(v  1 e 1 0 ]
+"263
+[v _OutProtectedTask OutProtectedTask `(v  1 e 1 0 ]
+"87 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/TempProtected_APP/temp_protected.c
+[v _Temp_Protected Temp_Protected `(v  1 e 1 0 ]
+"195
+[v _TemapProtectedTask TemapProtectedTask `(v  1 e 1 0 ]
+"20 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _TaskScheduleCbReg TaskScheduleCbReg `(v  1 e 1 0 ]
+"34
+[v _TaskHandler_Time TaskHandler_Time `(v  1 s 1 TaskHandler_Time ]
+"53
+[v _get_systemtick_time get_systemtick_time `(ul  1 e 4 0 ]
+[v i2_get_systemtick_time get_systemtick_time `(ul  1 e 4 0 ]
+"59
+[v _get_elapsed_since get_elapsed_since `(ul  1 e 4 0 ]
+"83
+[v _LED_Task LED_Task `(v  1 e 1 0 ]
+"144
+[v _Time0_AppInit Time0_AppInit `(v  1 e 1 0 ]
+"32 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _UartReceivedISR UartReceivedISR `(v  1 e 1 0 ]
+"47
+[v _ClearReceiveData ClearReceiveData `(v  1 s 1 ClearReceiveData ]
+"56
+[v _Rs485Task Rs485Task `(v  1 e 1 0 ]
+"157
+[v _UsbcomAppInit UsbcomAppInit `(v  1 e 1 0 ]
+"27 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _Write_Versions Write_Versions `(v  1 e 1 0 ]
+"42
+[v _Read_Versions Read_Versions `(*.39uc  1 e 3 0 ]
+"58
+[v _Readhandle_version Readhandle_version `(v  1 e 1 0 ]
+"96
+[v _Writehandle_version Writehandle_version `(v  1 e 1 0 ]
+"149
+[v _VersionStore VersionStore `(v  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__fpclassifyf.c
+[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__signbitf.c
+[v ___signbitf __signbitf `(i  1 e 2 0 ]
+"1 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"193 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"513
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+"587
+[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
+"1055
+[v _xtoa xtoa `(v  1 s 1 xtoa ]
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fabsf.c
+[v _fabsf fabsf `(f  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\floorf.c
+[v _floorf floorf `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fmaxf.c
+[v _fmaxf fmaxf `(f  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fminf.c
+[v _fminf fminf `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"1 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\labs.c
+[v _labs labs `(l  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcmp.c
+[v _memcmp memcmp `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 3 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 3 0 ]
+[v i2_memset memset `(*.39v  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\qsort.c
+[v _swap swap `(v  1 s 1 swap ]
+"22
+[v _qsort qsort `JJ(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strcpy.c
+[v _strcpy strcpy `(*.39uc  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/ADC/adc_driver.c
+[v _NormalAverage NormalAverage `(us  1 s 2 NormalAverage ]
+"16
+[v _ArithAvgFltr ArithAvgFltr `(us  1 s 2 ArithAvgFltr ]
+"42
+[v _CmpCb CmpCb `(i  1 s 2 CmpCb ]
+"82
+[v _ADC_Result2 ADC_Result2 `(us  1 e 2 0 ]
+"4 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/EEPROM/EEPROM_driver.c
+[v _EepromWriteByte EepromWriteByte `(v  1 e 1 0 ]
+"21
+[v _EepromReadByte EepromReadByte `(uc  1 e 1 0 ]
+"3 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _Led_On Led_On `(v  1 e 1 0 ]
+"8
+[v _Led_Off Led_Off `(v  1 e 1 0 ]
+"13
+[v _RS485_RXEN RS485_RXEN `(v  1 e 1 0 ]
+"18
+[v _RS485_TXEN RS485_TXEN `(v  1 e 1 0 ]
+"23
+[v _PFC_Off PFC_Off `(v  1 e 1 0 ]
+"28
+[v _PFC_On PFC_On `(v  1 e 1 0 ]
+"34
+[v _L6562_Off L6562_Off `(v  1 e 1 0 ]
+"47
+[v _L6562_On L6562_On `(v  1 e 1 0 ]
+"59
+[v _RELAY_Off RELAY_Off `(v  1 e 1 0 ]
+"72
+[v _RELAY_On RELAY_On `(v  1 e 1 0 ]
+"85
+[v _GPIO_APPInit GPIO_APPInit `(v  1 e 1 0 ]
+"19 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _extractAndCombineEEPROMData extractAndCombineEEPROMData `(us  1 e 2 0 ]
+"44
+[v _READ_NFC_SET_START READ_NFC_SET_START `(v  1 e 1 0 ]
+"63
+[v _Read_NFC_Data Read_NFC_Data `(E17837  1 e 1 0 ]
+"97
+[v _Write_NFC_Data Write_NFC_Data `(E17841  1 e 1 0 ]
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/PWM/pwm_driver.c
+[v _PWM_Set_Direct PWM_Set_Direct `(v  1 e 1 0 ]
+"32
+[v _PWM_Off_CHANNEL PWM_Off_CHANNEL `(v  1 e 1 0 ]
+"26 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/RS485/RS485_DATA.c
+[v _putch putch `(v  1 e 1 0 ]
+"79 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\main.c
+[v _TaskHandler TaskHandler `(v  1 s 1 TaskHandler ]
+"91
+[v _TaskScheduleCb TaskScheduleCb `(v  1 s 1 TaskScheduleCb ]
+"107
+[v _APPInit APPInit `(v  1 s 1 APPInit ]
+"122
+[v _main main `(i  1 e 2 0 ]
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"196
+[v _ADC_ChannelSelectAndConvert ADC_ChannelSelectAndConvert `(s  1 e 2 0 ]
+"408
+[v _ADC_ISR ADC_ISR `IIH(v  1 e 1 0 ]
+"422
+[v _ADC_ThresholdISR ADC_ThresholdISR `IIH(v  1 e 1 0 ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/fvr/src/fvr.c
+[v _FVR_Initialize FVR_Initialize `(v  1 e 1 0 ]
+"100 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+"138
+[v _I2C1_Deinitialize I2C1_Deinitialize `(v  1 e 1 0 ]
+"151
+[v _I2C1_Write I2C1_Write `(a  1 e 1 0 ]
+"170
+[v _I2C1_Read I2C1_Read `(a  1 e 1 0 ]
+"189
+[v _I2C1_WriteRead I2C1_WriteRead `(a  1 e 1 0 ]
+"208
+[v _I2C1_ErrorGet I2C1_ErrorGet `(E17116  1 e 1 0 ]
+"215
+[v _I2C1_IsBusy I2C1_IsBusy `(a  1 e 1 0 ]
+"220
+[v _I2C1_CallbackRegister I2C1_CallbackRegister `(v  1 e 1 0 ]
+"228
+[v _I2C1_ISR I2C1_ISR `IIL(v  1 e 1 0 ]
+"261
+[v _I2C1_ERROR_ISR I2C1_ERROR_ISR `IIL(v  1 e 1 0 ]
+"297
+[v _I2C1_RX_ISR I2C1_RX_ISR `IIL(v  1 e 1 0 ]
+"303
+[v _I2C1_TX_ISR I2C1_TX_ISR `IIL(v  1 e 1 0 ]
+"311
+[v _I2C1_ReadStart I2C1_ReadStart `(v  1 s 1 I2C1_ReadStart ]
+[v i1_I2C1_ReadStart I2C1_ReadStart `(v  1 s 1 i1_I2C1_ReadStart ]
+"322
+[v _I2C1_WriteStart I2C1_WriteStart `(v  1 s 1 I2C1_WriteStart ]
+"337
+[v _I2C1_Close I2C1_Close `(v  1 s 1 I2C1_Close ]
+"351
+[v _I2C1_StartSend I2C1_StartSend `(v  1 s 1 I2C1_StartSend ]
+[v i1_I2C1_StartSend I2C1_StartSend `(v  1 s 1 i1_I2C1_StartSend ]
+"356
+[v _I2C1_AddrTransmit I2C1_AddrTransmit `(v  1 s 1 I2C1_AddrTransmit ]
+[v i1_I2C1_AddrTransmit I2C1_AddrTransmit `(v  1 s 1 i1_I2C1_AddrTransmit ]
+"361
+[v _I2C1_DataTransmit I2C1_DataTransmit `(v  1 s 1 I2C1_DataTransmit ]
+"366
+[v _I2C1_DataReceive I2C1_DataReceive `(uc  1 s 1 I2C1_DataReceive ]
+"371
+[v _I2C1_CounterSet I2C1_CounterSet `(v  1 s 1 I2C1_CounterSet ]
+[v i1_I2C1_CounterSet I2C1_CounterSet `(v  1 s 1 i1_I2C1_CounterSet ]
+"376
+[v _I2C1_CounterGet I2C1_CounterGet `(uc  1 s 1 I2C1_CounterGet ]
+"381
+[v _I2C1_BusReset I2C1_BusReset `T(v  1 s 1 I2C1_BusReset ]
+"407
+[v _I2C1_RestartEnable I2C1_RestartEnable `T(v  1 s 1 I2C1_RestartEnable ]
+"412
+[v _I2C1_RestartDisable I2C1_RestartDisable `T(v  1 s 1 I2C1_RestartDisable ]
+"417
+[v _I2C1_StopSend I2C1_StopSend `(v  1 s 1 I2C1_StopSend ]
+"427
+[v _I2C1_IsNack I2C1_IsNack `(a  1 s 1 I2C1_IsNack ]
+"432
+[v _I2C1_IsBusCol I2C1_IsBusCol `(a  1 s 1 I2C1_IsBusCol ]
+"437
+[v _I2C1_IsBusTimeOut I2C1_IsBusTimeOut `(a  1 s 1 I2C1_IsBusTimeOut ]
+"442
+[v _I2C1_IsData I2C1_IsData `(a  1 s 1 I2C1_IsData ]
+"447
+[v _I2C1_IsAddr I2C1_IsAddr `(a  1 s 1 I2C1_IsAddr ]
+"452
+[v _I2C1_InterruptsEnable I2C1_InterruptsEnable `T(v  1 s 1 I2C1_InterruptsEnable ]
+[v i1_I2C1_InterruptsEnable I2C1_InterruptsEnable `T(v  1 s 1 i1_I2C1_InterruptsEnable ]
+"465
+[v _I2C1_InterruptsDisable I2C1_InterruptsDisable `T(v  1 s 1 I2C1_InterruptsDisable ]
+"475
+[v _I2C1_InterruptsClear I2C1_InterruptsClear `T(v  1 s 1 I2C1_InterruptsClear ]
+"480
+[v _I2C1_ErrorFlagsClear I2C1_ErrorFlagsClear `T(v  1 s 1 I2C1_ErrorFlagsClear ]
+"487
+[v _I2C1_BufferClear I2C1_BufferClear `T(v  1 s 1 I2C1_BufferClear ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+"48
+[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
+"53
+[v _NVM_StatusGet NVM_StatusGet `(E17204  1 e 1 0 ]
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+"70
+[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
+"76
+[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
+"293
+[v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
+"309
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+"50 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm2_16bit.c
+[v _PWM2_16BIT_Initialize PWM2_16BIT_Initialize `(v  1 e 1 0 ]
+"137
+[v _PWM2_16BIT_SetSlice1Output1DutyCycleRegister PWM2_16BIT_SetSlice1Output1DutyCycleRegister `(v  1 e 1 0 ]
+"149
+[v _PWM2_16BIT_LoadBufferRegisters PWM2_16BIT_LoadBufferRegisters `(v  1 e 1 0 ]
+"155
+[v _PWM2_16BIT_PWMI_ISR PWM2_16BIT_PWMI_ISR `IIH(v  1 e 1 0 ]
+"180
+[v _PWM2_16BIT_PWMPI_ISR PWM2_16BIT_PWMPI_ISR `IIH(v  1 e 1 0 ]
+"189
+[v _PWM2_16BIT_Slice1Output1_SetInterruptHandler PWM2_16BIT_Slice1Output1_SetInterruptHandler `(v  1 e 1 0 ]
+"194
+[v _PWM2_16BIT_Slice1Output2_SetInterruptHandler PWM2_16BIT_Slice1Output2_SetInterruptHandler `(v  1 e 1 0 ]
+"199
+[v _PWM2_16BIT_Period_SetInterruptHandler PWM2_16BIT_Period_SetInterruptHandler `(v  1 e 1 0 ]
+"204
+[v _PWM2_16BIT_Slice1Output1_DefaultInterruptHandler PWM2_16BIT_Slice1Output1_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Slice1Output1_DefaultInterruptHandler ]
+"210
+[v _PWM2_16BIT_Slice1Output2_DefaultInterruptHandler PWM2_16BIT_Slice1Output2_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Slice1Output2_DefaultInterruptHandler ]
+"216
+[v _PWM2_16BIT_Period_DefaultInterruptHandler PWM2_16BIT_Period_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Period_DefaultInterruptHandler ]
+"50 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm3_16bit.c
+[v _PWM3_16BIT_Initialize PWM3_16BIT_Initialize `(v  1 e 1 0 ]
+"137
+[v _PWM3_16BIT_SetSlice1Output1DutyCycleRegister PWM3_16BIT_SetSlice1Output1DutyCycleRegister `(v  1 e 1 0 ]
+"149
+[v _PWM3_16BIT_LoadBufferRegisters PWM3_16BIT_LoadBufferRegisters `(v  1 e 1 0 ]
+"155
+[v _PWM3_16BIT_PWMI_ISR PWM3_16BIT_PWMI_ISR `IIH(v  1 e 1 0 ]
+"180
+[v _PWM3_16BIT_PWMPI_ISR PWM3_16BIT_PWMPI_ISR `IIH(v  1 e 1 0 ]
+"189
+[v _PWM3_16BIT_Slice1Output1_SetInterruptHandler PWM3_16BIT_Slice1Output1_SetInterruptHandler `(v  1 e 1 0 ]
+"194
+[v _PWM3_16BIT_Slice1Output2_SetInterruptHandler PWM3_16BIT_Slice1Output2_SetInterruptHandler `(v  1 e 1 0 ]
+"199
+[v _PWM3_16BIT_Period_SetInterruptHandler PWM3_16BIT_Period_SetInterruptHandler `(v  1 e 1 0 ]
+"204
+[v _PWM3_16BIT_Slice1Output1_DefaultInterruptHandler PWM3_16BIT_Slice1Output1_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Slice1Output1_DefaultInterruptHandler ]
+"210
+[v _PWM3_16BIT_Slice1Output2_DefaultInterruptHandler PWM3_16BIT_Slice1Output2_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Slice1Output2_DefaultInterruptHandler ]
+"216
+[v _PWM3_16BIT_Period_DefaultInterruptHandler PWM3_16BIT_Period_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Period_DefaultInterruptHandler ]
+"39 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+"42 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"99
+[v _Default_ISR Default_ISR `IIH(v  1 e 1 0 ]
+"112
+[v _INT0_ISR INT0_ISR `IIH(v  1 e 1 0 ]
+"121
+[v _INT0_CallBack INT0_CallBack `(v  1 e 1 0 ]
+"130
+[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(v  1 e 1 0 ]
+"134
+[v _INT0_DefaultInterruptHandler INT0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"146
+[v _INT1_ISR INT1_ISR `IIH(v  1 e 1 0 ]
+"155
+[v _INT1_CallBack INT1_CallBack `(v  1 e 1 0 ]
+"164
+[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(v  1 e 1 0 ]
+"168
+[v _INT1_DefaultInterruptHandler INT1_DefaultInterruptHandler `(v  1 e 1 0 ]
+"180
+[v _INT2_ISR INT2_ISR `IIH(v  1 e 1 0 ]
+"189
+[v _INT2_CallBack INT2_CallBack `(v  1 e 1 0 ]
+"198
+[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(v  1 e 1 0 ]
+"202
+[v _INT2_DefaultInterruptHandler INT2_DefaultInterruptHandler `(v  1 e 1 0 ]
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"45 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"126
+[v _TMR0_ISR TMR0_ISR `IIH(v  1 e 1 0 ]
+"135
+[v _TMR0_PeriodMatchCallbackRegister TMR0_PeriodMatchCallbackRegister `(v  1 e 1 0 ]
+"140
+[v _TMR0_DefaultCallback TMR0_DefaultCallback `(v  1 s 1 TMR0_DefaultCallback ]
+"49 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+"123
+[v _TMR1_CounterSet TMR1_CounterSet `(v  1 e 1 0 ]
+"192
+[v _TMR1_OverflowISR TMR1_OverflowISR `IIH(v  1 e 1 0 ]
+"227
+[v _TMR1_DefaultOverflowCallback TMR1_DefaultOverflowCallback `(v  1 s 1 TMR1_DefaultOverflowCallback ]
+"232
+[v _TMR1_DefaultGateCallback TMR1_DefaultGateCallback `(v  1 s 1 TMR1_DefaultGateCallback ]
+"51 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"146
+[v _TMR2_ISR TMR2_ISR `IIH(v  1 e 1 0 ]
+"161
+[v _TMR2_DefaultPeriodMatchCallback TMR2_DefaultPeriodMatchCallback `(v  1 s 1 TMR2_DefaultPeriodMatchCallback ]
+"51 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr4.c
+[v _TMR4_Initialize TMR4_Initialize `(v  1 e 1 0 ]
+"146
+[v _TMR4_ISR TMR4_ISR `IIL(v  1 e 1 0 ]
+"161
+[v _TMR4_DefaultPeriodMatchCallback TMR4_DefaultPeriodMatchCallback `(v  1 s 1 TMR4_DefaultPeriodMatchCallback ]
+"129 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
+"187
+[v _UART1_Deinitialize UART1_Deinitialize `(v  1 e 1 0 ]
+"222
+[v _UART1_TransmitEnable UART1_TransmitEnable `(v  1 e 1 0 ]
+"227
+[v _UART1_TransmitDisable UART1_TransmitDisable `(v  1 e 1 0 ]
+"252
+[v _UART1_AutoBaudSet UART1_AutoBaudSet `(v  1 e 1 0 ]
+"265
+[v _UART1_AutoBaudQuery UART1_AutoBaudQuery `(a  1 e 1 0 ]
+"295
+[v _UART1_ReceiveInterruptEnable UART1_ReceiveInterruptEnable `(v  1 e 1 0 ]
+"299
+[v _UART1_ReceiveInterruptDisable UART1_ReceiveInterruptDisable `(v  1 e 1 0 ]
+"304
+[v _UART1_IsRxReady UART1_IsRxReady `(a  1 e 1 0 ]
+"309
+[v _UART1_IsTxReady UART1_IsTxReady `(a  1 e 1 0 ]
+"314
+[v _UART1_IsTxDone UART1_IsTxDone `(a  1 e 1 0 ]
+"319
+[v _UART1_ErrorGet UART1_ErrorGet `(ui  1 e 2 0 ]
+"326
+[v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
+"343
+[v _UART1_Receive_Vector_ISR UART1_Receive_Vector_ISR `IIH(v  1 e 1 0 ]
+"348
+[v _UART1_ReceiveISR UART1_ReceiveISR `(v  1 e 1 0 ]
+"400
+[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+"424
+[v _UART1_Transmit_Vector_ISR UART1_Transmit_Vector_ISR `IIH(v  1 e 1 0 ]
+"429
+[v _UART1_TransmitISR UART1_TransmitISR `(v  1 e 1 0 ]
+"455
+[v _UART1_DefaultFramingErrorCallback UART1_DefaultFramingErrorCallback `(v  1 s 1 UART1_DefaultFramingErrorCallback ]
+"460
+[v _UART1_DefaultOverrunErrorCallback UART1_DefaultOverrunErrorCallback `(v  1 s 1 UART1_DefaultOverrunErrorCallback ]
+"465
+[v _UART1_DefaultParityErrorCallback UART1_DefaultParityErrorCallback `(v  1 s 1 UART1_DefaultParityErrorCallback ]
+"470
+[v _UART1_FramingErrorCallbackRegister UART1_FramingErrorCallbackRegister `(v  1 e 1 0 ]
+"478
+[v _UART1_OverrunErrorCallbackRegister UART1_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
+"486
+[v _UART1_ParityErrorCallbackRegister UART1_ParityErrorCallbackRegister `(v  1 e 1 0 ]
+"493
+[v _UART1_RxCompleteCallbackRegister UART1_RxCompleteCallbackRegister `(v  1 e 1 0 ]
+"501
+[v _UART1_TxCompleteCallbackRegister UART1_TxCompleteCallbackRegister `(v  1 e 1 0 ]
+"10 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _regulator_init regulator_init `(v  1 s 1 regulator_init ]
+"22
+[v _regulator_clear regulator_clear `(v  1 s 1 regulator_clear ]
+"34
+[v _regulator_update regulator_update `(f  1 s 4 regulator_update ]
+"82
+[v _init_all_pwm_regulators init_all_pwm_regulators `(v  1 e 1 0 ]
+"89
+[v _update_pwm_output_ch1 update_pwm_output_ch1 `(f  1 e 4 0 ]
+"94
+[v _update_pwm_output_ch2 update_pwm_output_ch2 `(f  1 e 4 0 ]
+"99
+[v _RegulatorClear RegulatorClear `(v  1 e 1 0 ]
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/CRC/crc.c
+[v _CRC16 CRC16 `(ui  1 e 2 0 ]
+"28 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.c
+[v _PID_Init PID_Init `(v  1 e 1 0 ]
+"47
+[v _PID_Init_Parameters PID_Init_Parameters `(v  1 e 1 0 ]
+"116
+[v _PID_Compute PID_Compute `(us  1 e 2 0 ]
+"230
+[v _Clear_pid Clear_pid `(v  1 e 1 0 ]
+"34 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/QUEUE/queue.c
+[v _QueuePush QueuePush `(E17829  1 e 1 0 ]
+"55
+[v _QueuePop QueuePop `(E17829  1 e 1 0 ]
+"25 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Bootloader/Bootloader.c
+[v _g_uBootUpgradeFlag g_uBootUpgradeFlag `a  1 e 1 0 ]
+"14 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _g_uDimmingLevel_CH1 g_uDimmingLevel_CH1 `uc  1 e 1 0 ]
+[v _g_uDimmingLevel_CH2 g_uDimmingLevel_CH2 `uc  1 e 1 0 ]
+"16
+[v _g_uTargetPowerChannel1 g_uTargetPowerChannel1 `us  1 e 2 0 ]
+[v _g_uTargetPowerChannel2 g_uTargetPowerChannel2 `us  1 e 2 0 ]
+"19
+[v _power_time power_time `us  1 e 2 0 ]
+"20
+[v _I2C_receiveData I2C_receiveData `[72]uc  1 e 72 0 ]
+"21
+[v _CalibrationBuff CalibrationBuff `[3]c  1 e 3 0 ]
+"159
+[v _g_uChanne1Power g_uChanne1Power `us  1 e 2 0 ]
+"160
+[v _g_uChanne2Power g_uChanne2Power `us  1 e 2 0 ]
+"28 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _g_uPidRunChannel g_uPidRunChannel `VEuc  1 e 1 0 ]
+"30
+[v _g_bPfcRunFlag g_bPfcRunFlag `uc  1 e 1 0 ]
+"31
+[v _g_u8PowerOutputValue g_u8PowerOutputValue `f  1 e 4 0 ]
+[s S183 . 14 `f 1 targetPower 4 0 `f 1 actualPower 4 4 `f 1 voltage 4 8 `us 1 pwmValue 2 12 ]
+"34
+[v _piddimmingChannel1 piddimmingChannel1 `S183  1 e 14 0 ]
+"35
+[v _piddimmingChannel2 piddimmingChannel2 `S183  1 e 14 0 ]
+"124
+[v _g_uStateChannel1AndCh2 g_uStateChannel1AndCh2 `uc  1 s 1 g_uStateChannel1AndCh2 ]
+"156
+[v _g_uStateChannel1 g_uStateChannel1 `uc  1 s 1 g_uStateChannel1 ]
+"191
+[v _g_uStateChannel2 g_uStateChannel2 `uc  1 s 1 g_uStateChannel2 ]
+"49 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/InProtected_APP/inprotectedapp.c
+[v _g_bPowerDownFlag g_bPowerDownFlag `a  1 e 1 0 ]
+"51
+[v _g_uInputVoltageNormalFlag g_uInputVoltageNormalFlag `uc  1 e 1 0 ]
+"12 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/OutProtected_APP/out_protected.c
+[v _V_Ret1 V_Ret1 `us  1 e 2 0 ]
+[v _V_Ret2 V_Ret2 `us  1 e 2 0 ]
+"14
+[v _g_VoltageProtect1 g_VoltageProtect1 `f  1 e 4 0 ]
+"15
+[v _g_VoltageProtect2 g_VoltageProtect2 `f  1 e 4 0 ]
+"16
+[v _g_PoweProtect1 g_PoweProtect1 `f  1 e 4 0 ]
+"17
+[v _g_PoweProtect2 g_PoweProtect2 `f  1 e 4 0 ]
+"19
+[v _g_uFaultCode g_uFaultCode `uc  1 e 1 0 ]
+"14 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/TempProtected_APP/temp_protected.c
+[v _g_uTemperatureProtection g_uTemperatureProtection `uc  1 e 1 0 ]
+"15
+[v _Temp_Res Temp_Res `f  1 e 4 0 ]
+"18 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _g_pTaskScheduleFunc g_pTaskScheduleFunc `*.38(v  1 s 3 g_pTaskScheduleFunc ]
+"29
+[v _g_bRs485Flag g_bRs485Flag `a  1 e 1 0 ]
+"25 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.h
+[v _system_tick system_tick `VEul  1 e 4 0 ]
+"24 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _Rx_Buffer Rx_Buffer `[100]uc  1 e 100 0 ]
+"25
+[v _g_uCheckCRC16 g_uCheckCRC16 `us  1 e 2 0 ]
+"26
+[v _g_uCheckCRCResult g_uCheckCRCResult `us  1 e 2 0 ]
+"28
+[v _Rx_Buffer_ISR Rx_Buffer_ISR `VE[100]uc  1 e 100 0 ]
+"29
+[v _Rx_Length Rx_Length `VEuc  1 e 1 0 ]
+"30
+[v _last_receive_time last_receive_time `VEul  1 e 4 0 ]
+"15 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _version version `[3]uc  1 e 3 0 ]
+[s S2685 . 1 `uc 1 GO 1 0 :1:0 
+]
+"533 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
+[s S2687 . 1 `uc 1 NOT_DONE 1 0 :1:0 
+]
+[s S2689 . 1 `uc 1 nDONE 1 0 :1:0 
+]
+[s S2691 . 1 `uc 1 NVMGO 1 0 :1:0 
+]
+[u S2693 . 1 `S2685 1 . 1 0 `S2687 1 . 1 0 `S2689 1 . 1 0 `S2691 1 . 1 0 ]
+[v _NVMCON0bits NVMCON0bits `VES2693  1 e 1 @64 ]
+[s S2710 . 1 `uc 1 CMD 1 0 :3:0 
+`uc 1 . 1 0 :4:3 
+`uc 1 WRERR 1 0 :1:7 
+]
+"573
+[s S2714 . 1 `uc 1 NVMCMD 1 0 :3:0 
+]
+[u S2716 . 1 `S2710 1 . 1 0 `S2714 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES2716  1 e 1 @65 ]
+"593
+[v _NVMLOCK NVMLOCK `VEuc  1 e 1 @66 ]
+"622
+[v _NVMADRL NVMADRL `VEuc  1 e 1 @67 ]
+"692
+[v _NVMADRH NVMADRH `VEuc  1 e 1 @68 ]
+"762
+[v _NVMADRU NVMADRU `VEuc  1 e 1 @69 ]
+"827
+[v _NVMDATL NVMDATL `VEuc  1 e 1 @70 ]
+"897
+[v _NVMDATH NVMDATH `VEuc  1 e 1 @71 ]
+"5140
+[v _ACTCON ACTCON `VEuc  1 e 1 @172 ]
+"5210
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @173 ]
+"5350
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @175 ]
+"5390
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @176 ]
+"5448
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @177 ]
+"5650
+[v _OSCEN OSCEN `VEuc  1 e 1 @179 ]
+"9316
+[v _RB4PPS RB4PPS `VEuc  1 e 1 @525 ]
+"9372
+[v _RB5PPS RB5PPS `VEuc  1 e 1 @526 ]
+"9764
+[v _RC4PPS RC4PPS `VEuc  1 e 1 @533 ]
+"9988
+[v _RD0PPS RD0PPS `VEuc  1 e 1 @537 ]
+"10100
+[v _RD2PPS RD2PPS `VEuc  1 e 1 @539 ]
+"14646
+[v _I2C1SDAPPS I2C1SDAPPS `VEuc  1 e 1 @624 ]
+"14712
+[v _I2C1SCLPPS I2C1SCLPPS `VEuc  1 e 1 @625 ]
+"14778
+[v _U1RXPPS U1RXPPS `VEuc  1 e 1 @626 ]
+"15474
+[v _RC4I2C RC4I2C `VEuc  1 e 1 @646 ]
+"15606
+[v _RC3I2C RC3I2C `VEuc  1 e 1 @647 ]
+"15738
+[v _RB2I2C RB2I2C `VEuc  1 e 1 @648 ]
+"15870
+[v _RB1I2C RB1I2C `VEuc  1 e 1 @649 ]
+"16002
+[v _I2C1RXB I2C1RXB `VEuc  1 e 1 @651 ]
+"16022
+[v _I2C1TXB I2C1TXB `VEuc  1 e 1 @652 ]
+"16042
+[v _I2C1CNT I2C1CNT `VEuc  1 e 1 @653 ]
+"16132
+[v _I2C1ADB1 I2C1ADB1 `VEuc  1 e 1 @655 ]
+"16234
+[v _I2C1CON0 I2C1CON0 `VEuc  1 e 1 @660 ]
+[s S2192 . 1 `uc 1 MODE 1 0 :3:0 
+`uc 1 MDR 1 0 :1:3 
+`uc 1 CSTR 1 0 :1:4 
+`uc 1 S 1 0 :1:5 
+`uc 1 RSEN 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"16256
+[s S2199 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 I2CEN 1 0 :1:7 
+]
+[u S2205 . 1 `S2192 1 . 1 0 `S2199 1 . 1 0 ]
+[v _I2C1CON0bits I2C1CON0bits `VES2205  1 e 1 @660 ]
+"16311
+[v _I2C1CON1 I2C1CON1 `VEuc  1 e 1 @661 ]
+[s S2449 . 1 `uc 1 CSD 1 0 :1:0 
+`uc 1 TXU 1 0 :1:1 
+`uc 1 RXO 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ACKT 1 0 :1:4 
+`uc 1 ACKSTAT 1 0 :1:5 
+`uc 1 ACKDT 1 0 :1:6 
+`uc 1 ACKCNT 1 0 :1:7 
+]
+"16328
+[u S2458 . 1 `S2449 1 . 1 0 ]
+[v _I2C1CON1bits I2C1CON1bits `VES2458  1 e 1 @661 ]
+"16368
+[v _I2C1CON2 I2C1CON2 `VEuc  1 e 1 @662 ]
+"16444
+[v _I2C1ERR I2C1ERR `VEuc  1 e 1 @663 ]
+[s S2346 . 1 `uc 1 NACKIE 1 0 :1:0 
+`uc 1 BCLIE 1 0 :1:1 
+`uc 1 BTOIE 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 NACKIF 1 0 :1:4 
+`uc 1 BCLIF 1 0 :1:5 
+`uc 1 BTOIF 1 0 :1:6 
+]
+"16469
+[s S2354 . 1 `uc 1 NACK1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 BTO1IE 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 NACK1IF 1 0 :1:4 
+`uc 1 BCL1IF 1 0 :1:5 
+`uc 1 BTO1IF 1 0 :1:6 
+]
+[u S2362 . 1 `S2346 1 . 1 0 `S2354 1 . 1 0 ]
+[v _I2C1ERRbits I2C1ERRbits `VES2362  1 e 1 @663 ]
+[s S2282 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 D 1 0 :1:3 
+`uc 1 R 1 0 :1:4 
+`uc 1 MMA 1 0 :1:5 
+`uc 1 SMA 1 0 :1:6 
+`uc 1 BFRE 1 0 :1:7 
+]
+"16564
+[s S2289 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 DATA 1 0 :1:3 
+`uc 1 READ 1 0 :1:4 
+]
+[s S2293 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_ADDRESS 1 0 :1:3 
+`uc 1 NOT_WRITE 1 0 :1:4 
+]
+[s S2297 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_A 1 0 :1:3 
+`uc 1 NOT_W 1 0 :1:4 
+]
+[u S2301 . 1 `S2282 1 . 1 0 `S2289 1 . 1 0 `S2293 1 . 1 0 `S2297 1 . 1 0 ]
+[v _I2C1STAT0bits I2C1STAT0bits `VES2301  1 e 1 @664 ]
+"16624
+[v _I2C1STAT1 I2C1STAT1 `VEuc  1 e 1 @665 ]
+[s S2492 . 1 `uc 1 RXBF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 CLRBF 1 0 :1:2 
+`uc 1 RXRE 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 TXBE 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 TXWE 1 0 :1:7 
+]
+"16641
+[u S2501 . 1 `S2492 1 . 1 0 ]
+[v _I2C1STAT1bits I2C1STAT1bits `VES2501  1 e 1 @665 ]
+"16671
+[v _I2C1PIR I2C1PIR `VEuc  1 e 1 @666 ]
+[s S2228 . 1 `uc 1 SCIF 1 0 :1:0 
+`uc 1 RSCIF 1 0 :1:1 
+`uc 1 PCIF 1 0 :1:2 
+`uc 1 ADRIF 1 0 :1:3 
+`uc 1 WRIF 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ACKTIF 1 0 :1:6 
+`uc 1 CNTIF 1 0 :1:7 
+]
+"16698
+[s S2237 . 1 `uc 1 SC1IF 1 0 :1:0 
+`uc 1 RSC1IF 1 0 :1:1 
+`uc 1 PC1IF 1 0 :1:2 
+`uc 1 ADR1IF 1 0 :1:3 
+`uc 1 WR1IF 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ACKT1IF 1 0 :1:6 
+`uc 1 CNT1IF 1 0 :1:7 
+]
+[u S2246 . 1 `S2228 1 . 1 0 `S2237 1 . 1 0 ]
+[v _I2C1PIRbits I2C1PIRbits `VES2246  1 e 1 @666 ]
+"16773
+[v _I2C1PIE I2C1PIE `VEuc  1 e 1 @667 ]
+[s S2152 . 1 `uc 1 SCIE 1 0 :1:0 
+`uc 1 RSCIE 1 0 :1:1 
+`uc 1 PCIE 1 0 :1:2 
+`uc 1 ADRIE 1 0 :1:3 
+`uc 1 WRIE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ACKTIE 1 0 :1:6 
+`uc 1 CNTIE 1 0 :1:7 
+]
+"16800
+[s S2161 . 1 `uc 1 SC1IE 1 0 :1:0 
+`uc 1 RSC1IE 1 0 :1:1 
+`uc 1 PC1IE 1 0 :1:2 
+`uc 1 ADR1IE 1 0 :1:3 
+`uc 1 WR1IE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ACKT1IE 1 0 :1:6 
+`uc 1 CNT1IE 1 0 :1:7 
+]
+[u S2170 . 1 `S2152 1 . 1 0 `S2161 1 . 1 0 ]
+[v _I2C1PIEbits I2C1PIEbits `VES2170  1 e 1 @667 ]
+"16875
+[v _I2C1CLK I2C1CLK `VEuc  1 e 1 @668 ]
+"17047
+[v _U1RXB U1RXB `VEuc  1 e 1 @673 ]
+"17085
+[v _U1RXCHK U1RXCHK `VEuc  1 e 1 @674 ]
+"17105
+[v _U1TXB U1TXB `VEuc  1 e 1 @675 ]
+"17143
+[v _U1TXCHK U1TXCHK `VEuc  1 e 1 @676 ]
+"17170
+[v _U1P1L U1P1L `VEuc  1 e 1 @677 ]
+"17190
+[v _U1P1H U1P1H `VEuc  1 e 1 @678 ]
+"17217
+[v _U1P2L U1P2L `VEuc  1 e 1 @679 ]
+"17237
+[v _U1P2H U1P2H `VEuc  1 e 1 @680 ]
+"17264
+[v _U1P3L U1P3L `VEuc  1 e 1 @681 ]
+"17284
+[v _U1P3H U1P3H `VEuc  1 e 1 @682 ]
+"17304
+[v _U1CON0 U1CON0 `VEuc  1 e 1 @683 ]
+[s S4877 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+]
+"17337
+[s S4882 . 1 `uc 1 U1MODE 1 0 :4:0 
+`uc 1 U1RXEN 1 0 :1:4 
+`uc 1 U1TXEN 1 0 :1:5 
+`uc 1 U1ABDEN 1 0 :1:6 
+`uc 1 U1BRGS 1 0 :1:7 
+]
+[s S4888 . 1 `uc 1 U1MODE0 1 0 :1:0 
+`uc 1 U1MODE1 1 0 :1:1 
+`uc 1 U1MODE2 1 0 :1:2 
+`uc 1 U1MODE3 1 0 :1:3 
+]
+[s S4893 . 1 `uc 1 MODE 1 0 :4:0 
+`uc 1 RXEN 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 ABDEN 1 0 :1:6 
+`uc 1 BRGS 1 0 :1:7 
+]
+[u S4899 . 1 `S4877 1 . 1 0 `S4882 1 . 1 0 `S4888 1 . 1 0 `S4893 1 . 1 0 ]
+[v _U1CON0bits U1CON0bits `VES4899  1 e 1 @683 ]
+"17432
+[v _U1CON1 U1CON1 `VEuc  1 e 1 @684 ]
+[s S4841 . 1 `uc 1 SENDB 1 0 :1:0 
+`uc 1 BRKOVR 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 RXBIMD 1 0 :1:3 
+`uc 1 WUE 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 ON 1 0 :1:7 
+]
+"17457
+[s S4849 . 1 `uc 1 U1SENDB 1 0 :1:0 
+`uc 1 U1BRKOVR 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 U1RXBIMD 1 0 :1:3 
+`uc 1 U1WUE 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 U1ON 1 0 :1:7 
+]
+[u S4857 . 1 `S4841 1 . 1 0 `S4849 1 . 1 0 ]
+[v _U1CON1bits U1CON1bits `VES4857  1 e 1 @684 ]
+"17512
+[v _U1CON2 U1CON2 `VEuc  1 e 1 @685 ]
+"17661
+[v _U1BRGL U1BRGL `VEuc  1 e 1 @686 ]
+"17681
+[v _U1BRGH U1BRGH `VEuc  1 e 1 @687 ]
+"17701
+[v _U1FIFO U1FIFO `VEuc  1 e 1 @688 ]
+"17831
+[v _U1UIR U1UIR `VEuc  1 e 1 @689 ]
+[s S4927 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 ABDIE 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 ABDIF 1 0 :1:6 
+`uc 1 WUIF 1 0 :1:7 
+]
+"17852
+[s S4933 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 U1ABDIE 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 U1ABDIF 1 0 :1:6 
+`uc 1 U1WUIF 1 0 :1:7 
+]
+[u S4939 . 1 `S4927 1 . 1 0 `S4933 1 . 1 0 ]
+[v _U1UIRbits U1UIRbits `VES4939  1 e 1 @689 ]
+"17887
+[v _U1ERRIR U1ERRIR `VEuc  1 e 1 @690 ]
+[s S4955 . 1 `uc 1 TXCIF 1 0 :1:0 
+`uc 1 RXFOIF 1 0 :1:1 
+`uc 1 RXBKIF 1 0 :1:2 
+`uc 1 FERIF 1 0 :1:3 
+`uc 1 CERIF 1 0 :1:4 
+`uc 1 ABDOVF 1 0 :1:5 
+`uc 1 PERIF 1 0 :1:6 
+`uc 1 TXMTIF 1 0 :1:7 
+]
+"17914
+[s S4964 . 1 `uc 1 U1TXCIF 1 0 :1:0 
+`uc 1 U1RXFOIF 1 0 :1:1 
+`uc 1 U1RXBKIF 1 0 :1:2 
+`uc 1 U1FERIF 1 0 :1:3 
+`uc 1 U1CERIF 1 0 :1:4 
+`uc 1 U1ABDOVF 1 0 :1:5 
+`uc 1 U1PERIF 1 0 :1:6 
+`uc 1 U1TXMTIF 1 0 :1:7 
+]
+[u S4973 . 1 `S4955 1 . 1 0 `S4964 1 . 1 0 ]
+[v _U1ERRIRbits U1ERRIRbits `VES4973  1 e 1 @690 ]
+"17999
+[v _U1ERRIE U1ERRIE `VEuc  1 e 1 @691 ]
+"23298
+[v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
+"23436
+[v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
+"23690
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
+[s S3652 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 MD16 1 0 :1:4 
+`uc 1 OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"23724
+[s S3658 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+`uc 1 T0MD16 1 0 :1:4 
+`uc 1 T0OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T0EN 1 0 :1:7 
+]
+[s S3664 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 T016BIT 1 0 :1:4 
+]
+[s S3670 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+`uc 1 T0OUTPS1 1 0 :1:1 
+`uc 1 T0OUTPS2 1 0 :1:2 
+`uc 1 T0OUTPS3 1 0 :1:3 
+]
+[u S3675 . 1 `S3652 1 . 1 0 `S3658 1 . 1 0 `S3664 1 . 1 0 `S3670 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES3675  1 e 1 @794 ]
+"23814
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
+"23963
+[v _TMR1L TMR1L `VEuc  1 e 1 @796 ]
+"24083
+[v _TMR1H TMR1H `VEuc  1 e 1 @797 ]
+"24203
+[v _T1CON T1CON `VEuc  1 e 1 @798 ]
+[s S4040 . 1 `uc 1 ON 1 0 :1:0 
+`uc 1 RD16 1 0 :1:1 
+`uc 1 NOT_SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CKPS 1 0 :2:4 
+]
+"24245
+[s S4046 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 T1RD16 1 0 :1:1 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S4053 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+]
+[s S4059 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RD161 1 0 :1:1 
+]
+[s S4062 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nT1SYNC 1 0 :1:2 
+]
+[u S4065 . 1 `S4040 1 . 1 0 `S4046 1 . 1 0 `S4053 1 . 1 0 `S4059 1 . 1 0 `S4062 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES4065  1 e 1 @798 ]
+"24425
+[v _T1GCON T1GCON `VEuc  1 e 1 @799 ]
+[s S4135 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 GVAL 1 0 :1:2 
+`uc 1 GGO 1 0 :1:3 
+`uc 1 GSPM 1 0 :1:4 
+`uc 1 GTM 1 0 :1:5 
+`uc 1 GPOL 1 0 :1:6 
+`uc 1 GE 1 0 :1:7 
+]
+"24479
+[s S4143 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1GVAL 1 0 :1:2 
+`uc 1 T1GGO 1 0 :1:3 
+`uc 1 T1GSPM 1 0 :1:4 
+`uc 1 T1GTM 1 0 :1:5 
+`uc 1 T1GPOL 1 0 :1:6 
+`uc 1 T1GE 1 0 :1:7 
+]
+[s S4151 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_DONE 1 0 :1:3 
+]
+[s S4154 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_T1DONE 1 0 :1:3 
+]
+[s S4157 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 GGO_NOT_DONE 1 0 :1:3 
+]
+[s S4160 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 GGO_nDONE 1 0 :1:3 
+]
+[s S4163 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 T1GGO_NOT_DONE 1 0 :1:3 
+]
+[s S4166 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 T1GGO_nDONE 1 0 :1:3 
+]
+[u S4169 . 1 `S4135 1 . 1 0 `S4143 1 . 1 0 `S4151 1 . 1 0 `S4154 1 . 1 0 `S4157 1 . 1 0 `S4160 1 . 1 0 `S4163 1 . 1 0 `S4166 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES4169  1 e 1 @799 ]
+"24711
+[v _T1GATE T1GATE `VEuc  1 e 1 @800 ]
+"24901
+[v _T1CLK T1CLK `VEuc  1 e 1 @801 ]
+"25147
+[v _T2TMR T2TMR `VEuc  1 e 1 @802 ]
+"25185
+[v _T2PR T2PR `VEuc  1 e 1 @803 ]
+"25223
+[v _T2CON T2CON `VEuc  1 e 1 @804 ]
+[s S3787 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
+]
+"25259
+[s S3791 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
+]
+[s S3795 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+]
+[s S3803 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
+]
+[u S3812 . 1 `S3787 1 . 1 0 `S3791 1 . 1 0 `S3795 1 . 1 0 `S3803 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES3812  1 e 1 @804 ]
+"25369
+[v _T2HLT T2HLT `VEuc  1 e 1 @805 ]
+[s S3865 . 1 `uc 1 MODE 1 0 :5:0 
+`uc 1 CKSYNC 1 0 :1:5 
+`uc 1 CKPOL 1 0 :1:6 
+`uc 1 PSYNC 1 0 :1:7 
+]
+"25402
+[s S3870 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+`uc 1 MODE4 1 0 :1:4 
+]
+[s S3876 . 1 `uc 1 T2MODE 1 0 :5:0 
+`uc 1 T2CKSYNC 1 0 :1:5 
+`uc 1 T2CKPOL 1 0 :1:6 
+`uc 1 T2PSYNC 1 0 :1:7 
+]
+[s S3881 . 1 `uc 1 T2MODE0 1 0 :1:0 
+`uc 1 T2MODE1 1 0 :1:1 
+`uc 1 T2MODE2 1 0 :1:2 
+`uc 1 T2MODE3 1 0 :1:3 
+`uc 1 T2MODE4 1 0 :1:4 
+]
+[u S3887 . 1 `S3865 1 . 1 0 `S3870 1 . 1 0 `S3876 1 . 1 0 `S3881 1 . 1 0 ]
+[v _T2HLTbits T2HLTbits `VES3887  1 e 1 @805 ]
+"25497
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @806 ]
+"25703
+[v _T2RST T2RST `VEuc  1 e 1 @807 ]
+[s S3949 . 1 `uc 1 RSEL 1 0 :8:0 
+]
+"25734
+[s S3951 . 1 `uc 1 RSEL0 1 0 :1:0 
+`uc 1 RSEL1 1 0 :1:1 
+`uc 1 RSEL2 1 0 :1:2 
+`uc 1 RSEL3 1 0 :1:3 
+`uc 1 RSEL4 1 0 :1:4 
+`uc 1 RSEL5 1 0 :1:5 
+`uc 1 RSEL6 1 0 :1:6 
+]
+[s S3959 . 1 `uc 1 T2RSEL 1 0 :8:0 
+]
+[s S3961 . 1 `uc 1 T2RSEL0 1 0 :1:0 
+`uc 1 T2RSEL1 1 0 :1:1 
+`uc 1 T2RSEL2 1 0 :1:2 
+`uc 1 T2RSEL3 1 0 :1:3 
+`uc 1 T2RSEL4 1 0 :1:4 
+`uc 1 T2RSEL5 1 0 :1:5 
+`uc 1 T2RSEL6 1 0 :1:6 
+]
+[u S3969 . 1 `S3949 1 . 1 0 `S3951 1 . 1 0 `S3959 1 . 1 0 `S3961 1 . 1 0 ]
+[v _T2RSTbits T2RSTbits `VES3969  1 e 1 @807 ]
+"27010
+[v _T4TMR T4TMR `VEuc  1 e 1 @814 ]
+"27048
+[v _T4PR T4PR `VEuc  1 e 1 @815 ]
+"27086
+[v _T4CON T4CON `VEuc  1 e 1 @816 ]
+"27122
+[s S4331 . 1 `uc 1 T4OUTPS 1 0 :4:0 
+`uc 1 T4CKPS 1 0 :3:4 
+`uc 1 T4ON 1 0 :1:7 
+]
+[s S4335 . 1 `uc 1 T4OUTPS0 1 0 :1:0 
+`uc 1 T4OUTPS1 1 0 :1:1 
+`uc 1 T4OUTPS2 1 0 :1:2 
+`uc 1 T4OUTPS3 1 0 :1:3 
+`uc 1 T4CKPS0 1 0 :1:4 
+`uc 1 T4CKPS1 1 0 :1:5 
+`uc 1 T4CKPS2 1 0 :1:6 
+]
+[s S4343 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR4ON 1 0 :1:7 
+]
+[u S4352 . 1 `S3787 1 . 1 0 `S4331 1 . 1 0 `S4335 1 . 1 0 `S4343 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES4352  1 e 1 @816 ]
+"27232
+[v _T4HLT T4HLT `VEuc  1 e 1 @817 ]
+"27265
+[s S4416 . 1 `uc 1 T4MODE 1 0 :5:0 
+`uc 1 T4CKSYNC 1 0 :1:5 
+`uc 1 T4CKPOL 1 0 :1:6 
+`uc 1 T4PSYNC 1 0 :1:7 
+]
+[s S4421 . 1 `uc 1 T4MODE0 1 0 :1:0 
+`uc 1 T4MODE1 1 0 :1:1 
+`uc 1 T4MODE2 1 0 :1:2 
+`uc 1 T4MODE3 1 0 :1:3 
+`uc 1 T4MODE4 1 0 :1:4 
+]
+[u S4427 . 1 `S3865 1 . 1 0 `S3870 1 . 1 0 `S4416 1 . 1 0 `S4421 1 . 1 0 ]
+[v _T4HLTbits T4HLTbits `VES4427  1 e 1 @817 ]
+"27360
+[v _T4CLKCON T4CLKCON `VEuc  1 e 1 @818 ]
+"27566
+[v _T4RST T4RST `VEuc  1 e 1 @819 ]
+"27597
+[s S4499 . 1 `uc 1 T4RSEL 1 0 :8:0 
+]
+[s S4501 . 1 `uc 1 T4RSEL0 1 0 :1:0 
+`uc 1 T4RSEL1 1 0 :1:1 
+`uc 1 T4RSEL2 1 0 :1:2 
+`uc 1 T4RSEL3 1 0 :1:3 
+`uc 1 T4RSEL4 1 0 :1:4 
+`uc 1 T4RSEL5 1 0 :1:5 
+`uc 1 T4RSEL6 1 0 :1:6 
+]
+[u S4509 . 1 `S3949 1 . 1 0 `S3951 1 . 1 0 `S4499 1 . 1 0 `S4501 1 . 1 0 ]
+[v _T4RSTbits T4RSTbits `VES4509  1 e 1 @819 ]
+[s S3218 . 1 `uc 1 SPI1RXIP 1 0 :1:0 
+`uc 1 SPI1TXIP 1 0 :1:1 
+`uc 1 SPI1IP 1 0 :1:2 
+`uc 1 TMR2IP 1 0 :1:3 
+`uc 1 TMR1IP 1 0 :1:4 
+`uc 1 TMR1GIP 1 0 :1:5 
+`uc 1 CCP1IP 1 0 :1:6 
+`uc 1 TMR0IP 1 0 :1:7 
+]
+"32039
+[u S3227 . 1 `S3218 1 . 1 0 ]
+[v _IPR3bits IPR3bits `VES3227  1 e 1 @869 ]
+[s S3239 . 1 `uc 1 U1RXIP 1 0 :1:0 
+`uc 1 U1TXIP 1 0 :1:1 
+`uc 1 U1EIP 1 0 :1:2 
+`uc 1 U1IP 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 PWM1PIP 1 0 :1:6 
+`uc 1 PWM1IP 1 0 :1:7 
+]
+"32100
+[u S3247 . 1 `S3239 1 . 1 0 ]
+[v _IPR4bits IPR4bits `VES3247  1 e 1 @870 ]
+[s S3258 . 1 `uc 1 I2C1RXIP 1 0 :1:0 
+`uc 1 I2C1TXIP 1 0 :1:1 
+`uc 1 I2C1IP 1 0 :1:2 
+`uc 1 I2C1EIP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 CLC3IP 1 0 :1:5 
+`uc 1 PWM3PIP 1 0 :1:6 
+`uc 1 PWM3IP 1 0 :1:7 
+]
+"32271
+[u S3267 . 1 `S3258 1 . 1 0 ]
+[v _IPR7bits IPR7bits `VES3267  1 e 1 @873 ]
+[s S3279 . 1 `uc 1 CCP3IP 1 0 :1:0 
+`uc 1 CLC6IP 1 0 :1:1 
+`uc 1 CWG3IP 1 0 :1:2 
+`uc 1 TMR4IP 1 0 :1:3 
+`uc 1 DMA4SCNTIP 1 0 :1:4 
+`uc 1 DMA4DCNTIP 1 0 :1:5 
+`uc 1 DMA4ORIP 1 0 :1:6 
+`uc 1 DMA4AIP 1 0 :1:7 
+]
+"32497
+[u S3288 . 1 `S3279 1 . 1 0 ]
+[v _IPR11bits IPR11bits `VES3288  1 e 1 @877 ]
+"35902
+[v _FVRCON FVRCON `VEuc  1 e 1 @983 ]
+[s S1993 . 1 `uc 1 ADFVR 1 0 :2:0 
+`uc 1 CDAFVR 1 0 :2:2 
+`uc 1 TSRNG 1 0 :1:4 
+`uc 1 TSEN 1 0 :1:5 
+`uc 1 RDY 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"35926
+[s S2000 . 1 `uc 1 ADFVR0 1 0 :1:0 
+`uc 1 ADFVR1 1 0 :1:1 
+`uc 1 CDAFVR0 1 0 :1:2 
+`uc 1 CDAFVR1 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 FVRRDY 1 0 :1:6 
+`uc 1 FVREN 1 0 :1:7 
+]
+"35926
+[u S2008 . 1 `S1993 1 . 1 0 `S2000 1 . 1 0 ]
+"35926
+"35926
+[v _FVRCONbits FVRCONbits `VES2008  1 e 1 @983 ]
+"35996
+[v _ADCP ADCP `VEuc  1 e 1 @984 ]
+[s S1795 . 1 `uc 1 CPRDY 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 ON 1 0 :1:7 
+]
+"36061
+[s S1799 . 1 `uc 1 ADCPRDY 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 CPON 1 0 :1:7 
+]
+"36061
+[s S1803 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ADCPON 1 0 :1:7 
+]
+"36061
+[u S1806 . 1 `S1795 1 . 1 0 `S1799 1 . 1 0 `S1803 1 . 1 0 ]
+"36061
+"36061
+[v _ADCPbits ADCPbits `VES1806  1 e 1 @984 ]
+"36098
+[v _ADLTHL ADLTHL `VEuc  1 e 1 @985 ]
+"36226
+[v _ADLTHH ADLTHH `VEuc  1 e 1 @986 ]
+"36361
+[v _ADUTHL ADUTHL `VEuc  1 e 1 @987 ]
+"36489
+[v _ADUTHH ADUTHH `VEuc  1 e 1 @988 ]
+"36624
+[v _ADERRL ADERRL `VEuc  1 e 1 @989 ]
+"36752
+[v _ADERRH ADERRH `VEuc  1 e 1 @990 ]
+"36887
+[v _ADSTPTL ADSTPTL `VEuc  1 e 1 @991 ]
+"37015
+[v _ADSTPTH ADSTPTH `VEuc  1 e 1 @992 ]
+"37150
+[v _ADFLTRL ADFLTRL `VEuc  1 e 1 @993 ]
+"37278
+[v _ADFLTRH ADFLTRH `VEuc  1 e 1 @994 ]
+"37415
+[v _ADACCL ADACCL `VEuc  1 e 1 @995 ]
+"37543
+[v _ADACCH ADACCH `VEuc  1 e 1 @996 ]
+"37671
+[v _ADACCU ADACCU `VEuc  1 e 1 @997 ]
+"37799
+[v _ADCNT ADCNT `VEuc  1 e 1 @998 ]
+"37927
+[v _ADRPT ADRPT `VEuc  1 e 1 @999 ]
+"38062
+[v _ADPREVL ADPREVL `VEuc  1 e 1 @1000 ]
+"38190
+[v _ADPREVH ADPREVH `VEuc  1 e 1 @1001 ]
+"38325
+[v _ADRESL ADRESL `VEuc  1 e 1 @1002 ]
+"38453
+[v _ADRESH ADRESH `VEuc  1 e 1 @1003 ]
+"38573
+[v _ADPCH ADPCH `VEuc  1 e 1 @1004 ]
+"38638
+[v _ADACQL ADACQL `VEuc  1 e 1 @1006 ]
+"38766
+[v _ADACQH ADACQH `VEuc  1 e 1 @1007 ]
+"38858
+[v _ADCAP ADCAP `VEuc  1 e 1 @1008 ]
+"38917
+[v _ADPREL ADPREL `VEuc  1 e 1 @1009 ]
+"39045
+[v _ADPREH ADPREH `VEuc  1 e 1 @1010 ]
+"39137
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @1011 ]
+[s S1346 . 1 `uc 1 GO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 FM 1 0 :2:2 
+`uc 1 CS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CONT 1 0 :1:6 
+`uc 1 ON 1 0 :1:7 
+]
+"39175
+[s S1354 . 1 `uc 1 ADGO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM 1 0 :2:2 
+`uc 1 ADCS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ADCONT 1 0 :1:6 
+`uc 1 ADON 1 0 :1:7 
+]
+"39175
+[s S1362 . 1 `uc 1 DONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 FM0 1 0 :1:2 
+]
+"39175
+[s S1366 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
+]
+"39175
+[s S1368 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM0 1 0 :1:2 
+]
+"39175
+[u S1372 . 1 `S1346 1 . 1 0 `S1354 1 . 1 0 `S1362 1 . 1 0 `S1366 1 . 1 0 `S1368 1 . 1 0 ]
+"39175
+"39175
+[v _ADCON0bits ADCON0bits `VES1372  1 e 1 @1011 ]
+"39255
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @1012 ]
+[s S1715 . 1 `uc 1 DSEN 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 GPOL 1 0 :1:5 
+`uc 1 IPEN 1 0 :1:6 
+`uc 1 PPOL 1 0 :1:7 
+]
+"39276
+[s S1721 . 1 `uc 1 ADDSEN 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 ADGPOL 1 0 :1:5 
+`uc 1 ADIPEN 1 0 :1:6 
+`uc 1 ADPPOL 1 0 :1:7 
+]
+"39276
+[u S1727 . 1 `S1715 1 . 1 0 `S1721 1 . 1 0 ]
+"39276
+"39276
+[v _ADCON1bits ADCON1bits `VES1727  1 e 1 @1012 ]
+"39321
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @1013 ]
+[s S1527 . 1 `uc 1 MD 1 0 :3:0 
+`uc 1 ACLR 1 0 :1:3 
+`uc 1 CRS 1 0 :3:4 
+`uc 1 PSIS 1 0 :1:7 
+]
+"39358
+[s S1532 . 1 `uc 1 ADMD0 1 0 :1:0 
+`uc 1 ADMD1 1 0 :1:1 
+`uc 1 ADMD2 1 0 :1:2 
+`uc 1 ADACLR 1 0 :1:3 
+`uc 1 ADCRS0 1 0 :1:4 
+`uc 1 ADCRS1 1 0 :1:5 
+`uc 1 ADCRS2 1 0 :1:6 
+`uc 1 ADPSIS 1 0 :1:7 
+]
+"39358
+[s S1541 . 1 `uc 1 ADMD 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCRS 1 0 :3:4 
+]
+"39358
+[s S1545 . 1 `uc 1 MD0 1 0 :1:0 
+`uc 1 MD1 1 0 :1:1 
+`uc 1 MD2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CRS0 1 0 :1:4 
+`uc 1 CRS1 1 0 :1:5 
+`uc 1 CRS2 1 0 :1:6 
+]
+"39358
+[u S1553 . 1 `S1527 1 . 1 0 `S1532 1 . 1 0 `S1541 1 . 1 0 `S1545 1 . 1 0 ]
+"39358
+"39358
+[v _ADCON2bits ADCON2bits `VES1553  1 e 1 @1013 ]
+"39463
+[v _ADCON3 ADCON3 `VEuc  1 e 1 @1014 ]
+[s S1594 . 1 `uc 1 TMD 1 0 :3:0 
+`uc 1 SOI 1 0 :1:3 
+`uc 1 CALC 1 0 :3:4 
+]
+"39498
+[s S1598 . 1 `uc 1 ADTMD0 1 0 :1:0 
+`uc 1 ADTMD1 1 0 :1:1 
+`uc 1 ADTMD2 1 0 :1:2 
+`uc 1 ADSOI 1 0 :1:3 
+`uc 1 ADCALC0 1 0 :1:4 
+`uc 1 ADCALC1 1 0 :1:5 
+`uc 1 ADCALC2 1 0 :1:6 
+]
+"39498
+[s S1606 . 1 `uc 1 ADTMD 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCALC 1 0 :3:4 
+]
+"39498
+[s S1610 . 1 `uc 1 TMD0 1 0 :1:0 
+`uc 1 TMD1 1 0 :1:1 
+`uc 1 TMD2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CALC0 1 0 :1:4 
+`uc 1 CALC1 1 0 :1:5 
+`uc 1 CALC2 1 0 :1:6 
+]
+"39498
+[u S1618 . 1 `S1594 1 . 1 0 `S1598 1 . 1 0 `S1606 1 . 1 0 `S1610 1 . 1 0 ]
+"39498
+"39498
+[v _ADCON3bits ADCON3bits `VES1618  1 e 1 @1014 ]
+"39593
+[v _ADSTAT ADSTAT `VEuc  1 e 1 @1015 ]
+[s S1651 . 1 `uc 1 STAT 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 MATH 1 0 :1:4 
+`uc 1 LTHR 1 0 :1:5 
+`uc 1 UTHR 1 0 :1:6 
+`uc 1 AOV 1 0 :1:7 
+]
+"39630
+[s S1658 . 1 `uc 1 ADSTAT0 1 0 :1:0 
+`uc 1 ADSTAT1 1 0 :1:1 
+`uc 1 ADSTAT2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADMATH 1 0 :1:4 
+`uc 1 ADLTHR 1 0 :1:5 
+`uc 1 ADUTHR 1 0 :1:6 
+`uc 1 ADAOV 1 0 :1:7 
+]
+"39630
+[s S1667 . 1 `uc 1 ADSTAT 1 0 :3:0 
+`uc 1 . 1 0 :4:3 
+`uc 1 ADOV 1 0 :1:7 
+]
+"39630
+[s S1671 . 1 `uc 1 STAT0 1 0 :1:0 
+`uc 1 STAT1 1 0 :1:1 
+`uc 1 STAT2 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 OV 1 0 :1:7 
+]
+"39630
+[u S1677 . 1 `S1651 1 . 1 0 `S1658 1 . 1 0 `S1667 1 . 1 0 `S1671 1 . 1 0 ]
+"39630
+"39630
+[v _ADSTATbits ADSTATbits `VES1677  1 e 1 @1015 ]
+"39725
+[v _ADREF ADREF `VEuc  1 e 1 @1016 ]
+"39807
+[v _ADACT ADACT `VEuc  1 e 1 @1017 ]
+"39911
+[v _ADCLK ADCLK `VEuc  1 e 1 @1018 ]
+"40015
+[v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
+"40077
+[v _WPUA WPUA `VEuc  1 e 1 @1025 ]
+"40139
+[v _ODCONA ODCONA `VEuc  1 e 1 @1026 ]
+"40201
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @1027 ]
+"40263
+[v _INLVLA INLVLA `VEuc  1 e 1 @1028 ]
+"40325
+[v _IOCAP IOCAP `VEuc  1 e 1 @1029 ]
+"40387
+[v _IOCAN IOCAN `VEuc  1 e 1 @1030 ]
+"40449
+[v _IOCAF IOCAF `VEuc  1 e 1 @1031 ]
+"40511
+[v _ANSELB ANSELB `VEuc  1 e 1 @1032 ]
+"40573
+[v _WPUB WPUB `VEuc  1 e 1 @1033 ]
+"40635
+[v _ODCONB ODCONB `VEuc  1 e 1 @1034 ]
+"40697
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @1035 ]
+"40759
+[v _INLVLB INLVLB `VEuc  1 e 1 @1036 ]
+"40821
+[v _IOCBP IOCBP `VEuc  1 e 1 @1037 ]
+"40883
+[v _IOCBN IOCBN `VEuc  1 e 1 @1038 ]
+"40945
+[v _IOCBF IOCBF `VEuc  1 e 1 @1039 ]
+"41007
+[v _ANSELC ANSELC `VEuc  1 e 1 @1040 ]
+"41069
+[v _WPUC WPUC `VEuc  1 e 1 @1041 ]
+"41131
+[v _ODCONC ODCONC `VEuc  1 e 1 @1042 ]
+"41193
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @1043 ]
+"41255
+[v _INLVLC INLVLC `VEuc  1 e 1 @1044 ]
+"41317
+[v _IOCCP IOCCP `VEuc  1 e 1 @1045 ]
+"41379
+[v _IOCCN IOCCN `VEuc  1 e 1 @1046 ]
+"41441
+[v _IOCCF IOCCF `VEuc  1 e 1 @1047 ]
+"41503
+[v _ANSELD ANSELD `VEuc  1 e 1 @1048 ]
+"41565
+[v _WPUD WPUD `VEuc  1 e 1 @1049 ]
+"41627
+[v _ODCOND ODCOND `VEuc  1 e 1 @1050 ]
+"41689
+[v _SLRCOND SLRCOND `VEuc  1 e 1 @1051 ]
+"41751
+[v _INLVLD INLVLD `VEuc  1 e 1 @1052 ]
+"41813
+[v _ANSELE ANSELE `VEuc  1 e 1 @1056 ]
+"41845
+[v _WPUE WPUE `VEuc  1 e 1 @1057 ]
+"41883
+[v _ODCONE ODCONE `VEuc  1 e 1 @1058 ]
+"41915
+[v _SLRCONE SLRCONE `VEuc  1 e 1 @1059 ]
+"41947
+[v _INLVLE INLVLE `VEuc  1 e 1 @1060 ]
+"41985
+[v _IOCEP IOCEP `VEuc  1 e 1 @1061 ]
+"42006
+[v _IOCEN IOCEN `VEuc  1 e 1 @1062 ]
+"42027
+[v _IOCEF IOCEF `VEuc  1 e 1 @1063 ]
+"42048
+[v _ANSELF ANSELF `VEuc  1 e 1 @1064 ]
+"42110
+[v _WPUF WPUF `VEuc  1 e 1 @1065 ]
+"42172
+[v _ODCONF ODCONF `VEuc  1 e 1 @1066 ]
+"42234
+[v _SLRCONF SLRCONF `VEuc  1 e 1 @1067 ]
+"42296
+[v _INLVLF INLVLF `VEuc  1 e 1 @1068 ]
+"45052
+[v _IVTLOCK IVTLOCK `VEuc  1 e 1 @1113 ]
+[s S3208 . 1 `uc 1 IVTLOCKED 1 0 :1:0 
+]
+"45062
+[u S3210 . 1 `S3208 1 . 1 0 ]
+"45062
+"45062
+[v _IVTLOCKbits IVTLOCKbits `VES3210  1 e 1 @1113 ]
+"45258
+[v _IVTBASEL IVTBASEL `VEuc  1 e 1 @1117 ]
+"45320
+[v _IVTBASEH IVTBASEH `VEuc  1 e 1 @1118 ]
+"45382
+[v _IVTBASEU IVTBASEU `VEuc  1 e 1 @1119 ]
+"45967
+[v _PWM2ERS PWM2ERS `VEuc  1 e 1 @1135 ]
+"46037
+[v _PWM2CLK PWM2CLK `VEuc  1 e 1 @1136 ]
+"46107
+[v _PWM2LDS PWM2LDS `VEuc  1 e 1 @1137 ]
+"46184
+[v _PWM2PRL PWM2PRL `VEuc  1 e 1 @1138 ]
+"46204
+[v _PWM2PRH PWM2PRH `VEuc  1 e 1 @1139 ]
+"46224
+[v _PWM2CPRE PWM2CPRE `VEuc  1 e 1 @1140 ]
+"46244
+[v _PWM2PIPOS PWM2PIPOS `VEuc  1 e 1 @1141 ]
+"46264
+[v _PWM2GIR PWM2GIR `VEuc  1 e 1 @1142 ]
+[s S2852 . 1 `uc 1 S1P1IF 1 0 :1:0 
+`uc 1 S1P2IF 1 0 :1:1 
+]
+"46275
+[u S2855 . 1 `S2852 1 . 1 0 ]
+"46275
+"46275
+[v _PWM2GIRbits PWM2GIRbits `VES2855  1 e 1 @1142 ]
+"46290
+[v _PWM2GIE PWM2GIE `VEuc  1 e 1 @1143 ]
+[s S2928 . 1 `uc 1 S1P1IE 1 0 :1:0 
+`uc 1 S1P2IE 1 0 :1:1 
+]
+"46301
+[u S2931 . 1 `S2928 1 . 1 0 ]
+"46301
+"46301
+[v _PWM2GIEbits PWM2GIEbits `VES2931  1 e 1 @1143 ]
+"46316
+[v _PWM2CON PWM2CON `VEuc  1 e 1 @1144 ]
+[s S2913 . 1 `uc 1 ERSNOW 1 0 :1:0 
+`uc 1 ERSPOL 1 0 :1:1 
+`uc 1 LD 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 EN 1 0 :1:7 
+]
+"46330
+[u S2919 . 1 `S2913 1 . 1 0 ]
+"46330
+"46330
+[v _PWM2CONbits PWM2CONbits `VES2919  1 e 1 @1144 ]
+"46355
+[v _PWM2S1CFG PWM2S1CFG `VEuc  1 e 1 @1145 ]
+"46421
+[v _PWM2S1P1L PWM2S1P1L `VEuc  1 e 1 @1146 ]
+"46441
+[v _PWM2S1P1H PWM2S1P1H `VEuc  1 e 1 @1147 ]
+"46468
+[v _PWM2S1P2L PWM2S1P2L `VEuc  1 e 1 @1148 ]
+"46488
+[v _PWM2S1P2H PWM2S1P2H `VEuc  1 e 1 @1149 ]
+"46508
+[v _PWM3ERS PWM3ERS `VEuc  1 e 1 @1150 ]
+"46578
+[v _PWM3CLK PWM3CLK `VEuc  1 e 1 @1151 ]
+"46648
+[v _PWM3LDS PWM3LDS `VEuc  1 e 1 @1152 ]
+"46725
+[v _PWM3PRL PWM3PRL `VEuc  1 e 1 @1153 ]
+"46745
+[v _PWM3PRH PWM3PRH `VEuc  1 e 1 @1154 ]
+"46765
+[v _PWM3CPRE PWM3CPRE `VEuc  1 e 1 @1155 ]
+"46785
+[v _PWM3PIPOS PWM3PIPOS `VEuc  1 e 1 @1156 ]
+"46805
+[v _PWM3GIR PWM3GIR `VEuc  1 e 1 @1157 ]
+"46816
+"46816
+[v _PWM3GIRbits PWM3GIRbits `VES2855  1 e 1 @1157 ]
+"46831
+[v _PWM3GIE PWM3GIE `VEuc  1 e 1 @1158 ]
+"46842
+"46842
+[v _PWM3GIEbits PWM3GIEbits `VES2931  1 e 1 @1158 ]
+"46857
+[v _PWM3CON PWM3CON `VEuc  1 e 1 @1159 ]
+"46871
+"46871
+[v _PWM3CONbits PWM3CONbits `VES2919  1 e 1 @1159 ]
+"46896
+[v _PWM3S1CFG PWM3S1CFG `VEuc  1 e 1 @1160 ]
+"46962
+[v _PWM3S1P1L PWM3S1P1L `VEuc  1 e 1 @1161 ]
+"46982
+[v _PWM3S1P1H PWM3S1P1H `VEuc  1 e 1 @1162 ]
+"47009
+[v _PWM3S1P2L PWM3S1P2L `VEuc  1 e 1 @1163 ]
+"47029
+[v _PWM3S1P2H PWM3S1P2H `VEuc  1 e 1 @1164 ]
+[s S1450 . 1 `uc 1 INT0IE 1 0 :1:0 
+`uc 1 ZCDIE 1 0 :1:1 
+`uc 1 ADIE 1 0 :1:2 
+`uc 1 ACTIE 1 0 :1:3 
+`uc 1 C1IE 1 0 :1:4 
+`uc 1 SMT1IE 1 0 :1:5 
+`uc 1 SMT1PRAIE 1 0 :1:6 
+`uc 1 SMT1PWAIE 1 0 :1:7 
+]
+"47182
+[u S1459 . 1 `S1450 1 . 1 0 ]
+"47182
+"47182
+[v _PIE1bits PIE1bits `VES1459  1 e 1 @1183 ]
+[s S1488 . 1 `uc 1 ADTIE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 DMA1SCNTIE 1 0 :1:4 
+`uc 1 DMA1DCNTIE 1 0 :1:5 
+`uc 1 DMA1ORIE 1 0 :1:6 
+`uc 1 DMA1AIE 1 0 :1:7 
+]
+"47242
+[u S1495 . 1 `S1488 1 . 1 0 ]
+"47242
+"47242
+[v _PIE2bits PIE2bits `VES1495  1 e 1 @1184 ]
+[s S3630 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
+`uc 1 SPI1TXIE 1 0 :1:1 
+`uc 1 SPI1IE 1 0 :1:2 
+`uc 1 TMR2IE 1 0 :1:3 
+`uc 1 TMR1IE 1 0 :1:4 
+`uc 1 TMR1GIE 1 0 :1:5 
+`uc 1 CCP1IE 1 0 :1:6 
+`uc 1 TMR0IE 1 0 :1:7 
+]
+"47289
+[u S3639 . 1 `S3630 1 . 1 0 ]
+"47289
+"47289
+[v _PIE3bits PIE3bits `VES3639  1 e 1 @1185 ]
+[s S4783 . 1 `uc 1 U1RXIE 1 0 :1:0 
+`uc 1 U1TXIE 1 0 :1:1 
+`uc 1 U1EIE 1 0 :1:2 
+`uc 1 U1IE 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 PWM1PIE 1 0 :1:6 
+`uc 1 PWM1IE 1 0 :1:7 
+]
+"47350
+[u S4791 . 1 `S4783 1 . 1 0 ]
+"47350
+"47350
+[v _PIE4bits PIE4bits `VES4791  1 e 1 @1186 ]
+[s S2861 . 1 `uc 1 SPI2RXIE 1 0 :1:0 
+`uc 1 SPI2TXIE 1 0 :1:1 
+`uc 1 SPI2IE 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TMR3IE 1 0 :1:4 
+`uc 1 TMR3GIE 1 0 :1:5 
+`uc 1 PWM2PIE 1 0 :1:6 
+`uc 1 PWM2IE 1 0 :1:7 
+]
+"47402
+[u S2870 . 1 `S2861 1 . 1 0 ]
+"47402
+"47402
+[v _PIE5bits PIE5bits `VES2870  1 e 1 @1187 ]
+[s S2470 . 1 `uc 1 I2C1RXIE 1 0 :1:0 
+`uc 1 I2C1TXIE 1 0 :1:1 
+`uc 1 I2C1IE 1 0 :1:2 
+`uc 1 I2C1EIE 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 CLC3IE 1 0 :1:5 
+`uc 1 PWM3PIE 1 0 :1:6 
+`uc 1 PWM3IE 1 0 :1:7 
+]
+"47521
+[u S2479 . 1 `S2470 1 . 1 0 ]
+"47521
+"47521
+[v _PIE7bits PIE7bits `VES2479  1 e 1 @1189 ]
+[s S4305 . 1 `uc 1 CCP3IE 1 0 :1:0 
+`uc 1 CLC6IE 1 0 :1:1 
+`uc 1 CWG3IE 1 0 :1:2 
+`uc 1 TMR4IE 1 0 :1:3 
+`uc 1 DMA4SCNTIE 1 0 :1:4 
+`uc 1 DMA4DCNTIE 1 0 :1:5 
+`uc 1 DMA4ORIE 1 0 :1:6 
+`uc 1 DMA4AIE 1 0 :1:7 
+]
+"47747
+[u S4314 . 1 `S4305 1 . 1 0 ]
+"47747
+"47747
+[v _PIE11bits PIE11bits `VES4314  1 e 1 @1193 ]
+[s S1429 . 1 `uc 1 INT0IF 1 0 :1:0 
+`uc 1 ZCDIF 1 0 :1:1 
+`uc 1 ADIF 1 0 :1:2 
+`uc 1 ACTIF 1 0 :1:3 
+`uc 1 C1IF 1 0 :1:4 
+`uc 1 SMT1IF 1 0 :1:5 
+`uc 1 SMT1PRAIF 1 0 :1:6 
+`uc 1 SMT1PWAIF 1 0 :1:7 
+]
+"48056
+[u S1438 . 1 `S1429 1 . 1 0 ]
+"48056
+"48056
+[v _PIR1bits PIR1bits `VES1438  1 e 1 @1199 ]
+[s S1471 . 1 `uc 1 ADTIF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 DMA1SCNTIF 1 0 :1:4 
+`uc 1 DMA1DCNTIF 1 0 :1:5 
+`uc 1 DMA1ORIF 1 0 :1:6 
+`uc 1 DMA1AIF 1 0 :1:7 
+]
+"48116
+[u S1478 . 1 `S1471 1 . 1 0 ]
+"48116
+"48116
+[v _PIR2bits PIR2bits `VES1478  1 e 1 @1200 ]
+[s S3609 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
+`uc 1 SPI1TXIF 1 0 :1:1 
+`uc 1 SPI1IF 1 0 :1:2 
+`uc 1 TMR2IF 1 0 :1:3 
+`uc 1 TMR1IF 1 0 :1:4 
+`uc 1 TMR1GIF 1 0 :1:5 
+`uc 1 CCP1IF 1 0 :1:6 
+`uc 1 TMR0IF 1 0 :1:7 
+]
+"48163
+[u S3618 . 1 `S3609 1 . 1 0 ]
+"48163
+"48163
+[v _PIR3bits PIR3bits `VES3618  1 e 1 @1201 ]
+[s S2831 . 1 `uc 1 SPI2RXIF 1 0 :1:0 
+`uc 1 SPI2TXIF 1 0 :1:1 
+`uc 1 SPI2IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TMR3IF 1 0 :1:4 
+`uc 1 TMR3GIF 1 0 :1:5 
+`uc 1 PWM2PIF 1 0 :1:6 
+`uc 1 PWM2IF 1 0 :1:7 
+]
+"48276
+[u S2840 . 1 `S2831 1 . 1 0 ]
+"48276
+"48276
+[v _PIR5bits PIR5bits `VES2840  1 e 1 @1203 ]
+[s S3322 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 CLC2IF 1 0 :1:1 
+`uc 1 CWG1IF 1 0 :1:2 
+`uc 1 NCO1IF 1 0 :1:3 
+`uc 1 DMA2SCNTIF 1 0 :1:4 
+`uc 1 DMA2DCNTIF 1 0 :1:5 
+`uc 1 DMA2ORIF 1 0 :1:6 
+`uc 1 DMA2AIF 1 0 :1:7 
+]
+"48333
+[u S3331 . 1 `S3322 1 . 1 0 ]
+"48333
+"48333
+[v _PIR6bits PIR6bits `VES3331  1 e 1 @1204 ]
+[s S3023 . 1 `uc 1 I2C1RXIF 1 0 :1:0 
+`uc 1 I2C1TXIF 1 0 :1:1 
+`uc 1 I2C1IF 1 0 :1:2 
+`uc 1 I2C1EIF 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 CLC3IF 1 0 :1:5 
+`uc 1 PWM3PIF 1 0 :1:6 
+`uc 1 PWM3IF 1 0 :1:7 
+]
+"48395
+[u S3032 . 1 `S3023 1 . 1 0 ]
+"48395
+"48395
+[v _PIR7bits PIR7bits `VES3032  1 e 1 @1205 ]
+[s S3353 . 1 `uc 1 INT2IF 1 0 :1:0 
+`uc 1 CLC5IF 1 0 :1:1 
+`uc 1 CWG2IF 1 0 :1:2 
+`uc 1 NCO2IF 1 0 :1:3 
+`uc 1 DMA3SCNTIF 1 0 :1:4 
+`uc 1 DMA3DCNTIF 1 0 :1:5 
+`uc 1 DMA3ORIF 1 0 :1:6 
+`uc 1 DMA3AIF 1 0 :1:7 
+]
+"48559
+[u S3362 . 1 `S3353 1 . 1 0 ]
+"48559
+"48559
+[v _PIR10bits PIR10bits `VES3362  1 e 1 @1208 ]
+[s S4284 . 1 `uc 1 CCP3IF 1 0 :1:0 
+`uc 1 CLC6IF 1 0 :1:1 
+`uc 1 CWG3IF 1 0 :1:2 
+`uc 1 TMR4IF 1 0 :1:3 
+`uc 1 DMA4SCNTIF 1 0 :1:4 
+`uc 1 DMA4DCNTIF 1 0 :1:5 
+`uc 1 DMA4ORIF 1 0 :1:6 
+`uc 1 DMA4AIF 1 0 :1:7 
+]
+"48621
+[u S4293 . 1 `S4284 1 . 1 0 ]
+"48621
+"48621
+[v _PIR11bits PIR11bits `VES4293  1 e 1 @1209 ]
+"48861
+[v _LATA LATA `VEuc  1 e 1 @1214 ]
+[s S951 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"48878
+[u S960 . 1 `S951 1 . 1 0 ]
+"48878
+"48878
+[v _LATAbits LATAbits `VES960  1 e 1 @1214 ]
+"48923
+[v _LATB LATB `VEuc  1 e 1 @1215 ]
+"48985
+[v _LATC LATC `VEuc  1 e 1 @1216 ]
+[s S930 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"49002
+[u S939 . 1 `S930 1 . 1 0 ]
+"49002
+"49002
+[v _LATCbits LATCbits `VES939  1 e 1 @1216 ]
+"49047
+[v _LATD LATD `VEuc  1 e 1 @1217 ]
+[s S882 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"49064
+[u S891 . 1 `S882 1 . 1 0 ]
+"49064
+"49064
+[v _LATDbits LATDbits `VES891  1 e 1 @1217 ]
+"49109
+[v _LATE LATE `VEuc  1 e 1 @1218 ]
+"49141
+[v _LATF LATF `VEuc  1 e 1 @1219 ]
+[s S903 . 1 `uc 1 LATF0 1 0 :1:0 
+`uc 1 LATF1 1 0 :1:1 
+`uc 1 LATF2 1 0 :1:2 
+`uc 1 LATF3 1 0 :1:3 
+`uc 1 LATF4 1 0 :1:4 
+`uc 1 LATF5 1 0 :1:5 
+`uc 1 LATF6 1 0 :1:6 
+`uc 1 LATF7 1 0 :1:7 
+]
+"49158
+[u S912 . 1 `S903 1 . 1 0 ]
+"49158
+"49158
+[v _LATFbits LATFbits `VES912  1 e 1 @1219 ]
+"49203
+[v _TRISA TRISA `VEuc  1 e 1 @1222 ]
+"49265
+[v _TRISB TRISB `VEuc  1 e 1 @1223 ]
+"49327
+[v _TRISC TRISC `VEuc  1 e 1 @1224 ]
+"49389
+[v _TRISD TRISD `VEuc  1 e 1 @1225 ]
+"49451
+[v _TRISE TRISE `VEuc  1 e 1 @1226 ]
+"49483
+[v _TRISF TRISF `VEuc  1 e 1 @1227 ]
+[s S2733 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"49913
+[s S2741 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 GIEH 1 0 :1:7 
+]
+"49913
+[u S2744 . 1 `S2733 1 . 1 0 `S2741 1 . 1 0 ]
+"49913
+"49913
+[v _INTCON0bits INTCON0bits `VES2744  1 e 1 @1238 ]
+"50857
+[v _TABLAT TABLAT `VEuc  1 e 1 @1269 ]
+"50886
+[v _TBLPTRL TBLPTRL `VEuc  1 e 1 @1270 ]
+"50906
+[v _TBLPTRH TBLPTRH `VEuc  1 e 1 @1271 ]
+"50926
+[v _TBLPTRU TBLPTRU `VEuc  1 e 1 @1272 ]
+"55087
+[v _GIE GIE `VEb  1 e 0 @9911 ]
+"153 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"185
+[v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _I2C_R_system_config_Data I2C_R_system_config_Data `[1]uc  1 e 1 0 ]
+"6
+[v _I2C_sendAdd_2 I2C_sendAdd_2 `[3]uc  1 e 3 0 ]
+"7
+[v _I2C_password_add I2C_password_add `[19]uc  1 e 19 0 ]
+"9
+[v _GPO_config_value GPO_config_value `uc  1 e 1 0 ]
+[s S5175 . 8 `uc 1 run 1 0 `us 1 timCount 2 1 `us 1 timRload 2 3 `*.38(v 1 pTaskFuncCb 3 5 ]
+"65 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\main.c
+[v _g_taskComps g_taskComps `[7]S5175  1 s 56 g_taskComps ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[v _ADC_ConversionDoneCallback ADC_ConversionDoneCallback `*.38(v  1 s 3 ADC_ConversionDoneCallback ]
+"44
+[v _ADC_ThresholdCallback ADC_ThresholdCallback `*.38(v  1 s 3 ADC_ThresholdCallback ]
+"45
+[v _adc_busy_status adc_busy_status `a  1 s 1 adc_busy_status ]
+"94 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[v _I2C1_Callback I2C1_Callback `*.38(v  1 s 3 I2C1_Callback ]
+[s S2130 . 13 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E17116 1 errorState 1 12 ]
+"95
+[v _i2c1Status i2c1Status `VES2130  1 e 13 0 ]
+"40 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[v _unlockKeyLow unlockKeyLow `VNEuc  1 s 1 unlockKeyLow ]
+"41
+[v _unlockKeyHigh unlockKeyHigh `VNEuc  1 s 1 unlockKeyHigh ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm2_16bit.c
+[v _PWM2_16BIT_Slice1Output1_InterruptHandler PWM2_16BIT_Slice1Output1_InterruptHandler `*.38(v  1 s 3 PWM2_16BIT_Slice1Output1_InterruptHandler ]
+"44
+[v _PWM2_16BIT_Slice1Output2_InterruptHandler PWM2_16BIT_Slice1Output2_InterruptHandler `*.38(v  1 s 3 PWM2_16BIT_Slice1Output2_InterruptHandler ]
+"45
+[v _PWM2_16BIT_Period_InterruptHandler PWM2_16BIT_Period_InterruptHandler `*.38(v  1 s 3 PWM2_16BIT_Period_InterruptHandler ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm3_16bit.c
+[v _PWM3_16BIT_Slice1Output1_InterruptHandler PWM3_16BIT_Slice1Output1_InterruptHandler `*.38(v  1 s 3 PWM3_16BIT_Slice1Output1_InterruptHandler ]
+"44
+[v _PWM3_16BIT_Slice1Output2_InterruptHandler PWM3_16BIT_Slice1Output2_InterruptHandler `*.38(v  1 s 3 PWM3_16BIT_Slice1Output2_InterruptHandler ]
+"45
+[v _PWM3_16BIT_Period_InterruptHandler PWM3_16BIT_Period_InterruptHandler `*.38(v  1 s 3 PWM3_16BIT_Period_InterruptHandler ]
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/interrupt.c
+[v _INT0_InterruptHandler INT0_InterruptHandler `*.38(v  1 e 3 0 ]
+"39
+[v _INT1_InterruptHandler INT1_InterruptHandler `*.38(v  1 e 3 0 ]
+"40
+[v _INT2_InterruptHandler INT2_InterruptHandler `*.38(v  1 e 3 0 ]
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_PeriodMatchCallback TMR0_PeriodMatchCallback `*.38(v  1 s 3 TMR0_PeriodMatchCallback ]
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr1.c
+[v _timer1ReloadVal timer1ReloadVal `VEus  1 s 2 timer1ReloadVal ]
+"44
+[v _TMR1_OverflowCallback TMR1_OverflowCallback `*.38(v  1 s 3 TMR1_OverflowCallback ]
+"46
+[v _TMR1_GateCallback TMR1_GateCallback `*.38(v  1 s 3 TMR1_GateCallback ]
+"44 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_PeriodMatchCallback TMR2_PeriodMatchCallback `*.38(v  1 s 3 TMR2_PeriodMatchCallback ]
+"44 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr4.c
+[v _TMR4_PeriodMatchCallback TMR4_PeriodMatchCallback `*.38(v  1 s 3 TMR4_PeriodMatchCallback ]
+"83 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _uart1TxHead uart1TxHead `VEuc  1 s 1 uart1TxHead ]
+"84
+[v _uart1TxTail uart1TxTail `VEuc  1 s 1 uart1TxTail ]
+"85
+[v _uart1TxBuffer uart1TxBuffer `VE[32]uc  1 s 32 uart1TxBuffer ]
+"86
+[v _uart1TxBufferRemaining uart1TxBufferRemaining `VEuc  1 s 1 uart1TxBufferRemaining ]
+"88
+[v _uart1RxHead uart1RxHead `VEuc  1 s 1 uart1RxHead ]
+"89
+[v _uart1RxTail uart1RxTail `VEuc  1 s 1 uart1RxTail ]
+"90
+[v _uart1RxBuffer uart1RxBuffer `VE[32]uc  1 s 32 uart1RxBuffer ]
+[s S4766 . 1 `uc 1 perr 1 0 :1:0 
+`uc 1 ferr 1 0 :1:1 
+`uc 1 oerr 1 0 :1:2 
+`uc 1 reserved 1 0 :5:3 
+]
+"96
+[u S4771 . 2 `S4766 1 . 1 0 `ui 1 status 2 0 ]
+[v _uart1RxStatusBuffer uart1RxStatusBuffer `VE[32]S4771  1 s 64 uart1RxStatusBuffer ]
+"97
+[v _uart1RxCount uart1RxCount `VEuc  1 s 1 uart1RxCount ]
+"104
+[v _uart1RxLastError uart1RxLastError `VES4771  1 s 2 uart1RxLastError ]
+"110
+[v _UART1_FramingErrorHandler UART1_FramingErrorHandler `*.38(v  1 s 3 UART1_FramingErrorHandler ]
+"111
+[v _UART1_OverrunErrorHandler UART1_OverrunErrorHandler `*.38(v  1 s 3 UART1_OverrunErrorHandler ]
+"112
+[v _UART1_ParityErrorHandler UART1_ParityErrorHandler `*.38(v  1 s 3 UART1_ParityErrorHandler ]
+"113
+[v _UART1_TxInterruptHandler UART1_TxInterruptHandler `*.38(v  1 e 3 0 ]
+"115
+[v _UART1_TxCompleteInterruptHandler UART1_TxCompleteInterruptHandler `*.38(v  1 s 3 UART1_TxCompleteInterruptHandler ]
+"116
+[v _UART1_RxInterruptHandler UART1_RxInterruptHandler `*.38(v  1 e 3 0 ]
+"117
+[v _UART1_RxCompleteInterruptHandler UART1_RxCompleteInterruptHandler `*.38(v  1 s 3 UART1_RxCompleteInterruptHandler ]
+[s S1129 . 20 `f 1 current_value 4 0 `f 1 start_value 4 4 `f 1 target_value 4 8 `ul 1 start_time 4 12 `ul 1 transition_time 4 16 ]
+"4 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _pwm_regulator1 pwm_regulator1 `S1129  1 s 20 pwm_regulator1 ]
+"5
+[v _pwm_regulator2 pwm_regulator2 `S1129  1 s 20 pwm_regulator2 ]
+"7 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/CRC/crc.h
+[v _auchCRCHi@crc$F1188 auchCRCHi `C[256]uc  1 s 256 auchCRCHi ]
+"27
+[v _auchCRCLo@crc$F1189 auchCRCLo `C[256]uc  1 s 256 auchCRCLo ]
+"9 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.c
+[v _target_duty_cycle_Out1 target_duty_cycle_Out1 `i  1 e 2 0 ]
+[v _target_duty_cycle_Out2 target_duty_cycle_Out2 `i  1 e 2 0 ]
+[s S171 . 39 `uc 1 Channel_Flag 1 0 `f 1 Kp 4 1 `f 1 Ki 4 5 `f 1 Kd 4 9 `f 1 integral_max 4 13 `f 1 integral_min 4 17 `f 1 output_max 4 21 `f 1 output_min 4 25 `f 1 integral 4 29 `f 1 prev_error 4 33 `i 1 PWM_duty_cycle 2 37 ]
+"35 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.h
+[v _pid1 pid1 `S171  1 e 39 0 ]
+[v _pid2 pid2 `S171  1 e 39 0 ]
+"122 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"155
+} 0
+"79
+[v _TaskHandler TaskHandler `(v  1 s 1 TaskHandler ]
+{
+"81
+[v TaskHandler@i i `uc  1 a 1 161 ]
+"89
+} 0
+"56 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _Rs485Task Rs485Task `(v  1 e 1 0 ]
+{
+"59
+[v Rs485Task@out_time out_time `ul  1 a 4 154 ]
+"83
+[v Rs485Task@data_length data_length `uc  1 a 1 160 ]
+"95
+[v Rs485Task@ActualDataBytes ActualDataBytes `uc  1 a 1 159 ]
+"94
+[v Rs485Task@ExpectedDataBytes ExpectedDataBytes `uc  1 a 1 158 ]
+"155
+} 0
+"83 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _LED_Task LED_Task `(v  1 e 1 0 ]
+{
+"87
+[v LED_Task@elapsed elapsed `ul  1 a 4 25 ]
+"85
+[v LED_Task@led_state led_state `E18025  1 s 1 led_state ]
+"86
+[v LED_Task@last_led_change_time last_led_change_time `ul  1 s 4 last_led_change_time ]
+"108
+} 0
+"263 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/OutProtected_APP/out_protected.c
+[v _OutProtectedTask OutProtectedTask `(v  1 e 1 0 ]
+{
+"269
+} 0
+"168 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/InProtected_APP/inprotectedapp.c
+[v _IntProtectedTask IntProtectedTask `(v  1 e 1 0 ]
+{
+"171
+} 0
+"404 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _Display Display `(v  1 e 1 0 ]
+{
+"425
+} 0
+"362
+[v _DimmingControlTask DimmingControlTask `(v  1 e 1 0 ]
+{
+"365
+[v DimmingControlTask@ProtectionState ProtectionState `uc  1 s 1 ProtectionState ]
+"366
+[v DimmingControlTask@lastExecState lastExecState `uc  1 s 1 lastExecState ]
+"402
+} 0
+"195 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/TempProtected_APP/temp_protected.c
+[v _TemapProtectedTask TemapProtectedTask `(v  1 e 1 0 ]
+{
+"198
+} 0
+"87
+[v _Temp_Protected Temp_Protected `(v  1 e 1 0 ]
+{
+"94
+[v Temp_Protected@voltage voltage `f  1 a 4 150 ]
+"97
+[v Temp_Protected@current_time current_time `ul  1 a 4 146 ]
+"98
+[v Temp_Protected@elapsed_time elapsed_time `ul  1 a 4 142 ]
+"93
+[v Temp_Protected@temperature temperature `s  1 a 2 140 ]
+"89
+[v Temp_Protected@Tempstate Tempstate `uc  1 s 1 Tempstate ]
+"90
+[v Temp_Protected@temptime temptime `ul  1 s 4 temptime ]
+"91
+[v Temp_Protected@temp_stable_count temp_stable_count `uc  1 s 1 temp_stable_count ]
+"101
+[v Temp_Protected@last_voltage last_voltage `f  1 s 4 last_voltage ]
+"194
+} 0
+"96 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _Writehandle_version Writehandle_version `(v  1 e 1 0 ]
+{
+"132
+[v Writehandle_version@j j `uc  1 a 1 149 ]
+"105
+[v Writehandle_version@i i `uc  1 a 1 148 ]
+"99
+[v Writehandle_version@write_buffer write_buffer `[17]uc  1 a 17 121 ]
+"98
+[v Writehandle_version@eeprom_write eeprom_write `[4]uc  1 a 4 138 ]
+"127
+[v Writehandle_version@wcrc wcrc `us  1 a 2 146 ]
+"123
+[v Writehandle_version@ver ver `*.39uc  1 a 2 144 ]
+"119
+[v Writehandle_version@numb numb `*.39uc  1 a 2 142 ]
+"96
+[v Writehandle_version@w_data w_data `*.39uc  1 p 2 117 ]
+"138
+} 0
+"54 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _WriteCalibrationSingleChannel WriteCalibrationSingleChannel `(v  1 e 1 0 ]
+{
+"95
+[v WriteCalibrationSingleChannel@j j `uc  1 a 1 138 ]
+"56
+[v WriteCalibrationSingleChannel@write_buffer write_buffer `[17]uc  1 a 17 119 ]
+"91
+[v WriteCalibrationSingleChannel@wcrc wcrc `us  1 a 2 136 ]
+"54
+[v WriteCalibrationSingleChannel@w_eeprom w_eeprom `*.39uc  1 p 2 117 ]
+"101
+} 0
+"103
+[v _WriteCalibrationMultiChannel WriteCalibrationMultiChannel `(v  1 e 1 0 ]
+{
+"130
+[v WriteCalibrationMultiChannel@j j `uc  1 a 1 138 ]
+"105
+[v WriteCalibrationMultiChannel@write_buffer write_buffer `[17]uc  1 a 17 119 ]
+"126
+[v WriteCalibrationMultiChannel@wcrc wcrc `us  1 a 2 136 ]
+"103
+[v WriteCalibrationMultiChannel@w_eeprom w_eeprom `*.39uc  1 p 2 117 ]
+"136
+} 0
+"299 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_ReceiveInterruptDisable UART1_ReceiveInterruptDisable `(v  1 e 1 0 ]
+{
+"302
+} 0
+"58 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _Readhandle_version Readhandle_version `(v  1 e 1 0 ]
+{
+"81
+[v Readhandle_version@i i `uc  1 a 1 142 ]
+"61
+[v Readhandle_version@read_buffer read_buffer `[17]uc  1 a 17 119 ]
+"76
+[v Readhandle_version@wcrc wcrc `us  1 a 2 140 ]
+"72
+[v Readhandle_version@ver ver `*.39uc  1 a 2 138 ]
+"68
+[v Readhandle_version@numb numb `*.39uc  1 a 2 136 ]
+"58
+[v Readhandle_version@ack_data ack_data `*.39uc  1 p 2 117 ]
+"87
+} 0
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _ClearReceiveData ClearReceiveData `(v  1 s 1 ClearReceiveData ]
+{
+"54
+} 0
+"295 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_ReceiveInterruptEnable UART1_ReceiveInterruptEnable `(v  1 e 1 0 ]
+{
+"298
+} 0
+"101 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Bootloader/Bootloader.c
+[v _Access_Bootloder Access_Bootloder `(v  1 e 1 0 ]
+{
+"128
+[v Access_Bootloder@j j `uc  1 a 1 123 ]
+"125
+[v Access_Bootloder@wcrc wcrc `us  1 a 2 121 ]
+"101
+[v Access_Bootloder@boot_ack boot_ack `*.39uc  1 p 2 117 ]
+"136
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 3 0 ]
+{
+"5
+[v memset@p p `*.39uc  1 a 2 9 ]
+"3
+[v memset@dest dest `*.39v  1 p 2 3 ]
+[v memset@c c `i  1 p 2 5 ]
+[v memset@n n `ui  1 p 2 7 ]
+"10
+} 0
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/CRC/crc.c
+[v _CRC16 CRC16 `(ui  1 e 2 0 ]
+{
+"8
+[v CRC16@uchCRCLo uchCRCLo `uc  1 a 1 10 ]
+"7
+[v CRC16@uchCRCHi uchCRCHi `uc  1 a 1 9 ]
+"9
+[v CRC16@uIndex uIndex `uc  1 a 1 8 ]
+"5
+[v CRC16@Pushdata Pushdata `*.39uc  1 p 2 3 ]
+[v CRC16@length length `uc  1 p 1 5 ]
+"17
+} 0
+"75 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Bootloader/Bootloader.c
+[v _BootFlagSetJump BootFlagSetJump `(v  1 e 1 0 ]
+{
+"77
+[v BootFlagSetJump@magic_data magic_data `[6]uc  1 a 6 15 ]
+"86
+[v BootFlagSetJump@checksum_value checksum_value `us  1 a 2 23 ]
+"89
+[v BootFlagSetJump@checksum_low checksum_low `uc  1 a 1 22 ]
+"88
+[v BootFlagSetJump@checksum_high checksum_high `uc  1 a 1 21 ]
+"76
+[v BootFlagSetJump@F18383 F18383 `[6]uc  1 s 6 F18383 ]
+"99
+} 0
+"4 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/EEPROM/EEPROM_driver.c
+[v _EepromWriteByte EepromWriteByte `(v  1 e 1 0 ]
+{
+[v EepromWriteByte@offset offset `um  1 p 3 11 ]
+[v EepromWriteByte@data data `uc  1 p 1 14 ]
+"18
+} 0
+"70 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_UnlockKeySet NVM_UnlockKeySet `(v  1 e 1 0 ]
+{
+[v NVM_UnlockKeySet@unlockKey unlockKey `us  1 p 2 3 ]
+"74
+} 0
+"76
+[v _NVM_UnlockKeyClear NVM_UnlockKeyClear `(v  1 e 1 0 ]
+{
+"80
+} 0
+"53
+[v _NVM_StatusGet NVM_StatusGet `(E17204  1 e 1 0 ]
+{
+"63
+} 0
+"48
+[v _NVM_IsBusy NVM_IsBusy `(a  1 e 1 0 ]
+{
+"51
+} 0
+"309
+[v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
+{
+"312
+[v EEPROM_Write@globalInterruptBitValue globalInterruptBitValue `uc  1 a 1 10 ]
+"309
+[v EEPROM_Write@address address `um  1 p 3 3 ]
+[v EEPROM_Write@data data `uc  1 p 1 6 ]
+"345
+} 0
+"39 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Bootloader/Bootloader.c
+[v _BootFlagIsValid BootFlagIsValid `(a  1 e 1 0 ]
+{
+"41
+[v BootFlagIsValid@magic_data magic_data `[6]uc  1 a 6 24 ]
+"64
+[v BootFlagIsValid@calculated_checksum calculated_checksum `us  1 a 2 20 ]
+"61
+[v BootFlagIsValid@stored_checksum stored_checksum `us  1 a 2 18 ]
+"60
+[v BootFlagIsValid@checksum_low checksum_low `uc  1 a 1 23 ]
+"59
+[v BootFlagIsValid@checksum_high checksum_high `uc  1 a 1 22 ]
+"73
+} 0
+"27
+[v _BootCalculateChecksum BootCalculateChecksum `(us  1 e 2 0 ]
+{
+"31
+[v BootCalculateChecksum@i i `uc  1 a 1 11 ]
+"29
+[v BootCalculateChecksum@sum sum `ul  1 a 4 7 ]
+"27
+[v BootCalculateChecksum@data data `*.39Cuc  1 p 2 3 ]
+[v BootCalculateChecksum@len len `uc  1 p 1 5 ]
+"37
+} 0
+"205 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/OutProtected_APP/out_protected.c
+[v _OutProtected_CH2 OutProtected_CH2 `(v  1 e 1 0 ]
+{
+"209
+[v OutProtected_CH2@protect2time protect2time `ul  1 a 4 8 ]
+"214
+[v OutProtected_CH2@outprotect2 outprotect2 `us  1 a 2 12 ]
+"208
+[v OutProtected_CH2@timesys2 timesys2 `ul  1 s 4 timesys2 ]
+"210
+[v OutProtected_CH2@is_protecting3 is_protecting3 `a  1 s 1 is_protecting3 ]
+"211
+[v OutProtected_CH2@is_protecting4 is_protecting4 `a  1 s 1 is_protecting4 ]
+"261
+} 0
+"117
+[v _OutProtected_CH1 OutProtected_CH1 `(v  1 e 1 0 ]
+{
+"120
+[v OutProtected_CH1@protect1time protect1time `ul  1 a 4 9 ]
+"128
+[v OutProtected_CH1@outprotect outprotect `uc  1 a 1 8 ]
+"119
+[v OutProtected_CH1@timesys1 timesys1 `ul  1 s 4 timesys1 ]
+"121
+[v OutProtected_CH1@is_protecting1 is_protecting1 `a  1 s 1 is_protecting1 ]
+"122
+[v OutProtected_CH1@is_protecting2 is_protecting2 `a  1 s 1 is_protecting2 ]
+"124
+[v OutProtected_CH1@in_protection_period in_protection_period `a  1 s 1 in_protection_period ]
+"125
+[v OutProtected_CH1@permanent_protection permanent_protection `a  1 s 1 permanent_protection ]
+"126
+[v OutProtected_CH1@protection_count protection_count `uc  1 s 1 protection_count ]
+"203
+} 0
+"39
+[v _Voltage_Judgment Voltage_Judgment `(us  1 e 2 0 ]
+{
+[v Voltage_Judgment@channel channel `E17462  1 p 1 wreg ]
+[v Voltage_Judgment@channel channel `E17462  1 p 1 wreg ]
+"43
+[v Voltage_Judgment@channel channel `E17462  1 p 1 151 ]
+"111
+} 0
+"3 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _Led_On Led_On `(v  1 e 1 0 ]
+{
+"6
+} 0
+"8
+[v _Led_Off Led_Off `(v  1 e 1 0 ]
+{
+"11
+} 0
+"53 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/InProtected_APP/inprotectedapp.c
+[v _VoltageInputProtection VoltageInputProtection `(v  1 e 1 0 ]
+{
+"62
+[v VoltageInputProtection@elapsed_since_power_on elapsed_since_power_on `ul  1 a 4 62 ]
+"61
+[v VoltageInputProtection@elapsed_in_state elapsed_in_state `ul  1 a 4 58 ]
+"63
+[v VoltageInputProtection@g_uVintValue g_uVintValue `us  1 a 2 66 ]
+"55
+[v VoltageInputProtection@state state `E17952  1 s 1 state ]
+"56
+[v VoltageInputProtection@startup_phase startup_phase `uc  1 s 1 startup_phase ]
+"57
+[v VoltageInputProtection@state_entry_time state_entry_time `ul  1 s 4 state_entry_time ]
+"58
+[v VoltageInputProtection@power_on_time power_on_time `ul  1 s 4 power_on_time ]
+"59
+[v VoltageInputProtection@off_delay_done off_delay_done `a  1 s 1 off_delay_done ]
+"66
+[v VoltageInputProtection@first_run first_run `a  1 s 1 first_run ]
+"165
+} 0
+"5 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.39v  1 a 2 115 ]
+"5
+[v printf@fmt fmt `*.32Cuc  1 p 2 99 ]
+"13
+} 0
+"1817 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1820
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 154 ]
+[s S5776 _IO_FILE 0 ]
+"1817
+[v vfprintf@fp fp `*.39S5776  1 p 2 93 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 95 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 97 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S5821 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+"1188
+[v vfpfcnvrt@convarg convarg `S5821  1 a 4 87 ]
+"1179
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 91 ]
+[v vfpfcnvrt@c c `uc  1 a 1 86 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 85 ]
+[s S5776 _IO_FILE 0 ]
+"1177
+[v vfpfcnvrt@fp fp `*.39S5776  1 p 2 79 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 81 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 83 ]
+"1814
+} 0
+"1055
+[v _xtoa xtoa `(v  1 s 1 xtoa ]
+{
+"1063
+[v xtoa@i i `i  1 a 2 44 ]
+[v xtoa@w w `i  1 a 2 41 ]
+"1065
+[v xtoa@p p `i  1 a 2 39 ]
+"1059
+[v xtoa@c c `uc  1 a 1 43 ]
+[s S5776 _IO_FILE 0 ]
+"1055
+[v xtoa@fp fp `*.39S5776  1 p 2 32 ]
+[v xtoa@d d `ui  1 p 2 34 ]
+"1153
+} 0
+"1158
+[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
+{
+"1164
+[v read_prec_or_width@c c `uc  1 a 1 9 ]
+"1159
+[v read_prec_or_width@n n `i  1 a 2 10 ]
+"1158
+[v read_prec_or_width@fmt fmt `*.39*.32Cuc  1 p 2 3 ]
+[v read_prec_or_width@ap ap `*.39[1]*.39v  1 p 2 5 ]
+"1171
+} 0
+"587
+[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
+{
+[u S5794 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
+"592
+[v efgtoa@u u `S5794  1 a 4 75 ]
+[v efgtoa@g g `S5794  1 a 4 69 ]
+"591
+[v efgtoa@l l `d  1 a 4 62 ]
+[v efgtoa@h h `d  1 a 4 58 ]
+"592
+[v efgtoa@ou ou `S5794  1 a 4 52 ]
+"590
+[v efgtoa@n n `i  1 a 2 73 ]
+[v efgtoa@i i `i  1 a 2 66 ]
+[v efgtoa@w w `i  1 a 2 56 ]
+[v efgtoa@e e `i  1 a 2 50 ]
+[v efgtoa@m m `i  1 a 2 48 ]
+[v efgtoa@d d `i  1 a 2 46 ]
+[v efgtoa@t t `i  1 a 2 39 ]
+[v efgtoa@p p `i  1 a 2 37 ]
+[v efgtoa@ne ne `i  1 a 2 35 ]
+"589
+[v efgtoa@sign sign `uc  1 a 1 68 ]
+[v efgtoa@nmode nmode `uc  1 a 1 45 ]
+[v efgtoa@mode mode `uc  1 a 1 44 ]
+[v efgtoa@pp pp `uc  1 a 1 43 ]
+[s S5776 _IO_FILE 0 ]
+"587
+[v efgtoa@fp fp `*.39S5776  1 p 2 28 ]
+[v efgtoa@f f `d  1 p 4 30 ]
+[v efgtoa@c c `uc  1 p 1 34 ]
+"868
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strcpy.c
+[v _strcpy strcpy `(*.39uc  1 e 3 0 ]
+{
+"5
+[v strcpy@d d `*.39uc  1 a 2 7 ]
+"3
+[v strcpy@dest dest `*.39uc  1 p 2 3 ]
+[v strcpy@src src `*.32Cuc  1 p 2 5 ]
+"8
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 3 0 ]
+{
+"8
+[v memcpy@s s `*.39Cuc  1 a 2 12 ]
+"7
+[v memcpy@d d `*.39uc  1 a 2 10 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 9 ]
+"4
+[v memcpy@d1 d1 `*.39v  1 p 2 3 ]
+[v memcpy@s1 s1 `*.39Cv  1 p 2 5 ]
+[v memcpy@n n `ui  1 p 2 7 ]
+"18
+} 0
+"1 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\labs.c
+[v _labs labs `(l  1 e 4 0 ]
+{
+[v labs@a a `l  1 p 4 3 ]
+"4
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\floorf.c
+[v _floorf floorf `(f  1 e 4 0 ]
+{
+[u S5681 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"5
+[v floorf@u u `S5681  1 a 4 111 ]
+"7
+[v floorf@m m `ul  1 a 4 105 ]
+"6
+[v floorf@e e `i  1 a 2 109 ]
+"3
+[v floorf@x x `f  1 p 4 95 ]
+"4
+[v floorf@F521 F521 `S5681  1 s 4 F521 ]
+"27
+} 0
+"513 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\doprnt.c
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+{
+"516
+[v dtoa@i i `i  1 a 2 43 ]
+[v dtoa@w w `i  1 a 2 40 ]
+"518
+[v dtoa@p p `i  1 a 2 38 ]
+"515
+[v dtoa@s s `uc  1 a 1 42 ]
+[s S5776 _IO_FILE 0 ]
+"513
+[v dtoa@fp fp `*.39S5776  1 p 2 32 ]
+[v dtoa@d d `i  1 p 2 34 ]
+"583
+} 0
+"193
+[v _pad pad `(v  1 s 1 pad ]
+{
+"195
+[v pad@i i `i  1 a 2 30 ]
+[s S5776 _IO_FILE 0 ]
+"193
+[v pad@fp fp `*.39S5776  1 p 2 23 ]
+[v pad@buf buf `*.39uc  1 p 2 25 ]
+[v pad@p p `i  1 p 2 27 ]
+"226
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 21 ]
+"10
+[v fputs@c c `uc  1 a 1 20 ]
+"8
+[v fputs@s s `*.39Cuc  1 p 2 16 ]
+[u S5755 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S5758 _IO_FILE 11 `S5755 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S5758  1 p 2 18 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 7 ]
+[u S5755 . 2 `*.39uc 1 buffer 2 0 `*.39Cuc 1 source 2 0 ]
+[s S5758 _IO_FILE 11 `S5755 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S5758  1 p 2 9 ]
+"24
+} 0
+"26 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/RS485/RS485_DATA.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@data data `uc  1 p 1 wreg ]
+[v putch@data data `uc  1 p 1 wreg ]
+"28
+[v putch@data data `uc  1 p 1 6 ]
+"34
+} 0
+"400 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_Write UART1_Write `(v  1 e 1 0 ]
+{
+[v UART1_Write@txData txData `uc  1 p 1 wreg ]
+"402
+[v UART1_Write@tempTxHead tempTxHead `uc  1 a 1 3 ]
+"400
+[v UART1_Write@txData txData `uc  1 p 1 wreg ]
+"404
+[v UART1_Write@txData txData `uc  1 p 1 4 ]
+"422
+} 0
+"309
+[v _UART1_IsTxReady UART1_IsTxReady `(a  1 e 1 0 ]
+{
+"312
+} 0
+"18 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _RS485_TXEN RS485_TXEN `(v  1 e 1 0 ]
+{
+"21
+} 0
+"1 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 9 ]
+"4
+} 0
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 8 ]
+[v ___awmod@counter counter `uc  1 a 1 7 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 3 ]
+[v ___awmod@divisor divisor `i  1 p 2 5 ]
+"34
+} 0
+"76 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _ProtectionCheck ProtectionCheck `(uc  1 e 1 0 ]
+{
+"93
+} 0
+"162 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _Power_Compensation Power_Compensation `(us  1 e 2 0 ]
+{
+"164
+[v Power_Compensation@temp temp `l  1 a 4 49 ]
+"165
+[v Power_Compensation@SetPowerValue SetPowerValue `us  1 a 2 47 ]
+"177
+[v Power_Compensation@g_uTotalPower g_uTotalPower `us  1 a 2 45 ]
+"191
+[v Power_Compensation@g_uTargetPower g_uTargetPower `us  1 a 2 43 ]
+"193
+} 0
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 11 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 3 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 7 ]
+"129
+} 0
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 25 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 24 ]
+[v ___aldiv@counter counter `uc  1 a 1 23 ]
+"7
+[v ___aldiv@dividend dividend `l  1 p 4 15 ]
+[v ___aldiv@divisor divisor `l  1 p 4 19 ]
+"41
+} 0
+"340 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _PIDCH12 PIDCH12 `(v  1 e 1 0 ]
+{
+"360
+} 0
+"237
+[v _LightOnLogic LightOnLogic `(v  1 e 1 0 ]
+{
+"241
+[v LightOnLogic@state_elapsed state_elapsed `ul  1 a 4 153 ]
+"239
+[v LightOnLogic@state state `E19018  1 s 1 state ]
+"240
+[v LightOnLogic@last_state_change_time last_state_change_time `ul  1 s 4 last_state_change_time ]
+"338
+} 0
+"28 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _PFC_On PFC_On `(v  1 e 1 0 ]
+{
+"32
+} 0
+"58 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/LightsOff_APP/closeled.c
+[v _LightPowerOff LightPowerOff `(v  1 e 1 0 ]
+{
+[v LightPowerOff@ledsta ledsta `E17823  1 p 1 wreg ]
+[v LightPowerOff@ledsta ledsta `E17823  1 p 1 wreg ]
+[v LightPowerOff@ledsta ledsta `E17823  1 p 1 10 ]
+"73
+} 0
+"47
+[v _LED2_Close LED2_Close `(v  1 e 1 0 ]
+{
+"56
+} 0
+"34
+[v _LED1_Close LED1_Close `(v  1 e 1 0 ]
+{
+"45
+} 0
+"14
+[v _ALL_Closed ALL_Closed `(v  1 e 1 0 ]
+{
+"30
+} 0
+"99 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _RegulatorClear RegulatorClear `(v  1 e 1 0 ]
+{
+[v RegulatorClear@ch ch `uc  1 p 1 wreg ]
+[v RegulatorClear@ch ch `uc  1 p 1 wreg ]
+"101
+[v RegulatorClear@ch ch `uc  1 p 1 5 ]
+"109
+} 0
+"22
+[v _regulator_clear regulator_clear `(v  1 s 1 regulator_clear ]
+{
+[s S1129 . 20 `f 1 current_value 4 0 `f 1 start_value 4 4 `f 1 target_value 4 8 `ul 1 start_time 4 12 `ul 1 transition_time 4 16 ]
+[v regulator_clear@reg reg `*.39S1129  1 p 2 3 ]
+"31
+} 0
+"32 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/PWM/pwm_driver.c
+[v _PWM_Off_CHANNEL PWM_Off_CHANNEL `(v  1 e 1 0 ]
+{
+[v PWM_Off_CHANNEL@channel channel `E17823  1 p 1 wreg ]
+[v PWM_Off_CHANNEL@channel channel `E17823  1 p 1 wreg ]
+"34
+[v PWM_Off_CHANNEL@channel channel `E17823  1 p 1 5 ]
+"62
+} 0
+"230 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.c
+[v _Clear_pid Clear_pid `(v  1 e 1 0 ]
+{
+[v Clear_pid@ch ch `uc  1 p 1 wreg ]
+[v Clear_pid@ch ch `uc  1 p 1 wreg ]
+"232
+[v Clear_pid@ch ch `uc  1 p 1 3 ]
+"260
+} 0
+"95 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _ClearChannelValue ClearChannelValue `(v  1 e 1 0 ]
+{
+[v ClearChannelValue@channel channel `uc  1 p 1 wreg ]
+[v ClearChannelValue@channel channel `uc  1 p 1 wreg ]
+"97
+[v ClearChannelValue@channel channel `uc  1 p 1 5 ]
+"120
+} 0
+"37
+[v _PIDDimming_Clear PIDDimming_Clear `(v  1 e 1 0 ]
+{
+[s S183 . 14 `f 1 targetPower 4 0 `f 1 actualPower 4 4 `f 1 voltage 4 8 `us 1 pwmValue 2 12 ]
+[v PIDDimming_Clear@pid pid `*.39S183  1 p 2 3 ]
+"45
+} 0
+"193
+[v _LightOnChannel2 LightOnChannel2 `(v  1 e 1 0 ]
+{
+"197
+[v LightOnChannel2@now2 now2 `ul  1 a 4 86 ]
+"196
+[v LightOnChannel2@lastime2 lastime2 `ul  1 s 4 lastime2 ]
+"226
+} 0
+"94 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _update_pwm_output_ch2 update_pwm_output_ch2 `(f  1 e 4 0 ]
+{
+[v update_pwm_output_ch2@up_pwm up_pwm `f  1 p 4 34 ]
+"97
+} 0
+"158 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _LightOnChannel1 LightOnChannel1 `(v  1 e 1 0 ]
+{
+"162
+[v LightOnChannel1@now1 now1 `ul  1 a 4 86 ]
+"161
+[v LightOnChannel1@lastime1 lastime1 `ul  1 s 4 lastime1 ]
+"188
+} 0
+"89 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _update_pwm_output_ch1 update_pwm_output_ch1 `(f  1 e 4 0 ]
+{
+[v update_pwm_output_ch1@up_pwm up_pwm `f  1 p 4 34 ]
+"92
+} 0
+"34
+[v _regulator_update regulator_update `(f  1 s 4 regulator_update ]
+{
+"66
+[v regulator_update@elapsed elapsed `ul  1 a 4 30 ]
+"38
+[v regulator_update@current_time current_time `ul  1 a 4 26 ]
+"74
+[v regulator_update@progress progress `f  1 a 4 18 ]
+[s S1129 . 20 `f 1 current_value 4 0 `f 1 start_value 4 4 `f 1 target_value 4 8 `ul 1 start_time 4 12 `ul 1 transition_time 4 16 ]
+"34
+[v regulator_update@reg reg `*.39S1129  1 p 2 8 ]
+[v regulator_update@new_target new_target `f  1 p 4 10 ]
+[v regulator_update@time_ms time_ms `ul  1 p 4 14 ]
+"79
+} 0
+"59 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _get_elapsed_since get_elapsed_since `(ul  1 e 4 0 ]
+{
+"61
+[v get_elapsed_since@current current `ul  1 a 4 19 ]
+"59
+[v get_elapsed_since@since_time since_time `ul  1 p 4 7 ]
+"71
+} 0
+"53
+[v _get_systemtick_time get_systemtick_time `(ul  1 e 4 0 ]
+{
+"56
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+{
+[v ___fleq@ff1 ff1 `d  1 p 4 3 ]
+[v ___fleq@ff2 ff2 `d  1 p 4 7 ]
+"12
+} 0
+"72 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _RELAY_On RELAY_On `(v  1 e 1 0 ]
+{
+[v RELAY_On@channel channel `E17827  1 p 1 wreg ]
+[v RELAY_On@channel channel `E17827  1 p 1 wreg ]
+"75
+[v RELAY_On@channel channel `E17827  1 p 1 3 ]
+"83
+} 0
+"5 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/PWM/pwm_driver.c
+[v _PWM_Set_Direct PWM_Set_Direct `(v  1 e 1 0 ]
+{
+[v PWM_Set_Direct@channel channel `E17823  1 p 1 wreg ]
+[v PWM_Set_Direct@channel channel `E17823  1 p 1 wreg ]
+[v PWM_Set_Direct@duty_cycle duty_cycle `us  1 p 2 5 ]
+[v PWM_Set_Direct@channel channel `E17823  1 p 1 9 ]
+"29
+} 0
+"137 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm3_16bit.c
+[v _PWM3_16BIT_SetSlice1Output1DutyCycleRegister PWM3_16BIT_SetSlice1Output1DutyCycleRegister `(v  1 e 1 0 ]
+{
+[v PWM3_16BIT_SetSlice1Output1DutyCycleRegister@registerValue registerValue `us  1 p 2 3 ]
+"141
+} 0
+"149
+[v _PWM3_16BIT_LoadBufferRegisters PWM3_16BIT_LoadBufferRegisters `(v  1 e 1 0 ]
+{
+"153
+} 0
+"137 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm2_16bit.c
+[v _PWM2_16BIT_SetSlice1Output1DutyCycleRegister PWM2_16BIT_SetSlice1Output1DutyCycleRegister `(v  1 e 1 0 ]
+{
+[v PWM2_16BIT_SetSlice1Output1DutyCycleRegister@registerValue registerValue `us  1 p 2 3 ]
+"141
+} 0
+"149
+[v _PWM2_16BIT_LoadBufferRegisters PWM2_16BIT_LoadBufferRegisters `(v  1 e 1 0 ]
+{
+"153
+} 0
+"116 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.c
+[v _PID_Compute PID_Compute `(us  1 e 2 0 ]
+{
+"170
+[v PID_Compute@limit limit `f  1 a 4 62 ]
+"158
+[v PID_Compute@integral_step integral_step `f  1 a 4 82 ]
+"119
+[v PID_Compute@abs_error abs_error `f  1 a 4 78 ]
+"122
+[v PID_Compute@adaptive_Ki adaptive_Ki `f  1 a 4 74 ]
+"118
+[v PID_Compute@error error `f  1 a 4 70 ]
+"208
+[v PID_Compute@output output `f  1 a 4 66 ]
+"198
+[v PID_Compute@derivative derivative `f  1 a 4 58 ]
+"195
+[v PID_Compute@integral integral `f  1 a 4 42 ]
+"137
+[v PID_Compute@proportional proportional `f  1 a 4 38 ]
+[s S171 . 39 `uc 1 Channel_Flag 1 0 `f 1 Kp 4 1 `f 1 Ki 4 5 `f 1 Kd 4 9 `f 1 integral_max 4 13 `f 1 integral_min 4 17 `f 1 output_max 4 21 `f 1 output_min 4 25 `f 1 integral 4 29 `f 1 prev_error 4 33 `i 1 PWM_duty_cycle 2 37 ]
+"116
+[v PID_Compute@pid pid `*.39S171  1 p 2 28 ]
+[v PID_Compute@setpoint setpoint `f  1 p 4 30 ]
+[v PID_Compute@measured_value measured_value `f  1 p 4 34 ]
+"201
+[v PID_Compute@prev_derivative prev_derivative `f  1 s 4 prev_derivative ]
+"226
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fminf.c
+[v _fminf fminf `(f  1 e 4 0 ]
+{
+[v fminf@x x `f  1 p 4 8 ]
+[v fminf@y y `f  1 p 4 12 ]
+"13
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fmaxf.c
+[v _fmaxf fmaxf `(f  1 e 4 0 ]
+{
+[v fmaxf@x x `f  1 p 4 16 ]
+[v fmaxf@y y `f  1 p 4 20 ]
+"13
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__signbitf.c
+[v ___signbitf __signbitf `(i  1 e 2 0 ]
+{
+[u S5681 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"9
+[v ___signbitf@y y `S5681  1 a 4 11 ]
+"4
+[v ___signbitf@x x `f  1 p 4 3 ]
+"5
+[v ___signbitf@F521 F521 `S5681  1 s 4 F521 ]
+"11
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\__fpclassifyf.c
+[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
+{
+[u S5681 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"6
+[v ___fpclassifyf@u u `S5681  1 a 4 13 ]
+"7
+[v ___fpclassifyf@e e `i  1 a 2 11 ]
+"4
+[v ___fpclassifyf@x x `f  1 p 4 3 ]
+"5
+[v ___fpclassifyf@F465 F465 `S5681  1 s 4 F465 ]
+"11
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 0 ]
+[v ___flge@ff2 ff2 `d  1 p 4 4 ]
+"19
+} 0
+"4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fabsf.c
+[v _fabsf fabsf `(f  1 e 4 0 ]
+{
+[u S5681 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"6
+[v fabsf@u u `S5681  1 a 4 132 ]
+"4
+[v fabsf@x x `f  1 p 4 128 ]
+"5
+[v fabsf@F465 F465 `S5681  1 s 4 F465 ]
+"9
+} 0
+"43 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 149 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 148 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 24 ]
+"70
+} 0
+"245 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcadd.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@b b `d  1 p 4 120 ]
+[v ___flsub@a a `d  1 p 4 124 ]
+"250
+} 0
+"10
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 18 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 17 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 16 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 15 ]
+"10
+[v ___fladd@b b `d  1 p 4 3 ]
+[v ___fladd@a a `d  1 p 4 7 ]
+"237
+} 0
+"15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+{
+[v ___flneg@f1 f1 `d  1 p 4 3 ]
+"20
+} 0
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _L6562_On L6562_On `(v  1 e 1 0 ]
+{
+[v L6562_On@channel channel `E17823  1 p 1 wreg ]
+[v L6562_On@channel channel `E17823  1 p 1 wreg ]
+"49
+[v L6562_On@channel channel `E17823  1 p 1 3 ]
+"57
+} 0
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Dimming_APP/dimming.c
+[v _GetChannelCurrentValue GetChannelCurrentValue `(f  1 e 4 0 ]
+{
+[v GetChannelCurrentValue@channel channel `E17462  1 p 1 wreg ]
+"69
+[v GetChannelCurrentValue@voltage_ratio2 voltage_ratio2 `f  1 a 4 136 ]
+"68
+[v GetChannelCurrentValue@adc_voltage2 adc_voltage2 `f  1 a 4 132 ]
+"59
+[v GetChannelCurrentValue@voltage_ratio1 voltage_ratio1 `f  1 a 4 128 ]
+"58
+[v GetChannelCurrentValue@adc_voltage1 adc_voltage1 `f  1 a 4 124 ]
+"50
+[v GetChannelCurrentValue@g_uTargetCurrentValue g_uTargetCurrentValue `f  1 a 4 144 ]
+"49
+[v GetChannelCurrentValue@g_uADCValueChannel2 g_uADCValueChannel2 `s  1 a 2 142 ]
+[v GetChannelCurrentValue@g_uADCValueChannel1 g_uADCValueChannel1 `s  1 a 2 140 ]
+"47
+[v GetChannelCurrentValue@channel channel `E17462  1 p 1 wreg ]
+"53
+[v GetChannelCurrentValue@channel channel `E17462  1 p 1 148 ]
+"73
+} 0
+"10 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 66 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 65 ]
+"10
+[v ___xxtofl@sign sign `uc  1 p 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 56 ]
+"15
+[v ___xxtofl@sign sign `uc  1 p 1 64 ]
+"44
+} 0
+"8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S5546 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S5551 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S5554 . 4 `l 1 i 4 0 `d 1 f 4 0 `S5546 1 fAsBytes 4 0 `S5551 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S5554  1 a 4 114 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 109 ]
+[s S5622 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S5625 . 2 `s 1 i 2 0 `us 1 n 2 0 `S5622 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S5625  1 a 2 118 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 113 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 108 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 107 ]
+"8
+[v ___flmul@b b `d  1 p 4 95 ]
+[v ___flmul@a a `d  1 p 4 99 ]
+"205
+} 0
+"11 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 89 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 82 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 87 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 94 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 93 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 86 ]
+"11
+[v ___fldiv@b b `d  1 p 4 70 ]
+[v ___fldiv@a a `d  1 p 4 74 ]
+"185
+} 0
+"82 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/ADC/adc_driver.c
+[v _ADC_Result2 ADC_Result2 `(us  1 e 2 0 ]
+{
+[v ADC_Result2@channel channel `E17462  1 p 1 wreg ]
+"84
+[v ADC_Result2@result result `[12]us  1 a 24 19 ]
+"85
+[v ADC_Result2@j j `i  1 a 2 54 ]
+[v ADC_Result2@i i `i  1 a 2 52 ]
+[v ADC_Result2@k k `i  1 a 2 50 ]
+"92
+[v ADC_Result2@sum sum `i  1 a 2 48 ]
+"84
+[v ADC_Result2@average average `us  1 a 2 46 ]
+[v ADC_Result2@temp temp `us  1 a 2 44 ]
+"82
+[v ADC_Result2@channel channel `E17462  1 p 1 wreg ]
+"87
+[v ADC_Result2@channel channel `E17462  1 p 1 43 ]
+"115
+} 0
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 9 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 8 ]
+[v ___awdiv@counter counter `uc  1 a 1 7 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 3 ]
+[v ___awdiv@divisor divisor `i  1 p 2 5 ]
+"41
+} 0
+"196 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[v _ADC_ChannelSelectAndConvert ADC_ChannelSelectAndConvert `(s  1 e 2 0 ]
+{
+[v ADC_ChannelSelectAndConvert@channel channel `E17119  1 p 1 wreg ]
+[v ADC_ChannelSelectAndConvert@channel channel `E17119  1 p 1 wreg ]
+"198
+[v ADC_ChannelSelectAndConvert@channel channel `E17119  1 p 1 7 ]
+"208
+} 0
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"54
+} 0
+"129 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_Initialize UART1_Initialize `(v  1 e 1 0 ]
+{
+"185
+} 0
+"486
+[v _UART1_ParityErrorCallbackRegister UART1_ParityErrorCallbackRegister `(v  1 e 1 0 ]
+{
+[v UART1_ParityErrorCallbackRegister@callbackHandler callbackHandler `*.38(v  1 p 3 3 ]
+"492
+} 0
+"478
+[v _UART1_OverrunErrorCallbackRegister UART1_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
+{
+[v UART1_OverrunErrorCallbackRegister@callbackHandler callbackHandler `*.38(v  1 p 3 3 ]
+"484
+} 0
+"470
+[v _UART1_FramingErrorCallbackRegister UART1_FramingErrorCallbackRegister `(v  1 e 1 0 ]
+{
+[v UART1_FramingErrorCallbackRegister@callbackHandler callbackHandler `*.38(v  1 p 3 3 ]
+"476
+} 0
+"51 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr4.c
+[v _TMR4_Initialize TMR4_Initialize `(v  1 e 1 0 ]
+{
+"74
+} 0
+"51 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"74
+} 0
+"49 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+{
+"79
+} 0
+"45 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"62
+} 0
+"50 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm3_16bit.c
+[v _PWM3_16BIT_Initialize PWM3_16BIT_Initialize `(v  1 e 1 0 ]
+{
+"119
+} 0
+"194
+[v _PWM3_16BIT_Slice1Output2_SetInterruptHandler PWM3_16BIT_Slice1Output2_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM3_16BIT_Slice1Output2_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"197
+} 0
+"189
+[v _PWM3_16BIT_Slice1Output1_SetInterruptHandler PWM3_16BIT_Slice1Output1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM3_16BIT_Slice1Output1_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"192
+} 0
+"199
+[v _PWM3_16BIT_Period_SetInterruptHandler PWM3_16BIT_Period_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM3_16BIT_Period_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"202
+} 0
+"50 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm2_16bit.c
+[v _PWM2_16BIT_Initialize PWM2_16BIT_Initialize `(v  1 e 1 0 ]
+{
+"119
+} 0
+"194
+[v _PWM2_16BIT_Slice1Output2_SetInterruptHandler PWM2_16BIT_Slice1Output2_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM2_16BIT_Slice1Output2_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"197
+} 0
+"189
+[v _PWM2_16BIT_Slice1Output1_SetInterruptHandler PWM2_16BIT_Slice1Output1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM2_16BIT_Slice1Output1_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"192
+} 0
+"199
+[v _PWM2_16BIT_Period_SetInterruptHandler PWM2_16BIT_Period_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v PWM2_16BIT_Period_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"202
+} 0
+"38 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"146
+} 0
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[v _NVM_Initialize NVM_Initialize `(v  1 e 1 0 ]
+{
+"46
+} 0
+"65
+[v _NVM_StatusClear NVM_StatusClear `(v  1 e 1 0 ]
+{
+"68
+} 0
+"42 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"46
+[v INTERRUPT_Initialize@state state `a  1 a 1 6 ]
+"97
+} 0
+"198
+[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT2_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"200
+} 0
+"164
+[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT1_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"166
+} 0
+"130
+[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT0_SetInterruptHandler@InterruptHandler InterruptHandler `*.38(v  1 p 3 3 ]
+"132
+} 0
+"100 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+{
+"136
+} 0
+"452
+[v _I2C1_InterruptsEnable I2C1_InterruptsEnable `T(v  1 s 1 I2C1_InterruptsEnable ]
+{
+"463
+} 0
+"43 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/fvr/src/fvr.c
+[v _FVR_Initialize FVR_Initialize `(v  1 e 1 0 ]
+{
+"47
+} 0
+"39 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+{
+"58
+} 0
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"95
+} 0
+"107 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\main.c
+[v _APPInit APPInit `(v  1 s 1 APPInit ]
+{
+"120
+} 0
+"82 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/Arithmetic/arithmetic.c
+[v _init_all_pwm_regulators init_all_pwm_regulators `(v  1 e 1 0 ]
+{
+"86
+} 0
+"10
+[v _regulator_init regulator_init `(v  1 s 1 regulator_init ]
+{
+[s S1129 . 20 `f 1 current_value 4 0 `f 1 start_value 4 4 `f 1 target_value 4 8 `ul 1 start_time 4 12 `ul 1 transition_time 4 16 ]
+[v regulator_init@reg reg `*.39S1129  1 p 2 3 ]
+[v regulator_init@initial_value initial_value `f  1 p 4 5 ]
+[v regulator_init@default_transition default_transition `ul  1 p 4 9 ]
+"19
+} 0
+"149 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _VersionStore VersionStore `(v  1 e 1 0 ]
+{
+"155
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memcmp.c
+[v _memcmp memcmp `(i  1 e 2 0 ]
+{
+"5
+[v memcmp@r r `*.39Cuc  1 a 2 39 ]
+[v memcmp@l l `*.39Cuc  1 a 2 37 ]
+"3
+[v memcmp@vl vl `*.39Cv  1 p 2 29 ]
+[v memcmp@vr vr `*.39Cv  1 p 2 31 ]
+[v memcmp@n n `ui  1 p 2 33 ]
+"8
+} 0
+"27 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _Write_Versions Write_Versions `(v  1 e 1 0 ]
+{
+[v Write_Versions@address address `uc  1 p 1 wreg ]
+[v Write_Versions@address address `uc  1 p 1 wreg ]
+[v Write_Versions@version_str version_str `*.39uc  1 p 2 95 ]
+[v Write_Versions@len len `uc  1 p 1 97 ]
+"30
+[v Write_Versions@address address `uc  1 p 1 99 ]
+"32
+} 0
+"97 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _Write_NFC_Data Write_NFC_Data `(E17841  1 e 1 0 ]
+{
+"112
+[v Write_NFC_Data@i i `uc  1 a 1 94 ]
+"102
+[v Write_NFC_Data@combined_buffer combined_buffer `[72]c  1 a 72 18 ]
+"99
+[v Write_NFC_Data@timeout timeout `ul  1 a 4 90 ]
+"97
+[v Write_NFC_Data@nfc_dataAdd nfc_dataAdd `us  1 p 2 11 ]
+[v Write_NFC_Data@nfcdata nfcdata `*.39uc  1 p 2 13 ]
+[v Write_NFC_Data@dataLength dataLength `uc  1 p 1 15 ]
+"126
+} 0
+"42 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/version_read/version_task.c
+[v _Read_Versions Read_Versions `(*.39uc  1 e 3 0 ]
+{
+[v Read_Versions@address address `uc  1 p 1 wreg ]
+[v Read_Versions@address address `uc  1 p 1 wreg ]
+[v Read_Versions@len len `uc  1 p 1 24 ]
+"44
+[v Read_Versions@eeprom_data eeprom_data `[5]uc  1 s 5 eeprom_data ]
+"46
+[v Read_Versions@address address `uc  1 p 1 28 ]
+"49
+} 0
+"157 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _UsbcomAppInit UsbcomAppInit `(v  1 e 1 0 ]
+{
+"160
+} 0
+"493 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_RxCompleteCallbackRegister UART1_RxCompleteCallbackRegister `(v  1 e 1 0 ]
+{
+[v UART1_RxCompleteCallbackRegister@callbackHandler callbackHandler `*.38(v  1 p 3 3 ]
+"499
+} 0
+"144 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _Time0_AppInit Time0_AppInit `(v  1 e 1 0 ]
+{
+"147
+} 0
+"135 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_PeriodMatchCallbackRegister TMR0_PeriodMatchCallbackRegister `(v  1 e 1 0 ]
+{
+[v TMR0_PeriodMatchCallbackRegister@callbackHandler callbackHandler `*.38(v  1 p 3 3 ]
+"138
+} 0
+"20 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _TaskScheduleCbReg TaskScheduleCbReg `(v  1 e 1 0 ]
+{
+[v TaskScheduleCbReg@pFunc pFunc `*.38(v  1 p 3 3 ]
+"23
+} 0
+"47 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Middlewares/PID/pid_controller.c
+[v _PID_Init_Parameters PID_Init_Parameters `(v  1 e 1 0 ]
+{
+"59
+} 0
+"28
+[v _PID_Init PID_Init `(v  1 e 1 0 ]
+{
+[s S171 . 39 `uc 1 Channel_Flag 1 0 `f 1 Kp 4 1 `f 1 Ki 4 5 `f 1 Kd 4 9 `f 1 integral_max 4 13 `f 1 integral_min 4 17 `f 1 output_max 4 21 `f 1 output_min 4 25 `f 1 integral 4 29 `f 1 prev_error 4 33 `i 1 PWM_duty_cycle 2 37 ]
+[v PID_Init@pid pid `*.39S171  1 p 2 3 ]
+[v PID_Init@flag flag `uc  1 p 1 5 ]
+[v PID_Init@Kp Kp `f  1 p 4 6 ]
+[v PID_Init@Ki Ki `f  1 p 4 10 ]
+[v PID_Init@Kd Kd `f  1 p 4 14 ]
+"29
+[v PID_Init@output_max output_max `f  1 p 4 18 ]
+[v PID_Init@output_min output_min `f  1 p 4 22 ]
+[v PID_Init@PWM_duty_cycle PWM_duty_cycle `us  1 p 2 26 ]
+"44
+} 0
+"145 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _NFCRead_APPInit NFCRead_APPInit `(v  1 e 1 0 ]
+{
+"154
+} 0
+"63 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _Read_NFC_Data Read_NFC_Data `(E17837  1 e 1 0 ]
+{
+"65
+[v Read_NFC_Data@timeout timeout `ul  1 a 4 20 ]
+"66
+[v Read_NFC_Data@address_buffer address_buffer `[2]uc  1 a 2 18 ]
+"63
+[v Read_NFC_Data@nfc_dataAdd nfc_dataAdd `us  1 p 2 11 ]
+[v Read_NFC_Data@nfcdata nfcdata `*.39uc  1 p 2 13 ]
+[v Read_NFC_Data@dataLength dataLength `uc  1 p 1 15 ]
+"94
+} 0
+"23 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _ReadTargetPower ReadTargetPower `(v  1 e 1 0 ]
+{
+"25
+[v ReadTargetPower@TargetPowerCH2 TargetPowerCH2 `us  1 a 2 28 ]
+[v ReadTargetPower@TargetPowerCH1 TargetPowerCH1 `us  1 a 2 26 ]
+"23
+[v ReadTargetPower@NfcPowerBuff NfcPowerBuff `*.39uc  1 p 2 24 ]
+"42
+} 0
+"19 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _extractAndCombineEEPROMData extractAndCombineEEPROMData `(us  1 e 2 0 ]
+{
+[v extractAndCombineEEPROMData@read_eeprom_H read_eeprom_H `uc  1 p 1 wreg ]
+"27
+[v extractAndCombineEEPROMData@num num `us  1 a 2 17 ]
+"24
+[v extractAndCombineEEPROMData@fourth_num fourth_num `uc  1 a 1 22 ]
+"23
+[v extractAndCombineEEPROMData@third_num third_num `uc  1 a 1 21 ]
+"22
+[v extractAndCombineEEPROMData@second_num second_num `uc  1 a 1 20 ]
+"21
+[v extractAndCombineEEPROMData@first_num first_num `uc  1 a 1 19 ]
+"19
+[v extractAndCombineEEPROMData@read_eeprom_H read_eeprom_H `uc  1 p 1 wreg ]
+[v extractAndCombineEEPROMData@read_eeprom_L read_eeprom_L `uc  1 p 1 3 ]
+"21
+[v extractAndCombineEEPROMData@read_eeprom_H read_eeprom_H `uc  1 p 1 23 ]
+"29
+} 0
+"138 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _ReadCalibration ReadCalibration `(v  1 e 1 0 ]
+{
+"143
+} 0
+"21 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/EEPROM/EEPROM_driver.c
+[v _EepromReadByte EepromReadByte `(uc  1 e 1 0 ]
+{
+"24
+[v EepromReadByte@address address `um  1 a 3 12 ]
+"23
+[v EepromReadByte@data data `uc  1 a 1 15 ]
+"21
+[v EepromReadByte@offset offset `um  1 p 3 9 ]
+"34
+} 0
+"293 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/nvm/src/nvm.c
+[v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
+{
+[v EEPROM_Read@address address `um  1 p 3 3 ]
+"307
+} 0
+"44 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/NFC/nfc.c
+[v _READ_NFC_SET_START READ_NFC_SET_START `(v  1 e 1 0 ]
+{
+"61
+} 0
+"151 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[v _I2C1_Write I2C1_Write `(a  1 e 1 0 ]
+{
+"153
+[v I2C1_Write@retStatus retStatus `a  1 a 1 10 ]
+"151
+[v I2C1_Write@address address `us  1 p 2 4 ]
+[v I2C1_Write@data data `*.39uc  1 p 2 6 ]
+[v I2C1_Write@dataLength dataLength `ui  1 p 2 8 ]
+"168
+} 0
+"322
+[v _I2C1_WriteStart I2C1_WriteStart `(v  1 s 1 I2C1_WriteStart ]
+{
+"335
+} 0
+"407
+[v _I2C1_RestartEnable I2C1_RestartEnable `T(v  1 s 1 I2C1_RestartEnable ]
+{
+"410
+} 0
+"170
+[v _I2C1_Read I2C1_Read `(a  1 e 1 0 ]
+{
+"172
+[v I2C1_Read@retStatus retStatus `a  1 a 1 10 ]
+"170
+[v I2C1_Read@address address `us  1 p 2 4 ]
+[v I2C1_Read@data data `*.39uc  1 p 2 6 ]
+[v I2C1_Read@dataLength dataLength `ui  1 p 2 8 ]
+"187
+} 0
+"311
+[v _I2C1_ReadStart I2C1_ReadStart `(v  1 s 1 I2C1_ReadStart ]
+{
+"320
+} 0
+"351
+[v _I2C1_StartSend I2C1_StartSend `(v  1 s 1 I2C1_StartSend ]
+{
+"354
+} 0
+"371
+[v _I2C1_CounterSet I2C1_CounterSet `(v  1 s 1 I2C1_CounterSet ]
+{
+[v I2C1_CounterSet@counter counter `uc  1 p 1 wreg ]
+[v I2C1_CounterSet@counter counter `uc  1 p 1 wreg ]
+"373
+[v I2C1_CounterSet@counter counter `uc  1 p 1 3 ]
+"374
+} 0
+"356
+[v _I2C1_AddrTransmit I2C1_AddrTransmit `(v  1 s 1 I2C1_AddrTransmit ]
+{
+[v I2C1_AddrTransmit@addr addr `uc  1 p 1 wreg ]
+[v I2C1_AddrTransmit@addr addr `uc  1 p 1 wreg ]
+"358
+[v I2C1_AddrTransmit@addr addr `uc  1 p 1 3 ]
+"359
+} 0
+"215
+[v _I2C1_IsBusy I2C1_IsBusy `(a  1 e 1 0 ]
+{
+"218
+} 0
+"44 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/CurrentRead_APP/readcurrent.c
+[v _ActualPowerTime ActualPowerTime `(v  1 e 1 0 ]
+{
+"46
+[v ActualPowerTime@time_L time_L `uc  1 a 1 10 ]
+[v ActualPowerTime@time_H time_H `uc  1 a 1 9 ]
+"44
+[v ActualPowerTime@NfcTimeBuff NfcTimeBuff `*.39uc  1 p 2 3 ]
+"52
+} 0
+"85 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\DriverLayer/GPIO/GPIO_driver.c
+[v _GPIO_APPInit GPIO_APPInit `(v  1 e 1 0 ]
+{
+"93
+} 0
+"13
+[v _RS485_RXEN RS485_RXEN `(v  1 e 1 0 ]
+{
+"16
+} 0
+"59
+[v _RELAY_Off RELAY_Off `(v  1 e 1 0 ]
+{
+[v RELAY_Off@channel channel `E17827  1 p 1 wreg ]
+[v RELAY_Off@channel channel `E17827  1 p 1 wreg ]
+"62
+[v RELAY_Off@channel channel `E17827  1 p 1 3 ]
+"70
+} 0
+"23
+[v _PFC_Off PFC_Off `(v  1 e 1 0 ]
+{
+"26
+} 0
+"34
+[v _L6562_Off L6562_Off `(v  1 e 1 0 ]
+{
+[v L6562_Off@channel channel `E17823  1 p 1 wreg ]
+[v L6562_Off@channel channel `E17823  1 p 1 wreg ]
+"36
+[v L6562_Off@channel channel `E17823  1 p 1 3 ]
+"45
+} 0
+"228 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/i2c_host/src/i2c1.c
+[v _I2C1_ISR I2C1_ISR `IIL(v  1 e 1 0 ]
+{
+"259
+} 0
+"311
+[v i1_I2C1_ReadStart I2C1_ReadStart `(v  1 s 1 i1_I2C1_ReadStart ]
+{
+"320
+} 0
+"351
+[v i1_I2C1_StartSend I2C1_StartSend `(v  1 s 1 i1_I2C1_StartSend ]
+{
+"354
+} 0
+"356
+[v i1_I2C1_AddrTransmit I2C1_AddrTransmit `(v  1 s 1 i1_I2C1_AddrTransmit ]
+{
+[v i1I2C1_AddrTransmit@addr addr `uc  1 p 1 wreg ]
+[v i1I2C1_AddrTransmit@addr addr `uc  1 p 1 wreg ]
+"358
+[v i1I2C1_AddrTransmit@addr addr `uc  1 p 1 40 ]
+"359
+} 0
+"417
+[v _I2C1_StopSend I2C1_StopSend `(v  1 s 1 I2C1_StopSend ]
+{
+"425
+} 0
+"371
+[v i1_I2C1_CounterSet I2C1_CounterSet `(v  1 s 1 i1_I2C1_CounterSet ]
+{
+[v i1I2C1_CounterSet@counter counter `uc  1 p 1 wreg ]
+[v i1I2C1_CounterSet@counter counter `uc  1 p 1 wreg ]
+"373
+[v i1I2C1_CounterSet@counter counter `uc  1 p 1 42 ]
+"374
+} 0
+"412
+[v _I2C1_RestartDisable I2C1_RestartDisable `T(v  1 s 1 I2C1_RestartDisable ]
+{
+"415
+} 0
+"361
+[v _I2C1_DataTransmit I2C1_DataTransmit `(v  1 s 1 I2C1_DataTransmit ]
+{
+[v I2C1_DataTransmit@data data `uc  1 p 1 wreg ]
+[v I2C1_DataTransmit@data data `uc  1 p 1 wreg ]
+"363
+[v I2C1_DataTransmit@data data `uc  1 p 1 45 ]
+"364
+} 0
+"376
+[v _I2C1_CounterGet I2C1_CounterGet `(uc  1 s 1 I2C1_CounterGet ]
+{
+"379
+} 0
+"337
+[v _I2C1_Close I2C1_Close `(v  1 s 1 I2C1_Close ]
+{
+"346
+} 0
+"475
+[v _I2C1_InterruptsClear I2C1_InterruptsClear `T(v  1 s 1 I2C1_InterruptsClear ]
+{
+"478
+} 0
+"480
+[v _I2C1_ErrorFlagsClear I2C1_ErrorFlagsClear `T(v  1 s 1 I2C1_ErrorFlagsClear ]
+{
+"485
+} 0
+"487
+[v _I2C1_BufferClear I2C1_BufferClear `T(v  1 s 1 I2C1_BufferClear ]
+{
+"491
+} 0
+"261
+[v _I2C1_ERROR_ISR I2C1_ERROR_ISR `IIL(v  1 e 1 0 ]
+{
+"295
+} 0
+"427
+[v _I2C1_IsNack I2C1_IsNack `(a  1 s 1 I2C1_IsNack ]
+{
+"430
+} 0
+"442
+[v _I2C1_IsData I2C1_IsData `(a  1 s 1 I2C1_IsData ]
+{
+"445
+} 0
+"437
+[v _I2C1_IsBusTimeOut I2C1_IsBusTimeOut `(a  1 s 1 I2C1_IsBusTimeOut ]
+{
+"440
+} 0
+"432
+[v _I2C1_IsBusCol I2C1_IsBusCol `(a  1 s 1 I2C1_IsBusCol ]
+{
+"435
+} 0
+"447
+[v _I2C1_IsAddr I2C1_IsAddr `(a  1 s 1 I2C1_IsAddr ]
+{
+"450
+} 0
+"381
+[v _I2C1_BusReset I2C1_BusReset `T(v  1 s 1 I2C1_BusReset ]
+{
+"405
+} 0
+"452
+[v i1_I2C1_InterruptsEnable I2C1_InterruptsEnable `T(v  1 s 1 i1_I2C1_InterruptsEnable ]
+{
+"463
+} 0
+"465
+[v _I2C1_InterruptsDisable I2C1_InterruptsDisable `T(v  1 s 1 I2C1_InterruptsDisable ]
+{
+"473
+} 0
+"297
+[v _I2C1_RX_ISR I2C1_RX_ISR `IIL(v  1 e 1 0 ]
+{
+"301
+} 0
+"366
+[v _I2C1_DataReceive I2C1_DataReceive `(uc  1 s 1 I2C1_DataReceive ]
+{
+"369
+} 0
+"303
+[v _I2C1_TX_ISR I2C1_TX_ISR `IIL(v  1 e 1 0 ]
+{
+"306
+} 0
+"146 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr4.c
+[v _TMR4_ISR TMR4_ISR `IIL(v  1 e 1 0 ]
+{
+"154
+} 0
+"161
+[v _TMR4_DefaultPeriodMatchCallback TMR4_DefaultPeriodMatchCallback `(v  1 s 1 TMR4_DefaultPeriodMatchCallback ]
+{
+"164
+} 0
+"408 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/adc/src/adc.c
+[v _ADC_ISR ADC_ISR `IIH(v  1 e 1 0 ]
+{
+"420
+} 0
+"422
+[v _ADC_ThresholdISR ADC_ThresholdISR `IIH(v  1 e 1 0 ]
+{
+"434
+} 0
+"155 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm2_16bit.c
+[v _PWM2_16BIT_PWMI_ISR PWM2_16BIT_PWMI_ISR `IIH(v  1 e 1 0 ]
+{
+"178
+} 0
+"210
+[v _PWM2_16BIT_Slice1Output2_DefaultInterruptHandler PWM2_16BIT_Slice1Output2_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Slice1Output2_DefaultInterruptHandler ]
+{
+"214
+} 0
+"204
+[v _PWM2_16BIT_Slice1Output1_DefaultInterruptHandler PWM2_16BIT_Slice1Output1_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Slice1Output1_DefaultInterruptHandler ]
+{
+"208
+} 0
+"180
+[v _PWM2_16BIT_PWMPI_ISR PWM2_16BIT_PWMPI_ISR `IIH(v  1 e 1 0 ]
+{
+"187
+} 0
+"216
+[v _PWM2_16BIT_Period_DefaultInterruptHandler PWM2_16BIT_Period_DefaultInterruptHandler `(v  1 s 1 PWM2_16BIT_Period_DefaultInterruptHandler ]
+{
+"220
+} 0
+"155 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/pwm/src/pwm3_16bit.c
+[v _PWM3_16BIT_PWMI_ISR PWM3_16BIT_PWMI_ISR `IIH(v  1 e 1 0 ]
+{
+"178
+} 0
+"210
+[v _PWM3_16BIT_Slice1Output2_DefaultInterruptHandler PWM3_16BIT_Slice1Output2_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Slice1Output2_DefaultInterruptHandler ]
+{
+"214
+} 0
+"204
+[v _PWM3_16BIT_Slice1Output1_DefaultInterruptHandler PWM3_16BIT_Slice1Output1_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Slice1Output1_DefaultInterruptHandler ]
+{
+"208
+} 0
+"180
+[v _PWM3_16BIT_PWMPI_ISR PWM3_16BIT_PWMPI_ISR `IIH(v  1 e 1 0 ]
+{
+"187
+} 0
+"216
+[v _PWM3_16BIT_Period_DefaultInterruptHandler PWM3_16BIT_Period_DefaultInterruptHandler `(v  1 s 1 PWM3_16BIT_Period_DefaultInterruptHandler ]
+{
+"220
+} 0
+"99 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/system/src/interrupt.c
+[v _Default_ISR Default_ISR `IIH(v  1 e 1 0 ]
+{
+"101
+} 0
+"112
+[v _INT0_ISR INT0_ISR `IIH(v  1 e 1 0 ]
+{
+"118
+} 0
+"121
+[v _INT0_CallBack INT0_CallBack `(v  1 e 1 0 ]
+{
+"128
+} 0
+"134
+[v _INT0_DefaultInterruptHandler INT0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"137
+} 0
+"146
+[v _INT1_ISR INT1_ISR `IIH(v  1 e 1 0 ]
+{
+"152
+} 0
+"155
+[v _INT1_CallBack INT1_CallBack `(v  1 e 1 0 ]
+{
+"162
+} 0
+"168
+[v _INT1_DefaultInterruptHandler INT1_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"171
+} 0
+"180
+[v _INT2_ISR INT2_ISR `IIH(v  1 e 1 0 ]
+{
+"186
+} 0
+"189
+[v _INT2_CallBack INT2_CallBack `(v  1 e 1 0 ]
+{
+"196
+} 0
+"202
+[v _INT2_DefaultInterruptHandler INT2_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"205
+} 0
+"126 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr0.c
+[v _TMR0_ISR TMR0_ISR `IIH(v  1 e 1 0 ]
+{
+"133
+} 0
+"140
+[v _TMR0_DefaultCallback TMR0_DefaultCallback `(v  1 s 1 TMR0_DefaultCallback ]
+{
+"143
+} 0
+"34 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v _TaskHandler_Time TaskHandler_Time `(v  1 s 1 TaskHandler_Time ]
+{
+"36
+[v TaskHandler_Time@ledtime ledtime `us  1 s 2 ledtime ]
+"51
+} 0
+"91 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\main.c
+[v _TaskScheduleCb TaskScheduleCb `(v  1 s 1 TaskScheduleCb ]
+{
+"93
+[v TaskScheduleCb@i i `uc  1 a 1 16 ]
+"105
+} 0
+"146 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_ISR TMR2_ISR `IIH(v  1 e 1 0 ]
+{
+"154
+} 0
+"161
+[v _TMR2_DefaultPeriodMatchCallback TMR2_DefaultPeriodMatchCallback `(v  1 s 1 TMR2_DefaultPeriodMatchCallback ]
+{
+"164
+} 0
+"192 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/timer/src/tmr1.c
+[v _TMR1_OverflowISR TMR1_OverflowISR `IIH(v  1 e 1 0 ]
+{
+"203
+} 0
+"227
+[v _TMR1_DefaultOverflowCallback TMR1_DefaultOverflowCallback `(v  1 s 1 TMR1_DefaultOverflowCallback ]
+{
+"230
+} 0
+"123
+[v _TMR1_CounterSet TMR1_CounterSet `(v  1 e 1 0 ]
+{
+"127
+[v TMR1_CounterSet@onState onState `a  1 a 1 23 ]
+"123
+[v TMR1_CounterSet@timerVal timerVal `us  1 p 2 21 ]
+"139
+} 0
+"343 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_Receive_Vector_ISR UART1_Receive_Vector_ISR `IIH(v  1 e 1 0 ]
+{
+"346
+} 0
+"348
+[v _UART1_ReceiveISR UART1_ReceiveISR `(v  1 e 1 0 ]
+{
+"351
+[v UART1_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 36 ]
+"350
+[v UART1_ReceiveISR@regValue regValue `uc  1 a 1 35 ]
+"398
+} 0
+"32 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/USBCom_APP/usbcom.c
+[v _UartReceivedISR UartReceivedISR `(v  1 e 1 0 ]
+{
+"45
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
+[v i2_memset memset `(*.39v  1 e 3 0 ]
+{
+"5
+[v i2memset@p p `*.39uc  1 a 2 32 ]
+"3
+[v i2memset@dest dest `*.39v  1 p 2 26 ]
+[v i2memset@c c `i  1 p 2 28 ]
+[v i2memset@n n `ui  1 p 2 30 ]
+"10
+} 0
+"53 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\Applications/Ticktime_APP/ticktime.c
+[v i2_get_systemtick_time get_systemtick_time `(ul  1 e 4 0 ]
+{
+"56
+} 0
+"326 D:\1Work\GS-SOURCE\Vertex1170\GS-S2CH-02-V0.08\mcc_generated_files/uart/src/uart1.c
+[v _UART1_Read UART1_Read `(uc  1 e 1 0 ]
+{
+"328
+[v UART1_Read@readValue readValue `uc  1 a 1 27 ]
+"329
+[v UART1_Read@tempRxTail tempRxTail `uc  1 a 1 26 ]
+"341
+} 0
+"465
+[v _UART1_DefaultParityErrorCallback UART1_DefaultParityErrorCallback `(v  1 s 1 UART1_DefaultParityErrorCallback ]
+{
+"468
+} 0
+"460
+[v _UART1_DefaultOverrunErrorCallback UART1_DefaultOverrunErrorCallback `(v  1 s 1 UART1_DefaultOverrunErrorCallback ]
+{
+"463
+} 0
+"455
+[v _UART1_DefaultFramingErrorCallback UART1_DefaultFramingErrorCallback `(v  1 s 1 UART1_DefaultFramingErrorCallback ]
+{
+"458
+} 0
+"424
+[v _UART1_Transmit_Vector_ISR UART1_Transmit_Vector_ISR `IIH(v  1 e 1 0 ]
+{
+"427
+} 0
+"429
+[v _UART1_TransmitISR UART1_TransmitISR `(v  1 e 1 0 ]
+{
+"431
+[v UART1_TransmitISR@tempTxTail tempTxTail `uc  1 a 1 39 ]
+"449
+} 0

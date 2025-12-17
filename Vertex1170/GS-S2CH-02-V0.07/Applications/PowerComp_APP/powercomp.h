@@ -1,0 +1,5 @@
+#ifndef _POWER_COMPENSATION_H
+#define _POWER_COMPENSATION_H
+
+#endif 
+

@@ -18,6 +18,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _OutProtectedTask `(v ~T0 @X0 0 ef ]
 "16 Applications/Ticktime_APP/ticktime.h
 [v _LED_Task `(v ~T0 @X0 0 ef ]
+"11 Applications/USBCom_APP/usbcom.h
+[v _Display `(v ~T0 @X0 0 ef ]
 "33 DriverLayer/GPIO/GPIO_driver.h
 [v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
 "9 Applications/Ticktime_APP/ticktime.h
@@ -1773,7 +1775,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pid1 `S2420 ~T0 @X0 1 e ]
 [v _pid2 `S2420 ~T0 @X0 1 e ]
 "65 main.c
-[v _g_taskComps `S2421 ~T0 @X0 -> 6 `i s ]
+[v _g_taskComps `S2421 ~T0 @X0 -> 7 `i s ]
 [i _g_taskComps
 :U ..
 :U ..
@@ -1811,6 +1813,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 10 `i `us
 -> -> 10 `i `us
 &U _LED_Task
+..
+:U ..
+-> -> 0 `i `uc
+-> -> 5000 `i `us
+-> -> 5000 `i `us
+&U _Display
 ..
 ..
 ]

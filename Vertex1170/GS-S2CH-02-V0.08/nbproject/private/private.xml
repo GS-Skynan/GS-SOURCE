@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Bootloader/Bootloader.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/LightsOff_APP/closeled.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Bootloader/Bootloader.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/USBCom_APP/usbcom.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/USBCom_APP/usbcom.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Middlewares/PID/pid_controller.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/main.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Ticktime_APP/ticktime.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/DriverLayer/PWM/pwm_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/CurrentRead_APP/readcurrent.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Ticktime_APP/ticktime.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/CurrentRead_APP/readcurrent.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/OutProtected_APP/out_protected.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/OutProtected_APP/out_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Dimming_APP/dimming.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/InProtected_APP/inprotectedapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/Dimming_APP/dimming.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/version_read/version_task.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.08/Applications/InProtected_APP/inprotectedapp.h</file>
+        </group>
+    </open-files>
+</project-private>
