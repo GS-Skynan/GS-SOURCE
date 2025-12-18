@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "55 Applications/InProtected_APP/inprotectedapp.c
-[c E17952 0 1 2 .. ]
-[n E17952 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
+[c E17941 0 1 2 .. ]
+[n E17941 . LED_STATE_OFF LED_STATE_ON LED_STATE_POWER_DOWN  ]
 "13 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
 "63 Applications/InProtected_APP/inprotectedapp.c
@@ -1763,65 +1763,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _VoltageInputProtection ]
 [f ]
 "55
-[v F17965 `E17952 ~T0 @X0 1 s state ]
-[i F17965
-. `E17952 0
+[v F17954 `E17941 ~T0 @X0 1 s state ]
+[i F17954
+. `E17941 0
 ]
 "56
-[v F17966 `uc ~T0 @X0 1 s startup_phase ]
-[i F17966
+[v F17955 `uc ~T0 @X0 1 s startup_phase ]
+[i F17955
 -> -> 0 `i `uc
 ]
 "57
-[v F17967 `ul ~T0 @X0 1 s state_entry_time ]
-[i F17967
+[v F17956 `ul ~T0 @X0 1 s state_entry_time ]
+[i F17956
 -> -> -> 0 `i `l `ul
 ]
 "58
-[v F17968 `ul ~T0 @X0 1 s power_on_time ]
-[i F17968
+[v F17957 `ul ~T0 @X0 1 s power_on_time ]
+[i F17957
 -> -> -> 0 `i `l `ul
 ]
 "59
-[v F17969 `a ~T0 @X0 1 s off_delay_done ]
-[i F17969
+[v F17958 `a ~T0 @X0 1 s off_delay_done ]
+[i F17958
 -> -> 0 `i `a
 ]
 "61
 [v _elapsed_in_state `ul ~T0 @X0 1 a ]
-[e = _elapsed_in_state ( _get_elapsed_since (1 F17967 ]
+[e = _elapsed_in_state ( _get_elapsed_since (1 F17956 ]
 "62
 [v _elapsed_since_power_on `ul ~T0 @X0 1 a ]
-[e = _elapsed_since_power_on ( _get_elapsed_since (1 F17968 ]
+[e = _elapsed_since_power_on ( _get_elapsed_since (1 F17957 ]
 "63
 [v _g_uVintValue `us ~T0 @X0 1 a ]
 [e = _g_uVintValue ( _ADC_Result2 (1 . `E17462 10 ]
 "66
-[v F17973 `a ~T0 @X0 1 s first_run ]
-[i F17973
+[v F17962 `a ~T0 @X0 1 s first_run ]
+[i F17962
 -> -> 1 `i `a
 ]
 "67
-[e $ ! != -> F17973 `i -> 0 `i 2421  ]
+[e $ ! != -> F17962 `i -> 0 `i 2421  ]
 "68
 {
 "69
-[e = F17968 ( _get_systemtick_time ..  ]
+[e = F17957 ( _get_systemtick_time ..  ]
 "70
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "71
-[e = F17969 -> -> 1 `i `a ]
+[e = F17958 -> -> 1 `i `a ]
 "72
-[e = F17973 -> -> 0 `i `a ]
+[e = F17962 -> -> 0 `i `a ]
 "73
 }
 [e :U 2421 ]
 "76
-[e $ ! && == -> F17966 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2422  ]
+[e $ ! && == -> F17955 `i -> 0 `i >= _elapsed_since_power_on -> -> -> 5000 `i `l `ul 2422  ]
 "77
 {
 "78
-[e = F17966 -> -> 1 `i `uc ]
+[e = F17955 -> -> 1 `i `uc ]
 "79
 }
 [e :U 2422 ]
@@ -1831,7 +1831,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [e :U 2425 ]
 "84
-[e $ ! ! != -> F17969 `i -> 0 `i 2426  ]
+[e $ ! ! != -> F17958 `i -> 0 `i 2426  ]
 "85
 {
 "87
@@ -1841,7 +1841,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "89
 [e = _g_uInputVoltageNormalFlag -> -> 0 `i `uc ]
 "90
-[e = F17969 -> -> 1 `i `a ]
+[e = F17958 -> -> 1 `i `a ]
 "91
 }
 [e :U 2427 ]
@@ -1853,28 +1853,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "94
 {
 "95
-[e $ ! && == -> F17966 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2429  ]
+[e $ ! && == -> F17955 `i -> 0 `i > -> _g_uVintValue `ui -> -> 1650 `i `ui 2429  ]
 "96
 {
 "97
-[e = F17965 . `E17952 1 ]
+[e = F17954 . `E17941 1 ]
 "98
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "99
-[e = F17969 -> -> 0 `i `a ]
+[e = F17958 -> -> 0 `i `a ]
 "100
 }
 [e :U 2429 ]
 "102
-[e $ ! && == -> F17966 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2430  ]
+[e $ ! && == -> F17955 `i -> 1 `i > -> _g_uVintValue `ui -> -> 2100 `i `ui 2430  ]
 "103
 {
 "104
-[e = F17965 . `E17952 1 ]
+[e = F17954 . `E17941 1 ]
 "105
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "106
-[e = F17969 -> -> 0 `i `a ]
+[e = F17958 -> -> 0 `i `a ]
 "107
 }
 [e :U 2430 ]
@@ -1890,7 +1890,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "114
 [e = _g_uInputVoltageNormalFlag -> -> 1 `i `uc ]
 "116
-[e $ ! == -> F17966 `i -> 1 `i 2432  ]
+[e $ ! == -> F17955 `i -> 1 `i 2432  ]
 "117
 {
 "119
@@ -1898,11 +1898,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "120
 {
 "121
-[e = F17965 . `E17952 0 ]
+[e = F17954 . `E17941 0 ]
 "122
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "123
-[e = F17969 -> -> 0 `i `a ]
+[e = F17958 -> -> 0 `i `a ]
 "124
 }
 [e $U 2434  ]
@@ -1912,9 +1912,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126
 {
 "127
-[e = F17965 . `E17952 2 ]
+[e = F17954 . `E17941 2 ]
 "128
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "129
 }
 [e :U 2435 ]
@@ -1924,7 +1924,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2436  ]
 "132
 [e :U 2432 ]
-[e $ ! == -> F17966 `i -> 0 `i 2437  ]
+[e $ ! == -> F17955 `i -> 0 `i 2437  ]
 "133
 {
 "135
@@ -1932,13 +1932,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "136
 {
 "137
-[e = F17966 -> -> 1 `i `uc ]
+[e = F17955 -> -> 1 `i `uc ]
 "138
-[e = F17965 . `E17952 0 ]
+[e = F17954 . `E17941 0 ]
 "139
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "140
-[e = F17969 -> -> 0 `i `a ]
+[e = F17958 -> -> 0 `i `a ]
 "141
 }
 [e $U 2439  ]
@@ -1948,9 +1948,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "143
 {
 "144
-[e = F17965 . `E17952 2 ]
+[e = F17954 . `E17941 2 ]
 "145
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "146
 }
 [e :U 2440 ]
@@ -1970,9 +1970,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "153
 {
 "154
-[e = F17965 . `E17952 1 ]
+[e = F17954 . `E17941 1 ]
 "155
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "156
 }
 [e $U 2443  ]
@@ -1982,11 +1982,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 {
 "159
-[e = F17965 . `E17952 0 ]
+[e = F17954 . `E17941 0 ]
 "160
-[e = F17967 ( _get_systemtick_time ..  ]
+[e = F17956 ( _get_systemtick_time ..  ]
 "161
-[e = F17969 -> -> 0 `i `a ]
+[e = F17958 -> -> 0 `i `a ]
 "162
 }
 [e :U 2444 ]
@@ -1997,9 +1997,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2423  ]
 [e :U 2424 ]
-[e [\ -> F17965 `ui , $ -> . `E17952 0 `ui 2425
- , $ -> . `E17952 1 `ui 2431
- , $ -> . `E17952 2 `ui 2441
+[e [\ -> F17954 `ui , $ -> . `E17941 0 `ui 2425
+ , $ -> . `E17941 1 `ui 2431
+ , $ -> . `E17941 2 `ui 2441
  2423 ]
 [e :U 2423 ]
 "165

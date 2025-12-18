@@ -74,33 +74,33 @@ uint32_t get_elapsed_since(uint32_t since_time) //这是判断回绕函数
 
 typedef enum
 {
-    LED_OFF,
-    LED_ON
+    L_LED_OFF,
+    L_LED_ON
 } led_state_t;
 
 
 
 void LED_Task(void)
 {
-    static led_state_t led_state = LED_OFF;
+    static led_state_t led_state = L_LED_OFF;
     static uint32_t last_led_change_time = 0;
     uint32_t elapsed = get_elapsed_since(last_led_change_time);
 
     switch (led_state) {
-    case LED_OFF:
+    case L_LED_OFF:
         if (elapsed > 100)
         { // 熄灭100ms后点亮
             Led_On();
-            led_state = LED_ON;
+            led_state = L_LED_ON;
             last_led_change_time = get_systemtick_time();
         }
         break;
 
-    case LED_ON:
+    case L_LED_ON:
         if (elapsed > 100)
         { // 点亮200ms后熄灭
             Led_Off();
-            led_state = LED_OFF;
+            led_state = L_LED_OFF;
             last_led_change_time = get_systemtick_time();
         }
         break;

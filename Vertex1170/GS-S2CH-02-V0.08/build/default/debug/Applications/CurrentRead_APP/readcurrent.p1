@@ -17,7 +17,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "27 DriverLayer/NFC/nfc.h
 [v _READ_NFC_SET_START `(v ~T0 @X0 0 ef ]
-"148 Applications/CurrentRead_APP/readcurrent.c
+"156 Applications/CurrentRead_APP/readcurrent.c
 [c E17837 0 1 2 3 .. ]
 [n E17837 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
 "23 DriverLayer/NFC/nfc.h
@@ -2305,362 +2305,384 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2424 ]
 "30
 [e = _g_uTargetPowerChannel1 _TargetPowerCH1 ]
-"31
-[e = _g_uDimmingLevel_CH1 *U + _NfcPowerBuff * -> -> 0 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "32
-[e $ ! >= -> _g_uDimmingLevel_CH1 `i -> 100 `i 2425  ]
-[e = _g_uDimmingLevel_CH1 -> -> 100 `i `uc ]
-[e :U 2425 ]
+[e = _g_uDimmingLevel_CH1 *U + _NfcPowerBuff * -> -> 0 `i `x -> -> # *U _NfcPowerBuff `i `x ]
+"33
+[e $ ! != -> _g_uDimmingLevel_CH1 `i -> 0 `i 2425  ]
+"34
+{
 "35
-[e = _TargetPowerCH2 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 6 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 7 `i `x -> -> # *U _NfcPowerBuff `i `x ]
-"36
-[e $ ! >= -> _TargetPowerCH2 `ui -> -> 300 `i `ui 2426  ]
-[e = _TargetPowerCH2 -> -> 300 `i `us ]
+[e $ ! <= -> _g_uDimmingLevel_CH1 `i -> 20 `i 2426  ]
+[e = _g_uDimmingLevel_CH1 -> -> 20 `i `uc ]
 [e :U 2426 ]
-"37
-[e $ ! < -> _TargetPowerCH2 `ui -> -> 100 `i `ui 2427  ]
-[e = _TargetPowerCH2 -> -> 100 `i `us ]
+"36
+[e $ ! >= -> _g_uDimmingLevel_CH1 `i -> 100 `i 2427  ]
+[e = _g_uDimmingLevel_CH1 -> -> 100 `i `uc ]
 [e :U 2427 ]
-"38
-[e = _g_uTargetPowerChannel2 _TargetPowerCH2 ]
+"37
+}
+[e :U 2425 ]
 "39
-[e = _g_uDimmingLevel_CH2 *U + _NfcPowerBuff * -> -> 4 `i `x -> -> # *U _NfcPowerBuff `i `x ]
+[e = _TargetPowerCH2 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 6 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 7 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "40
-[e $ ! >= -> _g_uDimmingLevel_CH2 `i -> 100 `i 2428  ]
-[e = _g_uDimmingLevel_CH2 -> -> 100 `i `uc ]
+[e $ ! >= -> _TargetPowerCH2 `ui -> -> 300 `i `ui 2428  ]
+[e = _TargetPowerCH2 -> -> 300 `i `us ]
 [e :U 2428 ]
+"41
+[e $ ! < -> _TargetPowerCH2 `ui -> -> 100 `i `ui 2429  ]
+[e = _TargetPowerCH2 -> -> 100 `i `us ]
+[e :U 2429 ]
 "42
+[e = _g_uTargetPowerChannel2 _TargetPowerCH2 ]
+"44
+[e = _g_uDimmingLevel_CH2 *U + _NfcPowerBuff * -> -> 4 `i `x -> -> # *U _NfcPowerBuff `i `x ]
+"45
+[e $ ! != -> _g_uDimmingLevel_CH2 `i -> 0 `i 2430  ]
+"46
+{
+"47
+[e $ ! <= -> _g_uDimmingLevel_CH2 `i -> 20 `i 2431  ]
+[e = _g_uDimmingLevel_CH2 -> -> 20 `i `uc ]
+[e :U 2431 ]
+"48
+[e $ ! >= -> _g_uDimmingLevel_CH2 `i -> 100 `i 2432  ]
+[e = _g_uDimmingLevel_CH2 -> -> 100 `i `uc ]
+[e :U 2432 ]
+"49
+}
+[e :U 2430 ]
+"50
 [e :UE 2422 ]
 }
-"44
+"52
 [v _ActualPowerTime `(v ~T0 @X0 1 ef1`*uc ]
-"45
+"53
 {
 [e :U _ActualPowerTime ]
-"44
+"52
 [v _NfcTimeBuff `*uc ~T0 @X0 1 r1 ]
-"45
+"53
 [f ]
-"46
+"54
 [v _time_H `uc ~T0 @X0 1 a ]
 [v _time_L `uc ~T0 @X0 1 a ]
-"48
+"56
 [e = _time_H -> + * >> -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
-"49
+"57
 [e = _time_L -> + * >> -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
-"50
+"58
 [e = _power_time -> + * -> _time_H `i -> 100 `i -> _time_L `i `us ]
-"51
+"59
 [e = _power_time -> * -> _power_time `ui -> -> 1000 `i `ui `us ]
-"52
-[e :UE 2429 ]
+"60
+[e :UE 2433 ]
 }
-"54
+"62
 [v _WriteCalibrationSingleChannel `(v ~T0 @X0 1 ef1`*uc ]
-"55
+"63
 {
 [e :U _WriteCalibrationSingleChannel ]
-"54
+"62
 [v _w_eeprom `*uc ~T0 @X0 1 r1 ]
-"55
+"63
 [f ]
 [v F18385 `uc ~T0 @X0 -> 17 `i s ]
 [i F18385
 :U ..
-"56
+"64
 -> -> 0 `i `uc
 ..
 ]
 [v _write_buffer `uc ~T0 @X0 -> 17 `i a ]
 [e = _write_buffer F18385 ]
-"59
+"67
 [e ( _memcpy (3 , , -> &U _write_buffer `*v -> _w_eeprom `*Cv -> -> 17 `i `ui ]
-"61
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2431  ]
-"62
-{
-"63
-[e ( _EepromWriteByte (2 , -> -> -> 4 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
-"64
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"65
-[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 4 `i `m `um `c ]
-"66
-}
-[e $U 2432  ]
-"68
-[e :U 2431 ]
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2433  ]
 "69
-{
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2435  ]
 "70
-[e ( _EepromWriteByte (2 , -> -> -> 4 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+{
 "71
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e ( _EepromWriteByte (2 , -> -> -> 4 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
 "72
-[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 4 `i `m `um `i `c ]
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "73
+[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 4 `i `m `um `c ]
+"74
 }
-[e :U 2433 ]
-[e :U 2432 ]
-"75
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2434  ]
+[e $U 2436  ]
 "76
-{
-"77
-[e ( _EepromWriteByte (2 , -> -> -> 5 `i `m `um *U + &U _write_buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
-"78
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"79
-[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 5 `i `m `um `c ]
-"80
-}
-[e $U 2435  ]
-"82
-[e :U 2434 ]
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2436  ]
-"83
-{
-"84
-[e ( _EepromWriteByte (2 , -> -> -> 5 `i `m `um *U + &U _write_buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
-"85
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"86
-[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 5 `i `m `um `i `c ]
-"87
-}
-[e :U 2436 ]
 [e :U 2435 ]
-"89
-[e = *U + &U _write_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> -> 85 `i `uc ]
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2437  ]
+"77
+{
+"78
+[e ( _EepromWriteByte (2 , -> -> -> 4 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+"79
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"80
+[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 4 `i `m `um `i `c ]
+"81
+}
+[e :U 2437 ]
+[e :U 2436 ]
+"83
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2438  ]
+"84
+{
+"85
+[e ( _EepromWriteByte (2 , -> -> -> 5 `i `m `um *U + &U _write_buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+"86
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"87
+[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 5 `i `m `um `c ]
+"88
+}
+[e $U 2439  ]
+"90
+[e :U 2438 ]
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2440  ]
 "91
+{
+"92
+[e ( _EepromWriteByte (2 , -> -> -> 5 `i `m `um *U + &U _write_buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+"93
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"94
+[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 5 `i `m `um `i `c ]
+"95
+}
+[e :U 2440 ]
+[e :U 2439 ]
+"97
+[e = *U + &U _write_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> -> 85 `i `uc ]
+"99
 [v _wcrc `us ~T0 @X0 1 a ]
 [e = _wcrc -> ( _CRC16 (2 , &U _write_buffer -> -> 15 `i `uc `us ]
-"92
+"100
 [e = *U + &U _write_buffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> & -> _wcrc `ui -> -> 255 `i `ui `uc ]
-"93
+"101
 [e = *U + &U _write_buffer * -> -> -> 15 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> & >> -> _wcrc `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"95
+"103
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 17 `i 2437  ]
-[e $U 2438  ]
-[e :U 2437 ]
-"96
+[e $ < -> _j `i -> 17 `i 2441  ]
+[e $U 2442  ]
+[e :U 2441 ]
+"104
 {
-"97
+"105
 [e ( _printf , (. :s 1C -> *U + &U _write_buffer * -> _j `ux -> -> # *U &U _write_buffer `ui `ux `i ]
-"98
-[e $ ! < -> _j `i -> 16 `i 2440  ]
+"106
+[e $ ! < -> _j `i -> 16 `i 2444  ]
 [e ( _printf :s 2C ]
-[e :U 2440 ]
-"99
+[e :U 2444 ]
+"107
 }
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 17 `i 2437  ]
-[e :U 2438 ]
+[e $ < -> _j `i -> 17 `i 2441  ]
+[e :U 2442 ]
 }
-"100
+"108
 [e ( _memcpy (3 , , -> &U _write_buffer `*v -> -> 0 `i `*Cv -> -> 17 `i `ui ]
-"101
-[e :UE 2430 ]
+"109
+[e :UE 2434 ]
 }
-"103
+"111
 [v _WriteCalibrationMultiChannel `(v ~T0 @X0 1 ef1`*uc ]
-"104
+"112
 {
 [e :U _WriteCalibrationMultiChannel ]
-"103
+"111
 [v _w_eeprom `*uc ~T0 @X0 1 r1 ]
-"104
+"112
 [f ]
 [v F18391 `uc ~T0 @X0 -> 17 `i s ]
 [i F18391
 :U ..
-"105
+"113
 -> -> 0 `i `uc
 ..
 ]
 [v _write_buffer `uc ~T0 @X0 -> 17 `i a ]
 [e = _write_buffer F18391 ]
-"108
+"116
 [e ( _memcpy (3 , , -> &U _write_buffer `*v -> _w_eeprom `*Cv -> -> 17 `i `ui ]
-"110
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2442  ]
-"111
-{
-"112
-[e ( _EepromWriteByte (2 , -> -> -> 6 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
-"113
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"114
-[e = *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 6 `i `m `um `c ]
-"115
-}
-[e $U 2443  ]
-"117
-[e :U 2442 ]
-[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2444  ]
 "118
-{
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 1 `i 2446  ]
 "119
-[e ( _EepromWriteByte (2 , -> -> -> 6 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+{
 "120
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+[e ( _EepromWriteByte (2 , -> -> -> 6 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
 "121
-[e = *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 6 `i `m `um `i `c ]
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "122
+[e = *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 6 `i `m `um `c ]
+"123
 }
-[e :U 2444 ]
-[e :U 2443 ]
-"124
-[e = *U + &U _write_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> -> 85 `i `uc ]
+[e $U 2447  ]
+"125
+[e :U 2446 ]
+[e $ ! == -> *U + &U _write_buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux `i -> 2 `i 2448  ]
 "126
+{
+"127
+[e ( _EepromWriteByte (2 , -> -> -> 6 `i `m `um *U + &U _write_buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux ]
+"128
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"129
+[e = *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> -U -> ( _EepromReadByte (1 -> -> -> 6 `i `m `um `i `c ]
+"130
+}
+[e :U 2448 ]
+[e :U 2447 ]
+"132
+[e = *U + &U _write_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> -> 85 `i `uc ]
+"134
 [v _wcrc `us ~T0 @X0 1 a ]
 [e = _wcrc -> ( _CRC16 (2 , &U _write_buffer -> -> 15 `i `uc `us ]
-"127
+"135
 [e = *U + &U _write_buffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> & -> _wcrc `ui -> -> 255 `i `ui `uc ]
-"128
+"136
 [e = *U + &U _write_buffer * -> -> -> 15 `i `ui `ux -> -> # *U &U _write_buffer `ui `ux -> & >> -> _wcrc `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"130
+"138
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 17 `i 2445  ]
-[e $U 2446  ]
-[e :U 2445 ]
-"131
+[e $ < -> _j `i -> 17 `i 2449  ]
+[e $U 2450  ]
+[e :U 2449 ]
+"139
 {
-"132
+"140
 [e ( _printf , (. :s 3C -> *U + &U _write_buffer * -> _j `ux -> -> # *U &U _write_buffer `ui `ux `i ]
-"133
-[e $ ! < -> _j `i -> 16 `i 2448  ]
+"141
+[e $ ! < -> _j `i -> 16 `i 2452  ]
 [e ( _printf :s 4C ]
-[e :U 2448 ]
-"134
+[e :U 2452 ]
+"142
 }
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 17 `i 2445  ]
-[e :U 2446 ]
+[e $ < -> _j `i -> 17 `i 2449  ]
+[e :U 2450 ]
 }
-"135
+"143
 [e ( _memcpy (3 , , -> &U _write_buffer `*v -> -> 0 `i `*Cv -> -> 17 `i `ui ]
-"136
-[e :UE 2441 ]
+"144
+[e :UE 2445 ]
 }
-"138
+"146
 [v _ReadCalibration `(v ~T0 @X0 1 ef ]
-"139
+"147
 {
 [e :U _ReadCalibration ]
 [f ]
-"140
+"148
 [e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 4 `i `m `um `c ]
-"141
+"149
 [e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 5 `i `m `um `c ]
-"142
+"150
 [e = *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 6 `i `m `um `c ]
-"143
-[e :UE 2449 ]
+"151
+[e :UE 2453 ]
 }
-"145
+"153
 [v _NFCRead_APPInit `(v ~T0 @X0 1 ef ]
-"146
+"154
 {
 [e :U _NFCRead_APPInit ]
 [f ]
-"147
+"155
 [e ( _READ_NFC_SET_START ..  ]
-"148
+"156
 [e ( _Read_NFC_Data (3 , , -> -> 0 `i `us &U _I2C_receiveData -> -> 70 `i `uc ]
-"149
+"157
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"151
-[e ( _ReadTargetPower (1 &U _I2C_receiveData ]
-"152
-[e ( _ActualPowerTime (1 &U _I2C_receiveData ]
-"153
-[e ( _ReadCalibration ..  ]
-"154
-[e :UE 2450 ]
-}
 "159
-[v _g_uChanne1Power `us ~T0 @X0 1 e ]
+[e ( _ReadTargetPower (1 &U _I2C_receiveData ]
 "160
-[v _g_uChanne2Power `us ~T0 @X0 1 e ]
+[e ( _ActualPowerTime (1 &U _I2C_receiveData ]
+"161
+[e ( _ReadCalibration ..  ]
 "162
+[e :UE 2454 ]
+}
+"167
+[v _g_uChanne1Power `us ~T0 @X0 1 e ]
+"168
+[v _g_uChanne2Power `us ~T0 @X0 1 e ]
+"170
 [v _Power_Compensation `(us ~T0 @X0 1 ef ]
-"163
+"171
 {
 [e :U _Power_Compensation ]
 [f ]
-"164
+"172
 [v _temp `l ~T0 @X0 1 a ]
-"165
+"173
 [v _SetPowerValue `us ~T0 @X0 1 a ]
 [e = _SetPowerValue _g_uTargetPowerChannel1 ]
-"167
-[e = _temp - / * -> _g_uTargetPowerChannel1 `l -> _g_uDimmingLevel_CH1 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
-"168
-[e $ ! < _temp -> -> 20 `i `l 2452  ]
-[e = _temp -> -> 20 `i `l ]
-[e :U 2452 ]
-"169
-[e $ ! > _temp -> _g_uTargetPowerChannel1 `l 2453  ]
-[e = _temp -> _g_uTargetPowerChannel1 `l ]
-[e :U 2453 ]
-"170
-[e = _g_uChanne1Power -> _temp `us ]
-"172
-[e = _temp - / * -> _g_uTargetPowerChannel2 `l -> _g_uDimmingLevel_CH2 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
-"173
-[e $ ! < _temp -> -> 20 `i `l 2454  ]
-[e = _temp -> -> 20 `i `l ]
-[e :U 2454 ]
-"174
-[e $ ! > _temp -> _g_uTargetPowerChannel2 `l 2455  ]
-[e = _temp -> _g_uTargetPowerChannel2 `l ]
-[e :U 2455 ]
 "175
-[e = _g_uChanne2Power -> _temp `us ]
-"177
-[v _g_uTotalPower `us ~T0 @X0 1 a ]
-[e = _g_uTotalPower -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
-"179
-[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2456  ]
-"180
-{
-"181
-[e = _temp - - -> _SetPowerValue `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
-"182
-}
-[e $U 2457  ]
-"183
+[e = _temp - / * -> _g_uTargetPowerChannel1 `l -> _g_uDimmingLevel_CH1 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
+"176
+[e $ ! < _temp -> -> 20 `i `l 2456  ]
+[e = _temp -> -> 20 `i `l ]
 [e :U 2456 ]
-"184
-{
-"185
-[e = _temp -> _g_uChanne1Power `l ]
-"186
-}
+"177
+[e $ ! > _temp -> _g_uTargetPowerChannel1 `l 2457  ]
+[e = _temp -> _g_uTargetPowerChannel1 `l ]
 [e :U 2457 ]
-"188
+"178
+[e = _g_uChanne1Power -> _temp `us ]
+"180
+[e = _temp - / * -> _g_uTargetPowerChannel2 `l -> _g_uDimmingLevel_CH2 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
+"181
 [e $ ! < _temp -> -> 20 `i `l 2458  ]
 [e = _temp -> -> 20 `i `l ]
 [e :U 2458 ]
-"189
-[e $ ! > _temp -> _SetPowerValue `l 2459  ]
-[e = _temp -> _SetPowerValue `l ]
+"182
+[e $ ! > _temp -> _g_uTargetPowerChannel2 `l 2459  ]
+[e = _temp -> _g_uTargetPowerChannel2 `l ]
 [e :U 2459 ]
+"183
+[e = _g_uChanne2Power -> _temp `us ]
+"185
+[v _g_uTotalPower `us ~T0 @X0 1 a ]
+[e = _g_uTotalPower -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
+"187
+[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2460  ]
+"188
+{
+"189
+[e = _temp - - -> _SetPowerValue `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
+"190
+}
+[e $U 2461  ]
 "191
+[e :U 2460 ]
+"192
+{
+"193
+[e = _temp -> _g_uChanne1Power `l ]
+"194
+}
+[e :U 2461 ]
+"196
+[e $ ! < _temp -> -> 20 `i `l 2462  ]
+[e = _temp -> -> 20 `i `l ]
+[e :U 2462 ]
+"197
+[e $ ! > _temp -> _SetPowerValue `l 2463  ]
+[e = _temp -> _SetPowerValue `l ]
+[e :U 2463 ]
+"199
 [v _g_uTargetPower `us ~T0 @X0 1 a ]
 [e = _g_uTargetPower -> _temp `us ]
-"192
+"200
 [e ) _g_uTargetPower ]
-[e $UE 2451  ]
-"193
-[e :UE 2451 ]
+[e $UE 2455  ]
+"201
+[e :UE 2455 ]
 }
 [p f _printf 10518532 ]
 [a 1C 37 48 50 88 0 ]

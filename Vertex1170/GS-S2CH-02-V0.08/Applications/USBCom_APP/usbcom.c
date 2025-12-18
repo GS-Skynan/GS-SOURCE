@@ -103,9 +103,10 @@ void Rs485Task(void)
     //灯光调节指令
     if ((Rx_Buffer[1] == 0x10)&&(Rx_Buffer[3] == 0x0E))
     {
-        //printf("有效命令，调用RS485处理\r\n");
-        g_uDimmingLevel_CH1 = Rx_Buffer[8]; //第一通道
-        g_uDimmingLevel_CH2 = Rx_Buffer[10]; //第一通道
+//        //printf("有效命令，调用RS485处理\r\n");
+//        g_uDimmingLevel_CH1 = Rx_Buffer[8]; //第一通道
+//        g_uDimmingLevel_CH2 = Rx_Buffer[10]; //第一通道
+        GetDimmingValue(Rx_Buffer);
     }
 
     //其他功能指令

@@ -10,6 +10,7 @@ extern uint16_t g_uTargetPower;
 extern uint8_t g_uDimmingLevel_CH1,g_uDimmingLevel_CH2;
 extern uint16_t g_uTargetPowerChannel1, g_uTargetPowerChannel2;
 extern uint16_t power_time;
+
 extern uint16_t g_uChanne2Power;
 
 void WriteCalibrationSingleChannel(uint8_t *w_eeprom);

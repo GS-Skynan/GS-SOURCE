@@ -42,4 +42,8 @@ Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
-DriverLayer/GPIO/../../mcc_generated_files/system/system.h 
+DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
+Applications/TempProtected_APP/temp_protected.h  \
+Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
+Applications/Bootloader/Bootloader.h  \
+Applications/Bootloader/../../mcc_generated_files/system/system.h 

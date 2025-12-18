@@ -15,8 +15,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _UART1_ReceiveInterruptDisable `(v ~T0 @X0 0 ef ]
 "27 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"117 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "50 Middlewares/CRC/crc.h
 [v _CRC16 `(ui ~T0 @X0 0 ef2`*uc`uc ]
 "43 Applications/CurrentRead_APP/readcurrent.h
@@ -44,6 +42,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ADC_Result2 `(us ~T0 @X0 0 ef1`E17462 ]
 "29 Applications/Ticktime_APP/ticktime.h
 [v _g_Voltage2 `f ~T0 @X0 0 e ]
+"117 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "14 Applications/Dimming_APP/dimming.h
 [v _get_current `(f ~T0 @X0 0 ef1`E17462 ]
 "30 Applications/Ticktime_APP/ticktime.h
@@ -2410,26 +2410,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2429 ]
 "74
 [e ( _memcpy (3 , , -> &U _Rx_Buffer `*v -> &U _Rx_Buffer_ISR `*Cv -> _Rx_Length `ui ]
-"77
-[e ( _printf , (. :s 1C -> _Rx_Length `i ]
-"78
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 2433  ]
-[e :U 2430 ]
-{
-"79
-[e ( _printf , (. :s 2C -> *U + &U _Rx_Buffer * -> -> _i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i ]
-"80
-}
-[e ++ _i -> 1 `i ]
-[e :U 2433 ]
-[e $ < _i -> _Rx_Length `i 2430  ]
-[e :U 2431 ]
-}
-"81
-[e ( _printf :s 3C ]
 "83
 [v _data_length `uc ~T0 @X0 1 a ]
 [e = _data_length -> - -> _Rx_Length `i -> 2 `i `uc ]
@@ -2438,7 +2418,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "85
 [e = _g_uCheckCRCResult -> + << -> *U + &U _Rx_Buffer * -> _data_length `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 8 `i -> *U + &U _Rx_Buffer * -> -> + -> _data_length `i -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i `us ]
 "87
-[e $ ! != -> _g_uCheckCRC16 `ui -> _g_uCheckCRCResult `ui 2434  ]
+[e $ ! != -> _g_uCheckCRC16 `ui -> _g_uCheckCRCResult `ui 2430  ]
 "88
 {
 "89
@@ -2447,7 +2427,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $UE 2427  ]
 "92
 }
-[e :U 2434 ]
+[e :U 2430 ]
 "94
 [v _ExpectedDataBytes `uc ~T0 @X0 1 a ]
 [e = _ExpectedDataBytes *U + &U _Rx_Buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux ]
@@ -2455,7 +2435,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ActualDataBytes `uc ~T0 @X0 1 a ]
 [e = _ActualDataBytes -> - - -> _Rx_Length `i -> 7 `i -> 2 `i `uc ]
 "97
-[e $ ! != -> _ActualDataBytes `i -> _ExpectedDataBytes `i 2435  ]
+[e $ ! != -> _ActualDataBytes `i -> _ExpectedDataBytes `i 2431  ]
 "98
 {
 "99
@@ -2464,9 +2444,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $UE 2427  ]
 "101
 }
-[e :U 2435 ]
+[e :U 2431 ]
 "104
-[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 16 `i == -> *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 14 `i 2436  ]
+[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 16 `i == -> *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 14 `i 2432  ]
 "105
 {
 "107
@@ -2475,91 +2455,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _UART_REG2 *U + &U _Rx_Buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux ]
 "109
 }
-[e :U 2436 ]
+[e :U 2432 ]
 "112
-[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 170 `i == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 90 `i 2437  ]
+[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 170 `i == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 90 `i 2433  ]
 "113
 {
 "114
-[e $U 2439  ]
+[e $U 2435  ]
 {
 "115
-[e :U 2440 ]
+[e :U 2436 ]
 "116
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2441  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2437  ]
 "117
 {
 "118
 [e ( _Readhandle_version (1 &U _Rx_Buffer ]
 "119
 }
-[e :U 2441 ]
+[e :U 2437 ]
 "120
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2442  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2438  ]
 "121
 {
 "122
 [e ( _Writehandle_version (1 &U _Rx_Buffer ]
 "123
 }
-[e :U 2442 ]
+[e :U 2438 ]
 "124
-[e $U 2438  ]
+[e $U 2434  ]
 "126
-[e :U 2443 ]
+[e :U 2439 ]
 "127
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2444  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2440  ]
 "128
 {
 "129
 [e ( _Access_Bootloder (1 &U _Rx_Buffer ]
 "130
 }
-[e :U 2444 ]
+[e :U 2440 ]
 "131
-[e $U 2438  ]
+[e $U 2434  ]
 "133
-[e :U 2445 ]
+[e :U 2441 ]
 "134
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2446  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2442  ]
 "135
 {
 "136
 [e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
 "137
 }
-[e :U 2446 ]
+[e :U 2442 ]
 "138
-[e $U 2438  ]
+[e $U 2434  ]
 "140
-[e :U 2447 ]
+[e :U 2443 ]
 "141
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2448  ]
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2444  ]
 "142
 {
 "143
 [e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
 "144
 }
-[e :U 2448 ]
+[e :U 2444 ]
 "145
-[e $U 2438  ]
+[e $U 2434  ]
 "150
-[e :U 2449 ]
-[e $U 2438  ]
+[e :U 2445 ]
+[e $U 2434  ]
 "151
 }
-[e $U 2438  ]
-[e :U 2439 ]
-[e [\ *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux , $ -> 1 `i 2440
- , $ -> 23 `i 2443
- , $ -> 87 `i 2445
- , $ -> 88 `i 2447
- 2449 ]
-[e :U 2438 ]
+[e $U 2434  ]
+[e :U 2435 ]
+[e [\ *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux , $ -> 1 `i 2436
+ , $ -> 23 `i 2439
+ , $ -> 87 `i 2441
+ , $ -> 88 `i 2443
+ 2445 ]
+[e :U 2434 ]
 "152
 }
-[e :U 2437 ]
+[e :U 2433 ]
 "153
 [e ( _ClearReceiveData ..  ]
 "155
@@ -2574,7 +2554,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "159
 [e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
 "160
-[e :UE 2450 ]
+[e :UE 2446 ]
 }
 "162
 [v _Display `(v ~T0 @X0 1 ef ]
@@ -2587,39 +2567,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "165
 [e = _g_Voltage2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
 "166
-[e ( _printf , (. :s 4C -> ( _ADC_Result2 (1 . `E17462 10 `ui ]
+[e ( _printf , (. :s 1C -> ( _ADC_Result2 (1 . `E17462 10 `ui ]
 "167
-[e ( _printf , , , , (. :s 5C -> ( _get_current (1 . `E17462 8 `d -> _g_Voltage1 `d -> _powernum1 `d -> _pwm1 `ui ]
+[e ( _printf , , , , (. :s 2C -> ( _get_current (1 . `E17462 8 `d -> _g_Voltage1 `d -> _powernum1 `d -> _pwm1 `ui ]
 "169
-[e ( _printf , , , , (. :s 6C -> ( _get_current (1 . `E17462 6 `d -> _g_Voltage2 `d -> _powernum2 `d -> _pwm2 `ui ]
+[e ( _printf , , , , (. :s 3C -> ( _get_current (1 . `E17462 6 `d -> _g_Voltage2 `d -> _powernum2 `d -> _pwm2 `ui ]
 "172
-[e ( _printf , , , (. :s 7C -> _power_pwm `d -> _UART_REG1 `i -> _UART_REG2 `i ]
+[e ( _printf , , , (. :s 4C -> _power_pwm `d -> _UART_REG1 `i -> _UART_REG2 `i ]
 "174
-[e ( _printf , (. :s 8C -> _g_uFaultCode `i ]
+[e ( _printf , (. :s 5C -> _g_uFaultCode `i ]
 "178
-[e ( _printf , (. :s 9C -> _Temp_Res `d ]
+[e ( _printf , (. :s 6C -> _Temp_Res `d ]
 "179
-[e ( _printf , (. :s 10C -> ( _ADC_Result2 (1 . `E17462 9 `ui ]
+[e ( _printf , (. :s 7C -> ( _ADC_Result2 (1 . `E17462 9 `ui ]
 "180
-[e ( _printf , (. :s 11C -> _PIDflag1 `i ]
+[e ( _printf , (. :s 8C -> _PIDflag1 `i ]
 "181
-[e ( _printf , , (. :s 12C -> _V_Ret1 `ui -> _V_Ret2 `ui ]
+[e ( _printf , , (. :s 9C -> _V_Ret1 `ui -> _V_Ret2 `ui ]
 "182
-[e ( _printf , (. :s 13C -> ( _ProtectionCheck ..  `i ]
+[e ( _printf , (. :s 10C -> ( _ProtectionCheck ..  `i ]
 "185
-[e :UE 2451 ]
+[e :UE 2447 ]
 }
-[p f _printf 10592388 ]
-[a 2C 37 48 50 88 32 0 ]
-[a 1C 18446744073709551542 18446744073709551553 18446744073709551560 18446744073709551521 18446744073709551541 18446744073709551549 32 37 100 32 18446744073709551575 18446744073709551574 18446744073709551549 18446744073709551578 58 32 0 ]
-[a 9C 84 101 109 112 58 37 46 50 102 124 10 13 32 0 ]
-[a 8C 80 114 111 58 37 100 124 10 13 32 0 ]
-[a 11C 112 105 100 58 37 100 124 10 13 32 0 ]
-[a 6C 67 72 50 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 32 0 ]
-[a 5C 67 72 49 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 32 0 ]
-[a 13C 37 100 124 10 13 32 0 ]
-[a 12C 37 100 124 37 100 10 13 32 0 ]
-[a 4C 86 105 110 58 37 100 124 32 10 13 32 0 ]
-[a 7C 83 80 58 37 46 50 102 124 85 82 71 69 49 58 37 100 124 85 82 71 69 50 58 37 100 124 32 10 13 32 0 ]
-[a 10C 86 58 37 100 10 13 0 ]
-[a 3C 13 10 0 ]
+[p f _printf 8462464 ]
+[a 6C 84 101 109 112 58 37 46 50 102 124 10 13 32 0 ]
+[a 5C 80 114 111 58 37 100 124 10 13 32 0 ]
+[a 8C 112 105 100 58 37 100 124 10 13 32 0 ]
+[a 3C 67 72 50 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 32 0 ]
+[a 2C 67 72 49 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 32 0 ]
+[a 10C 37 100 124 10 13 32 0 ]
+[a 9C 37 100 124 37 100 10 13 32 0 ]
+[a 1C 86 105 110 58 37 100 124 32 10 13 32 0 ]
+[a 4C 83 80 58 37 46 50 102 124 85 82 71 69 49 58 37 100 124 85 82 71 69 50 58 37 100 124 32 10 13 32 0 ]
+[a 7C 86 58 37 100 10 13 0 ]

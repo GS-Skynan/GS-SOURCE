@@ -1,12 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"39 Applications/OutProtected_APP/out_protected.c
+"41 Applications/OutProtected_APP/out_protected.c
 [c E17462 59 60 61 62 63 3 4 17 22 28 44 0 .. ]
 [n E17462 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANC1 ADC_CHANNEL_ANC6 ADC_CHANNEL_AND4 ADC_CHANNEL_ANF4 ADC_CHANNEL_ANA0  ]
 "10 Applications/CurrentRead_APP/readcurrent.h
 [v _g_uDimmingLevel_CH1 `uc ~T0 @X0 0 e ]
 "17 DriverLayer/ADC/adc_driver.h
 [v _ADC_Result2 `(us ~T0 @X0 0 ef1`E17462 ]
-"23 Applications/Dimming_APP/dimming.h
+"16 Applications/Dimming_APP/dimming.h
 [v _GetChannelCurrentValue `(f ~T0 @X0 0 ef1`E17462 ]
 "11 Applications/CurrentRead_APP/readcurrent.h
 [v _g_uTargetPowerChannel1 `us ~T0 @X0 0 e ]
@@ -14,12 +14,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _g_uDimmingLevel_CH2 `uc ~T0 @X0 0 e ]
 "13 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"14
+"16 Applications/OutProtected_APP/out_protected.h
+[v _g_uStateChannel1 `uc ~T0 @X0 0 e ]
+"14 Applications/Ticktime_APP/ticktime.h
 [v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
-"41 Applications/InProtected_APP/inprotectedapp.h
+"12 Applications/Bootloader/Bootloader.h
 [v _g_uInputVoltageNormalFlag `uc ~T0 @X0 0 e ]
-"31 Applications/Dimming_APP/dimming.h
-[v _g_uPidRunChannel `Vuc ~T0 @X0 0 e ]
+"13
+[v _g_uBootUpgradeFlag `a ~T0 @X0 0 e ]
+"6 Applications/TempProtected_APP/temp_protected.h
+[v _g_uTemperatureProtection `uc ~T0 @X0 0 e ]
+"20 Applications/Dimming_APP/dimming.h
+[v _g_uPowerOnOutputStart `uc ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1736,7 +1742,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 04FFh ;# ">
 "25 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
-"12 Applications/OutProtected_APP/out_protected.c
+"14 Applications/OutProtected_APP/out_protected.c
 [v _V_Ret1 `us ~T0 @X0 1 e ]
 [i _V_Ret1
 -> -> 0 `i `us
@@ -1745,457 +1751,504 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _V_Ret2
 -> -> 0 `i `us
 ]
-"14
-[v _g_VoltageProtect1 `f ~T0 @X0 1 e ]
-"15
-[v _g_VoltageProtect2 `f ~T0 @X0 1 e ]
 "16
-[v _g_PoweProtect1 `f ~T0 @X0 1 e ]
+[v _g_VoltageProtect1 `f ~T0 @X0 1 e ]
 "17
-[v _g_PoweProtect2 `f ~T0 @X0 1 e ]
+[v _g_VoltageProtect2 `f ~T0 @X0 1 e ]
+"18
+[v _g_PoweProtect1 `f ~T0 @X0 1 e ]
 "19
+[v _g_PoweProtect2 `f ~T0 @X0 1 e ]
+"21
 [v _g_uFaultCode `uc ~T0 @X0 1 e ]
 [i _g_uFaultCode
 -> -> 0 `i `uc
 ]
-"39
+"41
 [v _Voltage_Judgment `(us ~T0 @X0 1 ef1`E17462 ]
-"40
+"42
 {
 [e :U _Voltage_Judgment ]
-"39
+"41
 [v _channel `E17462 ~T0 @X0 1 r1 ]
-"40
+"42
 [f ]
-"43
-[e $ ! && == -> _channel `ui -> . `E17462 9 `ui > -> _g_uDimmingLevel_CH1 `i -> 1 `i 2423  ]
-"44
+"45
+[e $ ! && == -> _channel `ui -> . `E17462 9 `ui > -> _g_uDimmingLevel_CH1 `i -> 1 `i 2424  ]
+"46
 {
-"53
+"55
 [e = _g_VoltageProtect1 * / -> ( _ADC_Result2 (1 . `E17462 9 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
-"54
-[e = _g_PoweProtect1 / * ( _GetChannelCurrentValue (1 . `E17462 8 _g_VoltageProtect1 -> .1000.0 `f ]
 "56
-[e $ ! || >= _g_VoltageProtect1 -> -> 550 `i `f <= _g_VoltageProtect1 -> -> 150 `i `f 2424  ]
-"57
-{
+[e = _g_PoweProtect1 / * ( _GetChannelCurrentValue (1 . `E17462 8 _g_VoltageProtect1 -> .1000.0 `f ]
 "58
-[e = _g_uFaultCode -> -> 1 `i `uc ]
+[e $ ! || >= _g_VoltageProtect1 -> -> 550 `i `f <= _g_VoltageProtect1 -> -> 150 `i `f 2425  ]
 "59
-[e ) -> -> 1 `i `us ]
-[e $UE 2422  ]
+{
 "60
-}
-[e $U 2425  ]
+[e = _g_uFaultCode -> -> 1 `i `uc ]
+"61
+[e ) -> -> 1 `i `us ]
+[e $UE 2423  ]
 "62
-[e :U 2424 ]
-[e $ ! <= _g_VoltageProtect1 -> -> 30 `i `f 2426  ]
-"63
-{
+}
+[e $U 2426  ]
 "64
-[e = _g_uFaultCode -> -> 2 `i `uc ]
-"65
-[e ) -> -> 2 `i `us ]
-[e $UE 2422  ]
-"66
-}
-[e $U 2427  ]
-"68
-[e :U 2426 ]
-[e $ ! > _g_PoweProtect1 * -> _g_uTargetPowerChannel1 `f -> .1.10 `f 2428  ]
-"69
-{
-"70
-[e = _g_uFaultCode -> -> 3 `i `uc ]
-"71
-[e ) -> -> 2 `i `us ]
-[e $UE 2422  ]
-"72
-}
-[e $U 2429  ]
-"74
-[e :U 2428 ]
-"75
-{
-"77
-[e ) -> -> 0 `i `us ]
-[e $UE 2422  ]
-"78
-}
-[e :U 2429 ]
-[e :U 2427 ]
 [e :U 2425 ]
+[e $ ! <= _g_VoltageProtect1 -> -> 30 `i `f 2427  ]
+"65
+{
+"66
+[e = _g_uFaultCode -> -> 2 `i `uc ]
+"67
+[e ) -> -> 2 `i `us ]
+[e $UE 2423  ]
+"68
+}
+[e $U 2428  ]
+"70
+[e :U 2427 ]
+[e $ ! > _g_PoweProtect1 * -> _g_uTargetPowerChannel1 `f -> .1.10 `f 2429  ]
+"71
+{
+"72
+[e = _g_uFaultCode -> -> 3 `i `uc ]
+"73
+[e ) -> -> 2 `i `us ]
+[e $UE 2423  ]
+"74
+}
+[e $U 2430  ]
+"76
+[e :U 2429 ]
+"77
+{
+"79
+[e ) -> -> 0 `i `us ]
+[e $UE 2423  ]
 "80
 }
-[e :U 2423 ]
-"83
-[e $ ! && == -> _channel `ui -> . `E17462 7 `ui > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2430  ]
-"84
-{
-"85
-[e = _g_VoltageProtect2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
-"86
-[e = _g_PoweProtect2 / * ( _GetChannelCurrentValue (1 . `E17462 6 _g_VoltageProtect2 -> .1000.0 `f ]
-"87
-[e $ ! >= _g_VoltageProtect2 -> -> 300 `i `f 2431  ]
-"88
-{
-"89
-[e = _g_uFaultCode -> -> 4 `i `uc ]
-"90
-[e ) -> -> 1 `i `us ]
-[e $UE 2422  ]
-"91
-}
-[e $U 2432  ]
-"93
-[e :U 2431 ]
-[e $ ! <= _g_VoltageProtect2 -> -> 20 `i `f 2433  ]
-"94
-{
-"95
-[e = _g_uFaultCode -> -> 5 `i `uc ]
-"96
-[e ) -> -> 2 `i `us ]
-[e $UE 2422  ]
-"97
-}
-[e $U 2434  ]
-"104
-[e :U 2433 ]
-"105
-{
-"106
-[e ) -> -> 0 `i `us ]
-[e $UE 2422  ]
-"107
-}
-[e :U 2434 ]
-[e :U 2432 ]
-"108
-}
 [e :U 2430 ]
-"110
-[e ) -> -> 0 `i `us ]
-[e $UE 2422  ]
-"111
-[e :UE 2422 ]
+[e :U 2428 ]
+[e :U 2426 ]
+"82
 }
-"117
+[e :U 2424 ]
+"85
+[e $ ! && == -> _channel `ui -> . `E17462 7 `ui > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2431  ]
+"86
+{
+"87
+[e = _g_VoltageProtect2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+"88
+[e = _g_PoweProtect2 / * ( _GetChannelCurrentValue (1 . `E17462 6 _g_VoltageProtect2 -> .1000.0 `f ]
+"89
+[e $ ! >= _g_VoltageProtect2 -> -> 300 `i `f 2432  ]
+"90
+{
+"91
+[e = _g_uFaultCode -> -> 4 `i `uc ]
+"92
+[e ) -> -> 1 `i `us ]
+[e $UE 2423  ]
+"93
+}
+[e $U 2433  ]
+"95
+[e :U 2432 ]
+[e $ ! <= _g_VoltageProtect2 -> -> 20 `i `f 2434  ]
+"96
+{
+"97
+[e = _g_uFaultCode -> -> 5 `i `uc ]
+"98
+[e ) -> -> 2 `i `us ]
+[e $UE 2423  ]
+"99
+}
+[e $U 2435  ]
+"106
+[e :U 2434 ]
+"107
+{
+"108
+[e ) -> -> 0 `i `us ]
+[e $UE 2423  ]
+"109
+}
+[e :U 2435 ]
+[e :U 2433 ]
+"110
+}
+[e :U 2431 ]
+"112
+[e ) -> -> 0 `i `us ]
+[e $UE 2423  ]
+"113
+[e :UE 2423 ]
+}
+"119
 [v _OutProtected_CH1 `(v ~T0 @X0 1 ef ]
-"118
+"120
 {
 [e :U _OutProtected_CH1 ]
 [f ]
-"119
-[v F18277 `ul ~T0 @X0 1 s timesys1 ]
-[i F18277
+"121
+[v F18447 `ul ~T0 @X0 1 s timesys1 ]
+[i F18447
 -> -> -> 0 `i `l `ul
 ]
-"120
-[v _protect1time `ul ~T0 @X0 1 a ]
-[e = _protect1time ( _get_elapsed_since (1 F18277 ]
-"121
-[v F18279 `a ~T0 @X0 1 s is_protecting1 ]
-[i F18279
--> -> 0 `i `a
-]
 "122
-[v F18280 `a ~T0 @X0 1 s is_protecting2 ]
-[i F18280
+[v _protect1time `ul ~T0 @X0 1 a ]
+[e = _protect1time ( _get_elapsed_since (1 F18447 ]
+"123
+[v F18449 `a ~T0 @X0 1 s is_protecting1 ]
+[i F18449
 -> -> 0 `i `a
 ]
 "124
-[v F18281 `a ~T0 @X0 1 s in_protection_period ]
-[i F18281
--> -> 0 `i `a
-]
-"125
-[v F18282 `a ~T0 @X0 1 s permanent_protection ]
-[i F18282
+[v F18450 `a ~T0 @X0 1 s is_protecting2 ]
+[i F18450
 -> -> 0 `i `a
 ]
 "126
-[v F18283 `uc ~T0 @X0 1 s protection_count ]
-[i F18283
--> -> 0 `i `uc
+[v F18451 `a ~T0 @X0 1 s in_protection_period ]
+[i F18451
+-> -> 0 `i `a
+]
+"127
+[v F18452 `a ~T0 @X0 1 s permanent_protection ]
+[i F18452
+-> -> 0 `i `a
 ]
 "128
+[v F18453 `uc ~T0 @X0 1 s protection_count ]
+[i F18453
+-> -> 0 `i `uc
+]
+"130
 [v _outprotect `uc ~T0 @X0 1 a ]
 [e = _outprotect -> ( _Voltage_Judgment (1 . `E17462 9 `uc ]
-"131
-[e $ ! != -> F18281 `i -> 0 `i 2436  ]
-"132
-{
 "133
-[e $ ! >= _protect1time -> -> -> 5000 `i `l `ul 2437  ]
+[e $ ! != -> F18451 `i -> 0 `i 2437  ]
 "134
 {
 "135
-[e = F18281 -> -> 0 `i `a ]
+[e $ ! >= _protect1time -> -> -> 5000 `i `l `ul 2438  ]
 "136
-[e = _V_Ret1 -> -> 0 `i `us ]
-"137
-[e = _g_uDimmingLevel_CH1 -> -> 100 `i `uc ]
-"138
-}
-[e :U 2437 ]
-"139
-[e $UE 2435  ]
-"140
-}
-[e :U 2436 ]
-"142
-[e $ ! != -> F18282 `i -> 0 `i 2438  ]
-"143
 {
-"144
-[e = _V_Ret1 -> -> 1 `i `us ]
-"145
-[e $UE 2435  ]
-"146
+"137
+[e = F18451 -> -> 0 `i `a ]
+"138
+[e = _V_Ret1 -> -> 0 `i `us ]
+"140
+[e = _g_uStateChannel1 -> -> 1 `i `uc ]
+"142
 }
 [e :U 2438 ]
-"149
-[e $ ! == -> _outprotect `i -> 1 `i 2439  ]
-"150
-{
-"151
-[e $ ! ! != -> F18279 `i -> 0 `i 2440  ]
-"152
-{
-"154
-[e = F18277 ( _get_systemtick_time ..  ]
-"155
-[e = F18279 -> -> 1 `i `a ]
-"156
+"143
+[e $UE 2436  ]
+"144
 }
-[e $U 2441  ]
-"157
-[e :U 2440 ]
-"158
+[e :U 2437 ]
+"146
+[e $ ! != -> F18452 `i -> 0 `i 2439  ]
+"147
 {
-"159
-[e $ ! > _protect1time -> -> -> 1000 `i `l `ul 2442  ]
-"160
-{
-"162
+"148
 [e = _V_Ret1 -> -> 1 `i `us ]
-"163
-[e = F18281 -> -> 1 `i `a ]
-"164
-[e = F18277 ( _get_systemtick_time ..  ]
-"165
-[e = F18279 -> -> 0 `i `a ]
-"167
-[e ++ F18283 -> -> 1 `i `uc ]
-"168
-[e $ ! >= -> F18283 `i -> 5 `i 2443  ]
-"169
+"149
+[e $UE 2436  ]
+"150
+}
+[e :U 2439 ]
+"153
+[e $ ! == -> _outprotect `i -> 1 `i 2440  ]
+"154
 {
-"170
-[e = F18282 -> -> 1 `i `a ]
+"155
+[e $ ! ! != -> F18449 `i -> 0 `i 2441  ]
+"156
+{
+"158
+[e = F18447 ( _get_systemtick_time ..  ]
+"159
+[e = F18449 -> -> 1 `i `a ]
+"160
+}
+[e $U 2442  ]
+"161
+[e :U 2441 ]
+"162
+{
+"163
+[e $ ! > _protect1time -> -> -> 1000 `i `l `ul 2443  ]
+"164
+{
+"166
+[e = _V_Ret1 -> -> 1 `i `us ]
+"167
+[e = F18451 -> -> 1 `i `a ]
+"168
+[e = F18447 ( _get_systemtick_time ..  ]
+"169
+[e = F18449 -> -> 0 `i `a ]
 "171
+[e ++ F18453 -> -> 1 `i `uc ]
+"172
+[e $ ! >= -> F18453 `i -> 5 `i 2444  ]
+"173
+{
+"174
+[e = F18452 -> -> 1 `i `a ]
+"175
+}
+[e :U 2444 ]
+"176
 }
 [e :U 2443 ]
-"172
+"177
 }
 [e :U 2442 ]
-"173
-}
-[e :U 2441 ]
-"174
-}
-[e $U 2444  ]
-"175
-[e :U 2439 ]
-[e $ ! == -> _outprotect `i -> 2 `i 2445  ]
-"176
-{
-"177
-[e $ ! ! != -> F18280 `i -> 0 `i 2446  ]
 "178
-{
+}
+[e $U 2445  ]
+"179
+[e :U 2440 ]
+[e $ ! == -> _outprotect `i -> 2 `i 2446  ]
 "180
-[e = F18277 ( _get_systemtick_time ..  ]
+{
 "181
-[e = F18280 -> -> 1 `i `a ]
+[e $ ! ! != -> F18450 `i -> 0 `i 2447  ]
 "182
-}
-[e $U 2447  ]
-"183
-[e :U 2446 ]
+{
 "184
-{
+[e = F18447 ( _get_systemtick_time ..  ]
 "185
-[e $ ! > _protect1time -> -> -> 200 `i `l `ul 2448  ]
+[e = F18450 -> -> 1 `i `a ]
 "186
-{
-"188
-[e = _V_Ret1 -> -> 2 `i `us ]
-"189
-[e = F18280 -> -> 0 `i `a ]
-"191
 }
-[e :U 2448 ]
-"192
-}
+[e $U 2448  ]
+"187
 [e :U 2447 ]
-"194
-}
-[e $U 2449  ]
-"196
-[e :U 2445 ]
-"197
+"188
 {
-"198
-[e = _V_Ret1 -> -> 0 `i `us ]
-"200
-[e = F18279 -> -> 0 `i `a ]
-"201
-[e = F18280 -> -> 0 `i `a ]
-"202
+"189
+[e $ ! > _protect1time -> -> -> 200 `i `l `ul 2449  ]
+"190
+{
+"192
+[e = _V_Ret1 -> -> 2 `i `us ]
+"193
+[e = F18450 -> -> 0 `i `a ]
+"195
 }
 [e :U 2449 ]
-[e :U 2444 ]
-"203
-[e :UE 2435 ]
+"196
 }
+[e :U 2448 ]
+"198
+}
+[e $U 2450  ]
+"200
+[e :U 2446 ]
+"201
+{
+"202
+[e = _V_Ret1 -> -> 0 `i `us ]
+"204
+[e = F18449 -> -> 0 `i `a ]
 "205
-[v _OutProtected_CH2 `(v ~T0 @X0 1 ef ]
+[e = F18450 -> -> 0 `i `a ]
 "206
+}
+[e :U 2450 ]
+[e :U 2445 ]
+"207
+[e :UE 2436 ]
+}
+"209
+[v _OutProtected_CH2 `(v ~T0 @X0 1 ef ]
+"210
 {
 [e :U _OutProtected_CH2 ]
 [f ]
-"208
-[v F18286 `ul ~T0 @X0 1 s timesys2 ]
-[i F18286
+"212
+[v F18456 `ul ~T0 @X0 1 s timesys2 ]
+[i F18456
 -> -> -> 0 `i `l `ul
 ]
-"209
+"213
 [v _protect2time `ul ~T0 @X0 1 a ]
-[e = _protect2time ( _get_elapsed_since (1 F18286 ]
-"210
-[v F18288 `a ~T0 @X0 1 s is_protecting3 ]
-[i F18288
--> -> 0 `i `a
-]
-"211
-[v F18289 `a ~T0 @X0 1 s is_protecting4 ]
-[i F18289
--> -> 0 `i `a
-]
+[e = _protect2time ( _get_elapsed_since (1 F18456 ]
 "214
+[v F18458 `a ~T0 @X0 1 s is_protecting3 ]
+[i F18458
+-> -> 0 `i `a
+]
+"215
+[v F18459 `a ~T0 @X0 1 s is_protecting4 ]
+[i F18459
+-> -> 0 `i `a
+]
+"218
 [v _outprotect2 `us ~T0 @X0 1 a ]
 [e = _outprotect2 ( _Voltage_Judgment (1 . `E17462 7 ]
-"216
-[e $ ! == -> _outprotect2 `ui -> -> 1 `i `ui 2451  ]
-"217
-{
-"218
-[e $ ! ! != -> F18288 `i -> 0 `i 2452  ]
-"219
-{
+"220
+[e $ ! == -> _outprotect2 `ui -> -> 1 `i `ui 2452  ]
 "221
-[e = F18286 ( _get_systemtick_time ..  ]
+{
 "222
-[e = F18288 -> -> 1 `i `a ]
+[e $ ! ! != -> F18458 `i -> 0 `i 2453  ]
 "223
-}
-[e $U 2453  ]
-"224
-[e :U 2452 ]
+{
 "225
-{
+[e = F18456 ( _get_systemtick_time ..  ]
 "226
-[e $ ! > _protect2time -> -> -> 1000 `i `l `ul 2454  ]
+[e = F18458 -> -> 1 `i `a ]
 "227
-{
+}
+[e $U 2454  ]
+"228
+[e :U 2453 ]
 "229
-[e = _V_Ret2 -> -> 1 `i `us ]
+{
 "230
-[e = F18288 -> -> 0 `i `a ]
+[e $ ! > _protect2time -> -> -> 1000 `i `l `ul 2455  ]
 "231
+{
+"233
+[e = _V_Ret2 -> -> 1 `i `us ]
+"234
+[e = F18458 -> -> 0 `i `a ]
+"235
+}
+[e :U 2455 ]
+"236
 }
 [e :U 2454 ]
-"232
-}
-[e :U 2453 ]
-"233
-}
-[e $U 2455  ]
-"234
-[e :U 2451 ]
-[e $ ! == -> _outprotect2 `ui -> -> 2 `i `ui 2456  ]
-"235
-{
-"236
-[e $ ! ! != -> F18289 `i -> 0 `i 2457  ]
 "237
-{
+}
+[e $U 2456  ]
+"238
+[e :U 2452 ]
+[e $ ! == -> _outprotect2 `ui -> -> 2 `i `ui 2457  ]
 "239
-[e = F18286 ( _get_systemtick_time ..  ]
+{
 "240
-[e = F18289 -> -> 1 `i `a ]
+[e $ ! ! != -> F18459 `i -> 0 `i 2458  ]
 "241
-}
-[e $U 2458  ]
-"242
-[e :U 2457 ]
+{
 "243
-{
+[e = F18456 ( _get_systemtick_time ..  ]
 "244
-[e $ ! > _protect2time -> -> -> 200 `i `l `ul 2459  ]
+[e = F18459 -> -> 1 `i `a ]
 "245
-{
-"247
-[e = _V_Ret2 -> -> 2 `i `us ]
-"248
-[e = F18289 -> -> 0 `i `a ]
-"249
 }
-[e :U 2459 ]
-"250
-}
+[e $U 2459  ]
+"246
 [e :U 2458 ]
-"252
-}
-[e $U 2460  ]
-"254
-[e :U 2456 ]
-"255
+"247
 {
-"256
-[e = _V_Ret2 -> -> 0 `i `us ]
-"258
-[e = F18288 -> -> 0 `i `a ]
-"259
-[e = F18289 -> -> 0 `i `a ]
-"260
+"248
+[e $ ! > _protect2time -> -> -> 200 `i `l `ul 2460  ]
+"249
+{
+"251
+[e = _V_Ret2 -> -> 2 `i `us ]
+"252
+[e = F18459 -> -> 0 `i `a ]
+"253
 }
 [e :U 2460 ]
-[e :U 2455 ]
-"261
-[e :UE 2450 ]
+"254
 }
+[e :U 2459 ]
+"256
+}
+[e $U 2461  ]
+"258
+[e :U 2457 ]
+"259
+{
+"260
+[e = _V_Ret2 -> -> 0 `i `us ]
+"262
+[e = F18458 -> -> 0 `i `a ]
 "263
-[v _OutProtectedTask `(v ~T0 @X0 1 ef ]
+[e = F18459 -> -> 0 `i `a ]
 "264
+}
+[e :U 2461 ]
+[e :U 2456 ]
+"265
+[e :UE 2451 ]
+}
+"269
+[v _ProtectionCheck `(uc ~T0 @X0 1 ef ]
+"270
+{
+[e :U _ProtectionCheck ]
+[f ]
+"271
+[e $ ! != -> _g_uInputVoltageNormalFlag `i -> 1 `i 2463  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2462  ]
+[e :U 2463 ]
+"273
+[e $ ! == -> _g_uBootUpgradeFlag `i -> 1 `i 2464  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2462  ]
+[e :U 2464 ]
+"275
+[e $ ! == -> _g_uTemperatureProtection `i -> 2 `i 2465  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2462  ]
+[e :U 2465 ]
+"277
+[e $ ! && < -> _g_uDimmingLevel_CH1 `i -> 1 `i < -> _g_uDimmingLevel_CH2 `i -> 1 `i 2466  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2462  ]
+[e :U 2466 ]
+"279
+[e $ ! && != -> _V_Ret1 `ui -> -> 0 `i `ui != -> _V_Ret2 `ui -> -> 0 `i `ui 2467  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2462  ]
+[e :U 2467 ]
+"281
+[e $ ! != -> _V_Ret1 `ui -> -> 0 `i `ui 2468  ]
+[e ) -> -> 2 `i `uc ]
+[e $UE 2462  ]
+[e :U 2468 ]
+"283
+[e $ ! != -> _V_Ret2 `ui -> -> 0 `i `ui 2469  ]
+[e ) -> -> 3 `i `uc ]
+[e $UE 2462  ]
+[e :U 2469 ]
+"285
+[e ) -> -> 0 `i `uc ]
+[e $UE 2462  ]
+"286
+[e :UE 2462 ]
+}
+"289
+[v _OutProtectedTask `(v ~T0 @X0 1 ef ]
+"290
 {
 [e :U _OutProtectedTask ]
 [f ]
-"265
-[e $ ! != -> _g_uInputVoltageNormalFlag `i -> 1 `i 2462  ]
-[e $UE 2461  ]
-[e :U 2462 ]
-"266
-[e $ ! == -> _g_uPidRunChannel `i -> 0 `i 2463  ]
-[e $UE 2461  ]
-[e :U 2463 ]
-"267
+"291
+[e $ ! != -> _g_uInputVoltageNormalFlag `i -> 1 `i 2471  ]
+[e $UE 2470  ]
+[e :U 2471 ]
+"292
+[e $ ! != -> _g_uPowerOnOutputStart `i -> 1 `i 2472  ]
+[e $UE 2470  ]
+[e :U 2472 ]
+"293
 [e ( _OutProtected_CH1 ..  ]
-"268
+"294
 [e ( _OutProtected_CH2 ..  ]
-"269
-[e :UE 2461 ]
+"295
+[e :UE 2470 ]
 }

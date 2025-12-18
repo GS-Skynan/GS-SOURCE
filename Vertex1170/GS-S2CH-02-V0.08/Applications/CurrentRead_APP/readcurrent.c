@@ -25,20 +25,28 @@ void ReadTargetPower(uint8_t* NfcPowerBuff)
     uint16_t TargetPowerCH1, TargetPowerCH2;
     /*1通道*/
     TargetPowerCH1 = extractAndCombineEEPROMData(NfcPowerBuff[2], NfcPowerBuff[3]); // 从I2C接收数据的第2和第3字节提取并组合成16位功率保持值
-    if (TargetPowerCH1 >= TARGET_POWER_CHANNEL1_MAX) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MAX; 
-    if (TargetPowerCH1 < TARGET_POWER_CHANNEL1_MIN) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MIN; 
-    g_uTargetPowerChannel1 = TargetPowerCH1; 
-    g_uDimmingLevel_CH1 = NfcPowerBuff[0]; 
-    if (g_uDimmingLevel_CH1 >= 0x64)g_uDimmingLevel_CH1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
+    if (TargetPowerCH1 >= TARGET_POWER_CHANNEL1_MAX) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MAX;
+    if (TargetPowerCH1 < TARGET_POWER_CHANNEL1_MIN) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MIN;
+    g_uTargetPowerChannel1 = TargetPowerCH1;
 
+    g_uDimmingLevel_CH1 = NfcPowerBuff[0];
+    if (g_uDimmingLevel_CH1 != 0x00)
+    {
+        if (g_uDimmingLevel_CH1 <= 0x14)g_uDimmingLevel_CH1 = 0x14;
+        if (g_uDimmingLevel_CH1 >= 0x64)g_uDimmingLevel_CH1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
+    }
     /*2通道*/
     TargetPowerCH2 = extractAndCombineEEPROMData(NfcPowerBuff[6], NfcPowerBuff[7]); // 从I2C接收数据的第6和第7字节提取并组合成16位功率保持值
-    if (TargetPowerCH2 >= TARGET_POWER_CHANNEL2_MAX) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MAX; 
-    if (TargetPowerCH2 < TARGET_POWER_CHANNEL2_MIN) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MIN; 
-    g_uTargetPowerChannel2 = TargetPowerCH2; 
-    g_uDimmingLevel_CH2 = NfcPowerBuff[4]; 
-    if (g_uDimmingLevel_CH2 >= 0x64)g_uDimmingLevel_CH2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
-  
+    if (TargetPowerCH2 >= TARGET_POWER_CHANNEL2_MAX) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MAX;
+    if (TargetPowerCH2 < TARGET_POWER_CHANNEL2_MIN) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MIN;
+    g_uTargetPowerChannel2 = TargetPowerCH2;
+    
+    g_uDimmingLevel_CH2 = NfcPowerBuff[4];
+   if (g_uDimmingLevel_CH2 != 0x00)
+    {
+        if (g_uDimmingLevel_CH2 <= 0x14)g_uDimmingLevel_CH2 = 0x14;
+        if (g_uDimmingLevel_CH2 >= 0x64)g_uDimmingLevel_CH2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
+    }
 }
 
 void ActualPowerTime(uint8_t* NfcTimeBuff)
@@ -147,7 +155,7 @@ void NFCRead_APPInit(void)
     READ_NFC_SET_START();
     Read_NFC_Data(0x0000, I2C_receiveData, MAX_NFC_DATA_LENGTH);
     __delay_ms(10); // 必须有延时 
-    
+
     ReadTargetPower(I2C_receiveData);
     ActualPowerTime(I2C_receiveData);
     ReadCalibration();
@@ -157,7 +165,7 @@ void NFCRead_APPInit(void)
 
 
 uint16_t g_uChanne1Power;
-uint16_t g_uChanne2Power; 
+uint16_t g_uChanne2Power;
 
 uint16_t Power_Compensation(void)
 {
@@ -188,6 +196,6 @@ uint16_t Power_Compensation(void)
     if (temp < 20) temp = 20;
     if (temp > SetPowerValue) temp = SetPowerValue;
 
-    uint16_t  g_uTargetPower = (uint16_t) temp;
+    uint16_t g_uTargetPower = (uint16_t) temp;
     return g_uTargetPower;
 }

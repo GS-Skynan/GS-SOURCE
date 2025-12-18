@@ -2363,8 +2363,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _BootFlagSetJump ]
 [f ]
-[v F18383 `uc ~T0 @X0 -> 6 `i s ]
-[i F18383
+[v F18379 `uc ~T0 @X0 -> 6 `i s ]
+[i F18379
 :U ..
 "77
 -> -> 6 `i `uc
@@ -2376,7 +2376,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _magic_data `uc ~T0 @X0 -> 6 `i a ]
-[e = _magic_data F18383 ]
+[e = _magic_data F18379 ]
 "86
 [v _checksum_value `us ~T0 @X0 1 a ]
 [e = _checksum_value ( _BootCalculateChecksum (2 , -> &U _magic_data `*Cuc -> -> 6 `i `uc ]

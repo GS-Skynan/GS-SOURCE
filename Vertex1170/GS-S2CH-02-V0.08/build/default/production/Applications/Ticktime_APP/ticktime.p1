@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F18004 `(v ~T0 @X0 0 tf ]
-[v F18006 `(v ~T0 @X0 0 tf ]
-[v F18008 `(v ~T0 @X0 0 tf ]
-[v F18020 `(v ~T0 @X0 0 tf ]
+[v F17997 `(v ~T0 @X0 0 tf ]
+[v F17999 `(v ~T0 @X0 0 tf ]
+[v F18001 `(v ~T0 @X0 0 tf ]
+[v F18013 `(v ~T0 @X0 0 tf ]
 "85 Applications/Ticktime_APP/ticktime.c
-[c E18025 0 1 .. ]
-[n E18025 . LED_OFF LED_ON  ]
+[c E18018 0 1 .. ]
+[n E18018 . L_LED_OFF L_LED_ON  ]
 "20 DriverLayer/GPIO/GPIO_driver.h
 [v _Led_On `(v ~T0 @X0 0 ef ]
 "21
@@ -1744,14 +1744,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 "18
-[v _g_pTaskScheduleFunc `*F18004 ~T0 @X0 1 s ]
+[v _g_pTaskScheduleFunc `*F17997 ~T0 @X0 1 s ]
 "20
-[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F18006 ]
+[v _TaskScheduleCbReg `(v ~T0 @X0 1 ef1`*F17999 ]
 "21
 {
 [e :U _TaskScheduleCbReg ]
 "20
-[v _pFunc `*F18008 ~T0 @X0 1 r1 ]
+[v _pFunc `*F18001 ~T0 @X0 1 r1 ]
 "21
 [f ]
 "22
@@ -1789,22 +1789,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _TaskHandler_Time ]
 [f ]
 "36
-[v F18019 `us ~T0 @X0 1 s ledtime ]
+[v F18012 `us ~T0 @X0 1 s ledtime ]
 "37
-[e ++ F18019 -> -> 1 `i `us ]
+[e ++ F18012 -> -> 1 `i `us ]
 "38
-[e $ ! == -> F18019 `ui -> -> 200 `i `ui 2423  ]
+[e $ ! == -> F18012 `ui -> -> 200 `i `ui 2423  ]
 "39
 {
 "41
-[e = F18019 -> -> 0 `i `us ]
+[e = F18012 -> -> 0 `i `us ]
 "42
 }
 [e :U 2423 ]
 "44
 [e ++ _system_tick -> -> 1 `i `Vul ]
 "46
-[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18020 2424  ]
+[e $ ! == _g_pTaskScheduleFunc -> -> -> 0 `i `*v `*F18013 2424  ]
 "47
 {
 "48
@@ -1871,18 +1871,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LED_Task ]
 [f ]
 "85
-[v F18030 `E18025 ~T0 @X0 1 s led_state ]
-[i F18030
-. `E18025 0
+[v F18023 `E18018 ~T0 @X0 1 s led_state ]
+[i F18023
+. `E18018 0
 ]
 "86
-[v F18031 `ul ~T0 @X0 1 s last_led_change_time ]
-[i F18031
+[v F18024 `ul ~T0 @X0 1 s last_led_change_time ]
+[i F18024
 -> -> -> 0 `i `l `ul
 ]
 "87
 [v _elapsed `ul ~T0 @X0 1 a ]
-[e = _elapsed ( _get_elapsed_since (1 F18031 ]
+[e = _elapsed ( _get_elapsed_since (1 F18024 ]
 "89
 [e $U 2431  ]
 {
@@ -1895,9 +1895,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [e ( _Led_On ..  ]
 "94
-[e = F18030 . `E18025 1 ]
+[e = F18023 . `E18018 1 ]
 "95
-[e = F18031 ( _get_systemtick_time ..  ]
+[e = F18024 ( _get_systemtick_time ..  ]
 "96
 }
 [e :U 2433 ]
@@ -1912,9 +1912,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "102
 [e ( _Led_Off ..  ]
 "103
-[e = F18030 . `E18025 0 ]
+[e = F18023 . `E18018 0 ]
 "104
-[e = F18031 ( _get_systemtick_time ..  ]
+[e = F18024 ( _get_systemtick_time ..  ]
 "105
 }
 [e :U 2435 ]
@@ -1924,8 +1924,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2430  ]
 [e :U 2431 ]
-[e [\ -> F18030 `ui , $ -> . `E18025 0 `ui 2432
- , $ -> . `E18025 1 `ui 2434
+[e [\ -> F18023 `ui , $ -> . `E18018 0 `ui 2432
+ , $ -> . `E18018 1 `ui 2434
  2430 ]
 [e :U 2430 ]
 "108

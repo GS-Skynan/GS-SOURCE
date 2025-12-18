@@ -25,7 +25,7 @@
 #define CURRENT_CH2_R1  720.0f
 #define CURRENT_CH2_R2  10680.0f
 
-volatile uint8_t g_uPidRunChannel = 0;
+uint8_t g_uPowerOnOutputStart = 0;
 
 uint8_t g_bPfcRunFlag = 1;
 float g_u8PowerOutputValue = 0;
@@ -72,24 +72,21 @@ float GetChannelCurrentValue(adc_channel_t channel)
     return (g_uTargetCurrentValue * 1000.0f); // 统一转换为毫安(mA)单位
 }
 
-/*1关全部  2 关1  3关2*/
-uint8_t ProtectionCheck(void)
+void GetDimmingValue(uint8_t *r_dimming)
 {
-    if (g_uInputVoltageNormalFlag != 1) return 1;
+    if (r_dimming[8] != 0x00)
+    {
+        if (r_dimming[8] <= 0x14)r_dimming[8] = 0x14;
+        if (r_dimming[8] >= 0x64)r_dimming[8] = 0x64;
+    }
+    g_uDimmingLevel_CH1 = r_dimming[8]; //第一通道
 
-    if (g_uBootUpgradeFlag == 1) return 1;
-
-    if (g_uTemperatureProtection == 2) return 1;
-
-    if (g_uDimmingLevel_CH1 < 0x01 && g_uDimmingLevel_CH2 < 0x01)return 1;
-
-    if ((V_Ret1 != 0)&&(V_Ret2 != 0)) return 1;
-
-    if (V_Ret1 != 0) return 2;
-
-    if (V_Ret2 != 0) return 3;
-
-    return 0;
+    if (r_dimming[10] != 0x00)
+    {
+        if (r_dimming[10] <= 0x14)r_dimming[10] = 0x14;
+        if (r_dimming[10] >= 0x64)r_dimming[10] = 0x64;
+        }
+    g_uDimmingLevel_CH2 = r_dimming[10]; //第二通道
 }
 
 void ClearChannelValue(uint8_t channel)
@@ -97,14 +94,14 @@ void ClearChannelValue(uint8_t channel)
     if (channel == 1)
     {
         PIDDimming_Clear(&piddimmingChannel1);
-        g_uDimmingLevel_CH1 = 0;
+        // g_uDimmingLevel_CH1 = 0;
         g_u8PowerOutputValue = 0;
     }
 
     else if (channel == 2)
     {
         PIDDimming_Clear(&piddimmingChannel2);
-        g_uDimmingLevel_CH2 = 0;
+        //g_uDimmingLevel_CH2 = 0;
         g_uChanne2Power = 0;
     }
 
@@ -113,7 +110,7 @@ void ClearChannelValue(uint8_t channel)
         PIDDimming_Clear(&piddimmingChannel1);
         PIDDimming_Clear(&piddimmingChannel2);
         g_bPfcRunFlag = 1;
-        g_uPidRunChannel = 0;
+        g_uPowerOnOutputStart = 0;
         g_u8PowerOutputValue = 0;
 
     }
@@ -121,68 +118,36 @@ void ClearChannelValue(uint8_t channel)
 
 
 
-static uint8_t g_uStateChannel1AndCh2 = 0;
-
-void LightOnChannel1AndChannel2(void)
-{
-    static uint32_t LastTimeChannel1 = 0;
-    uint32_t NowTimeChannel1 = get_elapsed_since(LastTimeChannel1); // 获取当前系统时间（毫秒）
-    switch (g_uStateChannel1AndCh2) {
-    case 0: // 第一步：打开继电器1
-        RELAY_On(RELAY_CHANNEL1);
-        RELAY_On(RELAY_CHANNEL2);
-        LastTimeChannel1 = get_systemtick_time();
-        g_uStateChannel1AndCh2 = 1;
-        break;
-
-    case 1:
-        if (NowTimeChannel1 > 200)
-        {
-            L6562_On(L6562_CHANNEL1);
-            L6562_On(L6562_CHANNEL2);
-            LastTimeChannel1 = get_systemtick_time();
-            g_uStateChannel1AndCh2 = 2;
-
-        }
-        break;
-
-    case 2:
-        g_uPidRunChannel = 3;
-        break;
-
-    }
-}
-
-static uint8_t g_uStateChannel1 = 0;
+uint8_t g_uStateChannel1 = 0;
 
 void LightOnChannel1(void)
 {
 
-    static uint32_t lastime1 = 0;
-    uint32_t now1 = get_elapsed_since(lastime1); // 获取当前系统时间（毫秒）
+    static uint32_t LastTimeChannel1 = 0;
+    uint32_t NowTimeChannel1 = get_elapsed_since(LastTimeChannel1); // 获取当前系统时间（毫秒）
 
     switch (g_uStateChannel1) {
-    case 0: // 第一步：打开继电器1
+    case 1: // 第一步：打开继电器1
         RELAY_On(RELAY_CHANNEL1);
-        lastime1 = get_systemtick_time();
-        g_uStateChannel1 = 1;
+        LastTimeChannel1 = get_systemtick_time();
+        g_uStateChannel1 = 2;
         break;
-    case 1:
-        if (now1 > 200)
+    case 2:
+        if (NowTimeChannel1 > 200)
         {
             L6562_On(L6562_CHANNEL1);
-            lastime1 = get_systemtick_time();
-            g_uStateChannel1 = 2;
+            LastTimeChannel1 = get_systemtick_time();
+            g_uStateChannel1 = 3;
         }
         break;
 
-    case 2:
+    case 3:
         piddimmingChannel1.voltage = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (1087.5f / 7.5f);
         piddimmingChannel1.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT1) * piddimmingChannel1.voltage / 1000.0f;
         piddimmingChannel1.targetPower = update_pwm_output_ch1(g_u8PowerOutputValue);
         piddimmingChannel1.pwmValue = PID_Compute(&pid1, piddimmingChannel1.targetPower, piddimmingChannel1.actualPower);
         PWM_Set_Direct(PWM_CHANNEL_1, piddimmingChannel1.pwmValue);
-        g_uPidRunChannel = 1;
+        g_uPowerOnOutputStart = 1;
         break;
     }
 }
@@ -193,33 +158,32 @@ static uint8_t g_uStateChannel2 = 0;
 void LightOnChannel2(void)
 {
 
-    static uint32_t lastime2 = 0;
-    uint32_t now2 = get_elapsed_since(lastime2); // 获取当前系统时间（毫秒）
+    static uint32_t LastTimeChannel2 = 0;
+    uint32_t NowTimeChannel2 = get_elapsed_since(LastTimeChannel2); // 获取当前系统时间（毫秒）
 
     switch (g_uStateChannel2) {
-    case 0: // 第一步：打开继电器1
+    case 1: // 第一步：打开继电器1
         RELAY_On(RELAY_CHANNEL2);
-        lastime2 = get_systemtick_time();
-        g_uStateChannel2 = 1;
-        break;
-
-    case 1:
-        if (now2 > 100)
-        {
-            L6562_On(L6562_CHANNEL2);
-            lastime2 = get_systemtick_time();
-            g_uStateChannel2 = 2;
-        }
+        LastTimeChannel2 = get_systemtick_time();
+        g_uStateChannel2 = 2;
         break;
 
     case 2:
+        if (NowTimeChannel2 > 200)
+        {
+            L6562_On(L6562_CHANNEL2);
+            LastTimeChannel2 = get_systemtick_time();
+            g_uStateChannel2 = 3;
+        }
+        break;
+
+    case 3:
         piddimmingChannel2.voltage = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
         piddimmingChannel2.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT2) * piddimmingChannel2.voltage / 1000.0f;
         piddimmingChannel2.targetPower = update_pwm_output_ch2(g_uChanne2Power);
         piddimmingChannel2.pwmValue = PID_Compute(&pid2, piddimmingChannel2.targetPower, piddimmingChannel2.actualPower);
         PWM_Set_Direct(PWM_CHANNEL_2, piddimmingChannel2.pwmValue);
-        g_uPidRunChannel = 2;
-
+        g_uPowerOnOutputStart = 1;
         break;
 
     }
@@ -228,135 +192,111 @@ void LightOnChannel2(void)
 typedef enum
 {
     PFC_ON = 1,
-    LED_ON_12CH,
-    LED_ON_1CH,
-    LED_ON_2CH,
+    LED_ON_ALL,
+    LED_ON_CH1,
+    LED_ON_CH2,
     LED_OFF,
-} eSTART;
+} eLIGHT_START;
 
 void LightOnLogic(void)
 {
-    static eSTART state = LED_OFF;
-    static uint32_t last_state_change_time = 0;
-    uint32_t state_elapsed = get_elapsed_since(last_state_change_time);
+    static eLIGHT_START start = LED_OFF;
+    static uint32_t LastLightLogicTime = 0;
+    uint32_t NowLightLogicTime = get_elapsed_since(LastLightLogicTime);
+
 
     if ((g_uDimmingLevel_CH1 > 0x01 || g_uDimmingLevel_CH2 > 0x01) && g_bPfcRunFlag == 1)
     {
-        last_state_change_time = get_systemtick_time();
-        state = PFC_ON;
+        LastLightLogicTime = get_systemtick_time();
+        start = PFC_ON;
         g_bPfcRunFlag = 0;
     }
 
-    switch (state) {
+
+    switch (start) {
     case PFC_ON:
         PFC_On();
-        if (state_elapsed > 800)
+        if (NowLightLogicTime > 800)
         {
             if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
             {
-                state = LED_ON_12CH;
-                g_uStateChannel1 = 0;
-                g_uStateChannel2 = 0;
-                //  g_uStateChannel1AndCh2 = 0;
+                start = LED_ON_ALL;
+                g_uStateChannel1 = 1;
+                g_uStateChannel2 = 1;
             }
             if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
             {
-                state = LED_ON_1CH;
-                g_uStateChannel1 = 0;
+                start = LED_ON_CH1;
+                g_uStateChannel1 = 1;
 
             }
             if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
             {
-                state = LED_ON_2CH;
-                g_uStateChannel2 = 0;
+                start = LED_ON_CH2;
+                g_uStateChannel2 = 1;
             }
-            last_state_change_time = get_systemtick_time();
+            LastLightLogicTime = get_systemtick_time();
         }
         break;
 
-    case LED_ON_12CH:
-      //  LightOnChannel1AndChannel2();
-          LightOnChannel1();   
-          LightOnChannel2();
+    case LED_ON_ALL:
+        LightOnChannel1();
+        LightOnChannel2();
+
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
         {
             LightPowerOff(LED_CHANNEL2_OFF);
-            state = LED_ON_1CH;
-            g_uStateChannel1 = 0;
+            start = LED_ON_CH1;
+            g_uStateChannel1 = 1;
 
         }
         if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
         {
             LightPowerOff(LED_CHANNEL1_OFF);
-            state = LED_ON_2CH;
-            g_uStateChannel2 = 0;
+            start = LED_ON_CH2;
+            g_uStateChannel2 = 1;
         }
 
         break;
 
 
-    case LED_ON_1CH:
-
+    case LED_ON_CH1:
         LightOnChannel1();
+
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
         {
-            state = LED_ON_12CH;
-            //  g_uStateChannel1AndCh2 = 0;
-            g_uStateChannel1 = 0;
-            g_uStateChannel2 = 0;
+            start = LED_ON_ALL;
+            g_uStateChannel1 = 1;
+            g_uStateChannel2 = 1;
         }
         if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
         {
             LightPowerOff(LED_CHANNEL1_OFF);
-            state = LED_ON_2CH;
-            g_uStateChannel2 = 0;
+            start = LED_ON_CH2;
+            g_uStateChannel2 = 1;
         }
         break;
 
-    case LED_ON_2CH:
-
+    case LED_ON_CH2:
 
         LightOnChannel2();
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
         {
-            state = LED_ON_12CH;
-           // g_uStateChannel1AndCh2 = 0;
-                 g_uStateChannel1 = 0;
-            g_uStateChannel2 = 0;
+            start = LED_ON_ALL;
+            g_uStateChannel1 = 1;
+            g_uStateChannel2 = 1;
         }
 
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
         {
             LightPowerOff(LED_CHANNEL2_OFF);
-            state = LED_ON_1CH;
-            g_uStateChannel1 = 0;
+            start = LED_ON_CH1;
+            g_uStateChannel1 = 1;
         }
 
         break;
 
     }
-}
-
-void PIDCH12(void)
-{
-
-//    if (g_uPidRunChannel == 1 || g_uPidRunChannel == 3)
-//    {
-//        piddimmingChannel1.voltage = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (1087.5f / 7.5f);
-//        piddimmingChannel1.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT1) * piddimmingChannel1.voltage / 1000.0f;
-//        piddimmingChannel1.targetPower = update_pwm_output_ch1(g_u8PowerOutputValue);
-//        piddimmingChannel1.pwmValue = PID_Compute(&pid1, piddimmingChannel1.targetPower, piddimmingChannel1.actualPower);
-//        PWM_Set_Direct(PWM_CHANNEL_1, piddimmingChannel1.pwmValue);
-//    }
-//
-//    if (g_uPidRunChannel == 2 || g_uPidRunChannel == 3)
-//    {
-//        piddimmingChannel2.voltage = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
-//        piddimmingChannel2.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT2) * piddimmingChannel2.voltage / 1000.0f;
-//        piddimmingChannel2.targetPower = update_pwm_output_ch2(g_uChanne2Power);
-//        piddimmingChannel2.pwmValue = PID_Compute(&pid2, piddimmingChannel2.targetPower, piddimmingChannel2.actualPower);
-//        PWM_Set_Direct(PWM_CHANNEL_2, piddimmingChannel2.pwmValue);
-//    }
 }
 
 void DimmingControlTask(void)
@@ -391,14 +331,17 @@ void DimmingControlTask(void)
         lastExecState = 0;
         g_uFaultCode = 0;
     }
+
+    if (ProtectionState == 1) return;
+
     g_u8PowerOutputValue = (float) Power_Compensation();
+
     if (g_bPowerDownFlag == 1 || g_uTemperatureProtection == 1)
     {
-        g_u8PowerOutputValue = g_u8PowerOutputValue / 2;
+        g_u8PowerOutputValue = (float) (g_uTargetPowerChannel1 / 2);
     }
 
     LightOnLogic();
-    PIDCH12();
 }
 
 void Display(void)
@@ -417,8 +360,8 @@ void Display(void)
 
     printf("Temp:%.2f|\n\r ", Temp_Res);
     printf("V:%d\n\r", ADC_Result2(Output1_voltage_ADC));
-    printf("pid:%d|\n\r ", g_uPidRunChannel);
-    printf("%d|%d\n\r ", V_Ret1, V_Ret2);
+    printf("pid:%d|\n\r ", g_uPowerOnOutputStart);
+    // printf("%d|%d\n\r ", V_Ret1, V_Ret2);
     printf("%d|\n\r ", ProtectionCheck());
     //  printf("%.2f\r\n",g_PoweProtect2);
 

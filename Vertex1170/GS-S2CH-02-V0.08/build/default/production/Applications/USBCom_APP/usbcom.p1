@@ -17,18 +17,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
 "50 Middlewares/CRC/crc.h
 [v _CRC16 `(ui ~T0 @X0 0 ef2`*uc`uc ]
-"10 Applications/CurrentRead_APP/readcurrent.h
-[v _g_uDimmingLevel_CH1 `uc ~T0 @X0 0 e ]
-[v _g_uDimmingLevel_CH2 `uc ~T0 @X0 0 e ]
+"25 Applications/Dimming_APP/dimming.h
+[v _GetDimmingValue `(v ~T0 @X0 0 ef1`*uc ]
 "8 Applications/version_read/version_task.h
 [v _Readhandle_version `(v ~T0 @X0 0 ef1`*uc ]
 "9
 [v _Writehandle_version `(v ~T0 @X0 0 ef1`*uc ]
 "18 Applications/Bootloader/Bootloader.h
 [v _Access_Bootloder `(v ~T0 @X0 0 ef1`*uc ]
-"15 Applications/CurrentRead_APP/readcurrent.h
+"16 Applications/CurrentRead_APP/readcurrent.h
 [v _WriteCalibrationSingleChannel `(v ~T0 @X0 0 ef1`*uc ]
-"16
+"17
 [v _WriteCalibrationMultiChannel `(v ~T0 @X0 0 ef1`*uc ]
 [v F17425 `(v ~T0 @X0 0 tf ]
 "354 Applications/USBCom_APP/../../mcc_generated_files/system/../uart/uart1.h
@@ -2415,85 +2414,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 16 `i == -> *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 14 `i 2433  ]
 "105
 {
-"107
-[e = _g_uDimmingLevel_CH1 *U + &U _Rx_Buffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux ]
-"108
-[e = _g_uDimmingLevel_CH2 *U + &U _Rx_Buffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux ]
 "109
+[e ( _GetDimmingValue (1 &U _Rx_Buffer ]
+"110
 }
 [e :U 2433 ]
-"112
-[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 170 `i == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 90 `i 2434  ]
 "113
-{
+[e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 170 `i == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 90 `i 2434  ]
 "114
-[e $U 2436  ]
 {
 "115
-[e :U 2437 ]
-"116
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2438  ]
-"117
+[e $U 2436  ]
 {
+"116
+[e :U 2437 ]
+"117
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2438  ]
 "118
-[e ( _Readhandle_version (1 &U _Rx_Buffer ]
+{
 "119
+[e ( _Readhandle_version (1 &U _Rx_Buffer ]
+"120
 }
 [e :U 2438 ]
-"120
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2439  ]
 "121
-{
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2439  ]
 "122
-[e ( _Writehandle_version (1 &U _Rx_Buffer ]
+{
 "123
+[e ( _Writehandle_version (1 &U _Rx_Buffer ]
+"124
 }
 [e :U 2439 ]
-"124
+"125
 [e $U 2435  ]
-"126
-[e :U 2440 ]
 "127
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2441  ]
+[e :U 2440 ]
 "128
-{
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2441  ]
 "129
-[e ( _Access_Bootloder (1 &U _Rx_Buffer ]
+{
 "130
+[e ( _Access_Bootloder (1 &U _Rx_Buffer ]
+"131
 }
 [e :U 2441 ]
-"131
+"132
 [e $U 2435  ]
-"133
-[e :U 2442 ]
 "134
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2443  ]
+[e :U 2442 ]
 "135
-{
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2443  ]
 "136
-[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
+{
 "137
+[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
+"138
 }
 [e :U 2443 ]
-"138
+"139
 [e $U 2435  ]
-"140
-[e :U 2444 ]
 "141
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
+[e :U 2444 ]
 "142
-{
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
 "143
-[e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
+{
 "144
+[e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
+"145
 }
 [e :U 2445 ]
-"145
-[e $U 2435  ]
-"150
-[e :U 2446 ]
+"146
 [e $U 2435  ]
 "151
+[e :U 2446 ]
+[e $U 2435  ]
+"152
 }
 [e $U 2435  ]
 [e :U 2436 ]
@@ -2503,22 +2500,22 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 88 `i 2444
  2446 ]
 [e :U 2435 ]
-"152
+"153
 }
 [e :U 2434 ]
-"153
+"154
 [e ( _ClearReceiveData ..  ]
-"155
+"156
 [e :UE 2428 ]
 }
-"157
-[v _UsbcomAppInit `(v ~T0 @X0 1 ef ]
 "158
+[v _UsbcomAppInit `(v ~T0 @X0 1 ef ]
+"159
 {
 [e :U _UsbcomAppInit ]
 [f ]
-"159
-[e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
 "160
+[e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
+"161
 [e :UE 2447 ]
 }

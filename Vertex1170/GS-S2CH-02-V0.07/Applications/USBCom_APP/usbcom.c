@@ -70,15 +70,15 @@ void Rs485Task(void)
         return;
     }
 
-    //数据拷贝 防止中断数据干扰
-    memcpy(Rx_Buffer, Rx_Buffer_ISR, Rx_Length);
-
-
-               printf("读取到 %d 字节: ", Rx_Length);
-                for(int i = 0; i < Rx_Length; i++) {
-                    printf("%02X ", Rx_Buffer[i]);
-               }
-                printf("\r\n");
+//    //数据拷贝 防止中断数据干扰
+   memcpy(Rx_Buffer, Rx_Buffer_ISR, Rx_Length);
+//
+//
+//               printf("读取到 %d 字节: ", Rx_Length);
+//                for(int i = 0; i < Rx_Length; i++) {
+//                    printf("%02X ", Rx_Buffer[i]);
+//               }
+//                printf("\r\n");
     //CRC校验 不定长校验
     uint8_t data_length = Rx_Length - CRC_BYTES_LENGTH;
     g_uCheckCRC16 = CRC16(Rx_Buffer, data_length);

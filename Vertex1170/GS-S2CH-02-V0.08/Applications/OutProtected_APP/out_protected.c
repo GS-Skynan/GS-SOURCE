@@ -7,6 +7,8 @@
 #include "closeled.h"
 #include "GPIO_driver.h"
 #include "stdio.h"
+#include "temp_protected.h"
+#include "Bootloader.h"
 
 
 uint16_t V_Ret1 = 0, V_Ret2 = 0; //保护标识，在输出保护说明
@@ -134,7 +136,9 @@ void OutProtected_CH1(void)
         { 
             in_protection_period = false;
             V_Ret1 = 0;
-            g_uDimmingLevel_CH1=0X64;
+          // g_uDimmingLevel_CH1=0X64;
+            g_uStateChannel1=1;
+            //LightOnChannel1();
         }
         return; // 在保护期内，不进行新的检测
     }
@@ -260,10 +264,32 @@ void OutProtected_CH2(void)
     }
 }
 
+
+/*1关全部  2 关1  3关2*/
+uint8_t ProtectionCheck(void)
+{
+    if (g_uInputVoltageNormalFlag != 1) return 1;
+
+    if (g_uBootUpgradeFlag == 1) return 1;
+
+    if (g_uTemperatureProtection == 2) return 1;
+
+    if (g_uDimmingLevel_CH1 < 0x01 && g_uDimmingLevel_CH2 < 0x01)return 1;
+
+    if ((V_Ret1 != 0)&&(V_Ret2 != 0)) return 1;
+
+    if (V_Ret1 != 0) return 2;
+
+    if (V_Ret2 != 0) return 3;
+
+    return 0;
+}
+
+
 void OutProtectedTask(void)
 {
     if (g_uInputVoltageNormalFlag != 1)return;
-    if (g_uPidRunChannel == 0)return;
+    if (g_uPowerOnOutputStart != 1)return;
     OutProtected_CH1();
     OutProtected_CH2();   
 }
