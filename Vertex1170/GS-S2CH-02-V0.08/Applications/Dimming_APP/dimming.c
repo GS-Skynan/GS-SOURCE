@@ -200,7 +200,7 @@ typedef enum
 
 void LightOnLogic(void)
 {
-    static eLIGHT_START start = LED_OFF;
+    static eLIGHT_START lightstate = LED_OFF;
     static uint32_t LastLightLogicTime = 0;
     uint32_t NowLightLogicTime = get_elapsed_since(LastLightLogicTime);
 
@@ -208,31 +208,31 @@ void LightOnLogic(void)
     if ((g_uDimmingLevel_CH1 > 0x01 || g_uDimmingLevel_CH2 > 0x01) && g_bPfcRunFlag == 1)
     {
         LastLightLogicTime = get_systemtick_time();
-        start = PFC_ON;
+        lightstate = PFC_ON;
         g_bPfcRunFlag = 0;
     }
 
 
-    switch (start) {
+    switch (lightstate) {
     case PFC_ON:
         PFC_On();
         if (NowLightLogicTime > 800)
         {
             if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
             {
-                start = LED_ON_ALL;
+                lightstate = LED_ON_ALL;
                 g_uStateChannel1 = 1;
                 g_uStateChannel2 = 1;
             }
             if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
             {
-                start = LED_ON_CH1;
+                lightstate = LED_ON_CH1;
                 g_uStateChannel1 = 1;
 
             }
             if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
             {
-                start = LED_ON_CH2;
+                lightstate = LED_ON_CH2;
                 g_uStateChannel2 = 1;
             }
             LastLightLogicTime = get_systemtick_time();
@@ -246,14 +246,14 @@ void LightOnLogic(void)
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
         {
             LightPowerOff(LED_CHANNEL2_OFF);
-            start = LED_ON_CH1;
+            lightstate = LED_ON_CH1;
             g_uStateChannel1 = 1;
 
         }
         if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
         {
             LightPowerOff(LED_CHANNEL1_OFF);
-            start = LED_ON_CH2;
+            lightstate = LED_ON_CH2;
             g_uStateChannel2 = 1;
         }
 
@@ -265,14 +265,14 @@ void LightOnLogic(void)
 
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
         {
-            start = LED_ON_ALL;
+            lightstate = LED_ON_ALL;
             g_uStateChannel1 = 1;
             g_uStateChannel2 = 1;
         }
         if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
         {
             LightPowerOff(LED_CHANNEL1_OFF);
-            start = LED_ON_CH2;
+            lightstate = LED_ON_CH2;
             g_uStateChannel2 = 1;
         }
         break;
@@ -282,7 +282,7 @@ void LightOnLogic(void)
         LightOnChannel2();
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
         {
-            start = LED_ON_ALL;
+            lightstate = LED_ON_ALL;
             g_uStateChannel1 = 1;
             g_uStateChannel2 = 1;
         }
@@ -290,7 +290,7 @@ void LightOnLogic(void)
         if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
         {
             LightPowerOff(LED_CHANNEL2_OFF);
-            start = LED_ON_CH1;
+            lightstate = LED_ON_CH1;
             g_uStateChannel1 = 1;
         }
 
