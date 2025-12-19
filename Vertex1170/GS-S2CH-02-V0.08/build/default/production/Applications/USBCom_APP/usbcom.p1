@@ -5,8 +5,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _UART1_Read `(uc ~T0 @X0 0 ef ]
 "29 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"31 Applications/Ticktime_APP/ticktime.h
-[v _g_bRs485Flag `a ~T0 @X0 0 e ]
 "183 Applications/USBCom_APP/../../mcc_generated_files/system/../uart/uart1.h
 [v _UART1_ReceiveInterruptEnable `(v ~T0 @X0 0 ef ]
 "13 Applications/Ticktime_APP/ticktime.h
@@ -2272,7 +2270,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 64 `i `uc
 ..
 ]
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "24 Applications/USBCom_APP/usbcom.c
 [v _Rx_Buffer `uc ~T0 @X0 -> 100 `i e ]
@@ -2292,205 +2290,210 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _last_receive_time
 -> -> -> 0 `i `l `ul
 ]
-"32
-[v _UartReceivedISR `(v ~T0 @X0 1 ef ]
 "33
+[v _g_bRs485Flag `uc ~T0 @X0 1 e ]
+[i _g_bRs485Flag
+-> -> 0 `i `uc
+]
+"35
+[v _UartReceivedISR `(v ~T0 @X0 1 ef ]
+"36
 {
 [e :U _UartReceivedISR ]
 [f ]
-"34
-[e = _last_receive_time ( _get_systemtick_time ..  ]
-"35
-[e $ ! < -> _Rx_Length `ui -> # _Rx_Buffer_ISR `ui 2425  ]
-"36
-{
 "37
-[e = *U + &U _Rx_Buffer_ISR * -> _Rx_Length `ux -> -> # *U &U _Rx_Buffer_ISR `ui `ux ( _UART1_Read ..  ]
+[e = _last_receive_time ( _get_systemtick_time ..  ]
 "38
-[e ++ _Rx_Length -> -> 1 `i `Vuc ]
+[e $ ! < -> _Rx_Length `ui -> # _Rx_Buffer_ISR `ui 2425  ]
 "39
+{
+"40
+[e = *U + &U _Rx_Buffer_ISR * -> _Rx_Length `ux -> -> # *U &U _Rx_Buffer_ISR `ui `ux ( _UART1_Read ..  ]
+"41
+[e ++ _Rx_Length -> -> 1 `i `Vuc ]
+"42
 }
 [e $U 2426  ]
-"40
-[e :U 2425 ]
-"41
-{
-"42
-[e = _Rx_Length -> -> 0 `i `uc ]
 "43
-[e ( _memset (3 , , -> &U _Rx_Buffer_ISR `*v -> 0 `i -> # _Rx_Buffer_ISR `ui ]
+[e :U 2425 ]
 "44
+{
+"45
+[e = _Rx_Length -> -> 0 `i `uc ]
+"46
+[e ( _memset (3 , , -> &U _Rx_Buffer_ISR `*v -> 0 `i -> # _Rx_Buffer_ISR `ui ]
+"47
 }
 [e :U 2426 ]
-"45
+"48
 [e :UE 2424 ]
 }
-"47
+"50
 [v _ClearReceiveData `(v ~T0 @X0 1 sf ]
-"48
+"51
 {
 [e :U _ClearReceiveData ]
 [f ]
-"49
-[e = _Rx_Length -> -> 0 `i `uc ]
-"50
-[e ( _memset (3 , , -> &U _Rx_Buffer `*v -> 0 `i -> # _Rx_Buffer `ui ]
-"51
-[e ( _memset (3 , , -> &U _Rx_Buffer_ISR `*v -> 0 `i -> # _Rx_Buffer_ISR `ui ]
 "52
-[e = _g_bRs485Flag -> -> 0 `i `a ]
+[e = _Rx_Length -> -> 0 `i `uc ]
 "53
-[e ( _UART1_ReceiveInterruptEnable ..  ]
+[e ( _memset (3 , , -> &U _Rx_Buffer `*v -> 0 `i -> # _Rx_Buffer `ui ]
 "54
+[e ( _memset (3 , , -> &U _Rx_Buffer_ISR `*v -> 0 `i -> # _Rx_Buffer_ISR `ui ]
+"55
+[e = _g_bRs485Flag -> -> 0 `i `uc ]
+"56
+[e ( _UART1_ReceiveInterruptEnable ..  ]
+"57
 [e :UE 2427 ]
 }
-"56
+"59
 [v _Rs485Task `(v ~T0 @X0 1 ef ]
-"57
+"60
 {
 [e :U _Rs485Task ]
 [f ]
-"59
+"62
 [v _out_time `ul ~T0 @X0 1 a ]
 [e = _out_time ( _get_elapsed_since (1 _last_receive_time ]
-"61
-[e $ ! && > _out_time -> -> -> 10 `i `l `ul > -> _Rx_Length `i -> 0 `i 2429  ]
-"62
-{
-"63
-[e = _g_bRs485Flag -> -> 1 `i `a ]
 "64
-[e ( _UART1_ReceiveInterruptDisable ..  ]
+[e $ ! && > _out_time -> -> -> 10 `i `l `ul > -> _Rx_Length `i -> 0 `i 2429  ]
 "65
+{
+"66
+[e = _g_bRs485Flag -> -> 1 `i `uc ]
+"67
+[e ( _UART1_ReceiveInterruptDisable ..  ]
+"68
 }
 [e :U 2429 ]
-"68
-[e $ ! != -> _g_bRs485Flag `i -> 1 `i 2430  ]
-"69
-{
-"70
-[e $UE 2428  ]
 "71
+[e $ ! != -> _g_bRs485Flag `i -> 1 `i 2430  ]
+"72
+{
+"73
+[e $UE 2428  ]
+"74
 }
 [e :U 2430 ]
-"74
+"77
 [e ( _memcpy (3 , , -> &U _Rx_Buffer `*v -> &U _Rx_Buffer_ISR `*Cv -> _Rx_Length `ui ]
-"83
+"86
 [v _data_length `uc ~T0 @X0 1 a ]
 [e = _data_length -> - -> _Rx_Length `i -> 2 `i `uc ]
-"84
-[e = _g_uCheckCRC16 -> ( _CRC16 (2 , &U _Rx_Buffer _data_length `us ]
-"85
-[e = _g_uCheckCRCResult -> + << -> *U + &U _Rx_Buffer * -> _data_length `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 8 `i -> *U + &U _Rx_Buffer * -> -> + -> _data_length `i -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i `us ]
 "87
-[e $ ! != -> _g_uCheckCRC16 `ui -> _g_uCheckCRCResult `ui 2431  ]
+[e = _g_uCheckCRC16 -> ( _CRC16 (2 , &U _Rx_Buffer _data_length `us ]
 "88
-{
-"89
-[e ( _ClearReceiveData ..  ]
+[e = _g_uCheckCRCResult -> + << -> *U + &U _Rx_Buffer * -> _data_length `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 8 `i -> *U + &U _Rx_Buffer * -> -> + -> _data_length `i -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i `us ]
+"90
+[e $ ! != -> _g_uCheckCRC16 `ui -> _g_uCheckCRCResult `ui 2431  ]
 "91
-[e $UE 2428  ]
+{
 "92
+[e ( _ClearReceiveData ..  ]
+"94
+[e $UE 2428  ]
+"95
 }
 [e :U 2431 ]
-"94
+"97
 [v _ExpectedDataBytes `uc ~T0 @X0 1 a ]
 [e = _ExpectedDataBytes *U + &U _Rx_Buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux ]
-"95
+"98
 [v _ActualDataBytes `uc ~T0 @X0 1 a ]
 [e = _ActualDataBytes -> - - -> _Rx_Length `i -> 7 `i -> 2 `i `uc ]
-"97
-[e $ ! != -> _ActualDataBytes `i -> _ExpectedDataBytes `i 2432  ]
-"98
-{
-"99
-[e ( _ClearReceiveData ..  ]
 "100
-[e $UE 2428  ]
+[e $ ! != -> _ActualDataBytes `i -> _ExpectedDataBytes `i 2432  ]
 "101
+{
+"102
+[e ( _ClearReceiveData ..  ]
+"103
+[e $UE 2428  ]
+"104
 }
 [e :U 2432 ]
-"104
+"107
 [e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 16 `i == -> *U + &U _Rx_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 14 `i 2433  ]
-"105
+"108
 {
-"109
+"112
 [e ( _GetDimmingValue (1 &U _Rx_Buffer ]
-"110
+"113
 }
 [e :U 2433 ]
-"113
+"116
 [e $ ! && == -> *U + &U _Rx_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 170 `i == -> *U + &U _Rx_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 90 `i 2434  ]
-"114
+"117
 {
-"115
+"118
 [e $U 2436  ]
 {
-"116
-[e :U 2437 ]
-"117
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2438  ]
-"118
-{
 "119
-[e ( _Readhandle_version (1 &U _Rx_Buffer ]
+[e :U 2437 ]
 "120
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2438  ]
+"121
+{
+"122
+[e ( _Readhandle_version (1 &U _Rx_Buffer ]
+"123
 }
 [e :U 2438 ]
-"121
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2439  ]
-"122
-{
-"123
-[e ( _Writehandle_version (1 &U _Rx_Buffer ]
 "124
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2439  ]
+"125
+{
+"126
+[e ( _Writehandle_version (1 &U _Rx_Buffer ]
+"127
 }
 [e :U 2439 ]
-"125
-[e $U 2435  ]
-"127
-[e :U 2440 ]
 "128
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2441  ]
-"129
-{
+[e $U 2435  ]
 "130
-[e ( _Access_Bootloder (1 &U _Rx_Buffer ]
+[e :U 2440 ]
 "131
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2441  ]
+"132
+{
+"133
+[e ( _Access_Bootloder (1 &U _Rx_Buffer ]
+"134
 }
 [e :U 2441 ]
-"132
-[e $U 2435  ]
-"134
-[e :U 2442 ]
 "135
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2443  ]
-"136
-{
+[e $U 2435  ]
 "137
-[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
+[e :U 2442 ]
 "138
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2443  ]
+"139
+{
+"140
+[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
+"141
 }
 [e :U 2443 ]
-"139
-[e $U 2435  ]
-"141
-[e :U 2444 ]
 "142
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
-"143
-{
+[e $U 2435  ]
 "144
-[e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
+[e :U 2444 ]
 "145
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
+"146
+{
+"147
+[e ( _WriteCalibrationMultiChannel (1 &U _Rx_Buffer ]
+"148
 }
 [e :U 2445 ]
-"146
+"149
 [e $U 2435  ]
-"151
+"154
 [e :U 2446 ]
 [e $U 2435  ]
-"152
+"155
 }
 [e $U 2435  ]
 [e :U 2436 ]
@@ -2500,22 +2503,22 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 88 `i 2444
  2446 ]
 [e :U 2435 ]
-"153
+"156
 }
 [e :U 2434 ]
-"154
+"157
 [e ( _ClearReceiveData ..  ]
-"156
+"159
 [e :UE 2428 ]
 }
-"158
+"161
 [v _UsbcomAppInit `(v ~T0 @X0 1 ef ]
-"159
+"162
 {
 [e :U _UsbcomAppInit ]
 [f ]
-"160
+"163
 [e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
-"161
+"164
 [e :UE 2447 ]
 }

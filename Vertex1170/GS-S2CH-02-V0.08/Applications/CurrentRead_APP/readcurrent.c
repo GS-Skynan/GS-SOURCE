@@ -5,13 +5,13 @@
 #include "string.h"
 #include "crc.h"
 
-#define TARGET_POWER_CHANNEL1_MAX 855
-#define TARGET_POWER_CHANNEL1_MIN 500
+#define TARGET_POWER_CHANNEL1_MAX 1350
+#define TARGET_POWER_CHANNEL1_MIN 600
 
-#define TARGET_POWER_CHANNEL2_MAX 300
-#define TARGET_POWER_CHANNEL2_MIN 100
+#define TARGET_POWER_CHANNEL2_MAX 150
+#define TARGET_POWER_CHANNEL2_MIN 60
 
-uint8_t g_uDimmingLevel_CH1 = 0X00, g_uDimmingLevel_CH2 = 0X00;
+uint8_t g_uDimmingLevelChannel1 = 0X00, g_uDimmingLevelChannel2 = 0X00;
 
 uint16_t g_uTargetPowerChannel1, g_uTargetPowerChannel2;
 
@@ -29,11 +29,11 @@ void ReadTargetPower(uint8_t* NfcPowerBuff)
     if (TargetPowerCH1 < TARGET_POWER_CHANNEL1_MIN) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MIN;
     g_uTargetPowerChannel1 = TargetPowerCH1;
 
-    g_uDimmingLevel_CH1 = NfcPowerBuff[0];
-    if (g_uDimmingLevel_CH1 != 0x00)
+    g_uDimmingLevelChannel1 = NfcPowerBuff[0];
+    if (g_uDimmingLevelChannel1 != 0x00)
     {
-        if (g_uDimmingLevel_CH1 <= 0x14)g_uDimmingLevel_CH1 = 0x14;
-        if (g_uDimmingLevel_CH1 >= 0x64)g_uDimmingLevel_CH1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
+        if (g_uDimmingLevelChannel1 <= 0x14)g_uDimmingLevelChannel1 = 0x14;
+        if (g_uDimmingLevelChannel1 >= 0x64)g_uDimmingLevelChannel1 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
     }
     /*2通道*/
     TargetPowerCH2 = extractAndCombineEEPROMData(NfcPowerBuff[6], NfcPowerBuff[7]); // 从I2C接收数据的第6和第7字节提取并组合成16位功率保持值
@@ -41,11 +41,11 @@ void ReadTargetPower(uint8_t* NfcPowerBuff)
     if (TargetPowerCH2 < TARGET_POWER_CHANNEL2_MIN) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MIN;
     g_uTargetPowerChannel2 = TargetPowerCH2;
     
-    g_uDimmingLevel_CH2 = NfcPowerBuff[4];
-   if (g_uDimmingLevel_CH2 != 0x00)
+    g_uDimmingLevelChannel2 = NfcPowerBuff[4];
+   if (g_uDimmingLevelChannel2 != 0x00)
     {
-        if (g_uDimmingLevel_CH2 <= 0x14)g_uDimmingLevel_CH2 = 0x14;
-        if (g_uDimmingLevel_CH2 >= 0x64)g_uDimmingLevel_CH2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
+        if (g_uDimmingLevelChannel2 <= 0x14)g_uDimmingLevelChannel2 = 0x14;
+        if (g_uDimmingLevelChannel2 >= 0x64)g_uDimmingLevelChannel2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
     }
 }
 
@@ -172,13 +172,13 @@ uint16_t Power_Compensation(void)
     int32_t temp; // 用32位有符号计算，避免溢出
     uint16_t SetPowerValue = g_uTargetPowerChannel1;
 
-    temp = ((int32_t) g_uTargetPowerChannel1 * g_uDimmingLevel_CH1 / 100) - (0XFF - (0XFF - CalibrationBuff[0]));
-    if (temp < 20) temp = 20;
+    temp = ((int32_t) g_uTargetPowerChannel1 * g_uDimmingLevelChannel1 / 100) - (0XFF - (0XFF - CalibrationBuff[0]));
+    if (temp < 0) temp = 0;
     if (temp > g_uTargetPowerChannel1) temp = g_uTargetPowerChannel1;
     g_uChanne1Power = (uint16_t) temp;
 
-    temp = ((int32_t) g_uTargetPowerChannel2 * g_uDimmingLevel_CH2 / 100) - (0XFF - (0XFF - CalibrationBuff[1]));
-    if (temp < 20)temp = 20;
+    temp = ((int32_t) g_uTargetPowerChannel2 * g_uDimmingLevelChannel2 / 100) - (0XFF - (0XFF - CalibrationBuff[1]));
+    if (temp < 0)temp = 0;
     if (temp > g_uTargetPowerChannel2)temp = g_uTargetPowerChannel2;
     g_uChanne2Power = (uint16_t) temp;
 
@@ -193,7 +193,7 @@ uint16_t Power_Compensation(void)
         temp = (int32_t) g_uChanne1Power;
     }
 
-    if (temp < 20) temp = 20;
+    if (temp < 0) temp = 0;
     if (temp > SetPowerValue) temp = SetPowerValue;
 
     uint16_t g_uTargetPower = (uint16_t) temp;

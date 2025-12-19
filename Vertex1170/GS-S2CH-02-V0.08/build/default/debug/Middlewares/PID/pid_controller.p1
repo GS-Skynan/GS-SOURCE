@@ -1722,7 +1722,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "35 Middlewares/PID/pid_controller.h
 [v _pid1 `S2419 ~T0 @X0 1 e ]
@@ -1927,14 +1927,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _derivative `f ~T0 @X0 1 a ]
 [e = _derivative * . *U _pid 3 - _error . *U _pid 9 ]
 "201
-[v F18373 `f ~T0 @X0 1 s prev_derivative ]
-[i F18373
+[v F18354 `f ~T0 @X0 1 s prev_derivative ]
+[i F18354
 -> -> 0 `i `f
 ]
 "202
-[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18373 ]
+[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18354 ]
 "203
-[e = F18373 _derivative ]
+[e = F18354 _derivative ]
 "205
 [e = . *U _pid 9 _error ]
 "208

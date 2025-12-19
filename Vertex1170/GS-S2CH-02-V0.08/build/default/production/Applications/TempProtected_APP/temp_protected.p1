@@ -1724,7 +1724,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "12 Applications/TempProtected_APP/temp_protected.c
 [v _T_flag `uc ~T0 @X0 1 e ]
@@ -1747,18 +1747,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Temp_Protected ]
 [f ]
 "89
-[v F18679 `uc ~T0 @X0 1 s Tempstate ]
-[i F18679
+[v F18660 `uc ~T0 @X0 1 s Tempstate ]
+[i F18660
 -> -> 0 `i `uc
 ]
 "90
-[v F18680 `ul ~T0 @X0 1 s temptime ]
-[i F18680
+[v F18661 `ul ~T0 @X0 1 s temptime ]
+[i F18661
 -> -> -> 0 `i `l `ul
 ]
 "91
-[v F18681 `uc ~T0 @X0 1 s temp_stable_count ]
-[i F18681
+[v F18662 `uc ~T0 @X0 1 s temp_stable_count ]
+[i F18662
 -> -> 0 `i `uc
 ]
 "93
@@ -1774,19 +1774,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _current_time ( _get_systemtick_time ..  ]
 "98
 [v _elapsed_time `ul ~T0 @X0 1 a ]
-[e = _elapsed_time ( _get_elapsed_since (1 F18680 ]
+[e = _elapsed_time ( _get_elapsed_since (1 F18661 ]
 "101
-[v F18686 `f ~T0 @X0 1 s last_voltage ]
-[i F18686
+[v F18667 `f ~T0 @X0 1 s last_voltage ]
+[i F18667
 -> -> 0 `i `f
 ]
 "102
-[e $ ! < ( _fabsf (1 - _voltage F18686 -> .0.05 `f 2423  ]
+[e $ ! < ( _fabsf (1 - _voltage F18667 -> .0.05 `f 2423  ]
 "103
 {
 "104
-[e $ ! < -> F18681 `i -> 5 `i 2424  ]
-[e ++ F18681 -> -> 1 `i `uc ]
+[e $ ! < -> F18662 `i -> 5 `i 2424  ]
+[e ++ F18662 -> -> 1 `i `uc ]
 [e :U 2424 ]
 "105
 }
@@ -1796,12 +1796,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "107
 {
 "108
-[e = F18681 -> -> 0 `i `uc ]
+[e = F18662 -> -> 0 `i `uc ]
 "109
 }
 [e :U 2425 ]
 "110
-[e = F18686 _voltage ]
+[e = F18667 _voltage ]
 "113
 [e $U 2427  ]
 "114
@@ -1811,7 +1811,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116
 [e = _g_uTemperatureProtection -> -> 0 `i `uc ]
 "118
-[e $ ! >= -> F18681 `i -> 5 `i 2429  ]
+[e $ ! >= -> F18662 `i -> 5 `i 2429  ]
 "119
 {
 "120
@@ -1823,9 +1823,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "124
 {
 "125
-[e = F18679 -> -> 1 `i `uc ]
+[e = F18660 -> -> 1 `i `uc ]
 "126
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "127
 }
 [e :U 2431 ]
@@ -1842,9 +1842,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "133
 {
 "134
-[e = F18679 -> -> 2 `i `uc ]
+[e = F18660 -> -> 2 `i `uc ]
 "135
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "136
 }
 [e :U 2434 ]
@@ -1856,7 +1856,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "139
 {
 "141
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "142
 }
 [e :U 2435 ]
@@ -1871,7 +1871,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "147
 [e = _g_uTemperatureProtection -> -> 1 `i `uc ]
 "149
-[e $ ! >= -> F18681 `i -> 5 `i 2437  ]
+[e $ ! >= -> F18662 `i -> 5 `i 2437  ]
 "150
 {
 "151
@@ -1883,9 +1883,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "155
 {
 "156
-[e = F18679 -> -> 0 `i `uc ]
+[e = F18660 -> -> 0 `i `uc ]
 "157
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "158
 }
 [e :U 2439 ]
@@ -1902,9 +1902,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "164
 {
 "165
-[e = F18679 -> -> 2 `i `uc ]
+[e = F18660 -> -> 2 `i `uc ]
 "166
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "167
 }
 [e :U 2442 ]
@@ -1916,7 +1916,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "170
 {
 "172
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "173
 }
 [e :U 2443 ]
@@ -1931,7 +1931,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "178
 [e = _g_uTemperatureProtection -> -> 2 `i `uc ]
 "180
-[e $ ! >= -> F18681 `i -> 5 `i 2445  ]
+[e $ ! >= -> F18662 `i -> 5 `i 2445  ]
 "181
 {
 "182
@@ -1943,9 +1943,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "186
 {
 "187
-[e = F18679 -> -> 0 `i `uc ]
+[e = F18660 -> -> 0 `i `uc ]
 "188
-[e = F18680 _current_time ]
+[e = F18661 _current_time ]
 "189
 }
 [e :U 2447 ]
@@ -1961,7 +1961,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2426  ]
 [e :U 2427 ]
-[e [\ F18679 , $ -> 0 `i 2428
+[e [\ F18660 , $ -> 0 `i 2428
  , $ -> 1 `i 2436
  , $ -> 2 `i 2444
  2426 ]

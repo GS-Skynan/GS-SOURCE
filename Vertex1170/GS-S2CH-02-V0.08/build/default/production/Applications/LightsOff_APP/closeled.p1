@@ -29,7 +29,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E17850 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "29 DriverLayer/GPIO/GPIO_driver.h
 [v _RELAY_Off `(v ~T0 @X0 0 ef1`E17850 ]
-"58 Applications/LightsOff_APP/closeled.c
+"57 Applications/LightsOff_APP/closeled.c
 [c E17823 1 2 3 .. ]
 [n E17823 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
@@ -1746,16 +1746,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "35 Middlewares/PID/pid_controller.h
 [v _pid1 `S2423 ~T0 @X0 1 e ]
 [v _pid2 `S2423 ~T0 @X0 1 e ]
 "14 Applications/LightsOff_APP/closeled.c
-[v _ALL_Closed `(v ~T0 @X0 1 ef ]
+[v _LightOffAll `(v ~T0 @X0 1 ef ]
 "15
 {
-[e :U _ALL_Closed ]
+[e :U _LightOffAll ]
 [f ]
 "17
 [e ( _PFC_Off ..  ]
@@ -1783,84 +1783,84 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2424 ]
 }
 "34
-[v _LED1_Close `(v ~T0 @X0 1 ef ]
+[v _LightOffChannel1 `(v ~T0 @X0 1 ef ]
 "35
 {
-[e :U _LED1_Close ]
+[e :U _LightOffChannel1 ]
 [f ]
-"37
+"36
 [e ( _ClearChannelValue (1 -> -> 1 `i `uc ]
-"38
+"37
 [e ( _Clear_pid (1 -> -> 1 `i `uc ]
-"39
+"38
 [e ( _RegulatorClear (1 -> -> 1 `i `uc ]
-"40
+"39
 [e ( _PWM_Off_CHANNEL (1 . `E17869 0 ]
-"41
+"40
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"42
+"41
 [e ( _L6562_Off (1 . `E17846 0 ]
-"43
+"42
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"44
+"43
 [e ( _RELAY_Off (1 . `E17846 0 ]
-"45
+"44
 [e :UE 2425 ]
 }
+"46
+[v _LightOffChannel2 `(v ~T0 @X0 1 ef ]
 "47
-[v _LED2_Close `(v ~T0 @X0 1 ef ]
-"48
 {
-[e :U _LED2_Close ]
+[e :U _LightOffChannel2 ]
 [f ]
-"49
+"48
 [e ( _ClearChannelValue (1 -> -> 2 `i `uc ]
-"50
+"49
 [e ( _Clear_pid (1 -> -> 2 `i `uc ]
-"51
+"50
 [e ( _PWM_Off_CHANNEL (1 . `E17869 1 ]
-"52
+"51
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"53
+"52
 [e ( _L6562_Off (1 . `E17846 1 ]
-"54
+"53
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"55
+"54
 [e ( _RELAY_Off (1 . `E17846 1 ]
-"56
+"55
 [e :UE 2426 ]
 }
+"57
+[v _LightOffLogic `(v ~T0 @X0 1 ef1`E17823 ]
 "58
-[v _LightPowerOff `(v ~T0 @X0 1 ef1`E17823 ]
-"59
 {
-[e :U _LightPowerOff ]
-"58
+[e :U _LightOffLogic ]
+"57
 [v _ledsta `E17823 ~T0 @X0 1 r1 ]
-"59
+"58
 [f ]
-"60
+"59
 [e $U 2429  ]
 {
-"61
+"60
 [e :U 2430 ]
+"61
+[e ( _LightOffChannel1 ..  ]
 "62
-[e ( _LED1_Close ..  ]
-"63
 [e $U 2428  ]
-"65
+"64
 [e :U 2431 ]
+"65
+[e ( _LightOffChannel2 ..  ]
 "66
-[e ( _LED2_Close ..  ]
-"67
 [e $U 2428  ]
-"69
+"68
 [e :U 2432 ]
+"69
+[e ( _LightOffAll ..  ]
 "70
-[e ( _ALL_Closed ..  ]
-"71
 [e $U 2428  ]
-"72
+"71
 }
 [e $U 2428  ]
 [e :U 2429 ]
@@ -1869,6 +1869,6 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E17823 2 `ui 2432
  2428 ]
 [e :U 2428 ]
-"73
+"72
 [e :UE 2427 ]
 }

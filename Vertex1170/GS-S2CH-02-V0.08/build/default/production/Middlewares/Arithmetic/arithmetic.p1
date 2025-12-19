@@ -1720,7 +1720,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "4 Middlewares/Arithmetic/arithmetic.c
 [v _pwm_regulator1 `S2419 ~T0 @X0 1 s ]

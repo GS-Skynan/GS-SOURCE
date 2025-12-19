@@ -79,14 +79,14 @@ void GetDimmingValue(uint8_t *r_dimming)
         if (r_dimming[8] <= 0x14)r_dimming[8] = 0x14;
         if (r_dimming[8] >= 0x64)r_dimming[8] = 0x64;
     }
-    g_uDimmingLevel_CH1 = r_dimming[8]; //第一通道
+    g_uDimmingLevelChannel1 = r_dimming[8]; //第一通道
 
     if (r_dimming[10] != 0x00)
     {
         if (r_dimming[10] <= 0x14)r_dimming[10] = 0x14;
         if (r_dimming[10] >= 0x64)r_dimming[10] = 0x64;
         }
-    g_uDimmingLevel_CH2 = r_dimming[10]; //第二通道
+    g_uDimmingLevelChannel2 = r_dimming[10]; //第二通道
 }
 
 void ClearChannelValue(uint8_t channel)
@@ -142,12 +142,13 @@ void LightOnChannel1(void)
         break;
 
     case 3:
-        piddimmingChannel1.voltage = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (1087.5f / 7.5f);
+         g_uPowerOnOutputStart = 1;
+        piddimmingChannel1.voltage = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (VOLTAGE_CH1_R1 / VOLTAGE_CH1_R2);
         piddimmingChannel1.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT1) * piddimmingChannel1.voltage / 1000.0f;
         piddimmingChannel1.targetPower = update_pwm_output_ch1(g_u8PowerOutputValue);
         piddimmingChannel1.pwmValue = PID_Compute(&pid1, piddimmingChannel1.targetPower, piddimmingChannel1.actualPower);
         PWM_Set_Direct(PWM_CHANNEL_1, piddimmingChannel1.pwmValue);
-        g_uPowerOnOutputStart = 1;
+  
         break;
     }
 }
@@ -178,12 +179,12 @@ void LightOnChannel2(void)
         break;
 
     case 3:
-        piddimmingChannel2.voltage = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
+        g_uPowerOnOutputStart = 1;
+        piddimmingChannel2.voltage = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
         piddimmingChannel2.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT2) * piddimmingChannel2.voltage / 1000.0f;
         piddimmingChannel2.targetPower = update_pwm_output_ch2(g_uChanne2Power);
         piddimmingChannel2.pwmValue = PID_Compute(&pid2, piddimmingChannel2.targetPower, piddimmingChannel2.actualPower);
-        PWM_Set_Direct(PWM_CHANNEL_2, piddimmingChannel2.pwmValue);
-        g_uPowerOnOutputStart = 1;
+        PWM_Set_Direct(PWM_CHANNEL_2, piddimmingChannel2.pwmValue);     
         break;
 
     }
@@ -204,8 +205,7 @@ void LightOnLogic(void)
     static uint32_t LastLightLogicTime = 0;
     uint32_t NowLightLogicTime = get_elapsed_since(LastLightLogicTime);
 
-
-    if ((g_uDimmingLevel_CH1 > 0x01 || g_uDimmingLevel_CH2 > 0x01) && g_bPfcRunFlag == 1)
+    if ((g_uDimmingLevelChannel1 > 0x01 || g_uDimmingLevelChannel2 > 0x01) && g_bPfcRunFlag == 1)
     {
         LastLightLogicTime = get_systemtick_time();
         lightstate = PFC_ON;
@@ -218,19 +218,19 @@ void LightOnLogic(void)
         PFC_On();
         if (NowLightLogicTime > 800)
         {
-            if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
+            if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 > 0x01)
             {
                 lightstate = LED_ON_ALL;
                 g_uStateChannel1 = 1;
                 g_uStateChannel2 = 1;
             }
-            if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
+            if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 == 0x00)
             {
                 lightstate = LED_ON_CH1;
                 g_uStateChannel1 = 1;
 
             }
-            if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
+            if (g_uDimmingLevelChannel1 == 0x00 && g_uDimmingLevelChannel2 > 0x01)
             {
                 lightstate = LED_ON_CH2;
                 g_uStateChannel2 = 1;
@@ -243,16 +243,16 @@ void LightOnLogic(void)
         LightOnChannel1();
         LightOnChannel2();
 
-        if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
+        if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 == 0x00)
         {
-            LightPowerOff(LED_CHANNEL2_OFF);
+            LightOffLogic(LED_CHANNEL2_OFF);
             lightstate = LED_ON_CH1;
             g_uStateChannel1 = 1;
 
         }
-        if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
+        if (g_uDimmingLevelChannel1 == 0x00 && g_uDimmingLevelChannel2 > 0x01)
         {
-            LightPowerOff(LED_CHANNEL1_OFF);
+            LightOffLogic(LED_CHANNEL1_OFF);
             lightstate = LED_ON_CH2;
             g_uStateChannel2 = 1;
         }
@@ -263,15 +263,15 @@ void LightOnLogic(void)
     case LED_ON_CH1:
         LightOnChannel1();
 
-        if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
+        if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 > 0x01)
         {
             lightstate = LED_ON_ALL;
             g_uStateChannel1 = 1;
             g_uStateChannel2 = 1;
         }
-        if (g_uDimmingLevel_CH1 == 0x00 && g_uDimmingLevel_CH2 > 0x01)
+        if (g_uDimmingLevelChannel1 == 0x00 && g_uDimmingLevelChannel2 > 0x01)
         {
-            LightPowerOff(LED_CHANNEL1_OFF);
+            LightOffLogic(LED_CHANNEL1_OFF);
             lightstate = LED_ON_CH2;
             g_uStateChannel2 = 1;
         }
@@ -280,16 +280,16 @@ void LightOnLogic(void)
     case LED_ON_CH2:
 
         LightOnChannel2();
-        if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 > 0x01)
+        if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 > 0x01)
         {
             lightstate = LED_ON_ALL;
             g_uStateChannel1 = 1;
             g_uStateChannel2 = 1;
         }
 
-        if (g_uDimmingLevel_CH1 > 0x01 && g_uDimmingLevel_CH2 == 0x00)
+        if (g_uDimmingLevelChannel1 > 0x01 && g_uDimmingLevelChannel2 == 0x00)
         {
-            LightPowerOff(LED_CHANNEL2_OFF);
+            LightOffLogic(LED_CHANNEL2_OFF);
             lightstate = LED_ON_CH1;
             g_uStateChannel1 = 1;
         }
@@ -313,15 +313,15 @@ void DimmingControlTask(void)
         {
             if (ProtectionState == 1)
             {
-                LightPowerOff(LED_ALL_OFF);
+                LightOffLogic(LED_ALL_OFF);
             }
             else if (ProtectionState == 2)
             {
-                LightPowerOff(LED_CHANNEL1_OFF);
+                LightOffLogic(LED_CHANNEL1_OFF);
             }
             else if (ProtectionState == 3)
             {
-                LightPowerOff(LED_CHANNEL2_OFF);
+                LightOffLogic(LED_CHANNEL2_OFF);
             }
             lastExecState = ProtectionState;
         }
@@ -353,7 +353,7 @@ void Display(void)
     printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
            GetChannelCurrentValue(OUT_CURRENT2), piddimmingChannel2.voltage, piddimmingChannel2.actualPower, piddimmingChannel2.pwmValue);
 
-    printf("SP:%.2f|URGE1:%d|URGE2:%d| \n\r ", g_u8PowerOutputValue, g_uDimmingLevel_CH1, g_uDimmingLevel_CH2);
+    printf("SP:%.2f|URGE1:%d|URGE2:%d| \n\r ", g_u8PowerOutputValue, g_uDimmingLevelChannel1, g_uDimmingLevelChannel2);
 
     printf("Pro:%d|\n\r ", g_uFaultCode);
 

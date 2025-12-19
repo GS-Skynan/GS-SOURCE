@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o
+ C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o
  -Odist/default/production\bootloader.X.production.hex
  -logfile=dist/default/production\bootloader.X.production.hxl
  -addressing=1
@@ -9,14 +9,14 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  8h - 511h		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  514h - 6D1h		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  6D4h - 6DBh		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  2600h - 2FFFh		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  1FFFCh - 1FFFFh		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  300000h - 300007h		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
-  300009h - 300009h		(C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
+  0h - 3h		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  8h - 511h		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  514h - 6D1h		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  6D4h - 6DBh		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  2600h - 2FFFh		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  1FFFCh - 1FFFFh		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  300000h - 300007h		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
+  300009h - 300009h		(C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   512h - 513h
@@ -29,7 +29,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\12918\AppData\Local\Temp\xcCsq74.2\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\12918\AppData\Local\Temp\xcAsktk.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------

@@ -11,8 +11,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17 DriverLayer/ADC/adc_driver.h
 [v _ADC_Result2 `(us ~T0 @X0 0 ef1`E17462 ]
 "10 Applications/CurrentRead_APP/readcurrent.h
-[v _g_uDimmingLevel_CH1 `uc ~T0 @X0 0 e ]
-[v _g_uDimmingLevel_CH2 `uc ~T0 @X0 0 e ]
+[v _g_uDimmingLevelChannel1 `uc ~T0 @X0 0 e ]
+[v _g_uDimmingLevelChannel2 `uc ~T0 @X0 0 e ]
 "14
 [v _g_uChanne2Power `us ~T0 @X0 0 e ]
 "13 Applications/Ticktime_APP/ticktime.h
@@ -33,31 +33,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _update_pwm_output_ch1 `(f ~T0 @X0 0 ef1`f ]
 "43 Middlewares/PID/pid_controller.h
 [v _PID_Compute `(us ~T0 @X0 0 ef3`*S2424`f`f ]
-"149 Applications/Dimming_APP/dimming.c
+"150 Applications/Dimming_APP/dimming.c
 [c E17933 1 2 3 4 5 .. ]
 [n E17933 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "14 DriverLayer/PWM/pwm_driver.h
 [v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17933`us ]
 "19 Middlewares/Arithmetic/arithmetic.h
 [v _update_pwm_output_ch2 `(f ~T0 @X0 0 ef1`f ]
-"203 Applications/Dimming_APP/dimming.c
-[c E19004 1 2 3 4 5 .. ]
-[n E19004 . PFC_ON LED_ON_ALL LED_ON_CH1 LED_ON_CH2 LED_OFF  ]
+"204 Applications/Dimming_APP/dimming.c
+[c E18985 1 2 3 4 5 .. ]
+[n E18985 . PFC_ON LED_ON_ALL LED_ON_CH1 LED_ON_CH2 LED_OFF  ]
 "23 DriverLayer/GPIO/GPIO_driver.h
 [v _PFC_On `(v ~T0 @X0 0 ef ]
 "248 Applications/Dimming_APP/dimming.c
 [c E17890 1 2 3 .. ]
 [n E17890 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "14 Applications/LightsOff_APP/closeled.h
-[v _LightPowerOff `(v ~T0 @X0 0 ef1`E17890 ]
-"15 Applications/OutProtected_APP/out_protected.h
+[v _LightOffLogic `(v ~T0 @X0 0 ef1`E17890 ]
+"16 Applications/OutProtected_APP/out_protected.h
 [v _ProtectionCheck `(uc ~T0 @X0 0 ef ]
-"18
+"19
 [v _g_uFaultCode `uc ~T0 @X0 0 e ]
 "19 Applications/CurrentRead_APP/readcurrent.h
 [v _Power_Compensation `(us ~T0 @X0 0 ef ]
 "12 Applications/InProtected_APP/inprotectedapp.h
-[v _g_bPowerDownFlag `a ~T0 @X0 0 e ]
+[v _g_bPowerDownFlag `uc ~T0 @X0 0 e ]
 "6 Applications/TempProtected_APP/temp_protected.h
 [v _g_uTemperatureProtection `uc ~T0 @X0 0 e ]
 "11 Applications/CurrentRead_APP/readcurrent.h
@@ -1780,7 +1780,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
@@ -1925,7 +1925,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2432 ]
 "82
-[e = _g_uDimmingLevel_CH1 *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x ]
+[e = _g_uDimmingLevelChannel1 *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x ]
 "84
 [e $ ! != -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 0 `i 2435  ]
 "85
@@ -1942,7 +1942,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2435 ]
 "89
-[e = _g_uDimmingLevel_CH2 *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x ]
+[e = _g_uDimmingLevelChannel2 *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x ]
 "90
 [e :UE 2431 ]
 }
@@ -2013,13 +2013,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LightOnChannel1 ]
 [f ]
 "126
-[v F18998 `ul ~T0 @X0 1 s LastTimeChannel1 ]
-[i F18998
+[v F18979 `ul ~T0 @X0 1 s LastTimeChannel1 ]
+[i F18979
 -> -> -> 0 `i `l `ul
 ]
 "127
 [v _NowTimeChannel1 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18998 ]
+[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18979 ]
 "129
 [e $U 2446  ]
 {
@@ -2028,7 +2028,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "131
 [e ( _RELAY_On (1 . `E17914 0 ]
 "132
-[e = F18998 ( _get_systemtick_time ..  ]
+[e = F18979 ( _get_systemtick_time ..  ]
 "133
 [e = _g_uStateChannel1 -> -> 2 `i `uc ]
 "134
@@ -2042,7 +2042,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "138
 [e ( _L6562_On (1 . `E17910 0 ]
 "139
-[e = F18998 ( _get_systemtick_time ..  ]
+[e = F18979 ( _get_systemtick_time ..  ]
 "140
 [e = _g_uStateChannel1 -> -> 3 `i `uc ]
 "141
@@ -2053,20 +2053,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "144
 [e :U 2450 ]
 "145
-[e = . _piddimmingChannel1 2 * / -> ( _ADC_Result2 (1 . `E17462 9 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
-"146
-[e = . _piddimmingChannel1 1 / * ( _GetChannelCurrentValue (1 . `E17462 8 . _piddimmingChannel1 2 -> .1000.0 `f ]
-"147
-[e = . _piddimmingChannel1 0 ( _update_pwm_output_ch1 (1 _g_u8PowerOutputValue ]
-"148
-[e = . _piddimmingChannel1 3 ( _PID_Compute (3 , , &U _pid1 . _piddimmingChannel1 0 . _piddimmingChannel1 1 ]
-"149
-[e ( _PWM_Set_Direct (2 , . `E17933 0 . _piddimmingChannel1 3 ]
-"150
 [e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
-"151
-[e $U 2445  ]
+"146
+[e = . _piddimmingChannel1 2 * / -> ( _ADC_Result2 (1 . `E17462 9 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+"147
+[e = . _piddimmingChannel1 1 / * ( _GetChannelCurrentValue (1 . `E17462 8 . _piddimmingChannel1 2 -> .1000.0 `f ]
+"148
+[e = . _piddimmingChannel1 0 ( _update_pwm_output_ch1 (1 _g_u8PowerOutputValue ]
+"149
+[e = . _piddimmingChannel1 3 ( _PID_Compute (3 , , &U _pid1 . _piddimmingChannel1 0 . _piddimmingChannel1 1 ]
+"150
+[e ( _PWM_Set_Direct (2 , . `E17933 0 . _piddimmingChannel1 3 ]
 "152
+[e $U 2445  ]
+"153
 }
 [e $U 2445  ]
 [e :U 2446 ]
@@ -2075,75 +2075,75 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 2450
  2445 ]
 [e :U 2445 ]
-"153
+"154
 [e :UE 2444 ]
 }
-"156
+"157
 [v _g_uStateChannel2 `uc ~T0 @X0 1 s ]
 [i _g_uStateChannel2
 -> -> 0 `i `uc
 ]
-"158
-[v _LightOnChannel2 `(v ~T0 @X0 1 ef ]
 "159
+[v _LightOnChannel2 `(v ~T0 @X0 1 ef ]
+"160
 {
 [e :U _LightOnChannel2 ]
 [f ]
-"161
-[v F19002 `ul ~T0 @X0 1 s LastTimeChannel2 ]
-[i F19002
+"162
+[v F18983 `ul ~T0 @X0 1 s LastTimeChannel2 ]
+[i F18983
 -> -> -> 0 `i `l `ul
 ]
-"162
+"163
 [v _NowTimeChannel2 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel2 ( _get_elapsed_since (1 F19002 ]
-"164
+[e = _NowTimeChannel2 ( _get_elapsed_since (1 F18983 ]
+"165
 [e $U 2453  ]
 {
-"165
-[e :U 2454 ]
 "166
-[e ( _RELAY_On (1 . `E17914 1 ]
+[e :U 2454 ]
 "167
-[e = F19002 ( _get_systemtick_time ..  ]
+[e ( _RELAY_On (1 . `E17914 1 ]
 "168
-[e = _g_uStateChannel2 -> -> 2 `i `uc ]
+[e = F18983 ( _get_systemtick_time ..  ]
 "169
+[e = _g_uStateChannel2 -> -> 2 `i `uc ]
+"170
 [e $U 2452  ]
-"171
-[e :U 2455 ]
 "172
-[e $ ! > _NowTimeChannel2 -> -> -> 200 `i `l `ul 2456  ]
+[e :U 2455 ]
 "173
-{
+[e $ ! > _NowTimeChannel2 -> -> -> 200 `i `l `ul 2456  ]
 "174
-[e ( _L6562_On (1 . `E17910 1 ]
+{
 "175
-[e = F19002 ( _get_systemtick_time ..  ]
+[e ( _L6562_On (1 . `E17910 1 ]
 "176
-[e = _g_uStateChannel2 -> -> 3 `i `uc ]
+[e = F18983 ( _get_systemtick_time ..  ]
 "177
+[e = _g_uStateChannel2 -> -> 3 `i `uc ]
+"178
 }
 [e :U 2456 ]
-"178
+"179
 [e $U 2452  ]
-"180
-[e :U 2457 ]
 "181
-[e = . _piddimmingChannel2 2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+[e :U 2457 ]
 "182
-[e = . _piddimmingChannel2 1 / * ( _GetChannelCurrentValue (1 . `E17462 6 . _piddimmingChannel2 2 -> .1000.0 `f ]
-"183
-[e = . _piddimmingChannel2 0 ( _update_pwm_output_ch2 (1 -> _g_uChanne2Power `f ]
-"184
-[e = . _piddimmingChannel2 3 ( _PID_Compute (3 , , &U _pid2 . _piddimmingChannel2 0 . _piddimmingChannel2 1 ]
-"185
-[e ( _PWM_Set_Direct (2 , . `E17933 1 . _piddimmingChannel2 3 ]
-"186
 [e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
+"183
+[e = . _piddimmingChannel2 2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+"184
+[e = . _piddimmingChannel2 1 / * ( _GetChannelCurrentValue (1 . `E17462 6 . _piddimmingChannel2 2 -> .1000.0 `f ]
+"185
+[e = . _piddimmingChannel2 0 ( _update_pwm_output_ch2 (1 -> _g_uChanne2Power `f ]
+"186
+[e = . _piddimmingChannel2 3 ( _PID_Compute (3 , , &U _pid2 . _piddimmingChannel2 0 . _piddimmingChannel2 1 ]
 "187
+[e ( _PWM_Set_Direct (2 , . `E17933 1 . _piddimmingChannel2 3 ]
+"188
 [e $U 2452  ]
-"189
+"190
 }
 [e $U 2452  ]
 [e :U 2453 ]
@@ -2152,36 +2152,36 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 2457
  2452 ]
 [e :U 2452 ]
-"190
+"191
 [e :UE 2451 ]
 }
-"201
-[v _LightOnLogic `(v ~T0 @X0 1 ef ]
 "202
+[v _LightOnLogic `(v ~T0 @X0 1 ef ]
+"203
 {
 [e :U _LightOnLogic ]
 [f ]
-"203
-[v F19012 `E19004 ~T0 @X0 1 s start ]
-[i F19012
-. `E19004 4
-]
 "204
-[v F19013 `ul ~T0 @X0 1 s LastLightLogicTime ]
-[i F19013
--> -> -> 0 `i `l `ul
+[v F18993 `E18985 ~T0 @X0 1 s lightstate ]
+[i F18993
+. `E18985 4
 ]
 "205
+[v F18994 `ul ~T0 @X0 1 s LastLightLogicTime ]
+[i F18994
+-> -> -> 0 `i `l `ul
+]
+"206
 [v _NowLightLogicTime `ul ~T0 @X0 1 a ]
-[e = _NowLightLogicTime ( _get_elapsed_since (1 F19013 ]
+[e = _NowLightLogicTime ( _get_elapsed_since (1 F18994 ]
 "208
-[e $ ! && || > -> _g_uDimmingLevel_CH1 `i -> 1 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i == -> _g_bPfcRunFlag `i -> 1 `i 2459  ]
+[e $ ! && || > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i == -> _g_bPfcRunFlag `i -> 1 `i 2459  ]
 "209
 {
 "210
-[e = F19013 ( _get_systemtick_time ..  ]
+[e = F18994 ( _get_systemtick_time ..  ]
 "211
-[e = F19012 . `E19004 0 ]
+[e = F18993 . `E18985 0 ]
 "212
 [e = _g_bPfcRunFlag -> -> 0 `i `uc ]
 "213
@@ -2199,11 +2199,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "220
 {
 "221
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2464  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2464  ]
 "222
 {
 "223
-[e = F19012 . `E19004 1 ]
+[e = F18993 . `E18985 1 ]
 "224
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "225
@@ -2212,29 +2212,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2464 ]
 "227
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i == -> _g_uDimmingLevel_CH2 `i -> 0 `i 2465  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i == -> _g_uDimmingLevelChannel2 `i -> 0 `i 2465  ]
 "228
 {
 "229
-[e = F19012 . `E19004 2 ]
+[e = F18993 . `E18985 2 ]
 "230
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "232
 }
 [e :U 2465 ]
 "233
-[e $ ! && == -> _g_uDimmingLevel_CH1 `i -> 0 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2466  ]
+[e $ ! && == -> _g_uDimmingLevelChannel1 `i -> 0 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2466  ]
 "234
 {
 "235
-[e = F19012 . `E19004 3 ]
+[e = F18993 . `E18985 3 ]
 "236
 [e = _g_uStateChannel2 -> -> 1 `i `uc ]
 "237
 }
 [e :U 2466 ]
 "238
-[e = F19013 ( _get_systemtick_time ..  ]
+[e = F18994 ( _get_systemtick_time ..  ]
 "239
 }
 [e :U 2463 ]
@@ -2247,26 +2247,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "244
 [e ( _LightOnChannel2 ..  ]
 "246
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i == -> _g_uDimmingLevel_CH2 `i -> 0 `i 2468  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i == -> _g_uDimmingLevelChannel2 `i -> 0 `i 2468  ]
 "247
 {
 "248
-[e ( _LightPowerOff (1 . `E17890 1 ]
+[e ( _LightOffLogic (1 . `E17890 1 ]
 "249
-[e = F19012 . `E19004 2 ]
+[e = F18993 . `E18985 2 ]
 "250
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "252
 }
 [e :U 2468 ]
 "253
-[e $ ! && == -> _g_uDimmingLevel_CH1 `i -> 0 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2469  ]
+[e $ ! && == -> _g_uDimmingLevelChannel1 `i -> 0 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2469  ]
 "254
 {
 "255
-[e ( _LightPowerOff (1 . `E17890 0 ]
+[e ( _LightOffLogic (1 . `E17890 0 ]
 "256
-[e = F19012 . `E19004 3 ]
+[e = F18993 . `E18985 3 ]
 "257
 [e = _g_uStateChannel2 -> -> 1 `i `uc ]
 "258
@@ -2279,11 +2279,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "264
 [e ( _LightOnChannel1 ..  ]
 "266
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2471  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2471  ]
 "267
 {
 "268
-[e = F19012 . `E19004 1 ]
+[e = F18993 . `E18985 1 ]
 "269
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "270
@@ -2292,13 +2292,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2471 ]
 "272
-[e $ ! && == -> _g_uDimmingLevel_CH1 `i -> 0 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2472  ]
+[e $ ! && == -> _g_uDimmingLevelChannel1 `i -> 0 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2472  ]
 "273
 {
 "274
-[e ( _LightPowerOff (1 . `E17890 0 ]
+[e ( _LightOffLogic (1 . `E17890 0 ]
 "275
-[e = F19012 . `E19004 3 ]
+[e = F18993 . `E18985 3 ]
 "276
 [e = _g_uStateChannel2 -> -> 1 `i `uc ]
 "277
@@ -2311,11 +2311,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "282
 [e ( _LightOnChannel2 ..  ]
 "283
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i > -> _g_uDimmingLevel_CH2 `i -> 1 `i 2474  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i 2474  ]
 "284
 {
 "285
-[e = F19012 . `E19004 1 ]
+[e = F18993 . `E18985 1 ]
 "286
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "287
@@ -2324,13 +2324,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2474 ]
 "290
-[e $ ! && > -> _g_uDimmingLevel_CH1 `i -> 1 `i == -> _g_uDimmingLevel_CH2 `i -> 0 `i 2475  ]
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i == -> _g_uDimmingLevelChannel2 `i -> 0 `i 2475  ]
 "291
 {
 "292
-[e ( _LightPowerOff (1 . `E17890 1 ]
+[e ( _LightOffLogic (1 . `E17890 1 ]
 "293
-[e = F19012 . `E19004 2 ]
+[e = F18993 . `E18985 2 ]
 "294
 [e = _g_uStateChannel1 -> -> 1 `i `uc ]
 "295
@@ -2342,10 +2342,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2460  ]
 [e :U 2461 ]
-[e [\ -> F19012 `ui , $ -> . `E19004 0 `ui 2462
- , $ -> . `E19004 1 `ui 2467
- , $ -> . `E19004 2 `ui 2470
- , $ -> . `E19004 3 `ui 2473
+[e [\ -> F18993 `ui , $ -> . `E18985 0 `ui 2462
+ , $ -> . `E18985 1 `ui 2467
+ , $ -> . `E18985 2 `ui 2470
+ , $ -> . `E18985 3 `ui 2473
  2460 ]
 [e :U 2460 ]
 "300
@@ -2358,55 +2358,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _DimmingControlTask ]
 [f ]
 "305
-[v F19016 `uc ~T0 @X0 1 s ProtectionState ]
+[v F18997 `uc ~T0 @X0 1 s ProtectionState ]
 "306
-[v F19017 `uc ~T0 @X0 1 s lastExecState ]
-[i F19017
+[v F18998 `uc ~T0 @X0 1 s lastExecState ]
+[i F18998
 -> -> 0 `i `uc
 ]
 "307
-[e = F19016 ( _ProtectionCheck ..  ]
+[e = F18997 ( _ProtectionCheck ..  ]
 "309
-[e $ ! != -> F19016 `i -> 0 `i 2477  ]
+[e $ ! != -> F18997 `i -> 0 `i 2477  ]
 "310
 {
 "312
-[e $ ! != -> F19016 `i -> F19017 `i 2478  ]
+[e $ ! != -> F18997 `i -> F18998 `i 2478  ]
 "313
 {
 "314
-[e $ ! == -> F19016 `i -> 1 `i 2479  ]
+[e $ ! == -> F18997 `i -> 1 `i 2479  ]
 "315
 {
 "316
-[e ( _LightPowerOff (1 . `E17890 2 ]
+[e ( _LightOffLogic (1 . `E17890 2 ]
 "317
 }
 [e $U 2480  ]
 "318
 [e :U 2479 ]
-[e $ ! == -> F19016 `i -> 2 `i 2481  ]
+[e $ ! == -> F18997 `i -> 2 `i 2481  ]
 "319
 {
 "320
-[e ( _LightPowerOff (1 . `E17890 0 ]
+[e ( _LightOffLogic (1 . `E17890 0 ]
 "321
 }
 [e $U 2482  ]
 "322
 [e :U 2481 ]
-[e $ ! == -> F19016 `i -> 3 `i 2483  ]
+[e $ ! == -> F18997 `i -> 3 `i 2483  ]
 "323
 {
 "324
-[e ( _LightPowerOff (1 . `E17890 1 ]
+[e ( _LightOffLogic (1 . `E17890 1 ]
 "325
 }
 [e :U 2483 ]
 [e :U 2482 ]
 [e :U 2480 ]
 "326
-[e = F19017 F19016 ]
+[e = F18998 F18997 ]
 "327
 }
 [e :U 2478 ]
@@ -2418,14 +2418,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "330
 {
 "331
-[e = F19017 -> -> 0 `i `uc ]
+[e = F18998 -> -> 0 `i `uc ]
 "332
 [e = _g_uFaultCode -> -> 0 `i `uc ]
 "333
 }
 [e :U 2484 ]
 "335
-[e $ ! == -> F19016 `i -> 1 `i 2485  ]
+[e $ ! == -> F18997 `i -> 1 `i 2485  ]
 [e $UE 2476  ]
 [e :U 2485 ]
 "337
@@ -2457,7 +2457,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "353
 [e ( _printf , , , , (. :s 3C -> ( _GetChannelCurrentValue (1 . `E17462 6 `d -> . _piddimmingChannel2 2 `d -> . _piddimmingChannel2 1 `d -> . _piddimmingChannel2 3 `ui ]
 "356
-[e ( _printf , , , (. :s 4C -> _g_u8PowerOutputValue `d -> _g_uDimmingLevel_CH1 `i -> _g_uDimmingLevel_CH2 `i ]
+[e ( _printf , , , (. :s 4C -> _g_u8PowerOutputValue `d -> _g_uDimmingLevelChannel1 `i -> _g_uDimmingLevelChannel2 `i ]
 "358
 [e ( _printf , (. :s 5C -> _g_uFaultCode `i ]
 "361

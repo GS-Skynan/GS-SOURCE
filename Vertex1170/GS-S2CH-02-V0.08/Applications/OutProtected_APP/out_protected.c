@@ -11,7 +11,22 @@
 #include "Bootloader.h"
 
 
-uint16_t V_Ret1 = 0, V_Ret2 = 0; //保护标识，在输出保护说明
+
+
+/*** 输出开路和过功率保护阈值 ***/
+#define OVER_VOLTAGE_CHANNEL1 550
+#define UNDER_VOLTAGE_CHANNEL1 150
+#define SHORT_CIRCUIT_CHANNEL1 30
+#define OVER_POWER_CHANNEL1(x) ((float)(x) * 1.10f)
+
+#define OVER_VOLTAGE_CHANNEL2 300
+#define UNDER_VOLTAGE_CHANNEL2 50
+#define SHORT_CIRCUIT_CHANNEL2 20
+#define OVER_POWER_CHANNEL2(x) ((float)(x) * 1.10f)
+
+
+uint16_t g_uOutputProtectionTypeChannel1 = 0;
+uint16_t g_uOutputProtectionTypeChannel2 = 0; //保护标识，在输出保护说明
 
 float g_VoltageProtect1;
 float g_VoltageProtect2;
@@ -20,9 +35,6 @@ float g_PoweProtect2;
 
 uint8_t g_uFaultCode = 0;
 
-
-
-//获取硬件电压（此时灯板电压）
 
 /*
  * 获取指定通道的电压值（单位：V）
@@ -42,7 +54,7 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
 {
     /*CH1通道电压判断*/
 
-    if (channel == Output1_voltage_ADC && g_uDimmingLevel_CH1>0x01)
+    if (channel == Output1_voltage_ADC && g_uDimmingLevelChannel1>0x01)
     {
         // 动态计算过压阈值（单位：mV）
         // 公式推导：
@@ -52,22 +64,22 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
         //   4. 分压电路转换：实际ADC值 = 目标电压 * (18/3018)
         //   5. 转换为mV单位：* 1000
 
-        g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (1087.5f / 7.5f);
+        g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (VOLTAGE_CH1_R1 / VOLTAGE_CH1_R2);
         g_PoweProtect1 = (float) GetChannelCurrentValue(OUT_CURRENT1) * g_VoltageProtect1 / 1000.0f;
 
-        if (g_VoltageProtect1 >= 550 || (g_VoltageProtect1 <= 150))
+        if (g_VoltageProtect1 >= OVER_VOLTAGE_CHANNEL1 || (g_VoltageProtect1 <= UNDER_VOLTAGE_CHANNEL1))
         {
             g_uFaultCode = 1;
             return 1;
         }
 
-        else if (g_VoltageProtect1 <= 30)
+        else if (g_VoltageProtect1 <= SHORT_CIRCUIT_CHANNEL1)
         {
             g_uFaultCode = 2;
             return 2;
         }
 
-        else if (g_PoweProtect1 > ((float) g_uTargetPowerChannel1 * 1.10f))
+        else if (g_PoweProtect1 > OVER_POWER_CHANNEL1(g_uTargetPowerChannel1))
         {
             g_uFaultCode = 3;
             return 2;
@@ -82,27 +94,27 @@ uint16_t Voltage_Judgment(adc_channel_t channel)
     }
 
     /*CH2通道电压判断*/
-    if (channel == Output2_voltage_ADC &&  g_uDimmingLevel_CH2>0x01)
+    if (channel == Output2_voltage_ADC &&  g_uDimmingLevelChannel2>0x01)
     {
-        g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (U2_R1 / U2_R2);
+        g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
         g_PoweProtect2 = (float) GetChannelCurrentValue(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
-        if (g_VoltageProtect2 >= 300)
+        if (g_VoltageProtect2 >= OVER_VOLTAGE_CHANNEL2|| (g_VoltageProtect2 <= UNDER_VOLTAGE_CHANNEL2))
         {
             g_uFaultCode = 4;
             return 1;
         }
 
-        else if (g_VoltageProtect2 <= 20)
+        else if (g_VoltageProtect2 <= SHORT_CIRCUIT_CHANNEL2)
         {
             g_uFaultCode = 5;
             return 2;
         }
-//        else if (g_PoweProtect2 > (float)g_uPower2 * 1.10f)
-//        {
-//            g_uFaultCode = 6;
-//
-//            return 2;
-//        }
+        else if (g_PoweProtect2 > OVER_POWER_CHANNEL2(g_uTargetPowerChannel2))
+        {
+            g_uFaultCode = 6;
+
+            return 2;
+        }
         else
         {
             return 0;
@@ -129,23 +141,20 @@ void OutProtected_CH1(void)
 
     uint8_t outprotect = Voltage_Judgment(Output1_voltage_ADC);
 
-    
     if (in_protection_period)
     {
         if (protect1time >= 5000)// 30秒保护期结束
         { 
             in_protection_period = false;
-            V_Ret1 = 0;
-          // g_uDimmingLevel_CH1=0X64;
+            g_uOutputProtectionTypeChannel1 = 0;
             g_uStateChannel1=1;
-            //LightOnChannel1();
         }
         return; // 在保护期内，不进行新的检测
     }
 
     if (permanent_protection)
     {
-        V_Ret1 = 1; // 永久保持保护状态
+        g_uOutputProtectionTypeChannel1 = 1; // 永久保持保护状态
         return;
     }
 
@@ -163,7 +172,7 @@ void OutProtected_CH1(void)
             if (protect1time > 1000)
             {
                 // 保护时间到，执行动作
-                V_Ret1 = 1;
+                g_uOutputProtectionTypeChannel1 = 1;
                 in_protection_period = true;
                 timesys1 = get_systemtick_time();
                 is_protecting1 = false;
@@ -189,7 +198,7 @@ void OutProtected_CH1(void)
             if (protect1time > 200)
             {
 
-                V_Ret1 = 2;
+                g_uOutputProtectionTypeChannel1 = 2;
                 is_protecting2 = false;
 
             }
@@ -199,7 +208,7 @@ void OutProtected_CH1(void)
 
     else
     {
-        V_Ret1 = 0;
+        g_uOutputProtectionTypeChannel1 = 0;
         // 电压正常，重置保护状态
         is_protecting1 = false;
         is_protecting2 = false;
@@ -213,7 +222,6 @@ void OutProtected_CH2(void)
     uint32_t protect2time = get_elapsed_since(timesys2);
     static bool is_protecting3 = false;
     static bool is_protecting4 = false;
-
 
     uint16_t outprotect2 = Voltage_Judgment(Output2_voltage_ADC);
 
@@ -230,7 +238,7 @@ void OutProtected_CH2(void)
             if (protect2time > 1000)
             {
                 // 保护时间到，执行动作
-                V_Ret2 = 1;
+                g_uOutputProtectionTypeChannel2 = 1;
                 is_protecting3 = false;
             }
         }
@@ -248,7 +256,7 @@ void OutProtected_CH2(void)
             if (protect2time > 200)
             {
                 // 保护时间到，执行动作
-                V_Ret2 = 2;
+                g_uOutputProtectionTypeChannel2 = 2;
                 is_protecting4 = false;
             }
         }
@@ -257,7 +265,7 @@ void OutProtected_CH2(void)
 
     else
     {
-        V_Ret2 = 0;
+        g_uOutputProtectionTypeChannel2 = 0;
         // 电压正常，重置保护状态
         is_protecting3 = false;
         is_protecting4 = false;
@@ -274,13 +282,13 @@ uint8_t ProtectionCheck(void)
 
     if (g_uTemperatureProtection == 2) return 1;
 
-    if (g_uDimmingLevel_CH1 < 0x01 && g_uDimmingLevel_CH2 < 0x01)return 1;
+    if (g_uDimmingLevelChannel1 < 0x01 && g_uDimmingLevelChannel2 < 0x01)return 1;
 
-    if ((V_Ret1 != 0)&&(V_Ret2 != 0)) return 1;
+    if ((g_uOutputProtectionTypeChannel1 != 0)&&(g_uOutputProtectionTypeChannel2 != 0)) return 1;
 
-    if (V_Ret1 != 0) return 2;
+    if (g_uOutputProtectionTypeChannel1 != 0) return 2;
 
-    if (V_Ret2 != 0) return 3;
+    if (g_uOutputProtectionTypeChannel2 != 0) return 3;
 
     return 0;
 }

@@ -2261,12 +2261,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "14 Applications/CurrentRead_APP/readcurrent.c
-[v _g_uDimmingLevel_CH1 `uc ~T0 @X0 1 e ]
-[i _g_uDimmingLevel_CH1
+[v _g_uDimmingLevelChannel1 `uc ~T0 @X0 1 e ]
+[i _g_uDimmingLevelChannel1
 -> -> 0 `i `uc
 ]
-[v _g_uDimmingLevel_CH2 `uc ~T0 @X0 1 e ]
-[i _g_uDimmingLevel_CH2
+[v _g_uDimmingLevelChannel2 `uc ~T0 @X0 1 e ]
+[i _g_uDimmingLevelChannel2
 -> -> 0 `i `uc
 ]
 "16
@@ -2296,28 +2296,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [e = _TargetPowerCH1 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 2 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 3 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "28
-[e $ ! >= -> _TargetPowerCH1 `ui -> -> 855 `i `ui 2423  ]
-[e = _TargetPowerCH1 -> -> 855 `i `us ]
+[e $ ! >= -> _TargetPowerCH1 `ui -> -> 1350 `i `ui 2423  ]
+[e = _TargetPowerCH1 -> -> 1350 `i `us ]
 [e :U 2423 ]
 "29
-[e $ ! < -> _TargetPowerCH1 `ui -> -> 500 `i `ui 2424  ]
-[e = _TargetPowerCH1 -> -> 500 `i `us ]
+[e $ ! < -> _TargetPowerCH1 `ui -> -> 600 `i `ui 2424  ]
+[e = _TargetPowerCH1 -> -> 600 `i `us ]
 [e :U 2424 ]
 "30
 [e = _g_uTargetPowerChannel1 _TargetPowerCH1 ]
 "32
-[e = _g_uDimmingLevel_CH1 *U + _NfcPowerBuff * -> -> 0 `i `x -> -> # *U _NfcPowerBuff `i `x ]
+[e = _g_uDimmingLevelChannel1 *U + _NfcPowerBuff * -> -> 0 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "33
-[e $ ! != -> _g_uDimmingLevel_CH1 `i -> 0 `i 2425  ]
+[e $ ! != -> _g_uDimmingLevelChannel1 `i -> 0 `i 2425  ]
 "34
 {
 "35
-[e $ ! <= -> _g_uDimmingLevel_CH1 `i -> 20 `i 2426  ]
-[e = _g_uDimmingLevel_CH1 -> -> 20 `i `uc ]
+[e $ ! <= -> _g_uDimmingLevelChannel1 `i -> 20 `i 2426  ]
+[e = _g_uDimmingLevelChannel1 -> -> 20 `i `uc ]
 [e :U 2426 ]
 "36
-[e $ ! >= -> _g_uDimmingLevel_CH1 `i -> 100 `i 2427  ]
-[e = _g_uDimmingLevel_CH1 -> -> 100 `i `uc ]
+[e $ ! >= -> _g_uDimmingLevelChannel1 `i -> 100 `i 2427  ]
+[e = _g_uDimmingLevelChannel1 -> -> 100 `i `uc ]
 [e :U 2427 ]
 "37
 }
@@ -2325,28 +2325,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [e = _TargetPowerCH2 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 6 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 7 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "40
-[e $ ! >= -> _TargetPowerCH2 `ui -> -> 300 `i `ui 2428  ]
-[e = _TargetPowerCH2 -> -> 300 `i `us ]
+[e $ ! >= -> _TargetPowerCH2 `ui -> -> 150 `i `ui 2428  ]
+[e = _TargetPowerCH2 -> -> 150 `i `us ]
 [e :U 2428 ]
 "41
-[e $ ! < -> _TargetPowerCH2 `ui -> -> 100 `i `ui 2429  ]
-[e = _TargetPowerCH2 -> -> 100 `i `us ]
+[e $ ! < -> _TargetPowerCH2 `ui -> -> 60 `i `ui 2429  ]
+[e = _TargetPowerCH2 -> -> 60 `i `us ]
 [e :U 2429 ]
 "42
 [e = _g_uTargetPowerChannel2 _TargetPowerCH2 ]
 "44
-[e = _g_uDimmingLevel_CH2 *U + _NfcPowerBuff * -> -> 4 `i `x -> -> # *U _NfcPowerBuff `i `x ]
+[e = _g_uDimmingLevelChannel2 *U + _NfcPowerBuff * -> -> 4 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "45
-[e $ ! != -> _g_uDimmingLevel_CH2 `i -> 0 `i 2430  ]
+[e $ ! != -> _g_uDimmingLevelChannel2 `i -> 0 `i 2430  ]
 "46
 {
 "47
-[e $ ! <= -> _g_uDimmingLevel_CH2 `i -> 20 `i 2431  ]
-[e = _g_uDimmingLevel_CH2 -> -> 20 `i `uc ]
+[e $ ! <= -> _g_uDimmingLevelChannel2 `i -> 20 `i 2431  ]
+[e = _g_uDimmingLevelChannel2 -> -> 20 `i `uc ]
 [e :U 2431 ]
 "48
-[e $ ! >= -> _g_uDimmingLevel_CH2 `i -> 100 `i 2432  ]
-[e = _g_uDimmingLevel_CH2 -> -> 100 `i `uc ]
+[e $ ! >= -> _g_uDimmingLevelChannel2 `i -> 100 `i 2432  ]
+[e = _g_uDimmingLevelChannel2 -> -> 100 `i `uc ]
 [e :U 2432 ]
 "49
 }
@@ -2623,10 +2623,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SetPowerValue `us ~T0 @X0 1 a ]
 [e = _SetPowerValue _g_uTargetPowerChannel1 ]
 "175
-[e = _temp - / * -> _g_uTargetPowerChannel1 `l -> _g_uDimmingLevel_CH1 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
+[e = _temp - / * -> _g_uTargetPowerChannel1 `l -> _g_uDimmingLevelChannel1 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
 "176
-[e $ ! < _temp -> -> 20 `i `l 2456  ]
-[e = _temp -> -> 20 `i `l ]
+[e $ ! < _temp -> -> 0 `i `l 2456  ]
+[e = _temp -> -> 0 `i `l ]
 [e :U 2456 ]
 "177
 [e $ ! > _temp -> _g_uTargetPowerChannel1 `l 2457  ]
@@ -2635,10 +2635,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "178
 [e = _g_uChanne1Power -> _temp `us ]
 "180
-[e = _temp - / * -> _g_uTargetPowerChannel2 `l -> _g_uDimmingLevel_CH2 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
+[e = _temp - / * -> _g_uTargetPowerChannel2 `l -> _g_uDimmingLevelChannel2 `l -> -> 100 `i `l -> - -> 255 `i - -> 255 `i -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `l ]
 "181
-[e $ ! < _temp -> -> 20 `i `l 2458  ]
-[e = _temp -> -> 20 `i `l ]
+[e $ ! < _temp -> -> 0 `i `l 2458  ]
+[e = _temp -> -> 0 `i `l ]
 [e :U 2458 ]
 "182
 [e $ ! > _temp -> _g_uTargetPowerChannel2 `l 2459  ]
@@ -2668,8 +2668,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2461 ]
 "196
-[e $ ! < _temp -> -> 20 `i `l 2462  ]
-[e = _temp -> -> 20 `i `l ]
+[e $ ! < _temp -> -> 0 `i `l 2462  ]
+[e = _temp -> -> 0 `i `l ]
 [e :U 2462 ]
 "197
 [e $ ! > _temp -> _SetPowerValue `l 2463  ]

@@ -2,9 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21 Middlewares/PID/pid_controller.h
 [s S2421 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2421 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
-[v F18025 `(v ~T0 @X0 0 tf ]
+[v F18006 `(v ~T0 @X0 0 tf ]
 "57 main.c
-[s S2422 `uc 1 `us 1 `us 1 `*F18025 1 ]
+[s S2422 `uc 1 `us 1 `us 1 `*F18006 1 ]
 [n S2422 . run timCount timRload pTaskFuncCb ]
 "9 Applications/USBCom_APP/usbcom.h
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
@@ -14,9 +14,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TemapProtectedTask `(v ~T0 @X0 0 ef ]
 "18 Applications/Dimming_APP/dimming.h
 [v _DimmingControlTask `(v ~T0 @X0 0 ef ]
-"25 Applications/OutProtected_APP/out_protected.h
+"26 Applications/OutProtected_APP/out_protected.h
 [v _OutProtectedTask `(v ~T0 @X0 0 ef ]
-"16 Applications/Ticktime_APP/ticktime.h
+"15 Applications/Ticktime_APP/ticktime.h
 [v _LED_Task `(v ~T0 @X0 0 ef ]
 "33 DriverLayer/GPIO/GPIO_driver.h
 [v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
@@ -1767,7 +1767,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"25 Applications/Ticktime_APP/ticktime.h
+"20 Applications/Ticktime_APP/ticktime.h
 [v _system_tick `Vul ~T0 @X0 1 e ]
 "35 Middlewares/PID/pid_controller.h
 [v _pid1 `S2421 ~T0 @X0 1 e ]
