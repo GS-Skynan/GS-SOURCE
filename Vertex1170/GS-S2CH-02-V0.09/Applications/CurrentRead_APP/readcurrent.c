@@ -44,7 +44,7 @@ void ReadTargetPower(uint8_t* NfcPowerBuff)
     g_uDimmingLevelChannel2 = NfcPowerBuff[4];
     if (g_uDimmingLevelChannel2 != 0x00)
     {
-        if (g_uDimmingLevelChannel2 <= 0x14)g_uDimmingLevelChannel2 = 0x14;
+        if (g_uDimmingLevelChannel2 <= 0x1E)g_uDimmingLevelChannel2 = 0x1E;
         if (g_uDimmingLevelChannel2 >= 0x64)g_uDimmingLevelChannel2 = 0x64; // 限幅处理：UART寄存器值不能超过0x64(十进制100)
     }
 }
@@ -75,9 +75,6 @@ void WriteCalibrationSingleChannel(uint8_t *w_eeprom)
 
     else if (write_buffer[7] == 0x02)//加功率
     {
-        //        EepromWriteByte(0x0004, write_buffer[8]);
-        //        __delay_ms(1);
-        //        CalibrationBuff[0] = -EepromReadByte(0x0004);
         EepromWriteInt8(0x0004, write_buffer[8]);
         __delay_ms(1);
         CalibrationBuff[0] = EepromReadInt8(0x0004);
@@ -92,9 +89,6 @@ void WriteCalibrationSingleChannel(uint8_t *w_eeprom)
 
     else if (write_buffer[9] == 0x02)
     {
-        //        EepromWriteByte(0x0005, write_buffer[10]);
-        //        __delay_ms(1);
-        //        CalibrationBuff[1] = -EepromReadByte(0x0005);
         EepromWriteInt8(0x0005, write_buffer[8]);
         __delay_ms(1);
         CalibrationBuff[1] = EepromReadInt8(0x0005);
@@ -130,12 +124,6 @@ void WriteCalibrationMultiChannel(uint8_t *w_eeprom)
 
     else if (write_buffer[7] == 0x02)
     {
-        //        uint8_t absolute_value = write_buffer[8];
-        //        // 转换为负数
-        //        int8_t signed_value = -(int8_t) absolute_value;
-        //        uint8_t data_to_store = (uint8_t)signed_value;
-        //        
-        //        EepromWriteByte(0x0006, data_to_store);
         EepromWriteInt8(0x0006, write_buffer[8]);
         __delay_ms(1);
         CalibrationBuff[2] = EepromReadInt8(0x0006); //(int8_t) EepromReadByte(0x0006);
@@ -184,12 +172,12 @@ uint16_t Power_Compensation(void)
     int32_t temp; // 用32位有符号计算，避免溢出
     uint16_t SetPowerValue = g_uTargetPowerChannel1;
 
-    temp = ((int32_t) g_uTargetPowerChannel1 * g_uDimmingLevelChannel1 / 100) - (0XFF - (0XFF - CalibrationBuff[0]));
+    temp = ((int32_t) g_uTargetPowerChannel1 * g_uDimmingLevelChannel1 / 100) -(CalibrationBuff[0]);//(0XFF - (0XFF - CalibrationBuff[0]));
     if (temp < 0) temp = 0;
     if (temp > g_uTargetPowerChannel1) temp = g_uTargetPowerChannel1;
     g_uChanne1Power = (uint16_t) temp;
 
-    temp = ((int32_t) g_uTargetPowerChannel2 * g_uDimmingLevelChannel2 / 100) - (0XFF - (0XFF - CalibrationBuff[1]));
+    temp = ((int32_t) g_uTargetPowerChannel2 * g_uDimmingLevelChannel2 / 100) -(CalibrationBuff[1]); //(0XFF - (0XFF - CalibrationBuff[1]));
     if (temp < 0)temp = 0;
     if (temp > g_uTargetPowerChannel2)temp = g_uTargetPowerChannel2;
     g_uChanne2Power = (uint16_t) temp;
@@ -198,7 +186,7 @@ uint16_t Power_Compensation(void)
 
     if (g_uTotalPower > SetPowerValue)
     {
-        temp = (int32_t) SetPowerValue - (g_uTotalPower - g_uChanne1Power) - (0XFF - (0XFF - CalibrationBuff[2]));
+        temp = (int32_t) SetPowerValue - (g_uTotalPower - g_uChanne1Power) - (CalibrationBuff[2]);//(0XFF - (0XFF - CalibrationBuff[2]));
     }
     else
     {

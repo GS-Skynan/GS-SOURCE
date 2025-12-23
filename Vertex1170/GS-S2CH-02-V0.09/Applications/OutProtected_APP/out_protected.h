@@ -14,7 +14,7 @@
 
 
 uint8_t ProtectionCheck(void);
-extern uint8_t g_uStateChannel1;
+
 extern float g_PoweProtect2;
 extern uint8_t g_uFaultCode;
 

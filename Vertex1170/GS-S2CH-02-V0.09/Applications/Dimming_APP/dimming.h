@@ -16,7 +16,8 @@ typedef struct {
 float GetChannelCurrentValue(adc_channel_t channel);
 
 void DimmingControlTask(void);             
-
+extern uint8_t g_uStateChannel1;
+extern uint8_t g_uStateChannel2;
 extern uint8_t g_uPowerOnOutputStart;
 
 extern float g_fPowerOutputValue;

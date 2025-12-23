@@ -153,7 +153,7 @@ void LightOnChannel1(void)
 }
 
 
-static uint8_t g_uStateChannel2 = 0;
+uint8_t g_uStateChannel2 = 0;
 
 void LightOnChannel2(void)
 {

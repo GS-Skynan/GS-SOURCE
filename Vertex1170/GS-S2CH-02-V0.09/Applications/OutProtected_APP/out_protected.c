@@ -56,8 +56,8 @@ uint16_t GetChannelVoltageValue(adc_channel_t channel)
         //   4. 分压电路转换：实际ADC值 = 目标电压 * (18/3018)
         //   5. 转换为mV单位：* 1000
 
-       float g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (VOLTAGE_CH1_R1 / VOLTAGE_CH1_R2);
-       float g_PoweProtect1 = (float) GetChannelCurrentValue(OUT_CURRENT1) * g_VoltageProtect1 / 1000.0f;
+        float g_VoltageProtect1 = ((float) ADC_Result2(Output1_voltage_ADC) / 1000.0f) * (VOLTAGE_CH1_R1 / VOLTAGE_CH1_R2);
+        float g_PoweProtect1 = (float) GetChannelCurrentValue(OUT_CURRENT1) * g_VoltageProtect1 / 1000.0f;
 
         if (g_VoltageProtect1 >= OVER_VOLTAGE_CHANNEL1 || (g_VoltageProtect1 <= UNDER_VOLTAGE_CHANNEL1))
         {
@@ -87,10 +87,10 @@ uint16_t GetChannelVoltageValue(adc_channel_t channel)
     /*CH2通道电压判断*/
     if (channel == Output2_voltage_ADC && g_uDimmingLevelChannel2 > 0x01)
     {
-      float  g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
-      float  g_PoweProtect2 = (float) GetChannelCurrentValue(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
-      
-      if (g_VoltageProtect2 >= OVER_VOLTAGE_CHANNEL2 || (g_VoltageProtect2 <= UNDER_VOLTAGE_CHANNEL2))
+        float g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
+        float g_PoweProtect2 = (float) GetChannelCurrentValue(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
+
+        if (g_VoltageProtect2 >= OVER_VOLTAGE_CHANNEL2 || (g_VoltageProtect2 <= UNDER_VOLTAGE_CHANNEL2))
         {
             g_uFaultCode = 4;
             return 1;
@@ -213,7 +213,28 @@ void OutProtected_CH2(void)
     static bool is_protecting3 = false;
     static bool is_protecting4 = false;
 
+    static bool in_protection_period = false; // 是否在保护期内
+    static bool permanent_protection = false; // 是否永久保护
+    static uint8_t protection_count = 0; // 保护次数计数
+
     uint16_t outprotect2 = GetChannelVoltageValue(Output2_voltage_ADC);
+
+    if (in_protection_period)
+    {
+        if (protect2time >= 5000)// 30秒保护期结束
+        {
+            in_protection_period = false;
+            g_uOutputProtectionTypeChannel2 = 0;
+            g_uStateChannel2 = 1;
+        }
+        return; // 在保护期内，不进行新的检测
+    }
+
+    if (permanent_protection)
+    {
+        g_uOutputProtectionTypeChannel2 = 1; // 永久保持保护状态
+        return;
+    }
 
     if (outprotect2 == 1) // 电压异常
     {
@@ -229,7 +250,15 @@ void OutProtected_CH2(void)
             {
                 // 保护时间到，执行动作
                 g_uOutputProtectionTypeChannel2 = 1;
+                in_protection_period = true;
+                timesys2 = get_systemtick_time();
                 is_protecting3 = false;
+
+                protection_count++;
+                if (protection_count >= 5)
+                {
+                    permanent_protection = true;
+                }
             }
         }
     }
@@ -261,8 +290,6 @@ void OutProtected_CH2(void)
         is_protecting4 = false;
     }
 }
-
-
 
 /*1关全部  2 关1  3关2*/
 uint8_t ProtectionCheck(void)
