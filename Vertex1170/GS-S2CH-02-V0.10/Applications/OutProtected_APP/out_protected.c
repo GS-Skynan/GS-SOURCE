@@ -4,8 +4,6 @@
 #include "ticktime.h"
 #include "dimming.h"
 #include "inprotectedapp.h"
-#include "closeled.h"
-#include "GPIO_driver.h"
 #include "stdio.h"
 #include "temp_protected.h"
 #include "Bootloader.h"
@@ -36,7 +34,7 @@ uint16_t GetChannelVoltageValue(adc_channel_t channel)
 {
     /*CH1通道电压判断*/
 
-    if (channel == Output1_voltage_ADC)
+    if (channel == Output1_voltage_ADC && g_uDimmingLevelChannel1 > 0x01)
     {
         // 动态计算过压阈值（单位：mV）
         // 公式推导：
@@ -74,7 +72,7 @@ uint16_t GetChannelVoltageValue(adc_channel_t channel)
     }
 
     /*CH2通道电压判断*/
-    if (channel == Output2_voltage_ADC)
+    if (channel == Output2_voltage_ADC && g_uDimmingLevelChannel2 > 0x01)
     {
         float g_VoltageProtect2 = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
         float g_PoweProtect2 = (float) GetChannelCurrentValue(OUT_CURRENT2) * g_VoltageProtect2 / 1000.0f;
@@ -181,7 +179,7 @@ uint16_t GetChannelVoltageValue(adc_channel_t channel)
 //            {
 //
 //                g_uOutputProtectionTypeChannel1 = 1;
-//                 permanent_protection = true;
+//                permanent_protection = true;
 //                is_protecting2 = false;
 //            }
 //        }
@@ -301,7 +299,7 @@ void OutProtected_Channel(uint8_t voltage_adc,
     if (state->in_protection_period)
     {
         elapsed_time = get_elapsed_since(state->protect_start_time);
-        if (elapsed_time >= 5000) // 30秒保护期结束
+        if (elapsed_time >= PROTECTION_RESTORE_TIME) // 30秒保护期结束
         {
             state->in_protection_period = false;
             *protect_type_ptr = 0;
@@ -329,7 +327,7 @@ void OutProtected_Channel(uint8_t voltage_adc,
         else
         {
             elapsed_time = get_elapsed_since(state->last_detect_time);
-            if (elapsed_time > 1000)
+            if (elapsed_time > OVER_UNDER_VOLTAGE_PROTECTION_TIME)
             {
                 // 保护时间到，执行动作
                 *protect_type_ptr = 1;
@@ -356,7 +354,7 @@ void OutProtected_Channel(uint8_t voltage_adc,
         else
         {
             elapsed_time = get_elapsed_since(state->last_detect_time);
-            if (elapsed_time > 200)
+            if (elapsed_time > SHORT_CIRCUIT_PROTECTION_TIME)
             {
                 *protect_type_ptr = 2;
                 state->permanent_protection = true;
@@ -392,8 +390,6 @@ void OutProtected_CH2(void)
                          &g_uOutputProtectionTypeChannel2,
                          &g_uOnChannel2);
 }
-
-
 
 /*1关全部  2 关1  3关2*/
 uint8_t ProtectionCheck(void)

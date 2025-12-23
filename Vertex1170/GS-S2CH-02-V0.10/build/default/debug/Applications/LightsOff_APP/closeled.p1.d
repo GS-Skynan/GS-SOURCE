@@ -29,16 +29,10 @@ Applications/LightsOff_APP/../../mcc_generated_files/system/../timer/tmr2.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/../timer/tmr2_deprecated.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/../timer/tmr4.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
-Applications/InProtected_APP/inprotectedapp.h  \
-Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
-Applications/CurrentRead_APP/readcurrent.h  \
-Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/GPIO/GPIO_driver.h  \
 DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
 DriverLayer/PWM/pwm_driver.h  \
 DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
-Applications/OutProtected_APP/out_protected.h  \
-Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/Dimming_APP/dimming.h  \
 Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \

@@ -1,11 +1,4 @@
-#include "inprotectedapp.h"
-#include "nfc.h"
 #include "adc_driver.h"
-#include "closeled.h"
-#include "readcurrent.h"
-#include "dimming.h"
-#include "out_protected.h"
-#include "usbcom.h"
 #include "ticktime.h"
 #include "../App_config/config.h"
 

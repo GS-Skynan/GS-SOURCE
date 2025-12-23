@@ -39,7 +39,6 @@ Applications/USBCom_APP/usbcom.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
-Applications/PowerComp_APP/powercomp.h  \
 Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
@@ -50,8 +49,6 @@ DriverLayer/PWM/pwm_driver.h  \
 DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
-DriverLayer/RS485/RS485_DATA.h  \
-DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 Applications/Bootloader/Bootloader.h  \
 Applications/Bootloader/../../mcc_generated_files/system/system.h  \
 Middlewares/Arithmetic/arithmetic.h  \

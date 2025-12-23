@@ -29,18 +29,8 @@ Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr2.h 
 Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr2_deprecated.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr4.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
-Applications/Dimming_APP/dimming.h  \
-Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
-Applications/InProtected_APP/inprotectedapp.h  \
-Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
 DriverLayer/ADC/adc_driver.h  \
 DriverLayer/ADC/../../mcc_generated_files/system/system.h  \
-Applications/LightsOff_APP/closeled.h  \
-Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \
-Applications/CurrentRead_APP/readcurrent.h  \
-Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
-DriverLayer/NFC/nfc.h  \
-DriverLayer/NFC/../../mcc_generated_files//system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
 Applications/TempProtected_APP/../App_config/config.h 

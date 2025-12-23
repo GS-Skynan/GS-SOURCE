@@ -36,7 +36,7 @@
 #include "mcc_generated_files/system/system.h"
 #include "usbcom.h"
 #include "inprotectedapp.h"
-#include "TEMP_PROTECTED.h"
+#include "temp_protected.h"
 #include "closeled.h"
 #include "readcurrent.h"
 #include "powercomp.h"
@@ -49,6 +49,7 @@
 #include "pwm_driver.h"
 #include "arithmetic.h"
 #include "pid_controller.h"
+
 
 /*
     Main application
@@ -67,9 +68,9 @@ static tTaskComps g_taskComps[] = {
     {0, 10, 10, DimmingControlTask}, 
     {0, 20, 20, OutProtectedTask},
     {0, 50, 50, IntProtectedTask}, 
-    {0, 200, 200, TemapProtectedTask},
+    {0, 80, 80, TemapProtectedTask},
     {0, 100, 100, Rs485Task},
- //   {0, 5000, 5000, Display},
+   {0, 5000, 5000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))

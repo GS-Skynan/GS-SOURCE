@@ -6,10 +6,8 @@
 
 
 
-extern uint16_t g_uTargetPower;
 extern uint8_t g_uDimmingLevelChannel1,g_uDimmingLevelChannel2;
 extern uint16_t g_uTargetPowerChannel1, g_uTargetPowerChannel2;
-extern uint16_t power_time;
 
 extern uint16_t g_uChanne2Power;
 

@@ -1,15 +1,4 @@
 #include "ticktime.h"
-#include "out_protected.h"
-#include "readcurrent.h"
-#include "pwm_driver.h"
-#include "dimming.h"
-#include "adc_driver.h"
-#include "powercomp.h"
-#include "RS485_DATA.h"
-#include "GPIO_driver.h"
-#include "adc_driver.h"
-#include "queue.h"
-#include "usbcom.h"
 
 volatile uint32_t system_tick = 0;
 
@@ -24,7 +13,7 @@ static void TaskHandler_Time(void)
 {
     static uint16_t ledtime;
     ledtime++;
-    if (ledtime == 200)
+    if (ledtime == 500)
     {
         LED_Toggle();
         ledtime = 0;

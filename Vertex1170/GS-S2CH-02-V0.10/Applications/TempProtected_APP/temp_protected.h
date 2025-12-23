@@ -5,6 +5,7 @@
 
 extern uint8_t g_uTemperatureProtection;
 extern float Temp_Res;
+
 void Temp_Protected(void);
 void TemapProtectedTask(void);
 

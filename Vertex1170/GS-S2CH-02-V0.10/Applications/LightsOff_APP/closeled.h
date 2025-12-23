@@ -10,9 +10,12 @@ typedef enum
     LED_ALL_OFF
 } eLedClose;
 
-
-void LightOffLogic(eLedClose ledsta);
 extern uint8_t g_uOffChannel1;
 extern uint8_t g_uOffChannel2;
+
+
+
+void LightOffLogic(eLedClose ledsta);
+
 #endif 
 

@@ -32,7 +32,7 @@ Applications/USBCom_APP/usbcom.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/system.h  \
 Applications/InProtected_APP/inprotectedapp.h  \
 Applications/InProtected_APP/../../mcc_generated_files/system/system.h  \
-Applications/TempProtected_APP/TEMP_PROTECTED.h  \
+Applications/TempProtected_APP/temp_protected.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/LightsOff_APP/closeled.h  \
 Applications/LightsOff_APP/../../mcc_generated_files/system/system.h  \

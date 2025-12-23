@@ -8,11 +8,10 @@
 
 
 uint8_t g_uDimmingLevelChannel1 = 0X00, g_uDimmingLevelChannel2 = 0X00;
-
 uint16_t g_uTargetPowerChannel1, g_uTargetPowerChannel2;
 
-
 uint16_t power_time = 1;
+
 uint8_t I2C_receiveData[72];
 int8_t CalibrationBuff[3];
 

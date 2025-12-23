@@ -1,34 +1,30 @@
 #include "usbcom.h"
-#include "RS485_DATA.h"
 #include "readcurrent.h"
 #include "Bootloader.h"
 #include "crc.h"
-#include "queue.h"
-#include "adc_driver.h"
 #include <stdio.h>
 #include "dimming.h"
 #include "ticktime.h"
-#include "out_protected.h"
 #include "version_task.h"
-#include "GPIO_driver.h"
-#include "temp_protected.h"
+
+
 
 
 #define FRAME_TIMEOUT_MS 10
+
 #define RX_BUFFER_SIZE 100
+
 #define PROTOCOL_HEADER_LENGTH 7
 #define CRC_BYTES_LENGTH 2
 
 uint8_t Rx_Buffer[RX_BUFFER_SIZE];
-uint16_t g_uCheckCRC16;
-uint16_t g_uCheckCRCResult;
+
 
 volatile uint8_t Rx_Buffer_ISR[RX_BUFFER_SIZE];
 volatile uint8_t Rx_Length = 0;
 volatile uint32_t last_receive_time = 0;
 
-
-uint8_t g_bRs485Flag = 0;
+static uint8_t g_bRs485Flag = 0;
 
 void UartReceivedISR(void)
 {
@@ -73,17 +69,19 @@ void Rs485Task(void)
 
     //数据拷贝 防止中断数据干扰
     memcpy(Rx_Buffer, Rx_Buffer_ISR, Rx_Length);
-//
-//
+
+
+    
 //               printf("读取到 %d 字节: ", Rx_Length);
 //                for(int i = 0; i < Rx_Length; i++) {
 //                    printf("%02X ", Rx_Buffer[i]);
 //               }
 //                printf("\r\n");
-    //CRC校验 不定长校验
-    uint8_t data_length = Rx_Length - CRC_BYTES_LENGTH;
-    g_uCheckCRC16 = CRC16(Rx_Buffer, data_length);
-    g_uCheckCRCResult = (uint16_t) ((Rx_Buffer[data_length] << 8) + Rx_Buffer[data_length + 1]);
+
+    
+    uint8_t data_length = Rx_Length - CRC_BYTES_LENGTH;      //CRC校验 不定长校验
+    uint16_t g_uCheckCRC16 = CRC16(Rx_Buffer, data_length);
+    uint16_t g_uCheckCRCResult = (uint16_t) ((Rx_Buffer[data_length] << 8) + Rx_Buffer[data_length + 1]);
 
     if (g_uCheckCRC16 != g_uCheckCRCResult) //CRC校验失败
     {
@@ -101,8 +99,8 @@ void Rs485Task(void)
         return;
     }
 
-    //灯光调节指令
-    if ((Rx_Buffer[1] == 0x10)&&(Rx_Buffer[3] == 0x0E))
+
+    if ((Rx_Buffer[1] == 0x10)&&(Rx_Buffer[3] == 0x0E))    //灯光调节指令
     {
 //        //printf("有效命令，调用RS485处理\r\n");
 //        g_uDimmingLevel_CH1 = Rx_Buffer[8]; //第一通道

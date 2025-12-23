@@ -27,7 +27,6 @@ extern uint8_t g_uOnChannel2;
 void ClearChannelValue(uint8_t ch);
 void GetDimmingValue(uint8_t *r_dimming);
 
-void LightOnChannel1(void);
 void LightOnLogic(void);
 
 void Display(void);

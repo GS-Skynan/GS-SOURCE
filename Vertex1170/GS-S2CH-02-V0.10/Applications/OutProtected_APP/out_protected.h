@@ -30,14 +30,13 @@ typedef enum
 } ePROSTART;
 
 uint8_t ProtectionCheck(void);
-extern float g_PoweProtect2;
 extern uint8_t g_uFaultCode;
 
 extern uint16_t g_uOutputProtectionTypeChannel1 ,g_uOutputProtectionTypeChannel2 ;        //保护标识，在输出保护说明
-float get_voltage(adc_channel_t channel);                   
+              
 uint16_t GetChannelVoltageValue(adc_channel_t channel);
-void Out_Protect(void);
-void Out_Protected(void);
+
+
 void OutProtectedTask(void);
 #endif 
 

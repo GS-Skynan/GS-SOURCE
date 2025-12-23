@@ -1,12 +1,6 @@
 #include "temp_protected.h"
-#include "dimming.h"
-#include "inprotectedapp.h"
 #include "adc_driver.h"
-#include "closeled.h"
-#include "readcurrent.h"
-#include "nfc.h"
 #include "ticktime.h"
-#include "stdio.h"
 #include "math.h"
 #include "../App_config/config.h"
 

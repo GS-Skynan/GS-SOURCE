@@ -1,7 +1,4 @@
 #include "Bootloader.h"
-#include "inprotectedapp.h"
-#include "closeled.h"
-#include "RS485_DATA.h"
 #include "EEPROM_driver.h"
 #include "crc.h"
 
@@ -24,7 +21,7 @@
 uint8_t Boot_Buffer[8];
 bool g_uBootUpgradeFlag = 0;
 
-uint16_t BootCalculateChecksum(const uint8_t *data, uint8_t len)
+static uint16_t BootCalculateChecksum(const uint8_t *data, uint8_t len)
 {
     uint32_t sum = 0;
 
@@ -36,7 +33,7 @@ uint16_t BootCalculateChecksum(const uint8_t *data, uint8_t len)
     return (uint16_t) (sum & 0xFFFF);
 }
 
-bool BootFlagIsValid(void)
+static bool BootFlagIsValid(void)
 {
     uint8_t magic_data[6];
 
@@ -72,7 +69,7 @@ bool BootFlagIsValid(void)
     }
 }
 
-void BootFlagSetJump(void)
+static void BootFlagSetJump(void)
 {
     uint8_t magic_data[6] = {
         BOOT_MAGIC_1,

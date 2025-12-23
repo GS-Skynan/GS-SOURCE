@@ -29,27 +29,15 @@ Applications/USBCom_APP/../../mcc_generated_files/system/../timer/tmr2.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/../timer/tmr2_deprecated.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/../timer/tmr4.h  \
 Applications/USBCom_APP/../../mcc_generated_files/system/../timer/tmr4_deprecated.h  \
-DriverLayer/RS485/RS485_DATA.h  \
-DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
 Applications/CurrentRead_APP/readcurrent.h  \
 Applications/CurrentRead_APP/../../mcc_generated_files/system/system.h  \
 Applications/Bootloader/Bootloader.h  \
 Applications/Bootloader/../../mcc_generated_files/system/system.h  \
 Middlewares/CRC/crc.h  \
 Middlewares/CRC/../../mcc_generated_files/system/system.h  \
-Middlewares/QUEUE/queue.h  \
-Middlewares/QUEUE/../../mcc_generated_files/system/system.h  \
-DriverLayer/ADC/adc_driver.h  \
-DriverLayer/ADC/../../mcc_generated_files/system/system.h  \
 Applications/Dimming_APP/dimming.h  \
 Applications/Dimming_APP/../../mcc_generated_files/system/system.h  \
 Applications/Ticktime_APP/ticktime.h  \
 Applications/Ticktime_APP/../../mcc_generated_files/system/../system/system.h  \
-Applications/OutProtected_APP/out_protected.h  \
-Applications/OutProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/version_read/version_task.h  \
-Applications/version_read/../../mcc_generated_files/system/system.h  \
-DriverLayer/GPIO/GPIO_driver.h  \
-DriverLayer/GPIO/../../mcc_generated_files/system/system.h  \
-Applications/TempProtected_APP/temp_protected.h  \
-Applications/TempProtected_APP/../../mcc_generated_files/system/system.h 
+Applications/version_read/../../mcc_generated_files/system/system.h 

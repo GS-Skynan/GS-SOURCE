@@ -4,13 +4,11 @@
 #include "nfc.h"
 #include "usbcom.h"
 #include "inprotectedapp.h"
-#include "powercomp.h"
 #include "closeled.h"
 #include "readcurrent.h"
 #include "GPIO_driver.h"
 #include "pwm_driver.h"
 #include "ticktime.h"
-#include "RS485_DATA.h"
 #include <math.h>
 #include "stdio.h"
 #include "Bootloader.h"
@@ -108,7 +106,6 @@ void LightOnChannel1(void)
         if (NowTimeChannel1 > 200)
         {
             L6562_On(L6562_CHANNEL1);
-            LastTimeChannel1 = get_systemtick_time();
             g_uOnChannel1 = 3;
         }
         break;
@@ -143,7 +140,6 @@ void LightOnChannel2(void)
         if (NowTimeChannel2 > 200)
         {
             L6562_On(L6562_CHANNEL2);
-            LastTimeChannel2 = get_systemtick_time();
             g_uOnChannel2 = 3;
         }
         break;
@@ -224,7 +220,6 @@ void LightOnLogic(void)
         {
             g_uOffChannel1 = 1;
             LightOnChannel1();
-            
         }
         else
         {
@@ -282,22 +277,19 @@ void DimmingControlTask(void)
 
 void Display(void)
 {
-
-    printf("Vin:%d| \n\r ", ADC_Result2(Input_voltage_ADC));
-    printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+#if ENABLE_DEBUG_DISPLAY
+    printf("Vin:%d|\n\r", ADC_Result2(Input_voltage_ADC));
+    printf("CH1|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r",
            GetChannelCurrentValue(OUT_CURRENT1), piddimmingChannel1.voltage, piddimmingChannel1.actualPower, piddimmingChannel1.pwmValue);
-    printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r ",
+    printf("CH2|I:%.2f|V:%.2f|P:%.2f|PWM:%d|\n\r",
            GetChannelCurrentValue(OUT_CURRENT2), piddimmingChannel2.voltage, piddimmingChannel2.actualPower, piddimmingChannel2.pwmValue);
 
-    printf("SP:%.2f|URGE1:%d|URGE2:%d| \n\r ", g_fPowerOutputValue, g_uDimmingLevelChannel1, g_uDimmingLevelChannel2);
+    printf("SP:%.2f|Lev1:%d|Lev2:%d|\n\r", g_fPowerOutputValue, g_uDimmingLevelChannel1, g_uDimmingLevelChannel2);
 
-    printf("Pro:%d|\n\r ", g_uFaultCode);
+    printf("Temp:%.2f|\n\r", Temp_Res);
 
-
-    printf("Temp:%.2f|\n\r ", Temp_Res);
-    printf("V:%d\n\r", ADC_Result2(Output1_voltage_ADC));
-    printf("pid:%d|\n\r ", g_uPowerOnOutputStart);
-    // printf("%d|%d\n\r ", V_Ret1, V_Ret2);
-    printf("%d|\n\r ", ProtectionCheck());
-    //  printf("%.2f\r\n",g_PoweProtect2);
+    printf("Protepy:%d|\n\r", g_uFaultCode);
+    printf("Prostate:%d|\n\r", ProtectionCheck());
+    printf("------------------------------------\n\n");
+#endif
 }
