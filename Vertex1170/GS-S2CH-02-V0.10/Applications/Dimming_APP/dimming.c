@@ -16,7 +16,7 @@
 #include "pid_controller.h"
 #include "temp_protected.h"
 #include "../App_config/config.h"
-
+#include "RS485_DATA.h"
 
 uint8_t g_uPowerOnOutputStart = 0;
 
@@ -49,7 +49,7 @@ float GetChannelCurrentValue(adc_channel_t channel)
         g_uADCValueChannel1 = ADC_Result2(OUT_CURRENT1);
 
         float adc_voltage1 = (float) g_uADCValueChannel1 / 4095.0f * 4.095f;
-        float voltage_ratio1 = CURRENT_CH1_R1 / CURRENT_CH1_R2;
+        float voltage_ratio1 = (CURRENT_CH1_R1 / CURRENT_CH1_R2);
         g_uTargetCurrentValue = adc_voltage1 * voltage_ratio1 / 0.1f;
         if (g_uTargetCurrentValue >= 3.6f)g_uTargetCurrentValue = 3.6f;
     }
@@ -148,7 +148,7 @@ void LightOnChannel2(void)
         g_uPowerOnOutputStart = 1;
         piddimmingChannel2.voltage = ((float) ADC_Result2(Output2_voltage_ADC) / 1000.0f) * (VOLTAGE_CH2_R1 / VOLTAGE_CH2_R2);
         piddimmingChannel2.actualPower = (float) GetChannelCurrentValue(OUT_CURRENT2) * piddimmingChannel2.voltage / 1000.0f;
-        piddimmingChannel2.targetPower = update_pwm_output_ch2(g_uChanne2Power);
+        piddimmingChannel2.targetPower = update_pwm_output_ch2((float)g_uChanne2Power);
         piddimmingChannel2.pwmValue = PID_Compute(&pid2, piddimmingChannel2.targetPower, piddimmingChannel2.actualPower);
         PWM_Set_Direct(PWM_CHANNEL_2, piddimmingChannel2.pwmValue);
         break;
@@ -275,6 +275,8 @@ void DimmingControlTask(void)
     LightOnLogic();
 }
 
+uint8_t buff[] = {0x01, 0x02, 0x03};
+
 void Display(void)
 {
 #if ENABLE_DEBUG_DISPLAY
@@ -292,4 +294,5 @@ void Display(void)
     printf("Prostate:%d|\n\r", ProtectionCheck());
     printf("------------------------------------\n\n");
 #endif
+
 }

@@ -1808,235 +1808,244 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [v _abs_error `f ~T0 @X0 1 a ]
 [e = _abs_error ( _fabsf (1 _error ]
+"120
+[e $ ! < ( _fabsf (1 _error -> .1.0 `f 2423  ]
+"121
+{
 "122
+[e = _error -> .0.0 `f ]
+"123
+}
+[e :U 2423 ]
+"125
 [v _adaptive_Ki `f ~T0 @X0 1 a ]
 [e = _adaptive_Ki . *U _pid 2 ]
-"123
-[e $ ! > _abs_error -> .50.0 `f 2423  ]
-"124
-{
-"125
-[e =* _adaptive_Ki -> .0.1 `f ]
 "126
-}
-[e $U 2424  ]
+[e $ ! > _abs_error -> .50.0 `f 2424  ]
 "127
-[e :U 2423 ]
-[e $ ! > _abs_error -> .20.0 `f 2425  ]
+{
 "128
-{
+[e =* _adaptive_Ki -> .0.1 `f ]
 "129
-[e =* _adaptive_Ki -> .0.3 `f ]
+}
+[e $U 2425  ]
 "130
-}
-[e $U 2426  ]
-"131
-[e :U 2425 ]
-[e $ ! < _abs_error -> .5.0 `f 2427  ]
-"132
-{
-"133
-[e =* _adaptive_Ki -> .2.0 `f ]
-"134
-}
-[e :U 2427 ]
-[e :U 2426 ]
 [e :U 2424 ]
+[e $ ! > _abs_error -> .20.0 `f 2426  ]
+"131
+{
+"132
+[e =* _adaptive_Ki -> .0.3 `f ]
+"133
+}
+[e $U 2427  ]
+"134
+[e :U 2426 ]
+[e $ ! < _abs_error -> .5.0 `f 2428  ]
+"135
+{
+"136
+[e =* _adaptive_Ki -> .2.0 `f ]
 "137
+}
+[e :U 2428 ]
+[e :U 2427 ]
+[e :U 2425 ]
+"140
 [v _proportional `f ~T0 @X0 1 a ]
 [e = _proportional * . *U _pid 1 _error ]
-"156
-[e $ ! < _abs_error -> .50.0 `f 2428  ]
-"157
+"159
+[e $ ! < _abs_error -> .50.0 `f 2429  ]
+"160
 {
-"158
+"161
 [v _integral_step `f ~T0 @X0 1 a ]
 [e = _integral_step _error ]
-"161
-[e $ ! > _abs_error -> .30.0 `f 2429  ]
-"162
-{
 "164
-[e $ ! > _integral_step -> .40.0 `f 2430  ]
-[e = _integral_step -> .40.0 `f ]
-[e :U 2430 ]
+[e $ ! > _abs_error -> .30.0 `f 2430  ]
 "165
-[e $ ! < _integral_step -U -> .40.0 `f 2431  ]
-[e = _integral_step -U -> .40.0 `f ]
-[e :U 2431 ]
-"166
-}
-[e $U 2432  ]
-"167
-[e :U 2429 ]
-[e $ ! > _abs_error -> .10.0 `f 2433  ]
-"168
 {
+"167
+[e $ ! > _integral_step -> .40.0 `f 2431  ]
+[e = _integral_step -> .40.0 `f ]
+[e :U 2431 ]
+"168
+[e $ ! < _integral_step -U -> .40.0 `f 2432  ]
+[e = _integral_step -U -> .40.0 `f ]
+[e :U 2432 ]
+"169
+}
+[e $U 2433  ]
 "170
+[e :U 2430 ]
+[e $ ! > _abs_error -> .10.0 `f 2434  ]
+"171
+{
+"173
 [v _limit `f ~T0 @X0 1 a ]
 [e = _limit * _abs_error -> .0.8 `f ]
-"171
-[e $ ! > _integral_step _limit 2434  ]
-[e = _integral_step _limit ]
-[e :U 2434 ]
-"172
-[e $ ! < _integral_step -U _limit 2435  ]
-[e = _integral_step -U _limit ]
-[e :U 2435 ]
-"173
-}
-[e $U 2436  ]
 "174
-[e :U 2433 ]
+[e $ ! > _integral_step _limit 2435  ]
+[e = _integral_step _limit ]
+[e :U 2435 ]
 "175
-{
-"178
-[e $ ! > _integral_step -> .5.0 `f 2437  ]
-[e = _integral_step -> .5.0 `f ]
-[e :U 2437 ]
-"179
-[e $ ! < _integral_step -U -> .5.0 `f 2438  ]
-[e = _integral_step -U -> .5.0 `f ]
-[e :U 2438 ]
-"180
-}
+[e $ ! < _integral_step -U _limit 2436  ]
+[e = _integral_step -U _limit ]
 [e :U 2436 ]
-[e :U 2432 ]
-"183
-[e =* _integral_step / _adaptive_Ki . *U _pid 2 ]
-"185
-[e =+ . *U _pid 8 _integral_step ]
-"188
-[e = . *U _pid 8 ( _fmaxf (2 , . *U _pid 5 ( _fminf (2 , . *U _pid 8 . *U _pid 4 ]
-"189
+"176
 }
-[e $U 2439  ]
-"190
-[e :U 2428 ]
-"191
+[e $U 2437  ]
+"177
+[e :U 2434 ]
+"178
 {
-"193
-[e = . *U _pid 8 -> -> 0 `i `f ]
-"194
-}
+"181
+[e $ ! > _integral_step -> .5.0 `f 2438  ]
+[e = _integral_step -> .5.0 `f ]
+[e :U 2438 ]
+"182
+[e $ ! < _integral_step -U -> .5.0 `f 2439  ]
+[e = _integral_step -U -> .5.0 `f ]
 [e :U 2439 ]
-"195
+"183
+}
+[e :U 2437 ]
+[e :U 2433 ]
+"186
+[e =* _integral_step / _adaptive_Ki . *U _pid 2 ]
+"188
+[e =+ . *U _pid 8 _integral_step ]
+"191
+[e = . *U _pid 8 ( _fmaxf (2 , . *U _pid 5 ( _fminf (2 , . *U _pid 8 . *U _pid 4 ]
+"192
+}
+[e $U 2440  ]
+"193
+[e :U 2429 ]
+"194
+{
+"196
+[e = . *U _pid 8 -> -> 0 `i `f ]
+"197
+}
+[e :U 2440 ]
+"198
 [v _integral `f ~T0 @X0 1 a ]
 [e = _integral * _adaptive_Ki . *U _pid 8 ]
-"198
+"201
 [v _derivative `f ~T0 @X0 1 a ]
 [e = _derivative * . *U _pid 3 - _error . *U _pid 9 ]
-"201
+"204
 [v F18349 `f ~T0 @X0 1 s prev_derivative ]
 [i F18349
 -> -> 0 `i `f
 ]
-"202
-[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18349 ]
-"203
-[e = F18349 _derivative ]
 "205
-[e = . *U _pid 9 _error ]
+[e = _derivative + * -> .0.7 `f _derivative * -> .0.3 `f F18349 ]
+"206
+[e = F18349 _derivative ]
 "208
+[e = . *U _pid 9 _error ]
+"211
 [v _output `f ~T0 @X0 1 a ]
 [e = _output + + _proportional _integral _derivative ]
-"211
-[e $ ! == -> . *U _pid 0 `i -> 1 `i 2440  ]
-"212
-{
 "214
-[e =+ _target_duty_cycle_Out1 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
+[e $ ! == -> . *U _pid 0 `i -> 1 `i 2441  ]
 "215
+{
+"217
+[e =+ _target_duty_cycle_Out1 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
+"218
 [e = _target_duty_cycle_Out1 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out1 `f -> -> 3200 `i `f `us `i ]
-"216
+"219
 [e ) -> _target_duty_cycle_Out1 `us ]
 [e $UE 2422  ]
-"217
-}
-[e :U 2440 ]
-"218
-[e $ ! == -> . *U _pid 0 `i -> 2 `i 2441  ]
-"219
-{
-"221
-[e =+ _target_duty_cycle_Out2 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
-"222
-[e = _target_duty_cycle_Out2 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out2 `f -> -> 3200 `i `f `us `i ]
-"223
-[e ) -> _target_duty_cycle_Out2 `us ]
-[e $UE 2422  ]
-"224
+"220
 }
 [e :U 2441 ]
+"221
+[e $ ! == -> . *U _pid 0 `i -> 2 `i 2442  ]
+"222
+{
+"224
+[e =+ _target_duty_cycle_Out2 -> -> + _output ? >= _output -> -> 0 `i `f : -> .0.5 `f -U -> .0.5 `f `s `i ]
+"225
+[e = _target_duty_cycle_Out2 -> -> ( _fmaxf (2 , -> -> 0 `i `f ( _fminf (2 , -> _target_duty_cycle_Out2 `f -> -> 3200 `i `f `us `i ]
 "226
+[e ) -> _target_duty_cycle_Out2 `us ]
+[e $UE 2422  ]
+"227
+}
+[e :U 2442 ]
+"229
 [e :UE 2422 ]
 }
-"230
-[v _Clear_pid `(v ~T0 @X0 1 ef1`uc ]
 "231
+[v _Clear_pid `(v ~T0 @X0 1 ef1`uc ]
+"232
 {
 [e :U _Clear_pid ]
-"230
-[v _ch `uc ~T0 @X0 1 r1 ]
 "231
-[f ]
+[v _ch `uc ~T0 @X0 1 r1 ]
 "232
-[e $ ! == -> _ch `i -> 1 `i 2443  ]
+[f ]
 "233
-{
+[e $ ! == -> _ch `i -> 1 `i 2444  ]
 "234
-[e = . _pid1 10 -> 0 `i ]
+{
 "235
-[e = . _pid1 8 -> .0.0 `f ]
-"236
-[e = . _pid1 9 -> .0.0 `f ]
-"237
-[e = _target_duty_cycle_Out1 -> 0 `i ]
-"238
-}
-[e $U 2444  ]
-"239
-[e :U 2443 ]
-[e $ ! == -> _ch `i -> 2 `i 2445  ]
-"240
-{
-"241
-[e = . _pid2 10 -> 0 `i ]
-"242
-[e = . _pid2 8 -> .0.0 `f ]
-"243
-[e = . _pid2 9 -> .0.0 `f ]
-"244
-[e = _target_duty_cycle_Out2 -> 0 `i ]
-"245
-}
-[e $U 2446  ]
-"246
-[e :U 2445 ]
-[e $ ! == -> _ch `i -> 3 `i 2447  ]
-"247
-{
-"249
 [e = . _pid1 10 -> 0 `i ]
-"250
+"236
 [e = . _pid1 8 -> .0.0 `f ]
-"251
+"237
 [e = . _pid1 9 -> .0.0 `f ]
-"252
-[e = . _pid2 10 -> 0 `i ]
-"253
-[e = . _pid2 8 -> .0.0 `f ]
-"254
-[e = . _pid2 9 -> .0.0 `f ]
-"255
+"238
 [e = _target_duty_cycle_Out1 -> 0 `i ]
-"256
-[e = _target_duty_cycle_Out2 -> 0 `i ]
-"258
+"239
 }
-[e :U 2447 ]
-[e :U 2446 ]
+[e $U 2445  ]
+"240
 [e :U 2444 ]
-"260
-[e :UE 2442 ]
+[e $ ! == -> _ch `i -> 2 `i 2446  ]
+"241
+{
+"242
+[e = . _pid2 10 -> 0 `i ]
+"243
+[e = . _pid2 8 -> .0.0 `f ]
+"244
+[e = . _pid2 9 -> .0.0 `f ]
+"245
+[e = _target_duty_cycle_Out2 -> 0 `i ]
+"246
+}
+[e $U 2447  ]
+"247
+[e :U 2446 ]
+[e $ ! == -> _ch `i -> 3 `i 2448  ]
+"248
+{
+"250
+[e = . _pid1 10 -> 0 `i ]
+"251
+[e = . _pid1 8 -> .0.0 `f ]
+"252
+[e = . _pid1 9 -> .0.0 `f ]
+"253
+[e = . _pid2 10 -> 0 `i ]
+"254
+[e = . _pid2 8 -> .0.0 `f ]
+"255
+[e = . _pid2 9 -> .0.0 `f ]
+"256
+[e = _target_duty_cycle_Out1 -> 0 `i ]
+"257
+[e = _target_duty_cycle_Out2 -> 0 `i ]
+"259
+}
+[e :U 2448 ]
+[e :U 2447 ]
+[e :U 2445 ]
+"261
+[e :UE 2443 ]
 }

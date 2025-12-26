@@ -2627,58 +2627,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SetPowerValue `us ~T0 @X0 1 a ]
 [e = _SetPowerValue _g_uTargetPowerChannel1 ]
 "170
-[e = _temp - / * -> _g_uTargetPowerChannel1 `l -> _g_uDimmingLevelChannel1 `l -> -> 100 `i `l -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l ]
+[e = _temp / * - -> _g_uTargetPowerChannel1 `l -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l -> _g_uDimmingLevelChannel1 `l -> -> 100 `i `l ]
 "171
 [e $ ! < _temp -> -> 0 `i `l 2456  ]
 [e = _temp -> -> 0 `i `l ]
 [e :U 2456 ]
-"172
-[e $ ! > _temp -> _g_uTargetPowerChannel1 `l 2457  ]
-[e = _temp -> _g_uTargetPowerChannel1 `l ]
-[e :U 2457 ]
 "173
 [e = _g_uChanne1Power -> _temp `us ]
 "175
-[e = _temp - / * -> _g_uTargetPowerChannel2 `l -> _g_uDimmingLevelChannel2 `l -> -> 100 `i `l -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l ]
+[e = _temp / * -> - -> _g_uTargetPowerChannel2 `ui -> -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> _g_uDimmingLevelChannel2 `l -> -> 100 `i `l ]
 "176
-[e $ ! < _temp -> -> 0 `i `l 2458  ]
+[e $ ! < _temp -> -> 0 `i `l 2457  ]
 [e = _temp -> -> 0 `i `l ]
-[e :U 2458 ]
-"177
-[e $ ! > _temp -> _g_uTargetPowerChannel2 `l 2459  ]
-[e = _temp -> _g_uTargetPowerChannel2 `l ]
-[e :U 2459 ]
+[e :U 2457 ]
 "178
 [e = _g_uChanne2Power -> _temp `us ]
 "180
 [v _g_uTotalPower `us ~T0 @X0 1 a ]
 [e = _g_uTotalPower -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
 "182
-[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2460  ]
+[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2458  ]
 "183
 {
 "184
-[e = _temp - - -> _SetPowerValue `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l -> *U + &U _CalibrationBuff * -> -> -> 2 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l ]
+[e = _temp - -> - -> _SetPowerValue `ui -> -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l ]
 "185
 }
-[e $U 2461  ]
+[e $U 2459  ]
 "186
-[e :U 2460 ]
+[e :U 2458 ]
 "187
 {
 "188
 [e = _temp -> _g_uChanne1Power `l ]
 "189
 }
-[e :U 2461 ]
+[e :U 2459 ]
 "191
-[e $ ! < _temp -> -> 0 `i `l 2462  ]
+[e $ ! < _temp -> -> 0 `i `l 2460  ]
 [e = _temp -> -> 0 `i `l ]
-[e :U 2462 ]
+[e :U 2460 ]
 "192
-[e $ ! > _temp -> _SetPowerValue `l 2463  ]
+[e $ ! > _temp -> _SetPowerValue `l 2461  ]
 [e = _temp -> _SetPowerValue `l ]
-[e :U 2463 ]
+[e :U 2461 ]
 "194
 [v _g_uTargetPower `us ~T0 @X0 1 a ]
 [e = _g_uTargetPower -> _temp `us ]

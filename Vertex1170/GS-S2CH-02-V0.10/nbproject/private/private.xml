@@ -3,26 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/main.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Dimming_APP/dimming.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/OutProtected_APP/out_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Dimming_APP/dimming.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/CurrentRead_APP/readcurrent.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/InProtected_APP/inprotectedapp.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/TempProtected_APP/temp_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/TempProtected_APP/temp_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/InProtected_APP/inprotectedapp.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/LightsOff_APP/closeled.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/OutProtected_APP/out_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/USBCom_APP/usbcom.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/ReadMe.txt</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Ticktime_APP/ticktime.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/CurrentRead_APP/readcurrent.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/DriverLayer/EEPROM/EEPROM_driver.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/DriverLayer/EEPROM/EEPROM_driver.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/DriverLayer/NFC/nfc.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Middlewares/Arithmetic/arithmetic.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/LightsOff_APP/closeled.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/App_config/config.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/main.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/LightsOff_APP/closeled.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/OutProtected_APP/out_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Middlewares/Arithmetic/arithmetic.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Middlewares/Arithmetic/arithmetic.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/USBCom_APP/usbcom.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/Ticktime_APP/ticktime.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/TempProtected_APP/temp_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/Bootloader/Bootloader.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/CurrentRead_APP/readcurrent.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/mcc_generated_files/adc/adc_types.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/mcc_generated_files/adc/src/adc.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/Dimming_APP/dimming.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/DriverLayer/RS485/RS485_DATA.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/DriverLayer/EEPROM/EEPROM_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/Dimming_APP/dimming.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/CurrentRead_APP/readcurrent.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/DriverLayer/NFC/nfc.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/version_read/version_task.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/InProtected_APP/inprotectedapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Middlewares/PID/pid_controller.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/DriverLayer/ADC/adc_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.10/Applications/TempProtected_APP/temp_protected.h</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\GS-S2CH-02-V0.11.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>118784</length>
+      <used>45527</used>
+      <free>73257</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>8192</length>
+      <used>1733</used>
+      <free>6459</free>
+    </memory>
+  </executable>
+</project>

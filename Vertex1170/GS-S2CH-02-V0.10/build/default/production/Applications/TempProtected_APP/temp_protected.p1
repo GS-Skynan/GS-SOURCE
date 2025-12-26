@@ -1,7 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"249 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/math.h
+[v _logf `(f ~T0 @X0 0 ef1`f ]
 "10 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"23 Applications/TempProtected_APP/temp_protected.c
+"38 Applications/TempProtected_APP/temp_protected.c
 [c E17462 59 60 61 62 63 3 4 17 22 28 44 0 .. ]
 [n E17462 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANC1 ADC_CHANNEL_ANC6 ADC_CHANNEL_AND4 ADC_CHANNEL_ANF4 ADC_CHANNEL_ANA0  ]
 "215 Applications/TempProtected_APP/../../mcc_generated_files/system/../adc/adc.h
@@ -1733,240 +1735,281 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "8
 [v _Temp_Res `f ~T0 @X0 1 e ]
+"10
+[v _calc_temp_with_10k_fixed `(f ~T0 @X0 1 ef1`s ]
+"11
+{
+[e :U _calc_temp_with_10k_fixed ]
+"10
+[v _adc_val `s ~T0 @X0 1 r1 ]
+"11
+[f ]
+"14
+[v _VCC `Cf ~T0 @X0 1 a ]
+[e = _VCC -> .5.0 `f ]
 "15
-[v _Temp_Protected `(v ~T0 @X0 1 ef ]
+[v _VREF `Cf ~T0 @X0 1 a ]
+[e = _VREF -> .4.096 `f ]
 "16
+[v _R_FIXED `Cf ~T0 @X0 1 a ]
+[e = _R_FIXED -> .10000.0 `f ]
+"17
+[v _R0 `Cf ~T0 @X0 1 a ]
+[e = _R0 -> .100000.0 `f ]
+"18
+[v _B `Cf ~T0 @X0 1 a ]
+[e = _B -> .4000.0 `f ]
+"19
+[v _T0_K `Cf ~T0 @X0 1 a ]
+[e = _T0_K -> .298.15 `f ]
+"20
+[v _ADC_MAX `Cus ~T0 @X0 1 a ]
+[e = _ADC_MAX -> -> 4095 `i `us ]
+"23
+[v _r_ntc `f ~T0 @X0 1 a ]
+[e = _r_ntc -> * -> _R_FIXED `d - -> / * _VCC -> -> _ADC_MAX `ui `f * _VREF -> -> _adc_val `i `f `d .1.0 `f ]
+"26
+[v _t_kelvin `f ~T0 @X0 1 a ]
+[e = _t_kelvin -> / .1.0 + / .1.0 -> _T0_K `d * / .1.0 -> _B `d -> ( _logf (1 / _r_ntc _R0 `d `f ]
+"27
+[e ) -> - -> _t_kelvin `d .273.15 `f ]
+[e $UE 2419  ]
+"28
+[e :UE 2419 ]
+}
+"30
+[v _Temp_Protected `(v ~T0 @X0 1 ef ]
+"31
 {
 [e :U _Temp_Protected ]
 [f ]
-"17
-[v F18267 `uc ~T0 @X0 1 s Tempstate ]
-[i F18267
+"32
+[v F18278 `uc ~T0 @X0 1 s Tempstate ]
+[i F18278
 -> -> 0 `i `uc
 ]
-"18
-[v F18268 `ul ~T0 @X0 1 s LastTemperatureProtectionTime ]
-[i F18268
+"33
+[v F18279 `ul ~T0 @X0 1 s LastTemperatureProtectionTime ]
+[i F18279
 -> -> -> 0 `i `l `ul
 ]
-"19
-[v F18269 `uc ~T0 @X0 1 s temp_stable_count ]
-[i F18269
+"34
+[v F18280 `uc ~T0 @X0 1 s temp_stable_count ]
+[i F18280
 -> -> 0 `i `uc
 ]
-"21
+"36
 [v _NowTemperatureProtectionTime `ul ~T0 @X0 1 a ]
-[e = _NowTemperatureProtectionTime ( _get_elapsed_since (1 F18268 ]
-"23
+[e = _NowTemperatureProtectionTime ( _get_elapsed_since (1 F18279 ]
+"38
 [v _adc_temperature `s ~T0 @X0 1 a ]
 [e = _adc_temperature ( _ADC_ChannelSelectAndConvert (1 . `E17462 5 ]
-"25
+"39
 [v _TemperatureVoltage `f ~T0 @X0 1 a ]
-[e = _TemperatureVoltage * / -> _adc_temperature `f -> .4095.0 `f -> .4.096 `f ]
-"26
+[e = _TemperatureVoltage ( _calc_temp_with_10k_fixed (1 _adc_temperature ]
+"41
 [e = _Temp_Res _TemperatureVoltage ]
-"30
-[v F18273 `f ~T0 @X0 1 s last_voltage ]
-[i F18273
+"45
+[v F18284 `f ~T0 @X0 1 s last_voltage ]
+[i F18284
 -> -> 0 `i `f
 ]
-"31
-[e $ ! < ( _fabsf (1 - _TemperatureVoltage F18273 -> .0.05 `f 2420  ]
-"32
-{
-"33
-[e $ ! < -> F18269 `i -> 5 `i 2421  ]
-[e ++ F18269 -> -> 1 `i `uc ]
-[e :U 2421 ]
-"34
-}
-[e $U 2422  ]
-"35
-[e :U 2420 ]
-"36
-{
-"37
-[e = F18269 -> -> 0 `i `uc ]
-"38
-}
-[e :U 2422 ]
-"39
-[e = F18273 _TemperatureVoltage ]
-"42
-[e $U 2424  ]
-"43
-{
-"44
-[e :U 2425 ]
-"45
-[e = _g_uTemperatureProtection -> -> 0 `i `uc ]
+"46
+[e $ ! < ( _fabsf (1 - _TemperatureVoltage F18284 -> .1.0 `f 2421  ]
 "47
-[e $ ! >= -> F18269 `i -> 5 `i 2426  ]
-"48
 {
+"48
+[e $ ! < -> F18280 `i -> 5 `i 2422  ]
+[e ++ F18280 -> -> 1 `i `uc ]
+[e :U 2422 ]
 "49
-[e $ ! && >= _TemperatureVoltage -> .1.8 `f < _TemperatureVoltage -> .2.2 `f 2427  ]
+}
+[e $U 2423  ]
 "50
+[e :U 2421 ]
+"51
 {
 "52
-[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2428  ]
+[e = F18280 -> -> 0 `i `uc ]
 "53
-{
+}
+[e :U 2423 ]
 "54
-[e = F18267 -> -> 1 `i `uc ]
-"55
-[e = F18268 ( _get_systemtick_time ..  ]
-"56
-}
-[e :U 2428 ]
+[e = F18284 _TemperatureVoltage ]
 "57
-}
-[e $U 2429  ]
-"58
-[e :U 2427 ]
-[e $ ! >= _TemperatureVoltage -> .2.4 `f 2430  ]
-"59
+[e $U 2425  ]
 {
+"58
+[e :U 2426 ]
+"59
+[e = _g_uTemperatureProtection -> -> 0 `i `uc ]
 "61
-[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2431  ]
+[e $ ! >= -> F18280 `i -> 5 `i 2427  ]
 "62
 {
 "63
-[e = F18267 -> -> 2 `i `uc ]
+[e $ ! && >= _TemperatureVoltage -> .60.0 `f < _TemperatureVoltage -> .80.0 `f 2428  ]
 "64
-[e = F18268 ( _get_systemtick_time ..  ]
-"65
-}
-[e :U 2431 ]
-"66
-}
-[e $U 2432  ]
-"67
-[e :U 2430 ]
-"68
 {
-"70
-[e = F18268 ( _get_systemtick_time ..  ]
+"66
+[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2429  ]
+"67
+{
+"68
+[e = F18278 -> -> 1 `i `uc ]
+"69
+[e = F18279 ( _get_systemtick_time ..  ]
 "71
 }
-[e :U 2432 ]
 [e :U 2429 ]
 "72
 }
-[e :U 2426 ]
+[e $U 2430  ]
 "73
-[e $U 2423  ]
-"75
-[e :U 2433 ]
+[e :U 2428 ]
+[e $ ! >= _TemperatureVoltage -> .80.0 `f 2431  ]
+"74
+{
 "76
-[e = _g_uTemperatureProtection -> -> 1 `i `uc ]
+[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2432  ]
+"77
+{
 "78
-[e $ ! >= -> F18269 `i -> 5 `i 2434  ]
+[e = F18278 -> -> 2 `i `uc ]
 "79
-{
+[e = F18279 ( _get_systemtick_time ..  ]
 "80
-[e $ ! <= _TemperatureVoltage -> .1.3 `f 2435  ]
+}
+[e :U 2432 ]
 "81
-{
+}
+[e $U 2433  ]
+"82
+[e :U 2431 ]
 "83
-[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2436  ]
-"84
 {
 "85
-[e = F18267 -> -> 0 `i `uc ]
+[e = F18279 ( _get_systemtick_time ..  ]
 "86
-[e = F18268 ( _get_systemtick_time ..  ]
+}
+[e :U 2433 ]
+[e :U 2430 ]
 "87
 }
-[e :U 2436 ]
+[e :U 2427 ]
 "88
-}
-[e $U 2437  ]
-"89
-[e :U 2435 ]
-[e $ ! >= _TemperatureVoltage -> .2.4 `f 2438  ]
+[e $U 2424  ]
 "90
-{
-"92
-[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2439  ]
+[e :U 2434 ]
+"91
+[e = _g_uTemperatureProtection -> -> 1 `i `uc ]
 "93
-{
+[e $ ! >= -> F18280 `i -> 5 `i 2435  ]
 "94
-[e = F18267 -> -> 2 `i `uc ]
+{
 "95
-[e = F18268 ( _get_systemtick_time ..  ]
+[e $ ! <= _TemperatureVoltage -> .40.0 `f 2436  ]
 "96
-}
-[e :U 2439 ]
-"97
-}
-[e $U 2440  ]
+{
 "98
-[e :U 2438 ]
+[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2437  ]
 "99
 {
+"100
+[e = F18278 -> -> 0 `i `uc ]
 "101
-[e = F18268 ( _get_systemtick_time ..  ]
+[e = F18279 ( _get_systemtick_time ..  ]
 "102
 }
-[e :U 2440 ]
 [e :U 2437 ]
 "103
 }
-[e :U 2434 ]
+[e $U 2438  ]
 "104
-[e $U 2423  ]
-"106
-[e :U 2441 ]
+[e :U 2436 ]
+[e $ ! >= _TemperatureVoltage -> .80.0 `f 2439  ]
+"105
+{
 "107
-[e = _g_uTemperatureProtection -> -> 2 `i `uc ]
+[e $ ! >= _NowTemperatureProtectionTime -> -> -> 1000 `i `l `ul 2440  ]
+"108
+{
 "109
-[e $ ! >= -> F18269 `i -> 5 `i 2442  ]
+[e = F18278 -> -> 2 `i `uc ]
 "110
-{
+[e = F18279 ( _get_systemtick_time ..  ]
 "111
-[e $ ! <= _TemperatureVoltage -> .1.3 `f 2443  ]
+}
+[e :U 2440 ]
 "112
-{
+}
+[e $U 2441  ]
+"113
+[e :U 2439 ]
 "114
-[e $ ! >= _NowTemperatureProtectionTime -> -> -> 2000 `i `l `ul 2444  ]
-"115
 {
 "116
-[e = F18267 -> -> 0 `i `uc ]
+[e = F18279 ( _get_systemtick_time ..  ]
 "117
-[e = F18268 ( _get_systemtick_time ..  ]
+}
+[e :U 2441 ]
+[e :U 2438 ]
 "118
 }
-[e :U 2444 ]
+[e :U 2435 ]
 "119
+[e $U 2424  ]
+"121
+[e :U 2442 ]
+"122
+[e = _g_uTemperatureProtection -> -> 2 `i `uc ]
+"124
+[e $ ! >= -> F18280 `i -> 5 `i 2443  ]
+"125
+{
+"126
+[e $ ! <= _TemperatureVoltage -> .40.0 `f 2444  ]
+"127
+{
+"129
+[e $ ! >= _NowTemperatureProtectionTime -> -> -> 2000 `i `l `ul 2445  ]
+"130
+{
+"131
+[e = F18278 -> -> 0 `i `uc ]
+"132
+[e = F18279 ( _get_systemtick_time ..  ]
+"133
+}
+[e :U 2445 ]
+"134
+}
+[e :U 2444 ]
+"135
 }
 [e :U 2443 ]
-"120
+"136
+[e $U 2424  ]
+"137
 }
-[e :U 2442 ]
-"121
-[e $U 2423  ]
-"122
-}
-[e $U 2423  ]
+[e $U 2424  ]
+[e :U 2425 ]
+[e [\ F18278 , $ -> 0 `i 2426
+ , $ -> 1 `i 2434
+ , $ -> 2 `i 2442
+ 2424 ]
 [e :U 2424 ]
-[e [\ F18267 , $ -> 0 `i 2425
- , $ -> 1 `i 2433
- , $ -> 2 `i 2441
- 2423 ]
-[e :U 2423 ]
-"123
-[e :UE 2419 ]
+"138
+[e :UE 2420 ]
 }
-"124
+"140
 [v _TemapProtectedTask `(v ~T0 @X0 1 ef ]
-"125
+"141
 {
 [e :U _TemapProtectedTask ]
 [f ]
-"126
+"142
 [e ( _Temp_Protected ..  ]
-"127
-[e :UE 2445 ]
+"143
+[e :UE 2446 ]
 }

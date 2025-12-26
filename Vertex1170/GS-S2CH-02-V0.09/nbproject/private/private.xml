@@ -3,23 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/main.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Dimming_APP/dimming.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/OutProtected_APP/out_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Dimming_APP/dimming.h</file>
             <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/CurrentRead_APP/readcurrent.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/InProtected_APP/inprotectedapp.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/TempProtected_APP/temp_protected.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/TempProtected_APP/temp_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/InProtected_APP/inprotectedapp.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/LightsOff_APP/closeled.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/OutProtected_APP/out_protected.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/USBCom_APP/usbcom.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/ReadMe.txt</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Ticktime_APP/ticktime.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/CurrentRead_APP/readcurrent.h</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/DriverLayer/EEPROM/EEPROM_driver.c</file>
-            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/DriverLayer/EEPROM/EEPROM_driver.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1170/GS-S2CH-02-V0.09/Applications/Dimming_APP/dimming.c</file>
         </group>
     </open-files>
 </project-private>

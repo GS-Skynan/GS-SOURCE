@@ -27,7 +27,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _g_uOnChannel2 `uc ~T0 @X0 0 e ]
 "9 Applications/InProtected_APP/inprotectedapp.h
 [v _g_uInputVoltageFlag `uc ~T0 @X0 0 e ]
-"399 Applications/OutProtected_APP/out_protected.c
+"400 Applications/OutProtected_APP/out_protected.c
 [c E17836 0 1 2 3 .. ]
 [n E17836 . PROTECTION_CHANNEL1_NOL PROTECTION_CHANNEL1_ALL PROTECTION_CHANNEL1_OFF PROTECTION_CHANNEL2_OFF  ]
 "11 Applications/Bootloader/Bootloader.h
@@ -1908,185 +1908,185 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105
 [e :UE 2424 ]
 }
-"291
+"290
 [v _OutProtected_Channel `(v ~T0 @X0 1 ef4`uc`*S2419`*uc`*uc ]
-"295
+"294
 {
 [e :U _OutProtected_Channel ]
-"291
+"290
 [v _voltage_adc `uc ~T0 @X0 1 r1 ]
-"292
+"291
 [v _state `*S2419 ~T0 @X0 1 r2 ]
-"293
+"292
 [v _protect_type_ptr `*uc ~T0 @X0 1 r3 ]
-"294
+"293
 [v _enable_ptr `*uc ~T0 @X0 1 r4 ]
-"295
+"294
 [f ]
-"296
+"295
 [v _current_time `ul ~T0 @X0 1 a ]
 [e = _current_time ( _get_systemtick_time ..  ]
-"297
+"296
 [v _elapsed_time `ul ~T0 @X0 1 a ]
 [e = _elapsed_time -> -> -> 0 `i `l `ul ]
-"299
+"298
 [e $ ! != -> . *U _state 2 `i -> 0 `i 2440  ]
+"299
+{
 "300
-{
-"301
 [e = _elapsed_time ( _get_elapsed_since (1 . *U _state 5 ]
-"302
+"301
 [e $ ! >= _elapsed_time -> -> -> 5000 `i `l `ul 2441  ]
-"303
+"302
 {
-"304
+"303
 [e = . *U _state 2 -> -> 0 `i `a ]
-"305
+"304
 [e = *U _protect_type_ptr -> -> 0 `i `uc ]
-"306
+"305
 [e = *U _enable_ptr -> -> 1 `i `uc ]
-"307
+"306
 }
 [e :U 2441 ]
-"308
+"307
 [e $UE 2439  ]
-"309
+"308
 }
 [e :U 2440 ]
-"311
+"310
 [e $ ! != -> . *U _state 3 `i -> 0 `i 2442  ]
-"312
+"311
 {
-"313
+"312
 [e = *U _protect_type_ptr -> -> 1 `i `uc ]
-"314
+"313
 [e $UE 2439  ]
-"315
+"314
 }
 [e :U 2442 ]
-"317
+"316
 [v _outprotect `uc ~T0 @X0 1 a ]
 [e = _outprotect -> ( _GetChannelVoltageValue (1 -> _voltage_adc `E17462 `uc ]
-"319
+"318
 [e $ ! == -> _outprotect `i -> 1 `i 2443  ]
+"319
+{
 "320
-{
-"321
 [e $ ! ! != -> . *U _state 0 `i -> 0 `i 2444  ]
-"322
+"321
 {
-"324
+"323
 [e = . *U _state 4 _current_time ]
-"325
+"324
 [e = . *U _state 0 -> -> 1 `i `a ]
-"326
+"325
 }
 [e $U 2445  ]
-"327
+"326
 [e :U 2444 ]
+"327
+{
 "328
-{
-"329
 [e = _elapsed_time ( _get_elapsed_since (1 . *U _state 4 ]
-"330
+"329
 [e $ ! > _elapsed_time -> -> -> 1000 `i `l `ul 2446  ]
-"331
+"330
 {
-"333
+"332
 [e = *U _protect_type_ptr -> -> 1 `i `uc ]
-"334
+"333
 [e = *U _enable_ptr -> -> 0 `i `uc ]
-"335
+"334
 [e = . *U _state 2 -> -> 1 `i `a ]
-"336
+"335
 [e = . *U _state 5 _current_time ]
-"337
+"336
 [e = . *U _state 0 -> -> 0 `i `a ]
-"339
+"338
 [e ++ . *U _state 6 -> -> 1 `i `uc ]
-"340
+"339
 [e $ ! >= -> . *U _state 6 `i -> 5 `i 2447  ]
-"341
+"340
 {
-"342
+"341
 [e = . *U _state 3 -> -> 1 `i `a ]
-"343
+"342
 }
 [e :U 2447 ]
-"344
+"343
 }
 [e :U 2446 ]
-"345
+"344
 }
 [e :U 2445 ]
-"346
+"345
 }
 [e $U 2448  ]
-"347
+"346
 [e :U 2443 ]
 [e $ ! == -> _outprotect `i -> 2 `i 2449  ]
+"347
+{
 "348
-{
-"349
 [e $ ! ! != -> . *U _state 1 `i -> 0 `i 2450  ]
-"350
+"349
 {
-"351
+"350
 [e = . *U _state 4 _current_time ]
-"352
+"351
 [e = . *U _state 1 -> -> 1 `i `a ]
-"353
+"352
 }
 [e $U 2451  ]
-"354
+"353
 [e :U 2450 ]
+"354
+{
 "355
-{
-"356
 [e = _elapsed_time ( _get_elapsed_since (1 . *U _state 4 ]
-"357
+"356
 [e $ ! > _elapsed_time -> -> -> 200 `i `l `ul 2452  ]
-"358
+"357
 {
-"359
+"358
 [e = *U _protect_type_ptr -> -> 2 `i `uc ]
-"360
+"359
 [e = . *U _state 3 -> -> 1 `i `a ]
-"361
+"360
 [e = . *U _state 1 -> -> 0 `i `a ]
-"363
+"362
 }
 [e :U 2452 ]
-"364
+"363
 }
 [e :U 2451 ]
-"365
+"364
 }
 [e $U 2453  ]
-"366
+"365
 [e :U 2449 ]
-"367
+"366
 {
-"368
+"367
 [e = *U _protect_type_ptr -> -> 0 `i `uc ]
-"369
+"368
 [e = . *U _state 0 -> -> 0 `i `a ]
-"370
+"369
 [e = . *U _state 1 -> -> 0 `i `a ]
-"371
+"370
 }
 [e :U 2453 ]
 [e :U 2448 ]
-"372
+"371
 [e :UE 2439 ]
 }
-"374
+"373
 [v _OutProtected_CH1 `(v ~T0 @X0 1 ef ]
-"375
+"374
 {
 [e :U _OutProtected_CH1 ]
 [f ]
-"376
+"375
 [v F18404 `S2419 ~T0 @X0 1 s state_ch1 ]
 [i F18404
 :U ..
@@ -2095,18 +2095,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"378
+"377
 [e ( _OutProtected_Channel (4 , , , -> . `E17462 9 `uc &U F18404 -> &U _g_uOutputProtectionTypeChannel1 `*uc &U _g_uOnChannel1 ]
-"382
+"381
 [e :UE 2454 ]
 }
-"384
+"383
 [v _OutProtected_CH2 `(v ~T0 @X0 1 ef ]
-"385
+"384
 {
 [e :U _OutProtected_CH2 ]
 [f ]
-"386
+"385
 [v F18406 `S2419 ~T0 @X0 1 s state_ch2 ]
 [i F18406
 :U ..
@@ -2115,111 +2115,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"388
+"387
 [e ( _OutProtected_Channel (4 , , , -> . `E17462 7 `uc &U F18406 -> &U _g_uOutputProtectionTypeChannel2 `*uc &U _g_uOnChannel2 ]
-"392
+"391
 [e :UE 2455 ]
 }
-"395
-[v _ProtectionCheck `(uc ~T0 @X0 1 ef ]
 "396
+[v _ProtectionCheck `(uc ~T0 @X0 1 ef ]
+"397
 {
 [e :U _ProtectionCheck ]
 [f ]
-"397
-[e $ ! != -> _g_uInputVoltageFlag `i -> 1 `i 2457  ]
 "398
-{
+[e $ ! != -> _g_uInputVoltageFlag `i -> 1 `i 2457  ]
 "399
+{
+"400
 [e ) -> . `E17836 1 `uc ]
 [e $UE 2456  ]
-"400
+"401
 }
 [e :U 2457 ]
-"402
-[e $ ! == -> _g_uBootUpgradeFlag `i -> 1 `i 2458  ]
 "403
-{
+[e $ ! == -> _g_uBootUpgradeFlag `i -> 1 `i 2458  ]
 "404
+{
+"405
 [e ) -> . `E17836 1 `uc ]
 [e $UE 2456  ]
-"405
+"406
 }
 [e :U 2458 ]
-"407
-[e $ ! == -> _g_uTemperatureProtection `i -> 2 `i 2459  ]
 "408
-{
+[e $ ! == -> _g_uTemperatureProtection `i -> 2 `i 2459  ]
 "409
+{
+"410
 [e ) -> . `E17836 1 `uc ]
 [e $UE 2456  ]
-"410
+"411
 }
 [e :U 2459 ]
-"412
-[e $ ! && < -> _g_uDimmingLevelChannel1 `i -> 1 `i < -> _g_uDimmingLevelChannel2 `i -> 1 `i 2460  ]
 "413
-{
+[e $ ! && < -> _g_uDimmingLevelChannel1 `i -> 1 `i < -> _g_uDimmingLevelChannel2 `i -> 1 `i 2460  ]
 "414
+{
+"415
 [e ) -> . `E17836 1 `uc ]
 [e $UE 2456  ]
-"415
+"416
 }
 [e :U 2460 ]
-"417
-[e $ ! && != -> _g_uOutputProtectionTypeChannel1 `ui -> -> 0 `i `ui != -> _g_uOutputProtectionTypeChannel2 `ui -> -> 0 `i `ui 2461  ]
 "418
-{
+[e $ ! && != -> _g_uOutputProtectionTypeChannel1 `ui -> -> 0 `i `ui != -> _g_uOutputProtectionTypeChannel2 `ui -> -> 0 `i `ui 2461  ]
 "419
+{
+"420
 [e ) -> . `E17836 1 `uc ]
 [e $UE 2456  ]
-"420
+"421
 }
 [e :U 2461 ]
-"422
-[e $ ! != -> _g_uOutputProtectionTypeChannel1 `ui -> -> 0 `i `ui 2462  ]
 "423
-{
+[e $ ! != -> _g_uOutputProtectionTypeChannel1 `ui -> -> 0 `i `ui 2462  ]
 "424
+{
+"425
 [e ) -> . `E17836 2 `uc ]
 [e $UE 2456  ]
-"425
+"426
 }
 [e :U 2462 ]
-"427
-[e $ ! != -> _g_uOutputProtectionTypeChannel2 `ui -> -> 0 `i `ui 2463  ]
 "428
-{
+[e $ ! != -> _g_uOutputProtectionTypeChannel2 `ui -> -> 0 `i `ui 2463  ]
 "429
+{
+"430
 [e ) -> . `E17836 3 `uc ]
 [e $UE 2456  ]
-"430
+"431
 }
 [e :U 2463 ]
-"432
+"433
 [e ) -> . `E17836 0 `uc ]
 [e $UE 2456  ]
-"433
+"434
 [e :UE 2456 ]
 }
-"435
-[v _OutProtectedTask `(v ~T0 @X0 1 ef ]
 "436
+[v _OutProtectedTask `(v ~T0 @X0 1 ef ]
+"437
 {
 [e :U _OutProtectedTask ]
 [f ]
-"437
+"438
 [e $ ! != -> _g_uInputVoltageFlag `i -> 1 `i 2465  ]
 [e $UE 2464  ]
 [e :U 2465 ]
-"438
+"439
 [e $ ! != -> _g_uPowerOnOutputStart `i -> 1 `i 2466  ]
 [e $UE 2464  ]
 [e :U 2466 ]
-"439
-[e ( _OutProtected_CH1 ..  ]
 "440
-[e ( _OutProtected_CH2 ..  ]
+[e ( _OutProtected_CH1 ..  ]
 "441
+[e ( _OutProtected_CH2 ..  ]
+"442
 [e :UE 2464 ]
 }

@@ -167,21 +167,21 @@ uint16_t Power_Compensation(void)
     int32_t temp; // 用32位有符号计算，避免溢出
     uint16_t SetPowerValue = g_uTargetPowerChannel1;
 
-    temp = ((int32_t) g_uTargetPowerChannel1 * g_uDimmingLevelChannel1 / 100) -(CalibrationBuff[0]);//(0XFF - (0XFF - CalibrationBuff[0]));
+    temp = (((int32_t) g_uTargetPowerChannel1 - CalibrationBuff[0]) * g_uDimmingLevelChannel1 / 100);
     if (temp < 0) temp = 0;
-    if (temp > g_uTargetPowerChannel1) temp = g_uTargetPowerChannel1;
+   /// if (temp > g_uTargetPowerChannel1) temp = g_uTargetPowerChannel1;
     g_uChanne1Power = (uint16_t) temp;
 
-    temp = ((int32_t) g_uTargetPowerChannel2 * g_uDimmingLevelChannel2 / 100) -(CalibrationBuff[1]); //(0XFF - (0XFF - CalibrationBuff[1]));
+    temp = ((int32_t) (g_uTargetPowerChannel2 - CalibrationBuff[1]) * g_uDimmingLevelChannel2 / 100);
     if (temp < 0)temp = 0;
-    if (temp > g_uTargetPowerChannel2)temp = g_uTargetPowerChannel2;
+   // if (temp > g_uTargetPowerChannel2)temp = g_uTargetPowerChannel2;
     g_uChanne2Power = (uint16_t) temp;
 
     uint16_t g_uTotalPower = g_uChanne1Power + g_uChanne2Power;
 
     if (g_uTotalPower > SetPowerValue)
     {
-        temp = (int32_t) SetPowerValue - (g_uTotalPower - g_uChanne1Power) - (CalibrationBuff[2]);//(0XFF - (0XFF - CalibrationBuff[2]));
+        temp = (int32_t) (SetPowerValue - CalibrationBuff[0]) - (g_uTotalPower - g_uChanne1Power);
     }
     else
     {

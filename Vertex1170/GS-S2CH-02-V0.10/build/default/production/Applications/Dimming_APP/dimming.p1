@@ -41,8 +41,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 Applications/CurrentRead_APP/readcurrent.h
 [v _g_uChanne2Power `us ~T0 @X0 0 e ]
 "195 Applications/Dimming_APP/dimming.c
-[c E18968 1 2 3 .. ]
-[n E18968 . PFC_ON LED_ON_ALL LED_OFF  ]
+[c E18984 1 2 3 .. ]
+[n E18984 . PFC_ON LED_ON_ALL LED_OFF  ]
 "23 DriverLayer/GPIO/GPIO_driver.h
 [v _PFC_On `(v ~T0 @X0 0 ef ]
 "32 Applications/OutProtected_APP/out_protected.h
@@ -66,6 +66,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _g_uTemperatureProtection `uc ~T0 @X0 0 e ]
 "10 Applications/CurrentRead_APP/readcurrent.h
 [v _g_uTargetPowerChannel1 `us ~T0 @X0 0 e ]
+"117 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"7 Applications/TempProtected_APP/temp_protected.h
+[v _Temp_Res `f ~T0 @X0 0 e ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1785,6 +1789,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 Middlewares/PID/pid_controller.h
 [v _pid1 `S2425 ~T0 @X0 1 e ]
 [v _pid2 `S2425 ~T0 @X0 1 e ]
+"9 DriverLayer/RS485/RS485_DATA.h
+[v _uart1_receive `uc ~T0 @X0 1 e ]
 "21 Applications/Dimming_APP/dimming.c
 [v _g_uPowerOnOutputStart `uc ~T0 @X0 1 e ]
 [i _g_uPowerOnOutputStart
@@ -1867,7 +1873,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _adc_voltage1 * / -> _g_uADCValueChannel1 `f -> .4095.0 `f -> .4.095 `f ]
 "52
 [v _voltage_ratio1 `f ~T0 @X0 1 a ]
-[e = _voltage_ratio1 / -> .720.0 `f -> .8880.0 `f ]
+[e = _voltage_ratio1 / -> .730.0 `f -> .8880.0 `f ]
 "53
 [e = _g_uTargetCurrentValue / * _adc_voltage1 _voltage_ratio1 -> .0.1 `f ]
 "54
@@ -1889,7 +1895,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _adc_voltage2 * / -> _g_uADCValueChannel2 `f -> .4095.0 `f -> .4.096 `f ]
 "63
 [v _voltage_ratio2 `f ~T0 @X0 1 a ]
-[e = _voltage_ratio2 / -> .720.0 `f -> .10680.0 `f ]
+[e = _voltage_ratio2 / -> .730.0 `f -> .10680.0 `f ]
 "64
 [e = _g_uTargetCurrentValue / * _adc_voltage2 _voltage_ratio2 -> .0.2 `f ]
 "65
@@ -1964,13 +1970,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LightOnChannel1 ]
 [f ]
 "96
-[v F18960 `ul ~T0 @X0 1 s LastTimeChannel1 ]
-[i F18960
+[v F18976 `ul ~T0 @X0 1 s LastTimeChannel1 ]
+[i F18976
 -> -> -> 0 `i `l `ul
 ]
 "97
 [v _NowTimeChannel1 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18960 ]
+[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18976 ]
 "99
 [e $U 2443  ]
 {
@@ -1979,7 +1985,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "101
 [e ( _RELAY_On (1 . `E17923 0 ]
 "102
-[e = F18960 ( _get_systemtick_time ..  ]
+[e = F18976 ( _get_systemtick_time ..  ]
 "103
 [e = _g_uOnChannel1 -> -> 2 `i `uc ]
 "104
@@ -2039,13 +2045,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LightOnChannel2 ]
 [f ]
 "129
-[v F18964 `ul ~T0 @X0 1 s LastTimeChannel2 ]
-[i F18964
+[v F18980 `ul ~T0 @X0 1 s LastTimeChannel2 ]
+[i F18980
 -> -> -> 0 `i `l `ul
 ]
 "130
 [v _NowTimeChannel2 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel2 ( _get_elapsed_since (1 F18964 ]
+[e = _NowTimeChannel2 ( _get_elapsed_since (1 F18980 ]
 "132
 [e $U 2450  ]
 {
@@ -2054,7 +2060,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "134
 [e ( _RELAY_On (1 . `E17923 1 ]
 "135
-[e = F18964 ( _get_systemtick_time ..  ]
+[e = F18980 ( _get_systemtick_time ..  ]
 "136
 [e = _g_uOnChannel2 -> -> 2 `i `uc ]
 "137
@@ -2172,26 +2178,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LightOnLogic ]
 [f ]
 "195
-[v F18974 `E18968 ~T0 @X0 1 s lightstate ]
-[i F18974
-. `E18968 2
+[v F18990 `E18984 ~T0 @X0 1 s lightstate ]
+[i F18990
+. `E18984 2
 ]
 "196
-[v F18975 `ul ~T0 @X0 1 s LastLightLogicTime ]
-[i F18975
+[v F18991 `ul ~T0 @X0 1 s LastLightLogicTime ]
+[i F18991
 -> -> -> 0 `i `l `ul
 ]
 "197
 [v _NowLightLogicTime `ul ~T0 @X0 1 a ]
-[e = _NowLightLogicTime ( _get_elapsed_since (1 F18975 ]
+[e = _NowLightLogicTime ( _get_elapsed_since (1 F18991 ]
 "199
 [e $ ! && || > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i == -> _g_bPfcRunFlag `i -> 1 `i 2462  ]
 "200
 {
 "201
-[e = F18975 ( _get_systemtick_time ..  ]
+[e = F18991 ( _get_systemtick_time ..  ]
 "202
-[e = F18974 . `E18968 0 ]
+[e = F18990 . `E18984 0 ]
 "203
 [e = _g_bPfcRunFlag -> -> 0 `i `uc ]
 "204
@@ -2209,9 +2215,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "211
 {
 "212
-[e = F18974 . `E18968 1 ]
+[e = F18990 . `E18984 1 ]
 "213
-[e = F18975 ( _get_systemtick_time ..  ]
+[e = F18991 ( _get_systemtick_time ..  ]
 "214
 }
 [e :U 2466 ]
@@ -2265,8 +2271,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 2463  ]
 [e :U 2464 ]
-[e [\ -> F18974 `ui , $ -> . `E18968 0 `ui 2465
- , $ -> . `E18968 1 `ui 2467
+[e [\ -> F18990 `ui , $ -> . `E18984 0 `ui 2465
+ , $ -> . `E18984 1 `ui 2467
  2463 ]
 [e :U 2463 ]
 "240
@@ -2279,24 +2285,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _DimmingControlTask ]
 [f ]
 "245
-[v F18978 `uc ~T0 @X0 1 s ProtectionState ]
+[v F18994 `uc ~T0 @X0 1 s ProtectionState ]
 "246
-[v F18979 `uc ~T0 @X0 1 s lastExecState ]
-[i F18979
+[v F18995 `uc ~T0 @X0 1 s lastExecState ]
+[i F18995
 -> -> 0 `i `uc
 ]
 "247
-[e = F18978 ( _ProtectionCheck ..  ]
+[e = F18994 ( _ProtectionCheck ..  ]
 "249
-[e $ ! != -> F18978 `i -> 0 `i 2473  ]
+[e $ ! != -> F18994 `i -> 0 `i 2473  ]
 "250
 {
 "252
-[e $ ! != -> F18978 `i -> F18979 `i 2474  ]
+[e $ ! != -> F18994 `i -> F18995 `i 2474  ]
 "253
 {
 "254
-[e $ ! == -> F18978 `i -> 1 `i 2475  ]
+[e $ ! == -> F18994 `i -> 1 `i 2475  ]
 "255
 {
 "256
@@ -2307,7 +2313,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2475 ]
 "259
-[e = F18979 F18978 ]
+[e = F18995 F18994 ]
 "260
 }
 [e :U 2474 ]
@@ -2319,7 +2325,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "263
 {
 "264
-[e = F18979 -> -> 0 `i `uc ]
+[e = F18995 -> -> 0 `i `uc ]
 "265
 [e = _g_uFaultCode -> -> 0 `i `uc ]
 "266
@@ -2342,11 +2348,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2472 ]
 }
 "278
+[v _buff `uc ~T0 @X0 -> 3 `i e ]
+[i _buff
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+..
+]
+"280
 [v _Display `(v ~T0 @X0 1 ef ]
-"279
+"281
 {
 [e :U _Display ]
 [f ]
+"283
+[e ( _printf , (. :s 1C -> ( _ADC_Result2 (1 . `E17462 10 `ui ]
+"284
+[e ( _printf , , , , (. :s 2C -> ( _GetChannelCurrentValue (1 . `E17462 8 `d -> . _piddimmingChannel1 2 `d -> . _piddimmingChannel1 1 `d -> . _piddimmingChannel1 3 `ui ]
+"286
+[e ( _printf , , , , (. :s 3C -> ( _GetChannelCurrentValue (1 . `E17462 6 `d -> . _piddimmingChannel2 2 `d -> . _piddimmingChannel2 1 `d -> . _piddimmingChannel2 3 `ui ]
+"289
+[e ( _printf , , , (. :s 4C -> _g_fPowerOutputValue `d -> _g_uDimmingLevelChannel1 `i -> _g_uDimmingLevelChannel2 `i ]
+"291
+[e ( _printf , (. :s 5C -> _Temp_Res `d ]
+"293
+[e ( _printf , (. :s 6C -> _g_uFaultCode `i ]
+"294
+[e ( _printf , (. :s 7C -> ( _ProtectionCheck ..  `i ]
 "295
+[e ( _printf :s 8C ]
+"298
 [e :UE 2478 ]
 }
+[p f _printf 8462464 ]
+[a 5C 84 101 109 112 58 37 46 50 102 124 10 13 0 ]
+[a 6C 80 114 111 116 101 112 121 58 37 100 124 10 13 0 ]
+[a 1C 86 105 110 58 37 100 124 10 13 0 ]
+[a 7C 80 114 111 115 116 97 116 101 58 37 100 124 10 13 0 ]
+[a 3C 67 72 50 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 0 ]
+[a 2C 67 72 49 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 0 ]
+[a 4C 83 80 58 37 46 50 102 124 76 101 118 49 58 37 100 124 76 101 118 50 58 37 100 124 10 13 0 ]
+[a 8C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 10 10 0 ]
