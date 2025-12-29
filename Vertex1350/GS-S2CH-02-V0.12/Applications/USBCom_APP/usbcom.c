@@ -134,6 +134,10 @@ void Rs485Task(void)
             if (Rx_Buffer[2] == 0x01) ReadActualTemperatureValue(Rx_Buffer);
             if (Rx_Buffer[2] == 0x02) WriteTemperatureCalibration(Rx_Buffer);
             break;
+            
+        case 0x16:
+             if (Rx_Buffer[2] == 0x01)ReadWorkTimeValue(Rx_Buffer);
+            break;
 
         default: break;
         }

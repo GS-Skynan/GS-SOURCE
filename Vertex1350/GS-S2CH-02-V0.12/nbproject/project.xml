@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>GS-S2CH-02-V0.11</name>
+            <name>GS-S2CH-02-V0.12</name>
             <creation-uuid>37b1c20f-5f4d-4f4d-8edc-d19b9b58ef17</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>GB2312</sourceEncoding>

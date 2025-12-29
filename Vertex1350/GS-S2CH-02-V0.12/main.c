@@ -48,7 +48,7 @@
 #include "pwm_driver.h"
 #include "arithmetic.h"
 #include "pid_controller.h"
-
+#include "worktime.h"
 
 /*
     Main application
@@ -69,6 +69,7 @@ static tTaskComps g_taskComps[] = {
     {0, 50, 50, IntProtectedTask}, 
     {0, 80, 80, TemapProtectedTask},
     {0, 100, 100, Rs485Task},
+    {0,1000,1000,WorkTimeTask},
     {0, 5000, 5000, Display},
 };
 
@@ -106,14 +107,12 @@ static void APPInit(void)
 {
     GPIO_APPInit();
     Time0_AppInit();
-//    PIDDimming_Init();
-//    Time2_AppInit();
     UsbcomAppInit();
     PID_Init_Parameters(); // 初始化两路 PID 控制器
     init_all_pwm_regulators();
     NFCRead_APPInit();
     TaskScheduleCbReg(TaskScheduleCb); 
-  
+    WorkTime_Init(&worktime);
     VersionStore();
 }
 
@@ -144,7 +143,6 @@ int main(void)
     //INTERRUPT_GlobalInterruptDisable(); 
 
     APPInit();
-    __delay_ms(1500);
 
     while (1)
     {

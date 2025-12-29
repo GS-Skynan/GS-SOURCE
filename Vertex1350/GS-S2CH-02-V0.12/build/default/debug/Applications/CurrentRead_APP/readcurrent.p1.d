@@ -37,4 +37,6 @@ Middlewares/CRC/crc.h  \
 Middlewares/CRC/../../mcc_generated_files/system/system.h  \
 Applications/Command_APP/command.h  \
 Applications/Command_APP/../../mcc_generated_files/system/system.h  \
-Applications/CurrentRead_APP/../App_config/config.h 
+Applications/CurrentRead_APP/../App_config/config.h  \
+Applications/WorkTime_APP/worktime.h  \
+Applications/WorkTime_APP/../../mcc_generated_files/system/system.h 

@@ -59,4 +59,6 @@ Applications/TempProtected_APP/temp_protected.h  \
 Applications/TempProtected_APP/../../mcc_generated_files/system/system.h  \
 Applications/Dimming_APP/../App_config/config.h  \
 DriverLayer/RS485/RS485_DATA.h  \
-DriverLayer/RS485/../../mcc_generated_files/system/system.h 
+DriverLayer/RS485/../../mcc_generated_files/system/system.h  \
+Applications/WorkTime_APP/worktime.h  \
+Applications/WorkTime_APP/../../mcc_generated_files/system/system.h 

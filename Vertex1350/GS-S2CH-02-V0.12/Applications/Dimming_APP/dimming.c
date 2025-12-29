@@ -17,6 +17,7 @@
 #include "temp_protected.h"
 #include "../App_config/config.h"
 #include "RS485_DATA.h"
+#include "worktime.h"
 
 uint8_t g_uPowerOnOutputStart = 0;
 
@@ -278,13 +279,38 @@ void LightOnLogic(void)
     }
 }
 
+uint8_t PowerOnDongleDelay(void)
+{
+    static uint32_t startTime = 0;
+    static uint8_t initialized = 0;
+
+    // 第一次调用时记录开始时间
+    if (initialized == 0)
+    {
+        startTime = get_systemtick_time();
+        initialized = 1;
+        return 0; // 刚启动，还没到1秒
+    }
+
+    uint32_t elapsedTime = get_elapsed_since(startTime);
+
+    if (elapsedTime > 1000) //1秒
+    {
+        //      initialized = 0;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 void DimmingControlTask(void)
 {
-    //保护校验   
     static uint8_t ProtectionState;
     static uint8_t lastExecState = 0;
-    ProtectionState = ProtectionCheck();
-
+    
+    ProtectionState = ProtectionCheck();   //保护校验   
     if (ProtectionState != 0)
     {
         // 状态发生变化时才执行
@@ -311,10 +337,10 @@ void DimmingControlTask(void)
         g_fPowerOutputValue = (float) (g_uTargetPowerChannel1 / 2);
     }
 
+    if (PowerOnDongleDelay() != 1) return;
+
     LightOnLogic();
 }
-
-uint8_t buff[] = {0x01, 0x02, 0x03};
 
 void Display(void)
 {
@@ -331,7 +357,12 @@ void Display(void)
 
     printf("Protepy:%d|\n\r", g_uFaultCode);
     printf("Prostate:%d|\n\r", ProtectionCheck());
-    printf("%.2f|\n\r",g_fOverTemperatureProtection);
+    printf("%.2f|\n\r", g_fOverTemperatureProtection);
+       tWorkTime current_time = WorkTime_GetFromEEPROM();
+        printf("当前运行: %u小时%u分钟%u秒\n", 
+               current_time.hours, 
+               current_time.minutes, 
+               current_time.seconds);
     printf("------------------------------------\n\n");
 #endif
 

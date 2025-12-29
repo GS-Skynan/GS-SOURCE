@@ -33,6 +33,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ReadActualTemperatureValue `(v ~T0 @X0 0 ef1`*uc ]
 "16
 [v _WriteTemperatureCalibration `(v ~T0 @X0 0 ef1`*uc ]
+"19
+[v _ReadWorkTimeValue `(v ~T0 @X0 0 ef1`*uc ]
 [v F17425 `(v ~T0 @X0 0 tf ]
 "354 Applications/USBCom_APP/../../mcc_generated_files/system/../uart/uart1.h
 [v _UART1_RxCompleteCallbackRegister `(v ~T0 @X0 0 ef1`*F17425 ]
@@ -2435,98 +2437,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2436 ]
 "116
 [e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2437  ]
-"117
-{
-"118
 [e ( _Readhandle_version (1 &U _Rx_Buffer ]
-"119
-}
 [e :U 2437 ]
-"120
+"117
 [e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2438  ]
-"121
-{
-"122
 [e ( _Writehandle_version (1 &U _Rx_Buffer ]
-"123
-}
 [e :U 2438 ]
-"124
+"118
 [e $U 2434  ]
-"126
+"120
 [e :U 2439 ]
-"127
+"121
 [e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2440  ]
-"128
-{
-"129
 [e ( _Access_Bootloder (1 &U _Rx_Buffer ]
-"130
-}
 [e :U 2440 ]
+"122
+[e $U 2434  ]
+"124
+[e :U 2441 ]
+"125
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2442  ]
+[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
+[e :U 2442 ]
+"126
+[e $U 2434  ]
+"128
+[e :U 2443 ]
+"129
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2444  ]
+[e ( _ReadChannelPowerValue (1 &U _Rx_Buffer ]
+[e :U 2444 ]
+"130
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
+[e ( _WriteChannelPowerValue (1 &U _Rx_Buffer ]
+[e :U 2445 ]
 "131
 [e $U 2434  ]
 "133
-[e :U 2441 ]
-"134
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2442  ]
-"135
-{
-"136
-[e ( _WriteCalibrationSingleChannel (1 &U _Rx_Buffer ]
-"137
-}
-[e :U 2442 ]
-"138
-[e $U 2434  ]
-"141
-[e :U 2443 ]
-"142
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2444  ]
-"143
-{
-"144
-[e ( _ReadChannelPowerValue (1 &U _Rx_Buffer ]
-"145
-}
-[e :U 2444 ]
-"147
-[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2445  ]
-"148
-{
-"149
-[e ( _WriteChannelPowerValue (1 &U _Rx_Buffer ]
-"150
-}
-[e :U 2445 ]
-"151
-[e $U 2434  ]
-"153
 [e :U 2446 ]
-"154
+"134
 [e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2447  ]
-"155
-{
-"156
 [e ( _ReadActualTemperatureValue (1 &U _Rx_Buffer ]
-"157
-}
 [e :U 2447 ]
-"159
+"135
 [e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 2 `i 2448  ]
-"160
-{
-"161
 [e ( _WriteTemperatureCalibration (1 &U _Rx_Buffer ]
-"162
-}
 [e :U 2448 ]
-"163
+"136
 [e $U 2434  ]
-"165
+"138
 [e :U 2449 ]
+"139
+[e $ ! == -> *U + &U _Rx_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _Rx_Buffer `ui `ux `i -> 1 `i 2450  ]
+[e ( _ReadWorkTimeValue (1 &U _Rx_Buffer ]
+[e :U 2450 ]
+"140
 [e $U 2434  ]
-"166
+"142
+[e :U 2451 ]
+[e $U 2434  ]
+"143
 }
 [e $U 2434  ]
 [e :U 2435 ]
@@ -2535,24 +2505,25 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 87 `i 2441
  , $ -> 2 `i 2443
  , $ -> 8 `i 2446
- 2449 ]
+ , $ -> 22 `i 2449
+ 2451 ]
 [e :U 2434 ]
-"167
+"144
 }
 [e :U 2433 ]
-"168
+"146
 [e ( _ClearReceiveData ..  ]
-"170
+"147
 [e :UE 2427 ]
 }
-"172
+"149
 [v _UsbcomAppInit `(v ~T0 @X0 1 ef ]
-"173
+"150
 {
 [e :U _UsbcomAppInit ]
 [f ]
-"174
+"151
 [e ( _UART1_RxCompleteCallbackRegister (1 &U _UartReceivedISR ]
-"175
-[e :UE 2450 ]
+"152
+[e :UE 2452 ]
 }

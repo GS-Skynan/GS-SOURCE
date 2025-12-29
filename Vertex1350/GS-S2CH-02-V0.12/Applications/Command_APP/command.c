@@ -170,10 +170,11 @@ void Writehandle_version(uint8_t *w_data)
 
 void VersionStore(void)
 {
+    //软件版本写入
     if (memcmp(ReadNFCInfo(I2C_SOFTWARE_VERSION_ADDR, 3), version, 3) != 0)
     {
         WriteNFCInfo(I2C_SOFTWARE_VERSION_ADDR, version, 3);
-    }
+    }    
 }
 
 
@@ -366,5 +367,31 @@ void ReadActualTemperatureValue(uint8_t *ack_data)
 
 
 
+void ReadWorkTimeValue(uint8_t *ack_data)
+{
+    // 初始化缓冲区并复制数据
+    uint8_t read_buffer[17] = {0};
+    memcpy(read_buffer, ack_data, 17);
+
+    // 设置固定值
+    read_buffer[0] = 0x55;
+
+    read_buffer[7] = EepromReadByte(0x0030);
+    read_buffer[8] = EepromReadByte(0x0031);
+    read_buffer[9] = EepromReadByte(0x0032);
+
+    // 计算CRC
+    uint16_t wcrc = CRC16(read_buffer, 15);
+    read_buffer[16] = wcrc & 0xFF;
+    read_buffer[15] = (wcrc >> 8) & 0xFF;
+
+    // 简洁的循环打印方式
+    for (uint8_t i = 0; i < 17; i++)
+    {
+        printf("%02X", read_buffer[i]);
+        if (i < 16) printf(" "); // 最后一个字节后不加空格
+    }
+    memset(read_buffer, 0, 17);
+}
 
 

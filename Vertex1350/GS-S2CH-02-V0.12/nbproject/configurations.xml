@@ -59,6 +59,12 @@
         <itemPath>Applications/USBCom_APP/usbcom.c</itemPath>
         <itemPath>Applications/USBCom_APP/usbcom.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="WorkTime_APP"
+                     displayName="WorkTime_APP"
+                     projectFiles="true">
+        <itemPath>Applications/WorkTime_APP/worktime.c</itemPath>
+        <itemPath>Applications/WorkTime_APP/worktime.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="DriverLayer" displayName="DriverLayer" projectFiles="true">
       <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
@@ -278,7 +284,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="true"/>
         <property key="extra-include-directories"
-                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Middlewares\PID;Applications\Ticktime_APP;Applications\TempProtected_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\Command_APP;Applications\USBCom_APP;Applications\App_config;Middlewares\Arithmetic"/>
+                  value="DriverLayer\ADC;DriverLayer\EEPROM;DriverLayer\GPIO;DriverLayer\NFC;DriverLayer\PWM;DriverLayer\RS485;Applications\Bootloader;Applications\CurrentRead_APP;Applications\Dimming_APP;Applications\InProtected_APP;Applications\LightsOff_APP;Applications\NFCService_APP;Applications\OutProtected_APP;Applications\PowerComp_APP;Middlewares\PID;Applications\Ticktime_APP;Applications\TempProtected_APP;Middlewares\CRC;Middlewares\QUEUE;Applications\Command_APP;Applications\USBCom_APP;Applications\App_config;Middlewares\Arithmetic;Applications\WorkTime_APP"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>

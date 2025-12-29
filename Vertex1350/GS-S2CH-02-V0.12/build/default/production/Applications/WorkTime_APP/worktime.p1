@@ -1,61 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"21 Middlewares/PID/pid_controller.h
-[s S2422 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
-[n S2422 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
 "8 Applications/WorkTime_APP/worktime.h
-[s S2423 `us 1 `us 1 `us 1 ]
-[n S2423 . hours minutes seconds ]
-[v F18036 `(v ~T0 @X0 0 tf ]
-"58 main.c
-[s S2424 `uc 1 `us 1 `us 1 `*F18036 1 ]
-[n S2424 . run timCount timRload pTaskFuncCb ]
-"18 Applications/Dimming_APP/dimming.h
-[v _DimmingControlTask `(v ~T0 @X0 0 ef ]
-"40 Applications/OutProtected_APP/out_protected.h
-[v _OutProtectedTask `(v ~T0 @X0 0 ef ]
-"11 Applications/InProtected_APP/inprotectedapp.h
-[v _IntProtectedTask `(v ~T0 @X0 0 ef ]
-"10 Applications/TempProtected_APP/temp_protected.h
-[v _TemapProtectedTask `(v ~T0 @X0 0 ef ]
-"9 Applications/USBCom_APP/usbcom.h
-[v _Rs485Task `(v ~T0 @X0 0 ef ]
-"20 Applications/WorkTime_APP/worktime.h
-[v _WorkTimeTask `(v ~T0 @X0 0 ef ]
-"32 Applications/Dimming_APP/dimming.h
-[v _Display `(v ~T0 @X0 0 ef ]
-"33 DriverLayer/GPIO/GPIO_driver.h
-[v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
-"13 Applications/Ticktime_APP/ticktime.h
-[v _Time0_AppInit `(v ~T0 @X0 0 ef ]
-"8 Applications/USBCom_APP/usbcom.h
-[v _UsbcomAppInit `(v ~T0 @X0 0 ef ]
-"40 Middlewares/PID/pid_controller.h
-[v _PID_Init_Parameters `(v ~T0 @X0 0 ef ]
-"17 Middlewares/Arithmetic/arithmetic.h
-[v _init_all_pwm_regulators `(v ~T0 @X0 0 ef ]
-"15 Applications/CurrentRead_APP/readcurrent.h
-[v _NFCRead_APPInit `(v ~T0 @X0 0 ef ]
-[v F17855 `(v ~T0 @X0 0 tf ]
-"14 Applications/Ticktime_APP/ticktime.h
-[v _TaskScheduleCbReg `(v ~T0 @X0 0 ef1`*F17855 ]
-"16 Applications/WorkTime_APP/worktime.h
-[v _WorkTime_Init `(v ~T0 @X0 0 ef1`*S2423 ]
-"21 Applications/Command_APP/command.h
-[v _VersionStore `(v ~T0 @X0 0 ef ]
-[p mainexit ]
-"65 ./mcc_generated_files/system/system.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"49899 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
-[s S2318 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2318 . INT0EDG INT1EDG INT2EDG . IPEN GIEL GIE ]
-"49908
-[s S2319 :7 `uc 1 :1 `uc 1 ]
-[n S2319 . . GIEH ]
-"49898
-[u S2317 `S2318 1 `S2319 1 ]
-[n S2317 . . . ]
-"49913
-[v _INTCON0bits `VS2317 ~T0 @X0 0 e@1238 ]
+[s S2419 `us 1 `us 1 `us 1 ]
+[n S2419 . hours minutes seconds ]
+"12 DriverLayer/EEPROM/EEPROM_driver.h
+[v _EepromReadByte `(uc ~T0 @X0 0 ef1`um ]
+"13
+[v _EepromWriteByte `(v ~T0 @X0 0 ef2`um`uc ]
+"68 Applications/WorkTime_APP/worktime.c
+[c E17856 0 1 2 3 .. ]
+[n E17856 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
+"24 DriverLayer/NFC/nfc.h
+[v _Write_NFC_Data `(E17856 ~T0 @X0 0 ef3`us`*uc`uc ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1770,193 +1725,168 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 04FEh ;# ">
 "51171
 [; <" TOSU equ 04FFh ;# ">
-"7 Applications/Ticktime_APP/ticktime.h
-[v _system_tick `Vul ~T0 @X0 1 e ]
-"35 Middlewares/PID/pid_controller.h
-[v _pid1 `S2422 ~T0 @X0 1 e ]
-[v _pid2 `S2422 ~T0 @X0 1 e ]
 "14 Applications/WorkTime_APP/worktime.h
-[v _worktime `S2423 ~T0 @X0 1 e ]
-"66 main.c
-[v _g_taskComps `S2424 ~T0 @X0 -> 7 `i s ]
-[i _g_taskComps
-:U ..
-:U ..
--> -> 0 `i `uc
--> -> 10 `i `us
--> -> 10 `i `us
-&U _DimmingControlTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 20 `i `us
--> -> 20 `i `us
-&U _OutProtectedTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 50 `i `us
--> -> 50 `i `us
-&U _IntProtectedTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 80 `i `us
--> -> 80 `i `us
-&U _TemapProtectedTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 100 `i `us
--> -> 100 `i `us
-&U _Rs485Task
-..
-:U ..
--> -> 0 `i `uc
--> -> 1000 `i `us
--> -> 1000 `i `us
-&U _WorkTimeTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 5000 `i `us
--> -> 5000 `i `us
-&U _Display
-..
-..
-]
-"78
-[v _TaskHandler `(v ~T0 @X0 1 sf ]
-"79
+[v _worktime `S2419 ~T0 @X0 1 e ]
+"12 Applications/WorkTime_APP/worktime.c
+[v _WorkTime_Init `(v ~T0 @X0 1 ef1`*S2419 ]
+"13
 {
-[e :U _TaskHandler ]
+[e :U _WorkTime_Init ]
+"12
+[v _mgr `*S2419 ~T0 @X0 1 r1 ]
+"13
 [f ]
-"80
+"14
+[e $ ! == _mgr -> -> -> 0 `i `*v `*S2419 2421  ]
+[e $UE 2420  ]
+[e :U 2421 ]
+"16
+[e $ ! == -> ( _EepromReadByte (1 -> -> -> 48 `i `m `um `i -> 255 `i 2422  ]
+[e ( _EepromWriteByte (2 , -> -> -> 48 `i `m `um -> -> 0 `i `uc ]
+[e :U 2422 ]
+"17
+[e $ ! == -> ( _EepromReadByte (1 -> -> -> 49 `i `m `um `i -> 255 `i 2423  ]
+[e ( _EepromWriteByte (2 , -> -> -> 49 `i `m `um -> -> 0 `i `uc ]
+[e :U 2423 ]
+"18
+[e $ ! == -> ( _EepromReadByte (1 -> -> -> 50 `i `m `um `i -> 255 `i 2424  ]
+[e ( _EepromWriteByte (2 , -> -> -> 50 `i `m `um -> -> 0 `i `uc ]
+[e :U 2424 ]
+"20
+[e = . *U _mgr 0 -> | << -> ( _EepromReadByte (1 -> -> -> 48 `i `m `um `i -> 8 `i -> ( _EepromReadByte (1 -> -> -> 49 `i `m `um `i `us ]
+"21
+[e = . *U _mgr 1 -> ( _EepromReadByte (1 -> -> -> 50 `i `m `um `us ]
+"24
+[e $ ! > -> . *U _mgr 1 `ui -> -> 1 `i `ui 2425  ]
+"25
 {
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2426  ]
-[e $U 2427  ]
-[e :U 2426 ]
-"81
+"26
+[e = . *U _mgr 1 -> * -> . *U _mgr 1 `ui -> -> 30 `i `ui `us ]
+"27
+}
+[e :U 2425 ]
+"29
+[e = . *U _mgr 2 -> -> 0 `i `us ]
+"30
+[e :UE 2420 ]
+}
+"33
+[v _time `S2419 ~T0 @X0 1 e ]
+"36
+[v _WorkTime_GetFromEEPROM `(S2419 ~T0 @X0 1 ef ]
+"37
 {
-"82
-[e $ ! != -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 `i -> 0 `i 2429  ]
-"83
+[e :U _WorkTime_GetFromEEPROM ]
+[f ]
+"39
+[e = . _time 0 -> | << -> ( _EepromReadByte (1 -> -> -> 48 `i `m `um `i -> 8 `i -> ( _EepromReadByte (1 -> -> -> 49 `i `m `um `i `us ]
+"40
+[e = . _time 1 -> ( _EepromReadByte (1 -> -> -> 50 `i `m `um `us ]
+"41
+[e = . _time 2 . _worktime 2 ]
+"43
+[e ) _time ]
+[e $UE 2426  ]
+"44
+[e :UE 2426 ]
+}
+"46
+[v _WorkTime_Update `(v ~T0 @X0 1 ef1`*S2419 ]
+"47
 {
-"84
-[e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 -> -> 0 `i `uc ]
-"85
-[e ( *U . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 3 ..  ]
-"86
+[e :U _WorkTime_Update ]
+"46
+[v _mgr `*S2419 ~T0 @X0 1 r1 ]
+"47
+[f ]
+"48
+[e $ ! == _mgr -> -> -> 0 `i `*v `*S2419 2428  ]
+[e $UE 2427  ]
+[e :U 2428 ]
+"51
+[e ++ . *U _mgr 2 -> -> 1 `i `us ]
+"54
+[e $ ! >= -> . *U _mgr 2 `ui -> -> 10 `i `ui 2429  ]
+"55
+{
+"56
+[e = . *U _mgr 2 -> -> 0 `i `us ]
+"57
+[e ++ . *U _mgr 1 -> -> 1 `i `us ]
+"58
+[e $ ! >= -> . *U _mgr 1 `ui -> -> 2 `i `ui 2430  ]
+"59
+{
+"60
+[e = . *U _mgr 1 -> -> 0 `i `us ]
+"61
+[e ++ . *U _mgr 0 -> -> 1 `i `us ]
+"63
+[v _hour_high `uc ~T0 @X0 1 a ]
+[e = _hour_high -> & >> -> . *U _mgr 0 `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"64
+[v _hour_low `uc ~T0 @X0 1 a ]
+[e = _hour_low -> & -> . *U _mgr 0 `ui -> -> 255 `i `ui `uc ]
+"66
+[e ( _EepromWriteByte (2 , -> -> -> 48 `i `m `um _hour_high ]
+"67
+[e ( _EepromWriteByte (2 , -> -> -> 49 `i `m `um _hour_low ]
+"68
+[e ( _Write_NFC_Data (3 , , -> -> 96 `i `us &U _hour_high -> -> 1 `i `uc ]
+"69
+[e ( _Write_NFC_Data (3 , , -> -> 97 `i `us &U _hour_low -> -> 1 `i `uc ]
+"70
+}
+[e :U 2430 ]
+"71
+[v _minute_low `uc ~T0 @X0 1 a ]
+[e = _minute_low -> & -> . *U _mgr 1 `ui -> -> 255 `i `ui `uc ]
+"72
+[e ( _EepromWriteByte (2 , -> -> -> 50 `i `m `um _minute_low ]
+"73
+[e ( _Write_NFC_Data (3 , , -> -> 98 `i `us &U _minute_low -> -> 1 `i `uc ]
+"74
 }
 [e :U 2429 ]
-"87
+"75
+[e :UE 2427 ]
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2426  ]
-[e :U 2427 ]
-}
-"88
-[e :UE 2425 ]
-}
-"90
-[v _TaskScheduleCb `(v ~T0 @X0 1 sf ]
-"91
+"79
+[v _WorkTime_Reset `(v ~T0 @X0 1 ef1`*S2419 ]
+"80
 {
-[e :U _TaskScheduleCb ]
+[e :U _WorkTime_Reset ]
+"79
+[v _mgr `*S2419 ~T0 @X0 1 r1 ]
+"80
 [f ]
+"81
+[e $ ! == _mgr -> -> -> 0 `i `*v `*S2419 2432  ]
+[e $UE 2431  ]
+[e :U 2432 ]
+"84
+[e = . *U _mgr 0 -> -> 0 `i `us ]
+"85
+[e = . *U _mgr 1 -> -> 0 `i `us ]
+"86
+[e = . *U _mgr 2 -> -> 0 `i `us ]
+"89
+[e ( _EepromWriteByte (2 , -> -> -> 48 `i `m `um -> -> 0 `i `uc ]
+"90
+[e ( _EepromWriteByte (2 , -> -> -> 49 `i `m `um -> -> 0 `i `uc ]
+"91
+[e ( _EepromWriteByte (2 , -> -> -> 50 `i `m `um -> -> 0 `i `uc ]
 "92
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2431  ]
-[e $U 2432  ]
-[e :U 2431 ]
-"93
-{
+[e :UE 2431 ]
+}
 "94
-[e $ ! != -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 `ui -> -> 0 `i `ui 2434  ]
+[v _WorkTimeTask `(v ~T0 @X0 1 ef ]
 "95
 {
+[e :U _WorkTimeTask ]
+[f ]
 "96
-[e -- . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 -> -> 1 `i `us ]
+[e ( _WorkTime_Update (1 &U _worktime ]
 "97
-[e $ ! == -> . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 `ui -> -> 0 `i `ui 2435  ]
-"98
-{
-"99
-[e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 0 -> -> 1 `i `uc ]
-"100
-[e = . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 1 . *U + &U _g_taskComps * -> _i `ux -> -> # *U &U _g_taskComps `ui `ux 2 ]
-"101
-}
-[e :U 2435 ]
-"102
-}
-[e :U 2434 ]
-"103
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `ui / -> # _g_taskComps `ui -> # *U + &U _g_taskComps * -> -> -> 0 `i `ui `ux -> -> # *U &U _g_taskComps `ui `ux `ui 2431  ]
-[e :U 2432 ]
-}
-"104
-[e :UE 2430 ]
-}
-"106
-[v _APPInit `(v ~T0 @X0 1 sf ]
-"107
-{
-[e :U _APPInit ]
-[f ]
-"108
-[e ( _GPIO_APPInit ..  ]
-"109
-[e ( _Time0_AppInit ..  ]
-"110
-[e ( _UsbcomAppInit ..  ]
-"111
-[e ( _PID_Init_Parameters ..  ]
-"112
-[e ( _init_all_pwm_regulators ..  ]
-"113
-[e ( _NFCRead_APPInit ..  ]
-"114
-[e ( _TaskScheduleCbReg (1 &U _TaskScheduleCb ]
-"115
-[e ( _WorkTime_Init (1 &U _worktime ]
-"116
-[e ( _VersionStore ..  ]
-"117
-[e :UE 2436 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"119
-[v _main `(i ~T0 @X0 1 ef ]
-"120
-{
-[e :U _main ]
-[f ]
-"122
-[e ( _SYSTEM_Initialize ..  ]
-"131
-[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
-"137
-[e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
-"145
-[e ( _APPInit ..  ]
-"147
-[e :U 2439 ]
-"148
-{
-"149
-[e ( _TaskHandler ..  ]
-"150
-}
-[e :U 2438 ]
-[e $U 2439  ]
-[e :U 2440 ]
-"151
-[e :UE 2437 ]
+[e :UE 2433 ]
 }

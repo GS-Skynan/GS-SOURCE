@@ -33,7 +33,6 @@ uint32_t get_systemtick_time(void)
     return system_tick;
 }
 
-
 uint32_t get_elapsed_since(uint32_t since_time) //这是判断回绕函数 
 {
     uint32_t current = get_systemtick_time();
@@ -62,5 +61,5 @@ void Time2_AppInit(void)
 
 void PIDDimming_Init(void)
 {
-   // TMR4_PeriodMatchCallbackRegister(Dimming_Pid);
+    // TMR4_PeriodMatchCallbackRegister(Dimming_Pid);
 }

@@ -16,6 +16,7 @@ void WriteCalibrationSingleChannel(uint8_t *w_eeprom);
 void WriteTemperatureCalibration(uint8_t *w_data);
 void ReadActualTemperatureValue(uint8_t *ack_data);
 
+void ReadWorkTimeValue(uint8_t *ack_data);
 
 void VersionStore(void);
 void ReadCalibration(void);

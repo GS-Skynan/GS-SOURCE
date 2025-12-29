@@ -53,4 +53,6 @@ DriverLayer/PWM/../../mcc_generated_files/system/system.h  \
 Middlewares/Arithmetic/arithmetic.h  \
 Middlewares/Arithmetic/../../mcc_generated_files/system/system.h  \
 Middlewares/PID/pid_controller.h  \
-Middlewares/PID/../../mcc_generated_files/system/system.h 
+Middlewares/PID/../../mcc_generated_files/system/system.h  \
+Applications/WorkTime_APP/worktime.h  \
+Applications/WorkTime_APP/../../mcc_generated_files/system/system.h 

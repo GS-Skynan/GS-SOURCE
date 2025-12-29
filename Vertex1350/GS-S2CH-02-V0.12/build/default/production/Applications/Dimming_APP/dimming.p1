@@ -2,10 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21 Middlewares/PID/pid_controller.h
 [s S2425 `uc 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `i 1 ]
 [n S2425 . Channel_Flag Kp Ki Kd integral_max integral_min output_max output_min integral prev_error PWM_duty_cycle ]
+"8 Applications/WorkTime_APP/worktime.h
+[s S2426 `us 1 `us 1 `us 1 ]
+[n S2426 . hours minutes seconds ]
 "8 Applications/Dimming_APP/dimming.h
 [s S2419 `f 1 `f 1 `f 1 `us 1 ]
 [n S2419 . targetPower actualPower voltage pwmValue ]
-"40 Applications/Dimming_APP/dimming.c
+"41 Applications/Dimming_APP/dimming.c
 [c E17462 59 60 61 62 63 3 4 17 22 28 44 0 .. ]
 [n E17462 . ADC_CHANNEL_VSS ADC_CHANNEL_TEMP ADC_CHANNEL_DAC1 ADC_CHANNEL_FVR_BUFFER1 ADC_CHANNEL_FVR_BUFFER2 ADC_CHANNEL_ANA3 ADC_CHANNEL_ANA4 ADC_CHANNEL_ANC1 ADC_CHANNEL_ANC6 ADC_CHANNEL_AND4 ADC_CHANNEL_ANF4 ADC_CHANNEL_ANA0  ]
 "17 DriverLayer/ADC/adc_driver.h
@@ -21,14 +24,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _g_uTargetPowerChannel2 `us ~T0 @X0 0 e ]
 "10 Applications/Ticktime_APP/ticktime.h
 [v _get_elapsed_since `(ul ~T0 @X0 0 ef1`ul ]
-"140 Applications/Dimming_APP/dimming.c
+"141 Applications/Dimming_APP/dimming.c
 [c E17920 1 2 .. ]
 [n E17920 . RELAY_CHANNEL1 RELAY_CHANNEL2  ]
 "30 DriverLayer/GPIO/GPIO_driver.h
 [v _RELAY_On `(v ~T0 @X0 0 ef1`E17920 ]
 "11 Applications/Ticktime_APP/ticktime.h
 [v _get_systemtick_time `(ul ~T0 @X0 0 ef ]
-"147 Applications/Dimming_APP/dimming.c
+"148 Applications/Dimming_APP/dimming.c
 [c E17916 1 2 .. ]
 [n E17916 . L6562_CHANNEL1 L6562_CHANNEL2  ]
 "27 DriverLayer/GPIO/GPIO_driver.h
@@ -37,23 +40,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _update_pwm_output_ch1 `(f ~T0 @X0 0 ef1`f ]
 "43 Middlewares/PID/pid_controller.h
 [v _PID_Compute `(us ~T0 @X0 0 ef3`*S2425`f`f ]
-"158 Applications/Dimming_APP/dimming.c
+"159 Applications/Dimming_APP/dimming.c
 [c E17939 1 2 3 4 5 .. ]
 [n E17939 . PWM_CHANNEL_1 PWM_CHANNEL_2 PWM_CHANNEL_3 PWM_CHANNEL_4 PWM_ALLOFF  ]
 "14 DriverLayer/PWM/pwm_driver.h
 [v _PWM_Set_Direct `(v ~T0 @X0 0 ef2`E17939`us ]
 "19 Middlewares/Arithmetic/arithmetic.h
 [v _update_pwm_output_ch2 `(f ~T0 @X0 0 ef1`f ]
-"234 Applications/Dimming_APP/dimming.c
-[c E18988 1 2 3 .. ]
-[n E18988 . PFC_ON LED_ON_ALL LED_OFF  ]
+"235 Applications/Dimming_APP/dimming.c
+[c E19002 1 2 3 .. ]
+[n E19002 . PFC_ON LED_ON_ALL LED_OFF  ]
 "23 DriverLayer/GPIO/GPIO_driver.h
 [v _PFC_On `(v ~T0 @X0 0 ef ]
 "32 Applications/OutProtected_APP/out_protected.h
 [v _ProtectionCheck `(uc ~T0 @X0 0 ef ]
 "13 Applications/LightsOff_APP/closeled.h
 [v _g_uOffChannel1 `uc ~T0 @X0 0 e ]
-"265 Applications/Dimming_APP/dimming.c
+"266 Applications/Dimming_APP/dimming.c
 [c E17899 1 2 3 .. ]
 [n E17899 . LED_CHANNEL1_OFF LED_CHANNEL2_OFF LED_ALL_OFF  ]
 "18 Applications/LightsOff_APP/closeled.h
@@ -72,6 +75,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _g_fActualTemperature `f ~T0 @X0 0 e ]
 "11 Applications/CurrentRead_APP/readcurrent.h
 [v _g_fOverTemperatureProtection `f ~T0 @X0 0 e ]
+"19 Applications/WorkTime_APP/worktime.h
+[v _WorkTime_GetFromEEPROM `(S2426 ~T0 @X0 0 ef ]
 "328 C:/Users/12918/.mchp_packs/Microchip/PIC18F-Q_DFP/1.26.442/xc8\pic\include\proc/pic18f57q43.h
 [; <" CLKRCON equ 039h ;# ">
 "432
@@ -1793,22 +1798,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pid2 `S2425 ~T0 @X0 1 e ]
 "9 DriverLayer/RS485/RS485_DATA.h
 [v _uart1_receive `uc ~T0 @X0 1 e ]
-"21 Applications/Dimming_APP/dimming.c
+"14 Applications/WorkTime_APP/worktime.h
+[v _worktime `S2426 ~T0 @X0 1 e ]
+"22 Applications/Dimming_APP/dimming.c
 [v _g_uPowerOnOutputStart `uc ~T0 @X0 1 e ]
 [i _g_uPowerOnOutputStart
 -> -> 0 `i `uc
 ]
-"23
+"24
 [v _g_bPfcRunFlag `uc ~T0 @X0 1 e ]
 [i _g_bPfcRunFlag
 -> -> 1 `i `uc
 ]
-"24
+"25
 [v _g_fPowerOutputValue `f ~T0 @X0 1 e ]
 [i _g_fPowerOutputValue
 -> -> 0 `i `f
 ]
-"27
+"28
 [v _piddimmingChannel1 `S2419 ~T0 @X0 1 e ]
 [i _piddimmingChannel1
 :U ..
@@ -1817,7 +1824,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"28
+"29
 [v _piddimmingChannel2 `S2419 ~T0 @X0 1 e ]
 [i _piddimmingChannel2
 :U ..
@@ -1826,635 +1833,691 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"30
-[v _PIDDimming_Clear `(v ~T0 @X0 1 ef1`*S2419 ]
 "31
+[v _PIDDimming_Clear `(v ~T0 @X0 1 ef1`*S2419 ]
+"32
 {
 [e :U _PIDDimming_Clear ]
-"30
-[v _pid `*S2419 ~T0 @X0 1 r1 ]
 "31
-[f ]
+[v _pid `*S2419 ~T0 @X0 1 r1 ]
 "32
-[e $ ! == _pid -> -> -> 0 `i `*v `*S2419 2427  ]
-[e $UE 2426  ]
-[e :U 2427 ]
-"34
-[e = . *U _pid 0 -> .0.0 `f ]
+[f ]
+"33
+[e $ ! == _pid -> -> -> 0 `i `*v `*S2419 2428  ]
+[e $UE 2427  ]
+[e :U 2428 ]
 "35
-[e = . *U _pid 1 -> .0.0 `f ]
+[e = . *U _pid 0 -> .0.0 `f ]
 "36
-[e = . *U _pid 2 -> .0.0 `f ]
+[e = . *U _pid 1 -> .0.0 `f ]
 "37
-[e = . *U _pid 3 -> -> .0.0 `f `us ]
+[e = . *U _pid 2 -> .0.0 `f ]
 "38
-[e :UE 2426 ]
+[e = . *U _pid 3 -> -> .0.0 `f `us ]
+"39
+[e :UE 2427 ]
 }
-"40
-[v _GetChannelCurrentValue `(f ~T0 @X0 1 ef1`E17462 ]
 "41
+[v _GetChannelCurrentValue `(f ~T0 @X0 1 ef1`E17462 ]
+"42
 {
 [e :U _GetChannelCurrentValue ]
-"40
-[v _channel `E17462 ~T0 @X0 1 r1 ]
 "41
-[f ]
+[v _channel `E17462 ~T0 @X0 1 r1 ]
 "42
+[f ]
+"43
 [v _g_uADCValueChannel1 `s ~T0 @X0 1 a ]
 [v _g_uADCValueChannel2 `s ~T0 @X0 1 a ]
-"43
+"44
 [v _g_uTargetCurrentValue `f ~T0 @X0 1 a ]
-"46
-[e $ ! == -> _channel `ui -> . `E17462 8 `ui 2429  ]
 "47
+[e $ ! == -> _channel `ui -> . `E17462 8 `ui 2430  ]
+"48
 {
-"49
+"50
 [e = _g_uADCValueChannel1 -> ( _ADC_Result2 (1 . `E17462 8 `s ]
-"51
+"52
 [v _adc_voltage1 `f ~T0 @X0 1 a ]
 [e = _adc_voltage1 * / -> _g_uADCValueChannel1 `f -> .4095.0 `f -> .4.095 `f ]
-"52
+"53
 [v _voltage_ratio1 `f ~T0 @X0 1 a ]
 [e = _voltage_ratio1 / -> .730.0 `f -> .8880.0 `f ]
-"53
-[e = _g_uTargetCurrentValue / * _adc_voltage1 _voltage_ratio1 -> .0.1 `f ]
 "54
-[e $ ! >= _g_uTargetCurrentValue -> .3.6 `f 2430  ]
-[e = _g_uTargetCurrentValue -> .3.6 `f ]
-[e :U 2430 ]
+[e = _g_uTargetCurrentValue / * _adc_voltage1 _voltage_ratio1 -> .0.1 `f ]
 "55
+[e $ ! >= _g_uTargetCurrentValue -> .3.6 `f 2431  ]
+[e = _g_uTargetCurrentValue -> .3.6 `f ]
+[e :U 2431 ]
+"56
 }
-[e $U 2431  ]
-"57
-[e :U 2429 ]
-[e $ ! == -> _channel `ui -> . `E17462 6 `ui 2432  ]
+[e $U 2432  ]
 "58
+[e :U 2430 ]
+[e $ ! == -> _channel `ui -> . `E17462 6 `ui 2433  ]
+"59
 {
-"60
+"61
 [e = _g_uADCValueChannel2 -> ( _ADC_Result2 (1 . `E17462 6 `s ]
-"62
+"63
 [v _adc_voltage2 `f ~T0 @X0 1 a ]
 [e = _adc_voltage2 * / -> _g_uADCValueChannel2 `f -> .4095.0 `f -> .4.096 `f ]
-"63
+"64
 [v _voltage_ratio2 `f ~T0 @X0 1 a ]
 [e = _voltage_ratio2 / -> .730.0 `f -> .10680.0 `f ]
-"64
-[e = _g_uTargetCurrentValue / * _adc_voltage2 _voltage_ratio2 -> .0.2 `f ]
 "65
-[e $ ! >= _g_uTargetCurrentValue -> .2.0 `f 2433  ]
-[e = _g_uTargetCurrentValue -> .2.0 `f ]
-[e :U 2433 ]
+[e = _g_uTargetCurrentValue / * _adc_voltage2 _voltage_ratio2 -> .0.2 `f ]
 "66
-}
-[e :U 2432 ]
-[e :U 2431 ]
+[e $ ! >= _g_uTargetCurrentValue -> .2.0 `f 2434  ]
+[e = _g_uTargetCurrentValue -> .2.0 `f ]
+[e :U 2434 ]
 "67
-[e ) * _g_uTargetCurrentValue -> .1000.0 `f ]
-[e $UE 2428  ]
-"68
-[e :UE 2428 ]
 }
-"70
-[v _GetDimmingValue `(v ~T0 @X0 1 ef1`*uc ]
+[e :U 2433 ]
+[e :U 2432 ]
+"68
+[e ) * _g_uTargetCurrentValue -> .1000.0 `f ]
+[e $UE 2429  ]
+"69
+[e :UE 2429 ]
+}
 "71
+[v _GetDimmingValue `(v ~T0 @X0 1 ef1`*uc ]
+"72
 {
 [e :U _GetDimmingValue ]
-"70
-[v _r_dimming `*uc ~T0 @X0 1 r1 ]
 "71
-[f ]
+[v _r_dimming `*uc ~T0 @X0 1 r1 ]
 "72
-[e $ ! != -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 0 `i 2435  ]
+[f ]
 "73
-{
+[e $ ! != -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 0 `i 2436  ]
 "74
-[e $ ! <= -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 20 `i 2436  ]
-[e = *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x -> -> 20 `i `uc ]
-[e :U 2436 ]
+{
 "75
-[e $ ! >= -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 100 `i 2437  ]
-[e = *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x -> -> 100 `i `uc ]
+[e $ ! <= -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 20 `i 2437  ]
+[e = *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x -> -> 20 `i `uc ]
 [e :U 2437 ]
 "76
-}
-[e :U 2435 ]
+[e $ ! >= -> *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x `i -> 100 `i 2438  ]
+[e = *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x -> -> 100 `i `uc ]
+[e :U 2438 ]
 "77
+}
+[e :U 2436 ]
+"78
 [e = _g_uDimmingLevelChannel1 *U + _r_dimming * -> -> 8 `i `x -> -> # *U _r_dimming `i `x ]
-"79
-[e $ ! != -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 0 `i 2438  ]
 "80
-{
+[e $ ! != -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 0 `i 2439  ]
 "81
-[e $ ! <= -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 30 `i 2439  ]
-[e = *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x -> -> 30 `i `uc ]
-[e :U 2439 ]
+{
 "82
-[e $ ! >= -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 100 `i 2440  ]
-[e = *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x -> -> 100 `i `uc ]
+[e $ ! <= -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 30 `i 2440  ]
+[e = *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x -> -> 30 `i `uc ]
 [e :U 2440 ]
 "83
-}
-[e :U 2438 ]
+[e $ ! >= -> *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x `i -> 100 `i 2441  ]
+[e = *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x -> -> 100 `i `uc ]
+[e :U 2441 ]
 "84
-[e = _g_uDimmingLevelChannel2 *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x ]
-"86
-[e :UE 2434 ]
 }
-"90
-[v _g_uChanne1Power `us ~T0 @X0 1 e ]
+[e :U 2439 ]
+"85
+[e = _g_uDimmingLevelChannel2 *U + _r_dimming * -> -> 10 `i `x -> -> # *U _r_dimming `i `x ]
+"87
+[e :UE 2435 ]
+}
 "91
+[v _g_uChanne1Power `us ~T0 @X0 1 e ]
+"92
 [v _g_uChanne2Power `us ~T0 @X0 1 e ]
-"93
-[v _Power_Compensation `(us ~T0 @X0 1 ef ]
 "94
+[v _Power_Compensation `(us ~T0 @X0 1 ef ]
+"95
 {
 [e :U _Power_Compensation ]
 [f ]
-"95
-[v _temp `l ~T0 @X0 1 a ]
 "96
+[v _temp `l ~T0 @X0 1 a ]
+"97
 [v _SetPowerValue `us ~T0 @X0 1 a ]
 [e = _SetPowerValue _g_uTargetPowerChannel1 ]
-"98
-[e = _temp / * - -> _g_uTargetPowerChannel1 `l -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l -> _g_uDimmingLevelChannel1 `l -> -> 100 `i `l ]
 "99
-[e $ ! < _temp -> -> 0 `i `l 2442  ]
-[e = _temp -> -> 0 `i `l ]
-[e :U 2442 ]
-"101
-[e = _g_uChanne1Power -> _temp `us ]
-"103
-[e = _temp / * -> - -> _g_uTargetPowerChannel2 `ui -> -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> _g_uDimmingLevelChannel2 `l -> -> 100 `i `l ]
-"104
+[e = _temp / * - -> _g_uTargetPowerChannel1 `l -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `l -> _g_uDimmingLevelChannel1 `l -> -> 100 `i `l ]
+"100
 [e $ ! < _temp -> -> 0 `i `l 2443  ]
 [e = _temp -> -> 0 `i `l ]
 [e :U 2443 ]
-"106
+"102
+[e = _g_uChanne1Power -> _temp `us ]
+"104
+[e = _temp / * -> - -> _g_uTargetPowerChannel2 `ui -> -> *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> _g_uDimmingLevelChannel2 `l -> -> 100 `i `l ]
+"105
+[e $ ! < _temp -> -> 0 `i `l 2444  ]
+[e = _temp -> -> 0 `i `l ]
+[e :U 2444 ]
+"107
 [e = _g_uChanne2Power -> _temp `us ]
-"108
+"109
 [v _g_uTotalPower `us ~T0 @X0 1 a ]
 [e = _g_uTotalPower -> + -> _g_uChanne1Power `ui -> _g_uChanne2Power `ui `us ]
-"110
-[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2444  ]
 "111
-{
+[e $ ! > -> _g_uTotalPower `ui -> _SetPowerValue `ui 2445  ]
 "112
-[e = _temp - -> - -> _SetPowerValue `ui -> -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l ]
-"113
-}
-[e $U 2445  ]
-"114
-[e :U 2444 ]
-"115
 {
-"116
-[e = _temp -> _g_uChanne1Power `l ]
-"117
+"113
+[e = _temp - -> - -> _SetPowerValue `ui -> -> *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux `i `ui `l -> - -> _g_uTotalPower `ui -> _g_uChanne1Power `ui `l ]
+"114
 }
+[e $U 2446  ]
+"115
 [e :U 2445 ]
-"119
-[e $ ! < _temp -> -> 0 `i `l 2446  ]
-[e = _temp -> -> 0 `i `l ]
+"116
+{
+"117
+[e = _temp -> _g_uChanne1Power `l ]
+"118
+}
 [e :U 2446 ]
 "120
-[e $ ! > _temp -> _SetPowerValue `l 2447  ]
-[e = _temp -> _SetPowerValue `l ]
+[e $ ! < _temp -> -> 0 `i `l 2447  ]
+[e = _temp -> -> 0 `i `l ]
 [e :U 2447 ]
-"122
+"121
+[e $ ! > _temp -> _SetPowerValue `l 2448  ]
+[e = _temp -> _SetPowerValue `l ]
+[e :U 2448 ]
+"123
 [v _g_uTargetPower `us ~T0 @X0 1 a ]
 [e = _g_uTargetPower -> _temp `us ]
-"123
-[e ) _g_uTargetPower ]
-[e $UE 2441  ]
 "124
-[e :UE 2441 ]
+[e ) _g_uTargetPower ]
+[e $UE 2442  ]
+"125
+[e :UE 2442 ]
 }
-"131
+"132
 [v _g_uOnChannel1 `uc ~T0 @X0 1 e ]
 [i _g_uOnChannel1
 -> -> 1 `i `uc
 ]
-"133
-[v _LightOnChannel1 `(v ~T0 @X0 1 ef ]
 "134
+[v _LightOnChannel1 `(v ~T0 @X0 1 ef ]
+"135
 {
 [e :U _LightOnChannel1 ]
 [f ]
-"135
-[v F18980 `ul ~T0 @X0 1 s LastTimeChannel1 ]
-[i F18980
+"136
+[v F18994 `ul ~T0 @X0 1 s LastTimeChannel1 ]
+[i F18994
 -> -> -> 0 `i `l `ul
 ]
-"136
+"137
 [v _NowTimeChannel1 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18980 ]
-"138
-[e $U 2450  ]
-{
+[e = _NowTimeChannel1 ( _get_elapsed_since (1 F18994 ]
 "139
-[e :U 2451 ]
-"140
-[e ( _RELAY_On (1 . `E17920 0 ]
-"141
-[e = F18980 ( _get_systemtick_time ..  ]
-"142
-[e = _g_uOnChannel1 -> -> 2 `i `uc ]
-"143
-[e $U 2449  ]
-"144
-[e :U 2452 ]
-"145
-[e $ ! > _NowTimeChannel1 -> -> -> 200 `i `l `ul 2453  ]
-"146
+[e $U 2451  ]
 {
-"147
-[e ( _L6562_On (1 . `E17916 0 ]
-"148
-[e = _g_uOnChannel1 -> -> 3 `i `uc ]
-"149
-}
+"140
+[e :U 2452 ]
+"141
+[e ( _RELAY_On (1 . `E17920 0 ]
+"142
+[e = F18994 ( _get_systemtick_time ..  ]
+"143
+[e = _g_uOnChannel1 -> -> 2 `i `uc ]
+"144
+[e $U 2450  ]
+"145
 [e :U 2453 ]
+"146
+[e $ ! > _NowTimeChannel1 -> -> -> 200 `i `l `ul 2454  ]
+"147
+{
+"148
+[e ( _L6562_On (1 . `E17916 0 ]
+"149
+[e = _g_uOnChannel1 -> -> 3 `i `uc ]
 "150
-[e $U 2449  ]
-"152
+}
 [e :U 2454 ]
+"151
+[e $U 2450  ]
 "153
-[e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
+[e :U 2455 ]
 "154
-[e = . _piddimmingChannel1 2 * / -> ( _ADC_Result2 (1 . `E17462 9 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+[e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
 "155
-[e = . _piddimmingChannel1 1 / * ( _GetChannelCurrentValue (1 . `E17462 8 . _piddimmingChannel1 2 -> .1000.0 `f ]
+[e = . _piddimmingChannel1 2 * / -> ( _ADC_Result2 (1 . `E17462 9 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
 "156
-[e = . _piddimmingChannel1 0 ( _update_pwm_output_ch1 (1 _g_fPowerOutputValue ]
+[e = . _piddimmingChannel1 1 / * ( _GetChannelCurrentValue (1 . `E17462 8 . _piddimmingChannel1 2 -> .1000.0 `f ]
 "157
-[e = . _piddimmingChannel1 3 ( _PID_Compute (3 , , &U _pid1 . _piddimmingChannel1 0 . _piddimmingChannel1 1 ]
+[e = . _piddimmingChannel1 0 ( _update_pwm_output_ch1 (1 _g_fPowerOutputValue ]
 "158
-[e ( _PWM_Set_Direct (2 , . `E17939 0 . _piddimmingChannel1 3 ]
+[e = . _piddimmingChannel1 3 ( _PID_Compute (3 , , &U _pid1 . _piddimmingChannel1 0 . _piddimmingChannel1 1 ]
 "159
-[e $U 2449  ]
+[e ( _PWM_Set_Direct (2 , . `E17939 0 . _piddimmingChannel1 3 ]
 "160
-}
-[e $U 2449  ]
-[e :U 2450 ]
-[e [\ _g_uOnChannel1 , $ -> 1 `i 2451
- , $ -> 2 `i 2452
- , $ -> 3 `i 2454
- 2449 ]
-[e :U 2449 ]
+[e $U 2450  ]
 "161
-[e :UE 2448 ]
 }
-"163
+[e $U 2450  ]
+[e :U 2451 ]
+[e [\ _g_uOnChannel1 , $ -> 1 `i 2452
+ , $ -> 2 `i 2453
+ , $ -> 3 `i 2455
+ 2450 ]
+[e :U 2450 ]
+"162
+[e :UE 2449 ]
+}
+"164
 [v _g_uOnChannel2 `uc ~T0 @X0 1 e ]
 [i _g_uOnChannel2
 -> -> 1 `i `uc
 ]
-"165
-[v _LightOnChannel2 `(v ~T0 @X0 1 ef ]
 "166
+[v _LightOnChannel2 `(v ~T0 @X0 1 ef ]
+"167
 {
 [e :U _LightOnChannel2 ]
 [f ]
-"168
-[v F18984 `ul ~T0 @X0 1 s LastTimeChannel2 ]
-[i F18984
+"169
+[v F18998 `ul ~T0 @X0 1 s LastTimeChannel2 ]
+[i F18998
 -> -> -> 0 `i `l `ul
 ]
-"169
+"170
 [v _NowTimeChannel2 `ul ~T0 @X0 1 a ]
-[e = _NowTimeChannel2 ( _get_elapsed_since (1 F18984 ]
-"171
-[e $U 2457  ]
-{
+[e = _NowTimeChannel2 ( _get_elapsed_since (1 F18998 ]
 "172
-[e :U 2458 ]
-"173
-[e ( _RELAY_On (1 . `E17920 1 ]
-"174
-[e = F18984 ( _get_systemtick_time ..  ]
-"175
-[e = _g_uOnChannel2 -> -> 2 `i `uc ]
-"176
-[e $U 2456  ]
-"178
-[e :U 2459 ]
-"179
-[e $ ! > _NowTimeChannel2 -> -> -> 200 `i `l `ul 2460  ]
-"180
+[e $U 2458  ]
 {
-"181
-[e ( _L6562_On (1 . `E17916 1 ]
-"182
-[e = _g_uOnChannel2 -> -> 3 `i `uc ]
-"183
-}
+"173
+[e :U 2459 ]
+"174
+[e ( _RELAY_On (1 . `E17920 1 ]
+"175
+[e = F18998 ( _get_systemtick_time ..  ]
+"176
+[e = _g_uOnChannel2 -> -> 2 `i `uc ]
+"177
+[e $U 2457  ]
+"179
 [e :U 2460 ]
+"180
+[e $ ! > _NowTimeChannel2 -> -> -> 200 `i `l `ul 2461  ]
+"181
+{
+"182
+[e ( _L6562_On (1 . `E17916 1 ]
+"183
+[e = _g_uOnChannel2 -> -> 3 `i `uc ]
 "184
-[e $U 2456  ]
-"186
+}
 [e :U 2461 ]
+"185
+[e $U 2457  ]
 "187
-[e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
+[e :U 2462 ]
 "188
-[e = . _piddimmingChannel2 2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
+[e = _g_uPowerOnOutputStart -> -> 1 `i `uc ]
 "189
-[e = . _piddimmingChannel2 1 / * ( _GetChannelCurrentValue (1 . `E17462 6 . _piddimmingChannel2 2 -> .1000.0 `f ]
+[e = . _piddimmingChannel2 2 * / -> ( _ADC_Result2 (1 . `E17462 7 `f -> .1000.0 `f / -> .1087.5 `f -> .7.5 `f ]
 "190
-[e = . _piddimmingChannel2 0 ( _update_pwm_output_ch2 (1 -> _g_uChanne2Power `f ]
+[e = . _piddimmingChannel2 1 / * ( _GetChannelCurrentValue (1 . `E17462 6 . _piddimmingChannel2 2 -> .1000.0 `f ]
 "191
-[e = . _piddimmingChannel2 3 ( _PID_Compute (3 , , &U _pid2 . _piddimmingChannel2 0 . _piddimmingChannel2 1 ]
+[e = . _piddimmingChannel2 0 ( _update_pwm_output_ch2 (1 -> _g_uChanne2Power `f ]
 "192
-[e ( _PWM_Set_Direct (2 , . `E17939 1 . _piddimmingChannel2 3 ]
+[e = . _piddimmingChannel2 3 ( _PID_Compute (3 , , &U _pid2 . _piddimmingChannel2 0 . _piddimmingChannel2 1 ]
 "193
-[e $U 2456  ]
+[e ( _PWM_Set_Direct (2 , . `E17939 1 . _piddimmingChannel2 3 ]
 "194
-}
-[e $U 2456  ]
-[e :U 2457 ]
-[e [\ _g_uOnChannel2 , $ -> 1 `i 2458
- , $ -> 2 `i 2459
- , $ -> 3 `i 2461
- 2456 ]
-[e :U 2456 ]
+[e $U 2457  ]
 "195
-[e :UE 2455 ]
 }
-"197
-[v _ClearChannelValue `(v ~T0 @X0 1 ef1`uc ]
+[e $U 2457  ]
+[e :U 2458 ]
+[e [\ _g_uOnChannel2 , $ -> 1 `i 2459
+ , $ -> 2 `i 2460
+ , $ -> 3 `i 2462
+ 2457 ]
+[e :U 2457 ]
+"196
+[e :UE 2456 ]
+}
 "198
+[v _ClearChannelValue `(v ~T0 @X0 1 ef1`uc ]
+"199
 {
 [e :U _ClearChannelValue ]
-"197
-[v _channel `uc ~T0 @X0 1 r1 ]
 "198
-[f ]
+[v _channel `uc ~T0 @X0 1 r1 ]
 "199
-[e $ ! == -> _channel `i -> 1 `i 2463  ]
+[f ]
 "200
-{
+[e $ ! == -> _channel `i -> 1 `i 2464  ]
 "201
-[e ( _PIDDimming_Clear (1 &U _piddimmingChannel1 ]
+{
 "202
-[e = _g_fPowerOutputValue -> -> 0 `i `f ]
-"203
-[e = _g_uOnChannel1 -> -> 1 `i `uc ]
-"204
-}
-[e $U 2464  ]
-"206
-[e :U 2463 ]
-[e $ ! == -> _channel `i -> 2 `i 2465  ]
-"207
-{
-"208
-[e ( _PIDDimming_Clear (1 &U _piddimmingChannel2 ]
-"209
-[e = _g_uChanne2Power -> -> 0 `i `us ]
-"210
-[e = _g_uOnChannel2 -> -> 1 `i `uc ]
-"211
-}
-[e $U 2466  ]
-"213
-[e :U 2465 ]
-[e $ ! == -> _channel `i -> 3 `i 2467  ]
-"214
-{
-"215
 [e ( _PIDDimming_Clear (1 &U _piddimmingChannel1 ]
-"216
-[e ( _PIDDimming_Clear (1 &U _piddimmingChannel2 ]
-"217
-[e = _g_bPfcRunFlag -> -> 1 `i `uc ]
-"218
-[e = _g_uPowerOnOutputStart -> -> 0 `i `uc ]
-"219
+"203
 [e = _g_fPowerOutputValue -> -> 0 `i `f ]
-"220
+"204
 [e = _g_uOnChannel1 -> -> 1 `i `uc ]
-"221
-[e = _g_uOnChannel2 -> -> 1 `i `uc ]
-"222
+"205
 }
-[e :U 2467 ]
-[e :U 2466 ]
+[e $U 2465  ]
+"207
 [e :U 2464 ]
-"223
-[e :UE 2462 ]
+[e $ ! == -> _channel `i -> 2 `i 2466  ]
+"208
+{
+"209
+[e ( _PIDDimming_Clear (1 &U _piddimmingChannel2 ]
+"210
+[e = _g_uChanne2Power -> -> 0 `i `us ]
+"211
+[e = _g_uOnChannel2 -> -> 1 `i `uc ]
+"212
 }
-"232
-[v _LightOnLogic `(v ~T0 @X0 1 ef ]
+[e $U 2467  ]
+"214
+[e :U 2466 ]
+[e $ ! == -> _channel `i -> 3 `i 2468  ]
+"215
+{
+"216
+[e ( _PIDDimming_Clear (1 &U _piddimmingChannel1 ]
+"217
+[e ( _PIDDimming_Clear (1 &U _piddimmingChannel2 ]
+"218
+[e = _g_bPfcRunFlag -> -> 1 `i `uc ]
+"219
+[e = _g_uPowerOnOutputStart -> -> 0 `i `uc ]
+"220
+[e = _g_fPowerOutputValue -> -> 0 `i `f ]
+"221
+[e = _g_uOnChannel1 -> -> 1 `i `uc ]
+"222
+[e = _g_uOnChannel2 -> -> 1 `i `uc ]
+"223
+}
+[e :U 2468 ]
+[e :U 2467 ]
+[e :U 2465 ]
+"224
+[e :UE 2463 ]
+}
 "233
+[v _LightOnLogic `(v ~T0 @X0 1 ef ]
+"234
 {
 [e :U _LightOnLogic ]
 [f ]
-"234
-[v F18994 `E18988 ~T0 @X0 1 s lightstate ]
-[i F18994
-. `E18988 2
-]
 "235
-[v F18995 `ul ~T0 @X0 1 s LastLightLogicTime ]
-[i F18995
--> -> -> 0 `i `l `ul
+[v F19008 `E19002 ~T0 @X0 1 s lightstate ]
+[i F19008
+. `E19002 2
 ]
 "236
+[v F19009 `ul ~T0 @X0 1 s LastLightLogicTime ]
+[i F19009
+-> -> -> 0 `i `l `ul
+]
+"237
 [v _NowLightLogicTime `ul ~T0 @X0 1 a ]
-[e = _NowLightLogicTime ( _get_elapsed_since (1 F18995 ]
-"238
-[e $ ! && || > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i == -> _g_bPfcRunFlag `i -> 1 `i 2469  ]
+[e = _NowLightLogicTime ( _get_elapsed_since (1 F19009 ]
 "239
-{
+[e $ ! && || > -> _g_uDimmingLevelChannel1 `i -> 1 `i > -> _g_uDimmingLevelChannel2 `i -> 1 `i == -> _g_bPfcRunFlag `i -> 1 `i 2470  ]
 "240
-[e = F18995 ( _get_systemtick_time ..  ]
+{
 "241
-[e = F18994 . `E18988 0 ]
+[e = F19009 ( _get_systemtick_time ..  ]
 "242
-[e = _g_bPfcRunFlag -> -> 0 `i `uc ]
+[e = F19008 . `E19002 0 ]
 "243
+[e = _g_bPfcRunFlag -> -> 0 `i `uc ]
+"244
 }
-[e :U 2469 ]
-"246
-[e $U 2471  ]
-{
-"247
-[e :U 2472 ]
-"248
-[e ( _PFC_On ..  ]
-"249
-[e $ ! > _NowLightLogicTime -> -> -> 800 `i `l `ul 2473  ]
-"250
-{
-"251
-[e = F18994 . `E18988 1 ]
-"252
-[e = F18995 ( _get_systemtick_time ..  ]
-"253
-}
-[e :U 2473 ]
-"254
-[e $U 2470  ]
-"257
-[e :U 2474 ]
-"258
-[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i != -> ( _ProtectionCheck ..  `i -> 2 `i 2475  ]
-"259
-{
-"260
-[e = _g_uOffChannel1 -> -> 1 `i `uc ]
-"261
-[e ( _LightOnChannel1 ..  ]
-"262
-}
-[e $U 2476  ]
-"263
-[e :U 2475 ]
-"264
-{
-"265
-[e ( _LightOffLogic (1 . `E17899 0 ]
-"266
-}
-[e :U 2476 ]
-"268
-[e $ ! && > -> _g_uDimmingLevelChannel2 `i -> 1 `i != -> ( _ProtectionCheck ..  `i -> 3 `i 2477  ]
-"269
-{
-"270
-[e = _g_uOffChannel2 -> -> 1 `i `uc ]
-"271
-[e ( _LightOnChannel2 ..  ]
-"272
-}
-[e $U 2478  ]
-"273
-[e :U 2477 ]
-"274
-{
-"275
-[e ( _LightOffLogic (1 . `E17899 1 ]
-"276
-}
-[e :U 2478 ]
-"277
-[e $U 2470  ]
-"278
-}
-[e $U 2470  ]
-[e :U 2471 ]
-[e [\ -> F18994 `ui , $ -> . `E18988 0 `ui 2472
- , $ -> . `E18988 1 `ui 2474
- 2470 ]
 [e :U 2470 ]
-"279
-[e :UE 2468 ]
-}
-"281
-[v _DimmingControlTask `(v ~T0 @X0 1 ef ]
-"282
+"247
+[e $U 2472  ]
 {
-[e :U _DimmingControlTask ]
+"248
+[e :U 2473 ]
+"249
+[e ( _PFC_On ..  ]
+"250
+[e $ ! > _NowLightLogicTime -> -> -> 800 `i `l `ul 2474  ]
+"251
+{
+"252
+[e = F19008 . `E19002 1 ]
+"253
+[e = F19009 ( _get_systemtick_time ..  ]
+"254
+}
+[e :U 2474 ]
+"255
+[e $U 2471  ]
+"258
+[e :U 2475 ]
+"259
+[e $ ! && > -> _g_uDimmingLevelChannel1 `i -> 1 `i != -> ( _ProtectionCheck ..  `i -> 2 `i 2476  ]
+"260
+{
+"261
+[e = _g_uOffChannel1 -> -> 1 `i `uc ]
+"262
+[e ( _LightOnChannel1 ..  ]
+"263
+}
+[e $U 2477  ]
+"264
+[e :U 2476 ]
+"265
+{
+"266
+[e ( _LightOffLogic (1 . `E17899 0 ]
+"267
+}
+[e :U 2477 ]
+"269
+[e $ ! && > -> _g_uDimmingLevelChannel2 `i -> 1 `i != -> ( _ProtectionCheck ..  `i -> 3 `i 2478  ]
+"270
+{
+"271
+[e = _g_uOffChannel2 -> -> 1 `i `uc ]
+"272
+[e ( _LightOnChannel2 ..  ]
+"273
+}
+[e $U 2479  ]
+"274
+[e :U 2478 ]
+"275
+{
+"276
+[e ( _LightOffLogic (1 . `E17899 1 ]
+"277
+}
+[e :U 2479 ]
+"278
+[e $U 2471  ]
+"279
+}
+[e $U 2471  ]
+[e :U 2472 ]
+[e [\ -> F19008 `ui , $ -> . `E19002 0 `ui 2473
+ , $ -> . `E19002 1 `ui 2475
+ 2471 ]
+[e :U 2471 ]
+"280
+[e :UE 2469 ]
+}
+"282
+[v _PowerOnDongleDelay `(uc ~T0 @X0 1 ef ]
+"283
+{
+[e :U _PowerOnDongleDelay ]
 [f ]
 "284
-[v F18998 `uc ~T0 @X0 1 s ProtectionState ]
+[v F19012 `ul ~T0 @X0 1 s startTime ]
+[i F19012
+-> -> -> 0 `i `l `ul
+]
 "285
-[v F18999 `uc ~T0 @X0 1 s lastExecState ]
-[i F18999
+[v F19013 `uc ~T0 @X0 1 s initialized ]
+[i F19013
 -> -> 0 `i `uc
 ]
-"286
-[e = F18998 ( _ProtectionCheck ..  ]
 "288
-[e $ ! != -> F18998 `i -> 0 `i 2480  ]
+[e $ ! == -> F19013 `i -> 0 `i 2481  ]
 "289
 {
+"290
+[e = F19012 ( _get_systemtick_time ..  ]
 "291
-[e $ ! != -> F18998 `i -> F18999 `i 2481  ]
+[e = F19013 -> -> 1 `i `uc ]
 "292
-{
+[e ) -> -> 0 `i `uc ]
+[e $UE 2480  ]
 "293
-[e $ ! == -> F18998 `i -> 1 `i 2482  ]
-"294
-{
-"295
-[e ( _LightOffLogic (1 . `E17899 2 ]
-"296
-[e $UE 2479  ]
-"297
-}
-[e :U 2482 ]
-"298
-[e = F18999 F18998 ]
-"299
 }
 [e :U 2481 ]
+"295
+[v _elapsedTime `ul ~T0 @X0 1 a ]
+[e = _elapsedTime ( _get_elapsed_since (1 F19012 ]
+"297
+[e $ ! > _elapsedTime -> -> -> 1000 `i `l `ul 2482  ]
+"298
+{
 "300
+[e ) -> -> 1 `i `uc ]
+[e $UE 2480  ]
+"301
 }
 [e $U 2483  ]
-"301
-[e :U 2480 ]
 "302
-{
+[e :U 2482 ]
 "303
-[e = F18999 -> -> 0 `i `uc ]
+{
 "304
-[e = _g_uFaultCode -> -> 0 `i `uc ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 2480  ]
 "305
 }
 [e :U 2483 ]
-"307
-[e = _g_fPowerOutputValue -> ( _Power_Compensation ..  `f ]
+"306
+[e :UE 2480 ]
+}
+"308
+[v _DimmingControlTask `(v ~T0 @X0 1 ef ]
 "309
-[e $ ! || == -> _g_bPowerDownFlag `i -> 1 `i == -> _g_uTemperatureProtection `i -> 1 `i 2484  ]
-"310
 {
+[e :U _DimmingControlTask ]
+[f ]
+"310
+[v F19016 `uc ~T0 @X0 1 s ProtectionState ]
 "311
-[e = _g_fPowerOutputValue -> / -> _g_uTargetPowerChannel1 `ui -> -> 2 `i `ui `f ]
-"312
-}
-[e :U 2484 ]
-"314
-[e ( _LightOnLogic ..  ]
-"315
-[e :UE 2479 ]
-}
-"317
-[v _buff `uc ~T0 @X0 -> 3 `i e ]
-[i _buff
-:U ..
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 3 `i `uc
-..
+[v F19017 `uc ~T0 @X0 1 s lastExecState ]
+[i F19017
+-> -> 0 `i `uc
 ]
+"313
+[e = F19016 ( _ProtectionCheck ..  ]
+"314
+[e $ ! != -> F19016 `i -> 0 `i 2485  ]
+"315
+{
+"317
+[e $ ! != -> F19016 `i -> F19017 `i 2486  ]
+"318
+{
 "319
-[v _Display `(v ~T0 @X0 1 ef ]
+[e $ ! == -> F19016 `i -> 1 `i 2487  ]
 "320
+{
+"321
+[e ( _LightOffLogic (1 . `E17899 2 ]
+"322
+[e $UE 2484  ]
+"323
+}
+[e :U 2487 ]
+"324
+[e = F19017 F19016 ]
+"325
+}
+[e :U 2486 ]
+"326
+}
+[e $U 2488  ]
+"327
+[e :U 2485 ]
+"328
+{
+"329
+[e = F19017 -> -> 0 `i `uc ]
+"330
+[e = _g_uFaultCode -> -> 0 `i `uc ]
+"331
+}
+[e :U 2488 ]
+"333
+[e = _g_fPowerOutputValue -> ( _Power_Compensation ..  `f ]
+"335
+[e $ ! || == -> _g_bPowerDownFlag `i -> 1 `i == -> _g_uTemperatureProtection `i -> 1 `i 2489  ]
+"336
+{
+"337
+[e = _g_fPowerOutputValue -> / -> _g_uTargetPowerChannel1 `ui -> -> 2 `i `ui `f ]
+"338
+}
+[e :U 2489 ]
+"340
+[e $ ! != -> ( _PowerOnDongleDelay ..  `i -> 1 `i 2490  ]
+[e $UE 2484  ]
+[e :U 2490 ]
+"342
+[e ( _LightOnLogic ..  ]
+"343
+[e :UE 2484 ]
+}
+"345
+[v _Display `(v ~T0 @X0 1 ef ]
+"346
 {
 [e :U _Display ]
 [f ]
-"322
+"348
 [e ( _printf , (. :s 1C -> ( _ADC_Result2 (1 . `E17462 10 `ui ]
-"323
+"349
 [e ( _printf , , , , (. :s 2C -> ( _GetChannelCurrentValue (1 . `E17462 8 `d -> . _piddimmingChannel1 2 `d -> . _piddimmingChannel1 1 `d -> . _piddimmingChannel1 3 `ui ]
-"325
+"351
 [e ( _printf , , , , (. :s 3C -> ( _GetChannelCurrentValue (1 . `E17462 6 `d -> . _piddimmingChannel2 2 `d -> . _piddimmingChannel2 1 `d -> . _piddimmingChannel2 3 `ui ]
-"328
+"354
 [e ( _printf , , , (. :s 4C -> _g_fPowerOutputValue `d -> _g_uDimmingLevelChannel1 `i -> _g_uDimmingLevelChannel2 `i ]
-"330
+"356
 [e ( _printf , (. :s 5C -> _g_fActualTemperature `d ]
-"332
+"358
 [e ( _printf , (. :s 6C -> _g_uFaultCode `i ]
-"333
+"359
 [e ( _printf , (. :s 7C -> ( _ProtectionCheck ..  `i ]
-"334
+"360
 [e ( _printf , (. :s 8C -> _g_fOverTemperatureProtection `d ]
-"335
-[e ( _printf :s 9C ]
-"338
-[e :UE 2485 ]
+"361
+[v _current_time `S2426 ~T0 @X0 1 a ]
+[e = _current_time ( _WorkTime_GetFromEEPROM ..  ]
+"362
+[e ( _printf , , , (. :s 9C -> . _current_time 0 `ui -> . _current_time 1 `ui -> . _current_time 2 `ui ]
+"366
+[e ( _printf :s 10C ]
+"369
+[e :UE 2491 ]
 }
-[p f _printf 8462464 ]
+[p f _printf 8463488 ]
 [a 5C 84 101 109 112 58 37 46 50 102 124 10 13 0 ]
 [a 8C 37 46 50 102 124 10 13 0 ]
 [a 6C 80 114 111 116 101 112 121 58 37 100 124 10 13 0 ]
@@ -2463,4 +2526,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 3C 67 72 50 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 0 ]
 [a 2C 67 72 49 124 73 58 37 46 50 102 124 86 58 37 46 50 102 124 80 58 37 46 50 102 124 80 87 77 58 37 100 124 10 13 0 ]
 [a 4C 83 80 58 37 46 50 102 124 76 101 118 49 58 37 100 124 76 101 118 50 58 37 100 124 10 13 0 ]
-[a 9C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 10 10 0 ]
+[a 10C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 10 10 0 ]
+[a 9C 18446744073709551541 18446744073709551537 18446744073709551559 18446744073709551536 18446744073709551572 18446744073709551563 18446744073709551568 18446744073709551568 58 32 37 117 18446744073709551568 18446744073709551521 18446744073709551562 18446744073709551537 37 117 18446744073709551543 18446744073709551574 18446744073709551574 18446744073709551571 37 117 18446744073709551555 18446744073709551595 10 0 ]

@@ -6,7 +6,7 @@
 #include "crc.h"
 #include "command.h"
 #include "../App_config/config.h"
-
+#include "worktime.h"
 
 uint8_t g_uDimmingLevelChannel1 = 0X00, g_uDimmingLevelChannel2 = 0X00;
 uint16_t g_uTargetPowerChannel1, g_uTargetPowerChannel2;
@@ -17,6 +17,8 @@ uint16_t power_time = 1;
 uint8_t I2C_receiveData[72];
 int8_t  CalibrationBuff[3];
 
+
+
 void ReadTargetPower(uint8_t* NfcPowerBuff)
 {
     uint16_t TargetPowerCH1, TargetPowerCH2;
@@ -26,11 +28,10 @@ void ReadTargetPower(uint8_t* NfcPowerBuff)
     if (TargetPowerCH1 < TARGET_POWER_CHANNEL1_MIN) TargetPowerCH1 = TARGET_POWER_CHANNEL1_MIN;
     g_uTargetPowerChannel1 = TargetPowerCH1;
 
-
     /*2通道*/
     TargetPowerCH2 = extractAndCombineEEPROMData(NfcPowerBuff[6], NfcPowerBuff[7]); // 从I2C接收数据的第6和第7字节提取并组合成16位功率保持值
     if (TargetPowerCH2 >= TARGET_POWER_CHANNEL2_MAX) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MAX;
-    if (TargetPowerCH2 < TARGET_POWER_CHANNEL2_MIN) TargetPowerCH2 = TARGET_POWER_CHANNEL2_MIN;
+    if (TargetPowerCH2 < TARGET_POWER_CHANNEL2_MIN)  TargetPowerCH2 = TARGET_POWER_CHANNEL2_MIN;
     g_uTargetPowerChannel2 = TargetPowerCH2;
 
 

@@ -1,4 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"8 Applications/WorkTime_APP/worktime.h
+[s S2422 `us 1 `us 1 `us 1 ]
+[n S2422 . hours minutes seconds ]
 "29 DriverLayer/NFC/nfc.h
 [v _extractAndCombineEEPROMData `(us ~T0 @X0 0 ef2`uc`uc ]
 "12 DriverLayer/EEPROM/EEPROM_driver.h
@@ -7,7 +10,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _EepromWriteByte `(v ~T0 @X0 0 ef2`um`uc ]
 "27 DriverLayer/NFC/nfc.h
 [v _READ_NFC_SET_START `(v ~T0 @X0 0 ef ]
-"88 Applications/CurrentRead_APP/readcurrent.c
+"89 Applications/CurrentRead_APP/readcurrent.c
 [c E17832 0 1 2 3 .. ]
 [n E17832 . I2C_SUCCESS I2C_ERROR_TIMEOUT I2C_ERROR_WRITE_FAILED I2C_ERROR_READ_FAILED  ]
 "23 DriverLayer/NFC/nfc.h
@@ -2254,6 +2257,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 64 `i `uc
 ..
 ]
+"14 Applications/WorkTime_APP/worktime.h
+[v _worktime `S2422 ~T0 @X0 1 e ]
 "11 Applications/CurrentRead_APP/readcurrent.c
 [v _g_uDimmingLevelChannel1 `uc ~T0 @X0 1 e ]
 [i _g_uDimmingLevelChannel1
@@ -2280,176 +2285,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _I2C_receiveData `uc ~T0 @X0 -> 72 `i e ]
 "18
 [v _CalibrationBuff `c ~T0 @X0 -> 3 `i e ]
-"20
+"22
 [v _ReadTargetPower `(v ~T0 @X0 1 ef1`*uc ]
-"21
+"23
 {
 [e :U _ReadTargetPower ]
-"20
-[v _NfcPowerBuff `*uc ~T0 @X0 1 r1 ]
-"21
-[f ]
 "22
+[v _NfcPowerBuff `*uc ~T0 @X0 1 r1 ]
+"23
+[f ]
+"24
 [v _TargetPowerCH1 `us ~T0 @X0 1 a ]
 [v _TargetPowerCH2 `us ~T0 @X0 1 a ]
-"24
-[e = _TargetPowerCH1 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 2 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 3 `i `x -> -> # *U _NfcPowerBuff `i `x ]
-"25
-[e $ ! >= -> _TargetPowerCH1 `ui -> -> 1350 `i `ui 2423  ]
-[e = _TargetPowerCH1 -> -> 1350 `i `us ]
-[e :U 2423 ]
 "26
-[e $ ! < -> _TargetPowerCH1 `ui -> -> 600 `i `ui 2424  ]
-[e = _TargetPowerCH1 -> -> 600 `i `us ]
-[e :U 2424 ]
+[e = _TargetPowerCH1 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 2 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 3 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "27
-[e = _g_uTargetPowerChannel1 _TargetPowerCH1 ]
-"31
-[e = _TargetPowerCH2 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 6 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 7 `i `x -> -> # *U _NfcPowerBuff `i `x ]
-"32
-[e $ ! >= -> _TargetPowerCH2 `ui -> -> 150 `i `ui 2425  ]
-[e = _TargetPowerCH2 -> -> 150 `i `us ]
+[e $ ! >= -> _TargetPowerCH1 `ui -> -> 1350 `i `ui 2424  ]
+[e = _TargetPowerCH1 -> -> 1350 `i `us ]
+[e :U 2424 ]
+"28
+[e $ ! < -> _TargetPowerCH1 `ui -> -> 600 `i `ui 2425  ]
+[e = _TargetPowerCH1 -> -> 600 `i `us ]
 [e :U 2425 ]
+"29
+[e = _g_uTargetPowerChannel1 _TargetPowerCH1 ]
+"32
+[e = _TargetPowerCH2 ( _extractAndCombineEEPROMData (2 , *U + _NfcPowerBuff * -> -> 6 `i `x -> -> # *U _NfcPowerBuff `i `x *U + _NfcPowerBuff * -> -> 7 `i `x -> -> # *U _NfcPowerBuff `i `x ]
 "33
-[e $ ! < -> _TargetPowerCH2 `ui -> -> 60 `i `ui 2426  ]
-[e = _TargetPowerCH2 -> -> 60 `i `us ]
+[e $ ! >= -> _TargetPowerCH2 `ui -> -> 150 `i `ui 2426  ]
+[e = _TargetPowerCH2 -> -> 150 `i `us ]
 [e :U 2426 ]
 "34
+[e $ ! < -> _TargetPowerCH2 `ui -> -> 60 `i `ui 2427  ]
+[e = _TargetPowerCH2 -> -> 60 `i `us ]
+[e :U 2427 ]
+"35
 [e = _g_uTargetPowerChannel2 _TargetPowerCH2 ]
-"37
-[e :UE 2422 ]
+"38
+[e :UE 2423 ]
 }
-"39
-[v _ReadDimmingLevel `(v ~T0 @X0 1 ef1`*uc ]
 "40
+[v _ReadDimmingLevel `(v ~T0 @X0 1 ef1`*uc ]
+"41
 {
 [e :U _ReadDimmingLevel ]
-"39
-[v _NfcDimmingBuff `*uc ~T0 @X0 1 r1 ]
 "40
+[v _NfcDimmingBuff `*uc ~T0 @X0 1 r1 ]
+"41
 [f ]
-"42
-[e = _g_uDimmingLevelChannel1 *U + _NfcDimmingBuff * -> -> 0 `i `x -> -> # *U _NfcDimmingBuff `i `x ]
 "43
-[e $ ! != -> _g_uDimmingLevelChannel1 `i -> 0 `i 2428  ]
+[e = _g_uDimmingLevelChannel1 *U + _NfcDimmingBuff * -> -> 0 `i `x -> -> # *U _NfcDimmingBuff `i `x ]
 "44
-{
+[e $ ! != -> _g_uDimmingLevelChannel1 `i -> 0 `i 2429  ]
 "45
-[e $ ! <= -> _g_uDimmingLevelChannel1 `i -> 20 `i 2429  ]
-[e = _g_uDimmingLevelChannel1 -> -> 20 `i `uc ]
-[e :U 2429 ]
+{
 "46
-[e $ ! >= -> _g_uDimmingLevelChannel1 `i -> 100 `i 2430  ]
-[e = _g_uDimmingLevelChannel1 -> -> 100 `i `uc ]
+[e $ ! <= -> _g_uDimmingLevelChannel1 `i -> 20 `i 2430  ]
+[e = _g_uDimmingLevelChannel1 -> -> 20 `i `uc ]
 [e :U 2430 ]
 "47
-}
-[e :U 2428 ]
+[e $ ! >= -> _g_uDimmingLevelChannel1 `i -> 100 `i 2431  ]
+[e = _g_uDimmingLevelChannel1 -> -> 100 `i `uc ]
+[e :U 2431 ]
 "48
-[e = _g_uDimmingLevelChannel2 *U + _NfcDimmingBuff * -> -> 4 `i `x -> -> # *U _NfcDimmingBuff `i `x ]
+}
+[e :U 2429 ]
 "49
-[e $ ! != -> _g_uDimmingLevelChannel2 `i -> 0 `i 2431  ]
+[e = _g_uDimmingLevelChannel2 *U + _NfcDimmingBuff * -> -> 4 `i `x -> -> # *U _NfcDimmingBuff `i `x ]
 "50
-{
+[e $ ! != -> _g_uDimmingLevelChannel2 `i -> 0 `i 2432  ]
 "51
-[e $ ! <= -> _g_uDimmingLevelChannel2 `i -> 30 `i 2432  ]
-[e = _g_uDimmingLevelChannel2 -> -> 30 `i `uc ]
-[e :U 2432 ]
+{
 "52
-[e $ ! >= -> _g_uDimmingLevelChannel2 `i -> 100 `i 2433  ]
-[e = _g_uDimmingLevelChannel2 -> -> 100 `i `uc ]
+[e $ ! <= -> _g_uDimmingLevelChannel2 `i -> 30 `i 2433  ]
+[e = _g_uDimmingLevelChannel2 -> -> 30 `i `uc ]
 [e :U 2433 ]
 "53
-}
-[e :U 2431 ]
+[e $ ! >= -> _g_uDimmingLevelChannel2 `i -> 100 `i 2434  ]
+[e = _g_uDimmingLevelChannel2 -> -> 100 `i `uc ]
+[e :U 2434 ]
 "54
-[e :UE 2427 ]
 }
-"56
-[v _ActualPowerTime `(v ~T0 @X0 1 ef1`*uc ]
+[e :U 2432 ]
+"55
+[e :UE 2428 ]
+}
 "57
+[v _ActualPowerTime `(v ~T0 @X0 1 ef1`*uc ]
+"58
 {
 [e :U _ActualPowerTime ]
-"56
-[v _NfcTimeBuff `*uc ~T0 @X0 1 r1 ]
 "57
-[f ]
+[v _NfcTimeBuff `*uc ~T0 @X0 1 r1 ]
 "58
+[f ]
+"59
 [v _time_H `uc ~T0 @X0 1 a ]
 [v _time_L `uc ~T0 @X0 1 a ]
-"60
-[e = _time_H -> + * >> -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
 "61
-[e = _time_L -> + * >> -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
+[e = _time_H -> + * >> -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 64 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
 "62
-[e = _power_time -> + * -> _time_H `i -> 100 `i -> _time_L `i `us ]
+[e = _time_L -> + * >> -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 4 `i -> 10 `i & -> *U + _NfcTimeBuff * -> -> 65 `i `x -> -> # *U _NfcTimeBuff `i `x `i -> 15 `i `uc ]
 "63
-[e = _power_time -> * -> _power_time `ui -> -> 1000 `i `ui `us ]
+[e = _power_time -> + * -> _time_H `i -> 100 `i -> _time_L `i `us ]
 "64
-[e :UE 2434 ]
+[e = _power_time -> * -> _power_time `ui -> -> 1000 `i `ui `us ]
+"65
+[e :UE 2435 ]
 }
-"66
-[v _ReadCalibration `(v ~T0 @X0 1 ef ]
 "67
+[v _ReadCalibration `(v ~T0 @X0 1 ef ]
+"68
 {
 [e :U _ReadCalibration ]
 [f ]
-"68
-[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 1 `i `m `um `c ]
 "69
-[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 3 `i `m `um `c ]
+[e = *U + &U _CalibrationBuff * -> -> -> 0 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 1 `i `m `um `c ]
 "70
-[e :UE 2435 ]
-}
-"72
-[v _WriteTemperaturToEEPROM `(v ~T0 @X0 1 ef ]
-"73
-{
-[e :U _WriteTemperaturToEEPROM ]
-[f ]
-"74
-[e $ ! == -> ( _EepromReadByte (1 -> -> -> 46 `i `m `um `i -> 255 `i 2437  ]
-"75
-{
-"76
-[e ( _EepromWriteByte (2 , -> -> -> 46 `i `m `um -> -> .70.0 `f `uc ]
-"77
-[e = _g_fOverTemperatureProtection -> .70.0 `f ]
-"78
-}
-[e $U 2438  ]
-"79
-[e :U 2437 ]
-"80
-{
-"81
-[e = _g_fOverTemperatureProtection -> ( _EepromReadByte (1 -> -> -> 46 `i `m `um `f ]
-"82
-}
-[e :U 2438 ]
-"83
+[e = *U + &U _CalibrationBuff * -> -> -> 1 `i `ui `ux -> -> # *U &U _CalibrationBuff `ui `ux -> ( _EepromReadByte (1 -> -> -> 3 `i `m `um `c ]
+"71
 [e :UE 2436 ]
 }
-"85
-[v _NFCRead_APPInit `(v ~T0 @X0 1 ef ]
+"73
+[v _ReadTemperaturParameters `(v ~T0 @X0 1 ef ]
+"74
+{
+[e :U _ReadTemperaturParameters ]
+[f ]
+"75
+[e $ ! == -> ( _EepromReadByte (1 -> -> -> 46 `i `m `um `i -> 255 `i 2438  ]
+"76
+{
+"77
+[e ( _EepromWriteByte (2 , -> -> -> 46 `i `m `um -> -> .70.0 `f `uc ]
+"78
+[e = _g_fOverTemperatureProtection -> .70.0 `f ]
+"79
+}
+[e $U 2439  ]
+"80
+[e :U 2438 ]
+"81
+{
+"82
+[e = _g_fOverTemperatureProtection -> ( _EepromReadByte (1 -> -> -> 46 `i `m `um `f ]
+"83
+}
+[e :U 2439 ]
+"84
+[e :UE 2437 ]
+}
 "86
+[v _NFCRead_APPInit `(v ~T0 @X0 1 ef ]
+"87
 {
 [e :U _NFCRead_APPInit ]
 [f ]
-"87
-[e ( _READ_NFC_SET_START ..  ]
 "88
-[e ( _Read_NFC_Data (3 , , -> -> 0 `i `us &U _I2C_receiveData -> -> 70 `i `uc ]
+[e ( _READ_NFC_SET_START ..  ]
 "89
+[e ( _Read_NFC_Data (3 , , -> -> 0 `i `us &U _I2C_receiveData -> -> 70 `i `uc ]
+"90
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"91
-[e ( _ReadTargetPower (1 &U _I2C_receiveData ]
 "92
+[e ( _ReadTargetPower (1 &U _I2C_receiveData ]
+"93
 [e ( _ReadDimmingLevel (1 &U _I2C_receiveData ]
-"94
-[e ( _ReadCalibration ..  ]
 "95
-[e ( _WriteTemperaturToEEPROM ..  ]
+[e ( _ReadCalibration ..  ]
 "96
-[e :UE 2439 ]
+[e ( _ReadTemperaturParameters ..  ]
+"97
+[e :UE 2440 ]
 }
