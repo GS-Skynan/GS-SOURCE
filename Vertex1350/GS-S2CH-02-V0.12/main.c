@@ -70,7 +70,7 @@ static tTaskComps g_taskComps[] = {
     {0, 80, 80, TemapProtectedTask},
     {0, 100, 100, Rs485Task},
     {0,1000,1000,WorkTimeTask},
-    {0, 5000, 5000, Display},
+   // {0, 5000, 5000, Display},
 };
 
 #define TASK_NUM_MAX  (sizeof(g_taskComps) / sizeof(g_taskComps[0]))

@@ -237,8 +237,8 @@ void WriteChannelPowerValue(uint8_t *w_data)
         return;
     }
 
-    WriteNFCInfo(POWER_VALUE_CHANNEL1, eeprom_write, 4);
-    WriteNFCInfo(POWER_VALUE_CHANNEL2, eeprom_write + 2, 4);
+    WriteNFCInfo(POWER_VALUE_CHANNEL1, eeprom_write, 2);
+    WriteNFCInfo(POWER_VALUE_CHANNEL2, eeprom_write + 2, 2);
     __delay_ms(10);
 
     // …Ë÷√πÃ∂®÷µ

@@ -408,8 +408,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoFilePath"
-                  value="D:/1Work/GS-SOURCE/GS-S2CH-02-V0.01/GS-S2CH-02-V0.02/debug/default/app_ptg"/>
         <property key="programmerToGoImageName" value="app_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

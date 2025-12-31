@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/DriverLayer/EEPROM/EEPROM_driver.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/TempProtected_APP/temp_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/USBCom_APP/usbcom.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/LightsOff_APP/closeled.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Middlewares/Arithmetic/arithmetic.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/App_config/config.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/USBCom_APP/usbcom.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/OutProtected_APP/out_protected.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Middlewares/CRC/crc.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/OutProtected_APP/out_protected.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/mcc_generated_files/nvm/nvm.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Dimming_APP/dimming.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/ReadInfo_APP/ReadInfo.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Bootloader/Bootloader.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/WorkTime_APP/worktime.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Command_APP/command.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Bootloader/Bootloader.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Dimming_APP/dimming.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/Command_APP/command.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/ReadInfo_APP/ReadInfo.h</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Applications/InProtected_APP/inprotectedapp.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Middlewares/PID/pid_controller.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/Middlewares/QUEUE/queue.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/main.c</file>
+            <file>file:/D:/1Work/GS-SOURCE/Vertex1350/GS-S2CH-02-V0.13/DriverLayer/NFC/nfc.c</file>
+        </group>
+    </open-files>
+</project-private>

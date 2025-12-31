@@ -21,8 +21,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Rs485Task `(v ~T0 @X0 0 ef ]
 "20 Applications/WorkTime_APP/worktime.h
 [v _WorkTimeTask `(v ~T0 @X0 0 ef ]
-"32 Applications/Dimming_APP/dimming.h
-[v _Display `(v ~T0 @X0 0 ef ]
 "33 DriverLayer/GPIO/GPIO_driver.h
 [v _GPIO_APPInit `(v ~T0 @X0 0 ef ]
 "13 Applications/Ticktime_APP/ticktime.h
@@ -1778,7 +1776,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 Applications/WorkTime_APP/worktime.h
 [v _worktime `S2423 ~T0 @X0 1 e ]
 "66 main.c
-[v _g_taskComps `S2424 ~T0 @X0 -> 7 `i s ]
+[v _g_taskComps `S2424 ~T0 @X0 -> 6 `i s ]
 [i _g_taskComps
 :U ..
 :U ..
@@ -1816,12 +1814,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 1000 `i `us
 -> -> 1000 `i `us
 &U _WorkTimeTask
-..
-:U ..
--> -> 0 `i `uc
--> -> 5000 `i `us
--> -> 5000 `i `us
-&U _Display
 ..
 ..
 ]
