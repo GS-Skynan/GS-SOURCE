@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/1Work/GS-SOURCE-GITHUB/bootloader4.0/Bootloader_V4.0/bootloader/bootloader.X/main.c</file>
+            <file>file:/D:/1Work/GS-SOURCE-GITHUB/bootloader4.0/Bootloader_V4.0/bootloader/bootloader.X/mcc_generated_files/bootloader/src/8bit_bootloader.c</file>
+            <file>file:/D:/1Work/GS-SOURCE-GITHUB/bootloader4.0/Bootloader_V4.0/bootloader/bootloader.X/mcc_generated_files/bootloader/bl_bootload.h</file>
+        </group>
     </open-files>
 </project-private>
